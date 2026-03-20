@@ -16,7 +16,8 @@ using AI methods
 - Provide an opportunity to work in a team to produce more powerful results.
 Working as a team, you will implement an analysis pipeline, experiment with key design choices and
 analyse different aspects of the data, to produce a group report describing your method, results and
-insights. You will also write a short individual reflection, documenting your personal contributions to
+insights. 
+- You will also write a short individual reflection, documenting your personal contributions to
 the project.
 The tasks have been carefully selected to represent similar levels of difficulty. 
 
@@ -117,7 +118,8 @@ and insights or recommendations based on your analysis.
 
 5) Conclusions (1 page): describe the key findings from your experiments, explaining what worked
 well, what did not work, and the open challenges for this task.
-What we are looking for
+
+- What we are looking for
 Motivated design choices, supported by evidence. We are not looking for novel hypotheses, stateof-the-art leaderboard scores, or ground-breaking new research. A good report will justify design
 decisions, with data exploration and experimental analysis to provide support.
 A few insightful claims about the nature of the task, and what works well, presented as a coherent
@@ -157,8 +159,8 @@ b. How did your contribution affect the results of the group project?
 3. Teamwork (max 200 words; 5 marks): How the team coordinated their work and ensured
 that every member was included. Explain the roles of each team member who contributed
 and mention any tools that helped you coordinate your teamwork.
-Submission
 
+Submission
 - Each group must submit a report to the submission point named 
 “Group Report – Turnitin Submission Point”. Make sure your report includes a link to a repository of your team’s code
 (e.g., a public Github link or OneDrive link that is readable by members of the university).
@@ -198,3 +200,5 @@ https://www.bristol.ac.uk/students/support/academic-advice/assessment-support/ex
 - Do you understand the main goals of the task?
 - How will you distribute tasks so that everyone in the team can contribute?
 - What tools do you need to co-ordinate the groupwork (Github; task/project management tools such as Trello).
+
+
