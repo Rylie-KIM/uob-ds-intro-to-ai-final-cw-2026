@@ -23,9 +23,9 @@ class Shapes(turtle.Turtle):
         self.object = {'circle': self.my_circle,
                       'square':self.square,
                       'triangle':self.triangle}
-        self.size = {'big':100,
-                     'medium':70,
-                     'small':50}
+        self.size = {'big':random.randint(130,150),
+                     'medium':random.randint(80,100),
+                     'small':random.randint(30,50)}
         """
         self.relations = {
             'above':self.draw_above,
@@ -41,43 +41,46 @@ class Shapes(turtle.Turtle):
         self.pendown()
         return self
 
-    def square(self, go_to, colour):
+    def square(self, go_to, colour, size):
+        size = self.size[size]
         self.color(colour, colour)
         self.begin_fill()
         self.move(go_to)
         for i in range(4):
-            self.forward(100)
+            self.forward(size)
             self.left(90)
         self.end_fill()
         return self
 
-    def my_circle(self, go_to, colour):
+    def my_circle(self, go_to, colour, size):
         """ 
         self.circle allows you to specify circle radius thus could add size feature as parameter
         """
+        size = self.size[size]
         self.color(colour, colour)
         self.begin_fill()
         self.move(go_to)
-        self.circle(50)
+        self.circle(size/2)
         self.end_fill()
         return self
     
-    def triangle(self, go_to, colour):
+    def triangle(self, go_to, colour, size):
+        size = self.size[size]
         self.color(colour, colour)
         self.begin_fill()
         self.move(go_to)
         for i in range(3):
-            self.forward(100)
+            self.forward(size)
             self.left(120)
         self.end_fill()
         return self
     
-    def draw1(self, object, colour):
+    def draw1(self, object, colour, size):
 
         go_to = random.randint(-250, 250), random.randint(-250, 250)
         self.hideturtle()
         shape = self.object[object]
-        shape(go_to, colour)
+        shape(go_to, colour, size)
         return self
     
     def draw(self,s1, c1, o1, s2, c2, o2, rel):
@@ -108,7 +111,8 @@ class Shapes(turtle.Turtle):
 screen = turtle.Screen()
 screen.setup(width=500, height=500)
 s = Shapes()
-s.draw(s1='big', c1='red', o1='circle', s2='small', c2='blue', o2='square',rel='above')
+# s.draw(s1='big', c1='red', o1='circle', s2='small', c2='blue', o2='square',rel='above')
+s.draw1('circle', 'red', 'big')
 turtle.done()
 
 
