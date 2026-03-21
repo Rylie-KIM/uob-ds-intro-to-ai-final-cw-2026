@@ -1,5 +1,4 @@
 import turtle
-import random
 from generate_images_a import Shapes
 import os
 import csv
@@ -21,11 +20,12 @@ dataset_folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2
 eps_dataset_name = 'as_eps.csv'
 csv_path = os.path.join(dataset_folder, eps_dataset_name)
 
+# Creates new empty CSV file 
 with open(csv_path, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['path', 'label'])
 
-def generator(objects:[List], colours:[list], size:[list], sentence_templates:[list]) -> [list]:
+def generator(objects:list, colours:list, size:list, sentence_templates:list) -> list:
     """
     Creates list of structured sentences where each bundle represents a concatenated str of <size> <colour> <object> 
     Output is list of structured sentences
