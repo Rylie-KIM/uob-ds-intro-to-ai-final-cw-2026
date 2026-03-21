@@ -38,14 +38,12 @@ class Shapes(turtle.Turtle):
         return self
 
     def square(self, go_to, colour, size):
-        
         size = self.size[size]
         # This makes the initial go_to point the center.
         go_to = go_to[0] - (size/2), go_to[1] - (size/2)
         self.color(colour, colour)
         self.move(go_to)
         self.begin_fill()
-        
         for i in range(4):
             self.forward(size)
             self.left(90)
@@ -91,7 +89,6 @@ class Shapes(turtle.Turtle):
         return self
     
     def hexagon(self, go_to, colour, size):
-
         size = self.size[size]
         go_to = go_to[0] - (size/2), go_to[1] - (size/2)
         self.color(colour, colour)
@@ -116,7 +113,6 @@ class Shapes(turtle.Turtle):
         return self
         
     def draw1(self, object, colour, size):
-
         go_to = random.randint(-250, 250), random.randint(-250, 250)
         self.hideturtle()
         shape = self.object[object]

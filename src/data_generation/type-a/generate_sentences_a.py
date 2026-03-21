@@ -1,13 +1,16 @@
+import turtle
+import random
+from generate_images_a import Shapes
+
 objects = ['circle','triangle','square','rectangle','diamond', ' star', 'pentagon', 'hexagon', 'octagon', 'cube']
 colours = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink']
 size = ['big', 'medium', 'small']
 relations = ['above', 'below', 'left of', 'right of']
 sentence_templates = [
-    'a {bundle1} is {relation} a {bundle2}',
-    'the {bundle1} is {relation} a {bundle2}',
-    'a {bundle1} can be seen {relation} a {bundle2}',
-    '{relation} a {bundle1} is a {bundle2}',
-    'a {bundle1} can be seen {relation} a {bundle2}'
+    'a {size1} {colour1} {object1} is {relation} a {size2} {colour2} {object2}',
+    'the {size2} {colour2} {object2} is positioned {relation} a {size2} {colour2} {object2}',
+    'a {size2} {colour2} {object2} can be seen {relation} a {size2} {colour2} {object2}',
+    '{relation} a {size2} {colour2} {object2} is a {size1} {colour1} {object1}',
 ]
 
 def creator(objects:[List], colours:[list], size:[list], sentence_templates:[list]) -> [list]:
