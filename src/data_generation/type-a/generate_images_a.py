@@ -1,5 +1,8 @@
 import turtle
 import random
+from PIL import Image
+import os
+import csv
 class Shapes(turtle.Turtle):
     """ 
     Pixel range is determined by screen = turtle.Screen() , screen.setup(width=500, height=500)
@@ -138,15 +141,9 @@ class Shapes(turtle.Turtle):
             x2, y2 = x + random.randint(-30,30), y + random.randint(space,space + 100)
             return x2, y2
         elif relation == 'right of':
-            x2, y2 = x + random.randint(space,space + 100), y + random.randint(-30,30)
+            x2, y2 = x - random.randint(space,space + 100), y + random.randint(-30,30)
             return x2, y2
         elif relation == 'left of':
-            x2, y2 = x - random.randint(space,space + 100), y + random.randint(-30,30)
+            x2, y2 = x + random.randint(space,space + 100), y + random.randint(-30,30)
             return x2,y2
 
-screen = turtle.Screen()
-screen.setup(width=700, height=700)
-s = Shapes()
-s.draw(s1='big', c1='blue', o1='octogon', s2='big', c2='orange', o2='circle',rel='left of')
-# s.draw1('octogon', 'red', 'big')
-turtle.done()
