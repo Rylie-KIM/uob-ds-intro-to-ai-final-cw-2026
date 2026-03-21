@@ -22,7 +22,10 @@ class Shapes(turtle.Turtle):
         self.speed(speed)
         self.object = {'circle': self.my_circle,
                       'square':self.square,
-                      'triangle':self.triangle}
+                      'triangle':self.triangle,
+                      'diamond':self.diamond,
+                      'hexagon':self.hexagon,
+                      'octogon':self.octogon}
         # This initialises the sizes on start so would need to create a new instance of the class each time for unique sizes.
         self.size = {'big':random.randint(130,150),
                      'medium':random.randint(80,100),
@@ -40,8 +43,9 @@ class Shapes(turtle.Turtle):
         # This makes the initial go_to point the center.
         go_to = go_to[0] - (size/2), go_to[1] - (size/2)
         self.color(colour, colour)
-        self.begin_fill()
         self.move(go_to)
+        self.begin_fill()
+        
         for i in range(4):
             self.forward(size)
             self.left(90)
@@ -55,8 +59,8 @@ class Shapes(turtle.Turtle):
         size = self.size[size]
         go_to = go_to[0], go_to[1] - (size/2)
         self.color(colour, colour)
-        self.begin_fill()
         self.move(go_to)
+        self.begin_fill()
         self.circle(size/2)
         self.end_fill()
         return self
@@ -65,14 +69,52 @@ class Shapes(turtle.Turtle):
         size = self.size[size]
         go_to = go_to[0] - (size/2), go_to[1] - (size/2)
         self.color(colour, colour)
-        self.begin_fill()
         self.move(go_to)
+        self.begin_fill()
         for i in range(3):
             self.forward(size)
             self.left(120)
         self.end_fill()
         return self
     
+    def diamond(self, go_to, colour, size):
+        size = self.size[size]
+        go_to = go_to[0] - (size/2), go_to[1] - (size/2)
+        self.color(colour, colour)
+        self.move(go_to)
+        self.begin_fill()
+        self.left(45)
+        for i in range(4):
+            self.forward(size)
+            self.left(90)
+        self.end_fill()
+        return self
+    
+    def hexagon(self, go_to, colour, size):
+
+        size = self.size[size]
+        go_to = go_to[0] - (size/2), go_to[1] - (size/2)
+        self.color(colour, colour)
+        self.move(go_to)
+        self.begin_fill()
+        for i in range(6):
+            self.forward(size/2)
+            self.left(360/6)
+        self.end_fill()
+        return self
+    
+    def octogon(self, go_to, colour, size):
+        size = self.size[size] // 2.5
+        go_to = go_to[0] - (size/2), go_to[1] - (size/2)
+        self.color(colour, colour)
+        self.move(go_to)
+        self.begin_fill()
+        for i in range(8):
+            self.forward(size)
+            self.left(45)
+        self.end_fill()
+        return self
+        
     def draw1(self, object, colour, size):
 
         go_to = random.randint(-250, 250), random.randint(-250, 250)
@@ -109,6 +151,6 @@ class Shapes(turtle.Turtle):
 screen = turtle.Screen()
 screen.setup(width=700, height=700)
 s = Shapes()
-s.draw(s1='big', c1='blue', o1='circle', s2='big', c2='orange', o2='circle',rel='left of')
-# s.draw1('circle', 'red', 'big')
+s.draw(s1='big', c1='blue', o1='octogon', s2='big', c2='orange', o2='circle',rel='left of')
+# s.draw1('octogon', 'red', 'big')
 turtle.done()
