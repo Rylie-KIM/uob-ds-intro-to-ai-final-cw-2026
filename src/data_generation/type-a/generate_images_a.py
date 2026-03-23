@@ -7,6 +7,16 @@ class Shapes(turtle.Turtle):
     Pixel range is determined by screen = turtle.Screen() , screen.setup(width=500, height=500)
     Width is ± width/2
     Height is ± height/2
+
+    For testing use: 
+
+            screen = turtle.Screen()
+            screen.setup(width=500, height=500)
+            s = Shapes()
+            # s.hexagon((50,75), 'orange', 'big')
+            s.draw(s1='small', c1='red', o1='octagon', s2='small', c2='black', o2='hexagon', rel='above')
+            turtle.done()
+
     """
     def __init__(self, speed=0):
         super().__init__()
@@ -64,7 +74,7 @@ class Shapes(turtle.Turtle):
         Have to use Herons formula to calculate the height of a triangle area = (1/2)(base)(height)
         rearranges to..... 
         """
-        width, height = self.get_triangle_dims(size)
+        width, height = self.get_dims('triangle', size)
         go_to = go_to[0] - (width/2), go_to[1] - (height/2)
         self.color(colour, colour)
         self.move(go_to)
@@ -77,7 +87,7 @@ class Shapes(turtle.Turtle):
     
     def diamond(self, go_to:tuple[int,int], colour:str, size:int):
         """ 
-        diagmond((50,75), 'black', 120))
+        diamond((50,75), 'black', 120))
         """
         width, height = self.get_dims('diamond', size)
         go_to = go_to[0] - (width/2), go_to[1] - (height/2)
@@ -121,7 +131,6 @@ class Shapes(turtle.Turtle):
         self.end_fill()
         return self
 
-
     def draw1(self, object, colour, size):
         go_to = random.randint(-250, 250), random.randint(-250, 250)
         self.hideturtle()
@@ -129,7 +138,7 @@ class Shapes(turtle.Turtle):
         shape(go_to, colour, size)
         return self
 
-    def get_width_height(self, shape:str, size:int):
+    def get_width_height(self, shape:str, size:int) -> tuple[int, int]:
         if shape == 'square' or shape == 'circle':
             size = self.size[size]
             return size,size
@@ -146,7 +155,7 @@ class Shapes(turtle.Turtle):
             width,height = self.get_dims(shape, size)
             return width, height
 
-    def get_dims(self, shape, size):
+    def get_dims(self, shape, size) -> tuple[int, int]:
         if shape =='square' or shape =='circle' or shape =='diamond':
             return size, size
         elif shape == 'triangle':
@@ -165,7 +174,7 @@ class Shapes(turtle.Turtle):
             height = width
             return width, height
 
-    def coordinates(self,x:int, y:int, relation:str, s1:int, s2:int,o1:str, o2:str):
+    def coordinates(self,x:int, y:int, relation:str, s1:int, s2:int,o1:str, o2:str) -> tuple[int,int]:
         """
         The coordinates method begins by calculating the available space ie how much space each of the shapes takes up, defined by the size parameter
         This is done in order to make the x or y coordinates generate relative to the size of each shape individually as to prevent overlapping.
@@ -201,6 +210,7 @@ class Shapes(turtle.Turtle):
         s1 = self.size[s1]
         s2 = self.size[s2]
         self.hideturtle()
+        # Randomly chose 180, may want to set range to screen width - shape width/length
         go_to = random.randint(-180, 180), random.randint(-180, 180)
         shape = self.object[o1]
         shape(go_to, c1, s1)
@@ -208,10 +218,3 @@ class Shapes(turtle.Turtle):
         shape2 = self.object[o2]
         shape2(go_to2, c2, s2)
         return self
-
-screen = turtle.Screen()
-screen.setup(width=500, height=500)
-s = Shapes()
-# s.hexagon((50,75), 'orange', 'big')
-s.draw(s1='small', c1='red', o1='octagon', s2='small', c2='black', o2='hexagon', rel='above')
-turtle.done()
