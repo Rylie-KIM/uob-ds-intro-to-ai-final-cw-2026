@@ -31,7 +31,7 @@ DIGIT_CONFIG = {
     6: random.sample(range(100_000, 1_000_000), 288),# 288 sampled
 }
 
-OUTPUT_PATH = os.path.join(os.path.dirname(__file__), '../../data/sentences_b.csv')
+OUTPUT_PATH = os.path.join(os.path.dirname(__file__), '../../data/type-b/sentences_b.csv')
 
 
 def generate(output_path=OUTPUT_PATH):
