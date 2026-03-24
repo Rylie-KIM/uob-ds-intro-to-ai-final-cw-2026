@@ -1,39 +1,58 @@
-objects = ['circle','triangle','square','rectangle','diamond', ' star', 'pentagon', 'hexagon', 'octagon', 'cube']
-colours = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink']
+import turtle
+from generate_images_a import Shapes
+import os
+import csv
+
+screen = turtle.Screen()
+screen.setup(width=700, height=700)
+objects = ['circle','triangle','square','diamond','hexagon', 'octagon']
+colours = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'black']
 size = ['big', 'medium', 'small']
 relations = ['above', 'below', 'left of', 'right of']
 sentence_templates = [
-    'a {bundle1} is {relation} a {bundle2}',
-    'the {bundle1} is {relation} a {bundle2}',
-    'a {bundle1} can be seen {relation} a {bundle2}',
-    '{relation} a {bundle1} is a {bundle2}',
-    'a {bundle1} can be seen {relation} a {bundle2}'
+    'a {size1} {colour1} {object1} is {relation} a {size2} {colour2} {object2}',
+    'the {size2} {colour2} {object2} is positioned {relation} a {size2} {colour2} {object2}',
+    'a {size2} {colour2} {object2} can be seen {relation} a {size2} {colour2} {object2}',
+    '{relation} a {size2} {colour2} {object2} is a {size1} {colour1} {object1}',
 ]
 
-def creator(objects:[List], colours:[list], size:[list], sentence_templates:[list]) -> [list]:
+dataset_folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset'
+eps_dataset_name = 'as_eps.csv'
+csv_path = os.path.join(dataset_folder, eps_dataset_name)
+
+# Creates new empty CSV file 
+with open(csv_path, 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['path', 'label'])
+
+def generator(objects:list, colours:list, size:list, sentence_templates:list) -> list:
     """
     Creates list of structured sentences where each bundle represents a concatenated str of <size> <colour> <object> 
     Output is list of structured sentences
     """
-    sentences = []
+    i = 0
     for template in sentence_templates:
-        for object1 in objects:
-            for colour1 in colours:
+        for o1 in objects:
+            for c1 in colours:
                 for s1 in size:
-                    for object2 in objects:
-                        for colour2 in colours:
+                    for o2 in objects:
+                        for c2 in colours:
                             for s2 in size:
                                 for rel in relations:
-                                    
-                                    bundle1 = f'{s1} {colour1} {object1}'
-                                    relation = f'{rel}'
-                                    bundle2 = f'{s2} {colour2} {object2}'
-                                    if bundle1 == bundle2:
+                                    if f'{s1} {c1} {o1}' == f'{s2} {c2} {o2}':
                                         continue
-                                    sentences.append(template.format(bundle1=bundle1, relation=relation, bundle2=bundle2))
-    return sentences
+                                    sentence = template.format(size1=s1, colour1=c1,object1=o1,relation=rel,size2=s2,colour2=c2,object2=o2)
+                                    s = Shapes()
+                                    folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset'
+                                    filename = os.path.join(folder,f'{i}.eps')
+                                    s.getscreen().clearscreen()
+                                    s.draw(s1=s1, c1=c1, o1=o1, s2=s2, c2=c2, o2=o2,rel=rel)
+                                    s.getscreen().getcanvas().postscript(file=filename)
+                                    with open(csv_path, 'a', newline='') as f:
+                                        writer = csv.writer(f)
+                                        writer.writerow([filename, sentence])
+                                    i+=1
+                                    s.reset()
+    return 'done'
 
-
-sentences = creator(objects, colours, size, sentence_templates)
-print(len(sentences))
-print(sentences[:5])
+sentences = generator(objects, colours, size, sentence_templates)
