@@ -131,38 +131,19 @@ class Shapes(turtle.Turtle):
         self.end_fill()
         return self
 
-    def draw1(self, object, colour, size):
-        go_to = random.randint(-250, 250), random.randint(-250, 250)
-        self.hideturtle()
-        shape = self.object[object]
-        shape(go_to, colour, size)
-        return self
-
-    def get_width_height(self, shape:str, size:int) -> tuple[int, int]:
-        if shape == 'square' or shape == 'circle':
-            size = self.size[size]
-            return size,size
-        elif shape == 'traingle':
-            width, height = self.get_dims(shape, size)
-            return width, height
-        elif shape == 'diamond':
-            width, height = self.get_dims(shape, size)
-            return width, height
-        elif shape == 'hexagon':
-            width,height = self.get_dims(shape, size)
-            return width, height
-        elif shape == 'octagon':
-            width,height = self.get_dims(shape, size)
-            return width, height
-
-    def get_dims(self, shape, size) -> tuple[int, int]:
-        if shape =='square' or shape =='circle' or shape =='diamond':
+    def get_dims(self, shape:str, size:int) -> tuple[int, int]:
+        if shape =='square' or shape =='circle':
             return size, size
         elif shape == 'triangle':
             s = (size*3)/2
             A = math.sqrt((s * (s - size)**3))
             height =  A / ((1/2)*size)
             width = size
+            return width, height
+        elif shape =='diamond':
+            d = ((size**2) + (size**2))
+            width = math.sqrt(d)
+            height = width
             return width, height
         elif shape =='hexagon':
             width = 2 * size
@@ -180,8 +161,8 @@ class Shapes(turtle.Turtle):
         This is done in order to make the x or y coordinates generate relative to the size of each shape individually as to prevent overlapping.
 
         """
-        width1, height1 = self.get_width_height(o1, s1)
-        width2, height2 = self.get_width_height(o2, s2)
+        width1, height1 = self.get_dims(o1, s1)
+        width2, height2 = self.get_dims(o2, s2)
         x_space = int((width1/2) + (width2/2))
         y_space = int((height1/2) + (height2))
         if relation == 'above':
