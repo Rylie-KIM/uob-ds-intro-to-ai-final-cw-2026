@@ -26,6 +26,7 @@ uob-ds-intro-to-ai-final-cw-2026/
 │   │
 │   ├── embeddings/                     ← Phase 2: text representation (Person 1)
 │   │   ├── tfidf_embeddings.py
+        - bert_embeddings.py
 │   │   ├── glove_embeddings.py
 │   │   └── sentence_transformer_embeddings.py
 │   │
