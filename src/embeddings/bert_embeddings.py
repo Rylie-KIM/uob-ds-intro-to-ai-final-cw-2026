@@ -1,14 +1,47 @@
 
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoModel, AutoTokenizer, BertModel, BertTokenizer
 import torch
 import pandas as pd
 
+#############
+### Models ##
+#############
+
 tokenizer = AutoTokenizer.from_pretrained("huawei-noah/TinyBERT_General_4L_312D")
 model = AutoModel.from_pretrained("huawei-noah/TinyBERT_General_4L_312D")
+model2 = BertModel.from_pretrained('bert-base-uncased')
+tokenizer2 = BertTokenizer.from_pretrained('bert-base-uncased')
 
-path = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset\as_eps.csv'
+#############
+### Paths ##
+#############
+
+sentence_dataset_path = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset\as_eps.csv'
+save_path = r'C:\Where_I_Want_It_To_Go'
+file_name = 'embeddings_dataset'
+
+##########################
+### Embedding Functions ##
+##########################
+
+"""
+
+Visually, output.last_hidden_state (batches ie sentences, num_tokens, feature_dimenions) :
+
+            tensor = [ 
+            
+            [   [ 0.21, 0.65, 0.38....0.54 ] Token 1
+                [ 0.25, 0.75, 0.18....0.68 ] Token 2
+            ....
+                [ z, y, x ] ] Token n
+            ]
+Therefore we use dim=1
+"""
 
 def get_embeddings(model:object,ids:list):
+    ########################################
+    # Initial attempt to retrive embeddings#
+    ########################################
     embeddings_full = []
     ids_t = torch.tensor([ids])
     with torch.no_grad():
@@ -16,16 +49,55 @@ def get_embeddings(model:object,ids:list):
     embeddings = output['last_hidden_state'][0]
     for i in range(len(ids)):
         embed = embeddings[i]
-        embeddings_full.append(embed.detach.numpy())
+        embeddings_full.append(embed.detach().numpy())
     return embeddings_full
 
-def process(sentences_file_path:str, model:object, save_path:str, file_name:str):
-    tokenized_sentences = []
+def get_pooler_embeddings(model:object,tokenizer:object, sentence:str):
+    """
+    Sentence = 'hello my name is john'
+    Tokenizer object converts sentence into dictionary of 'input_ids','token_type_ids','attention_mask' in tensor format.
+
+    
+    # converting to tensor now prevents need to do unsqueeze(0) to configure dimensiona
+    # No need for padding as each sentence is input to model individually with ouput fixed to (1,768)
+    """
+    processed = tokenizer(sentence, return_tensors='pt')
+    with torch.no_grad():
+        output = model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
+    return output[1] #.squeeze(0).tolist()
+
+def get_output_embeddings(model,tokenizer, sentence):
+    processed = tokenizer(sentence, return_tensors='pt')
+    with torch.no_grad():
+        output = model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
+    return output[0] #.squeeze(0).tolist()
+
+def get_mean_embeddings(model:object, tokenizer:object, sentence:str):
+    processed = tokenizer(sentence, return_tensors='pt')
+    with torch.no_grad():
+        output = model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
+    last_hidden_state = output['last_hidden_state']
+    sum_emb = last_hidden_state.sum(dim=1)
+    num_embeddings = len(processed['input_ids'].squeeze(0).tolist())
+    mean_emb = sum_emb/num_embeddings
+    return mean_emb #.squeeze(0).tolist()
+
+def process(sentences_file_path:str, model:object,tokenizer:object, save_path:str, file_name:str, embedding_type:str, embedding_dict):
+    embedding = embedding_dict[embedding_type]
     df = pd.read_csv(sentences_file_path)
-    df['tokenized'] = df['label'].apply(lambda x: tokenizer.tokenize(x))
-    df['ids'] = df['tokenized'].apply(lambda x: tokenizer.convert_tokens_to_ids(x))
-    df['embeddings'] = df['ids'].apply(lambda x: get_embeddings(model, x))
+    df[embedding_type] = df['label'].apply(lambda sentence: embedding(model, tokenizer, sentence))
     csv_path = f'{save_path}_{file_name}.csv'
     df.to_csv(csv_path)
 
-print(process(path, model))
+
+###########################
+### Embedding Dictionary ##
+###########################
+
+embedding_dict = {
+    'pooler_embeddings':get_pooler_embeddings,
+    'output_embeddings':get_output_embeddings,
+    'mean_embeddings':get_mean_embeddings
+}
+
+# process(sentence_dataset_path, model, tokenizer, save_path, file_name, 'mean_embeddings')
