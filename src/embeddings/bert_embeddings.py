@@ -4,19 +4,24 @@ import torch
 import pandas as pd
 
 #############
-### Models ##
+### Models ## 
 #############
-
-tokenizer = AutoTokenizer.from_pretrained("huawei-noah/TinyBERT_General_4L_312D")
-model = AutoModel.from_pretrained("huawei-noah/TinyBERT_General_4L_312D")
-model2 = BertModel.from_pretrained('bert-base-uncased')
-tokenizer2 = BertTokenizer.from_pretrained('bert-base-uncased')
+"""
+Bert Model has output dimensions: (1, 768) (for each token embedding)
+Tiny Bert Model has output dimensions: (1, 312) (for each token embedding)
+"""
+# TinyBert tokenizer doesnt recognise capitalised words
+tinyBert_tokenizer = AutoTokenizer.from_pretrained("huawei-noah/TinyBERT_General_4L_312D", do_lower_case=True)
+tinyBert_model = AutoModel.from_pretrained("huawei-noah/TinyBERT_General_4L_312D")
+bert_model = BertModel.from_pretrained('bert-base-uncased')
+bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
 #############
 ### Paths ##
 #############
 
-sentence_dataset_path = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset\as_eps.csv'
+sentence_dataset_path = r'Path_of_labelled_image_dataset'
+# SUCH AS: sentence_dataset_path = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset\as_eps.csv'
 save_path = r'C:\Where_I_Want_It_To_Go'
 file_name = 'embeddings_dataset'
 
@@ -56,10 +61,8 @@ def get_pooler_embeddings(model:object,tokenizer:object, sentence:str):
     """
     Sentence = 'hello my name is john'
     Tokenizer object converts sentence into dictionary of 'input_ids','token_type_ids','attention_mask' in tensor format.
-
-    
-    # converting to tensor now prevents need to do unsqueeze(0) to configure dimensiona
-    # No need for padding as each sentence is input to model individually with ouput fixed to (1,768)
+    Converting to tensor now prevents need to do unsqueeze(0) to configure dimensiona
+    No need for padding as each sentence is input to model individually with ouput fixed to (1,768)
     """
     processed = tokenizer(sentence, return_tensors='pt')
     with torch.no_grad():
@@ -73,11 +76,22 @@ def get_output_embeddings(model,tokenizer, sentence):
     return output[0] #.squeeze(0).tolist()
 
 def get_mean_embeddings(model:object, tokenizer:object, sentence:str):
+    """
+    Get mean embeddings function calculates the mean embedding from the embedding tensors produced in the model.
+
+    NOTE: 
+    - The method INCLUDES CLS and SEP tokens in mean calculations and DOES NOT adjust for padding
+    - To adjust for padding, multiply attention mask vector by token embeddings where attention mask is
+    either 1 or 0. 
+    - To adjust for CLS and SEP tokens, remove first and last token in output.last_hidden_state
+    
+    """
     processed = tokenizer(sentence, return_tensors='pt')
     with torch.no_grad():
         output = model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
     last_hidden_state = output['last_hidden_state']
     sum_emb = last_hidden_state.sum(dim=1)
+    # Calculates num embeddings based off len(num_tokens)
     num_embeddings = len(processed['input_ids'].squeeze(0).tolist())
     mean_emb = sum_emb/num_embeddings
     return mean_emb #.squeeze(0).tolist()
@@ -88,7 +102,6 @@ def process(sentences_file_path:str, model:object,tokenizer:object, save_path:st
     df[embedding_type] = df['label'].apply(lambda sentence: embedding(model, tokenizer, sentence))
     csv_path = f'{save_path}_{file_name}.csv'
     df.to_csv(csv_path)
-
 
 ###########################
 ### Embedding Dictionary ##
