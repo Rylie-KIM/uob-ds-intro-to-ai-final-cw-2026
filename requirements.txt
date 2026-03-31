@@ -6,3 +6,4 @@ matplotlib
 Pillow
 numpy
 transformers
+gensim
