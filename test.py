@@ -1,3 +1,1 @@
-go_to = 10,10
-
-print(go_to)
+print(max(100, 250))
