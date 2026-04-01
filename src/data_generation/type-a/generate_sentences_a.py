@@ -16,14 +16,13 @@ sentence_templates = [
     '{relation} a {size2} {colour2} {object2} is a {size1} {colour1} {object1}',
 ]
 
-dataset_folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\type-a\type-a-dataset'
-eps_dataset_name = 'as_eps.csv'
-csv_path = os.path.join(dataset_folder, eps_dataset_name)
+dataset_folder = os.path.join(os.path.dirname(__file__), '../../data/images/type-a/eps')
+csv_path = os.path.join(os.path.dirname(__file__), '../../data/type-a/sentences_a.csv')
 
-# Creates new empty CSV file 
+# Creates new empty CSV file
 with open(csv_path, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(['path', 'label'])
+    writer.writerow(['sentence_id', 'sentence'])
 
 def generator(objects:list, colours:list, size:list, sentence_templates:list) -> list:
     """
@@ -44,14 +43,15 @@ def generator(objects:list, colours:list, size:list, sentence_templates:list) ->
                                     sentence = template.format(size1=s1, colour1=c1,object1=o1,relation=rel,size2=s2,colour2=c2,object2=o2)
                                     s = Shapes()
                                     
-                                    folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\type-a\type-a-dataset'
+                                    folder = os.path.join(os.path.dirname(__file__), '../../data/images/type-a/eps')
+                                    os.makedirs(folder, exist_ok=True)
                                     filename = os.path.join(folder,f'{i}.eps')
                                     s.getscreen().clearscreen()
                                     s.draw(s1=s1, c1=c1, o1=o1, s2=s2, c2=c2, o2=o2,rel=rel)
                                     s.getscreen().getcanvas().postscript(file=filename)
                                     with open(csv_path, 'a', newline='') as f:
                                         writer = csv.writer(f)
-                                        writer.writerow([filename, sentence])
+                                        writer.writerow([f'a_{i}', sentence])
                                     i+=1
                                     s.reset()
     return 'done'
