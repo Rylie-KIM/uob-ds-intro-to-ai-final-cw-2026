@@ -23,9 +23,9 @@ class EPSConverter:
             raise Exception("ImageMagick (magick.exe) not found. Please ensure ImageMagick is installed and in PATH, or provide the path to magick.exe.")
 
 if __name__ == "__main__":
-    eps_dir = r"C:\Users\user\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset"
-    png_dir = r"C:\Users\user\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset-png"
-
+    eps_dir = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\type-a\as_eps.csv'
+    png_dir = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\type-a\type-a-dataset\type-a-dataset-png'
+    
     os.makedirs(png_dir, exist_ok=True)
 
     imagemagick_path = r"C:\Program Files\ImageMagick-7.1.2-Q16-HDRI\magick.exe"
