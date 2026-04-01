@@ -1,6 +1,8 @@
 test/
 src/data/type-b/mnist_raw
-src/data/images/type-b 
+src/data/images/type-b/*
+!src/data/images/type-b/examples/
+!src/data/images/type-b/README.md
 
 __pycache__/
 .DS_Store
