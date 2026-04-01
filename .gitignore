@@ -6,3 +6,4 @@ src/data/images/type-b/*
 
 __pycache__/
 .DS_Store
+.env
