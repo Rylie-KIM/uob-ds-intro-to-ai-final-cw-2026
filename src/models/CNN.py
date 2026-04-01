@@ -84,11 +84,12 @@ def train_model(model, train_loader, test_loader, epochs=20, lr=1e-3):
 
     return train_losses, dev_losses
 
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
-path = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\type-a\type-a-dataset\type-a-dataset-png\1.png'
+path = os.path.join(os.path.dirname(__file__), '..', 'data', 'images', 'type-a', 'a_1.png')
 img = Image.open(path).convert('RGB')
 # img.show()
 np_img = np.array(img)
