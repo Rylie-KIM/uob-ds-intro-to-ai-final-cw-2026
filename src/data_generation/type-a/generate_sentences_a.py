@@ -16,7 +16,7 @@ sentence_templates = [
     '{relation} a {size2} {colour2} {object2} is a {size1} {colour1} {object1}',
 ]
 
-dataset_folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset'
+dataset_folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\type-a\type-a-dataset'
 eps_dataset_name = 'as_eps.csv'
 csv_path = os.path.join(dataset_folder, eps_dataset_name)
 
@@ -43,7 +43,8 @@ def generator(objects:list, colours:list, size:list, sentence_templates:list) ->
                                         continue
                                     sentence = template.format(size1=s1, colour1=c1,object1=o1,relation=rel,size2=s2,colour2=c2,object2=o2)
                                     s = Shapes()
-                                    folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset'
+                                    
+                                    folder = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\type-a\type-a-dataset'
                                     filename = os.path.join(folder,f'{i}.eps')
                                     s.getscreen().clearscreen()
                                     s.draw(s1=s1, c1=c1, o1=o1, s2=s2, c2=c2, o2=o2,rel=rel)
