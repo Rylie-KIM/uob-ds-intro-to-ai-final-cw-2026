@@ -1,15 +1,3 @@
-"""
-generate_sentences_b.py
-Phase 1 — Type B (MNIST Numbers)
-
-Direction B: enumerate ALL unique (size, colour, number) combinations.
-1 sentence per unique combination — no duplicates, no augmentation.
-
-Sentence format: "{size} {colour} {number}"
-Examples: "large blue 167", "small red 42", "large yellow 131337"
-
-"""
-
 import csv
 import os
 import random
@@ -25,10 +13,10 @@ TEMPLATE = '{size} {colour} {number}'
 DIGIT_CONFIG = {
     1: list(range(1, 10)),                           #   9 numbers: 1–9
     2: list(range(10, 100)),                         #  90 numbers: 10–99
-    3: random.sample(range(100,    1_000),    288),  # 288 sampled
-    4: random.sample(range(1_000,  10_000),   288),  # 288 sampled
-    5: random.sample(range(10_000, 100_000),  288),  # 288 sampled
-    6: random.sample(range(100_000, 1_000_000), 288),# 288 sampled
+    3: random.sample(range(100,    1_000),    288),  # 288 numbers
+    4: random.sample(range(1_000,  10_000),   288),  # 288 numbers
+    5: random.sample(range(10_000, 100_000),  288),  # 288 numbers
+    6: random.sample(range(100_000, 1_000_000), 288),# 288 numbers
 }
 
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), '../../data/type-b/sentences_b.csv')
