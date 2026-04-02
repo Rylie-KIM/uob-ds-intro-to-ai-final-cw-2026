@@ -1,0 +1,152 @@
+import os
+import csv
+from typing import List
+
+import numpy as np
+from PIL import Image
+
+import torch
+import torch.nn as nn
+from torchvision import models, transforms
+from torchvision.models import ResNet18_Weights
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# 输入：你前面代码生成的 image_map 和 图片目录
+IMAGE_MAP_CSV = os.path.normpath(os.path.join(BASE_DIR, "../../src/data/type-c/image_map_c.csv"))
+IMAGE_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../src/data/images/type-c"))
+
+# 输出：ResNet18特征
+OUTPUT_FEATURE_CSV = os.path.normpath(os.path.join(BASE_DIR, "../../data/type-c/resnet18_features_c.csv"))
+OUTPUT_FEATURE_NPY = os.path.normpath(os.path.join(BASE_DIR, "../../data/type-c/resnet18_features_c.npy"))
+
+# 设备
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def build_resnet18_feature_extractor() -> tuple[nn.Module, transforms.Compose]:
+    """
+    构建预训练 ResNet18 特征提取器。
+    去掉最后的分类层，只保留 512 维特征。
+    """
+    weights = ResNet18_Weights.DEFAULT
+    model = models.resnet18(weights=weights)
+
+    # 去掉最后一层 fc，保留到 avgpool 后的 512-d 特征
+    feature_extractor = nn.Sequential(*list(model.children())[:-1])
+    feature_extractor.eval()
+    feature_extractor.to(DEVICE)
+
+    # 官方预训练权重对应的标准预处理
+    preprocess = weights.transforms()
+
+    return feature_extractor, preprocess
+
+
+def load_image_map(image_map_csv: str) -> List[dict]:
+    """
+    读取 image_map_c.csv
+    你现在的 image_map_c.csv 列通常是: id, image, notation
+    """
+    if not os.path.exists(image_map_csv):
+        raise FileNotFoundError(f"image_map csv not found: {image_map_csv}")
+
+    rows = []
+    with open(image_map_csv, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            rows.append(row)
+
+    return rows
+
+
+def extract_single_image_feature(
+    image_path: str,
+    feature_extractor: nn.Module,
+    preprocess: transforms.Compose
+) -> np.ndarray:
+    """
+    对单张图片提取 ResNet18 特征，输出 shape=(512,)
+    """
+    if not os.path.exists(image_path):
+        raise FileNotFoundError(f"image not found: {image_path}")
+
+    # 你的图片是灰度图，但 ResNet18 需要 3 通道，因此转成 RGB
+    image = Image.open(image_path).convert("RGB")
+
+    input_tensor = preprocess(image).unsqueeze(0).to(DEVICE)
+
+    with torch.no_grad():
+        features = feature_extractor(input_tensor)   # [1, 512, 1, 1]
+        features = features.flatten(1)               # [1, 512]
+
+    return features.squeeze(0).cpu().numpy().astype(np.float32)
+
+
+def save_features_csv(
+    rows: List[dict],
+    features: np.ndarray,
+    output_csv: str
+) -> None:
+    """
+    保存 CSV:
+    id, image, notation, feat_0, feat_1, ... feat_511
+    """
+    os.makedirs(os.path.dirname(output_csv), exist_ok=True)
+
+    header = ["id", "image", "notation"] + [f"feat_{i}" for i in range(features.shape[1])]
+
+    with open(output_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+
+        for row, feat in zip(rows, features):
+            writer.writerow([
+                row.get("id", ""),
+                row.get("image", ""),
+                row.get("notation", ""),
+                *feat.tolist()
+            ])
+
+
+def main() -> None:
+    print(f"Using device: {DEVICE}")
+    print(f"Reading image map from: {IMAGE_MAP_CSV}")
+    print(f"Reading images from: {IMAGE_DIR}")
+
+    rows = load_image_map(IMAGE_MAP_CSV)
+    if len(rows) == 0:
+        raise ValueError("image_map_c.csv is empty.")
+
+    feature_extractor, preprocess = build_resnet18_feature_extractor()
+
+    all_features = []
+
+    for idx, row in enumerate(rows, start=1):
+        image_filename = row["image"]
+        image_path = os.path.join(IMAGE_DIR, image_filename)
+
+        feature = extract_single_image_feature(
+            image_path=image_path,
+            feature_extractor=feature_extractor,
+            preprocess=preprocess
+        )
+        all_features.append(feature)
+
+        if idx % 100 == 0 or idx == len(rows):
+            print(f"Processed {idx}/{len(rows)} images")
+
+    all_features = np.vstack(all_features)  # [N, 512]
+
+    save_features_csv(rows, all_features, OUTPUT_FEATURE_CSV)
+    np.save(OUTPUT_FEATURE_NPY, all_features)
+
+    print("\nDone.")
+    print(f"Feature matrix shape: {all_features.shape}")
+    print(f"CSV saved to: {OUTPUT_FEATURE_CSV}")
+    print(f"NPY saved to: {OUTPUT_FEATURE_NPY}")
+
+
+if __name__ == "__main__":
+    main()
