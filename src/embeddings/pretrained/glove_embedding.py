@@ -2,6 +2,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
+
 from sklearn.metrics.pairwise import cosine_similarity
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
