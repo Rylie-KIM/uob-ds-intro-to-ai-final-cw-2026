@@ -11,7 +11,13 @@ src/data/images/type-c/*
 !src/data/images/type-c/README.md
 
 # large binary files — store on Google Drive, not GitHub
-results/embeddings/
+results/embeddings/computed-embeddings/type-b/results
+!results/embeddings/computed-embeddings/type-b/results/examples
+results/embeddings/computed-embeddings/type-a/results
+!results/embeddings/computed-embeddings/type-a/results/examples
+results/embeddings/computed-embeddings/type-c/results
+!results/embeddings/computed-embeddings/type-c/results/examples
+
 results/checkpoints/
 
 __pycache__/
