@@ -168,3 +168,7 @@ def generate_all_boards() -> list[Board]:
                 boards.append(board)
 
     return boards
+
+# hello nworld 
+
+# hello ;;;;;;;;
