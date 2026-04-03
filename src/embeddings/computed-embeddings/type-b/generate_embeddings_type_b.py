@@ -1,23 +1,26 @@
 """
 src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py
 
-Pre-compute all 7 text embeddings for the Type-B dataset.
+Pre-compute all 9 text embeddings for the Type-B dataset.
 Results saved to: src/embeddings/computed-embeddings/type-b/results/
 
 Usage
 -----
 python src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py
-python src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py --embedding sbert
+python src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py --embedding bert_mean
 
 Imports from
 ------------
-src/embeddings/sbert_embeddings.py            → SBERTEmbedder
-src/embeddings/bert_embeddings.py             → BertEmbeddings
+src/embeddings/pretrained/
+    sbert_embeddings.py                       → SBERTEmbedder
+    bert_mean_embeddings.py                   → BertMeanEmbedder
+    bert_pooler_embeddings.py                 → BertPoolerEmbedder
+    tinybert_mean_embeddings.py               → TinyBertMeanEmbedder
+    tinybert_pooler_embeddings.py             → TinyBertPoolerEmbedder
+    pretrained_word2vec_embeddings.py         → PretrainedWord2VecEmbedder
 src/embeddings/non-pretrained/
     word2vec_skipgram_embeddings.py           → SkipGramEmbedder
     tfidf_embeddings.py                       → TFIDFEmbedder
-src/embeddings/pretrained/
-    pretrained_word2vec_embeddings.py         → PretrainedWord2VecEmbedder
 src/embeddings/tfidf_embeddings.py            → TfidfEmbedder  (for TF-IDF × W2V weights)
 """
 
@@ -43,8 +46,11 @@ sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'non-pretrained'))
 
 
 # ── Imports from src/embeddings/ ───────────────────────────────────────────────
-from src.embeddings.sbert_embeddings import SBERTEmbedder
-from src.embeddings.bert_embeddings import BertEmbeddings
+from embeddings.pretrained.sbert_embeddings import SBERTEmbedder
+from embeddings.pretrained.bert_mean_embeddings import BertMeanEmbedder
+from embeddings.pretrained.bert_pooler_embeddings import BertPoolerEmbedder
+from embeddings.pretrained.tinybert_mean_embeddings import TinyBertMeanEmbedder
+from embeddings.pretrained.tinybert_pooler_embeddings import TinyBertPoolerEmbedder
 from src.embeddings.pretrained.pretrained_word2vec_embeddings import PretrainedWord2VecEmbedder
 from src.embeddings.tfidf_embeddings import TfidfEmbedder       # top-level: sparse TF-IDF weights
 from word2vec_skipgram_embeddings import SkipGramEmbedder        # non-pretrained/
@@ -77,7 +83,7 @@ def save_embedding(method_name: str, sentences: list[str], emb: torch.Tensor) ->
         'sentences':  sentences,
         'embeddings': emb,
         'method':     method_name,
-        'dataset':    'b',
+        # 'dataset':    'b',
     }, out_path)
     print(f'[saved]  {out_path.name}  shape={tuple(emb.shape)}')
 
@@ -93,44 +99,60 @@ def compute_sbert(sentences: list[str]) -> None:
     save_embedding('sbert', sentences, emb)
 
 
-def compute_bert(sentences: list[str]) -> None:
-    """BertEmbeddings.get_mean_embeddings — bert-base-uncased, 768-dim."""
-    if skip_if_exists('bert'):
+def compute_bert_mean(sentences: list[str]) -> None:
+    """BertMeanEmbedder — bert-base-uncased, mean pooling, 768-dim."""
+    if skip_if_exists('bert_mean'):
         return
-    # BertEmbeddings loads both bert and tinybert in __init__.
-    # Pass empty strings — only get_mean_embeddings() is used, not process().
-    bert_emb = BertEmbeddings('', '', '')
+    embedder = BertMeanEmbedder()
     vecs = []
     for i, s in enumerate(sentences):
-        mean_emb = bert_emb.get_mean_embeddings(
-            bert_emb.model['bert'],
-            bert_emb.tokenizer['bert_tokenizer'],
-            s,
-        )
-        vecs.append(mean_emb.squeeze(0))
+        vecs.append(embedder.get_embedding(s).squeeze(0))
         if (i + 1) % 500 == 0:
             print(f'  {i + 1}/{len(sentences)}', end='\r')
     print()
-    save_embedding('bert', sentences, torch.stack(vecs))
+    save_embedding('bert_mean', sentences, torch.stack(vecs))
 
 
-def compute_tinybert(sentences: list[str]) -> None:
-    """BertEmbeddings.get_mean_embeddings — TinyBERT_General_4L_312D, 312-dim."""
-    if skip_if_exists('tinybert'):
+def compute_bert_pooler(sentences: list[str]) -> None:
+    """BertPoolerEmbedder — bert-base-uncased, pooler output, 768-dim."""
+    if skip_if_exists('bert_pooler'):
         return
-    bert_emb = BertEmbeddings('', '', '')
+    embedder = BertPoolerEmbedder()
     vecs = []
     for i, s in enumerate(sentences):
-        mean_emb = bert_emb.get_mean_embeddings(
-            bert_emb.model['tiny_bert'],
-            bert_emb.tokenizer['tinyBert_tokenizer'],
-            s,
-        )
-        vecs.append(mean_emb.squeeze(0))
+        vecs.append(embedder.get_embedding(s).squeeze(0))
         if (i + 1) % 500 == 0:
             print(f'  {i + 1}/{len(sentences)}', end='\r')
     print()
-    save_embedding('tinybert', sentences, torch.stack(vecs))
+    save_embedding('bert_pooler', sentences, torch.stack(vecs))
+
+
+def compute_tinybert_mean(sentences: list[str]) -> None:
+    """TinyBertMeanEmbedder — TinyBERT_General_4L_312D, mean pooling, 312-dim."""
+    if skip_if_exists('tinybert_mean'):
+        return
+    embedder = TinyBertMeanEmbedder()
+    vecs = []
+    for i, s in enumerate(sentences):
+        vecs.append(embedder.get_embedding(s).squeeze(0))
+        if (i + 1) % 500 == 0:
+            print(f'  {i + 1}/{len(sentences)}', end='\r')
+    print()
+    save_embedding('tinybert_mean', sentences, torch.stack(vecs))
+
+
+def compute_tinybert_pooler(sentences: list[str]) -> None:
+    """TinyBertPoolerEmbedder — TinyBERT_General_4L_312D, pooler output, 312-dim."""
+    if skip_if_exists('tinybert_pooler'):
+        return
+    embedder = TinyBertPoolerEmbedder()
+    vecs = []
+    for i, s in enumerate(sentences):
+        vecs.append(embedder.get_embedding(s).squeeze(0))
+        if (i + 1) % 500 == 0:
+            print(f'  {i + 1}/{len(sentences)}', end='\r')
+    print()
+    save_embedding('tinybert_pooler', sentences, torch.stack(vecs))
 
 
 def compute_word2vec_skipgram(sentences: list[str]) -> None:
@@ -204,7 +226,9 @@ def compute_tfidf_w2v(sentences: list[str]) -> None:
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 ALL_METHODS = [
-    'sbert', 'bert', 'tinybert',
+    'sbert',
+    'bert_mean', 'bert_pooler',
+    'tinybert_mean', 'tinybert_pooler',
     'word2vec_skipgram', 'word2vec_pretrained',
     'tfidf', 'tfidf_w2v',
 ]
@@ -220,8 +244,10 @@ def main() -> None:
 
     dispatch = {
         'sbert':               lambda: compute_sbert(sentences),
-        'bert':                lambda: compute_bert(sentences),
-        'tinybert':            lambda: compute_tinybert(sentences),
+        'bert_mean':           lambda: compute_bert_mean(sentences),
+        'bert_pooler':         lambda: compute_bert_pooler(sentences),
+        'tinybert_mean':       lambda: compute_tinybert_mean(sentences),
+        'tinybert_pooler':     lambda: compute_tinybert_pooler(sentences),
         'word2vec_skipgram':   lambda: compute_word2vec_skipgram(sentences),
         'word2vec_pretrained': lambda: compute_word2vec_pretrained(sentences),
         'tfidf':               lambda: compute_tfidf(sentences),

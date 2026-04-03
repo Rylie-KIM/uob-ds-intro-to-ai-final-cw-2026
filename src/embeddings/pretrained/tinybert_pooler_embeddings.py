@@ -1,0 +1,24 @@
+from transformers import AutoModel, AutoTokenizer
+import torch
+# TinyBERT (huawei-noah/TinyBERT_General_4L_312D) — pooler output ([CLS] token projection).
+# Output dimension: 312
+
+# @NOTE: do_lower_case=True is required — TinyBERT tokenizer does not recognise capitalised words.
+class TinyBertPoolerEmbedder:
+    def __init__(self):
+        # TinyBert tokenizer doesnt recognise capitalised words
+        self.model     = AutoModel.from_pretrained('huawei-noah/TinyBERT_General_4L_312D')
+        self.tokenizer = AutoTokenizer.from_pretrained('huawei-noah/TinyBERT_General_4L_312D', do_lower_case=True)
+
+    def get_embedding(self, sentence: str) -> torch.Tensor:
+        """
+        Sentence = 'hello my name is john'
+        Tokenizer object converts sentence into dictionary of 'input_ids','token_type_ids','attention_mask' in tensor format.
+        Converting to tensor now prevents need to do unsqueeze(0) to configure dimensiona
+        No need for padding as each sentence is input to model individually with ouput fixed to (1,312)
+        """
+
+        processed = self.tokenizer(sentence, return_tensors='pt')
+        with torch.no_grad():
+            output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
+        return output.pooler_output #.squeeze(0).tolist()
