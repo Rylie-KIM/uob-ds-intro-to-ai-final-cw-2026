@@ -27,18 +27,19 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def build_resnet18_feature_extractor() -> tuple[nn.Module, transforms.Compose]:
     """
-    构建预训练 ResNet18 特征提取器。
-    去掉最后的分类层，只保留 512 维特征。
+    Build a pre-trained ResNet18 feature extractor.
+    Remove the final classification layer and retain only the 512-dimensional features.
+
     """
     weights = ResNet18_Weights.DEFAULT
     model = models.resnet18(weights=weights)
 
-    # 去掉最后一层 fc，保留到 avgpool 后的 512-d 特征
+    # Remove the last fully connected (fc) layer and retain the 512-d features after the average pooling (avgpool).
     feature_extractor = nn.Sequential(*list(model.children())[:-1])
     feature_extractor.eval()
     feature_extractor.to(DEVICE)
 
-    # 官方预训练权重对应的标准预处理
+    
     preprocess = weights.transforms()
 
     return feature_extractor, preprocess
@@ -46,8 +47,9 @@ def build_resnet18_feature_extractor() -> tuple[nn.Module, transforms.Compose]:
 
 def load_image_map(image_map_csv: str) -> List[dict]:
     """
-    读取 image_map_c.csv
-    你现在的 image_map_c.csv 列通常是: id, image, notation
+    Read the image_map_c.csv file.
+    The columns in your current image_map_c.csv file are usually: id, image, notation.
+
     """
     if not os.path.exists(image_map_csv):
         raise FileNotFoundError(f"image_map csv not found: {image_map_csv}")
@@ -67,12 +69,12 @@ def extract_single_image_feature(
     preprocess: transforms.Compose
 ) -> np.ndarray:
     """
-    对单张图片提取 ResNet18 特征，输出 shape=(512,)
+    Extract ResNet18 features from a single image, with the output shape being (512,)
     """
     if not os.path.exists(image_path):
         raise FileNotFoundError(f"image not found: {image_path}")
 
-    # 你的图片是灰度图，但 ResNet18 需要 3 通道，因此转成 RGB
+    # Your image is a grayscale image, but ResNet18 requires three channels, so convert it to RGB.
     image = Image.open(image_path).convert("RGB")
 
     input_tensor = preprocess(image).unsqueeze(0).to(DEVICE)
@@ -90,7 +92,7 @@ def save_features_csv(
     output_csv: str
 ) -> None:
     """
-    保存 CSV:
+    Save CSV:
     id, image, notation, feat_0, feat_1, ... feat_511
     """
     os.makedirs(os.path.dirname(output_csv), exist_ok=True)
