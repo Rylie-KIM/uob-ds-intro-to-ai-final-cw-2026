@@ -2,8 +2,10 @@ torch
 torchvision
 sentence-transformers
 scikit-learn
+pandas
 matplotlib
 Pillow
 numpy
 transformers
 gensim
+ipywidgets

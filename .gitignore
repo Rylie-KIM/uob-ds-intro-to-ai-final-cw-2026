@@ -1,8 +1,18 @@
 test/
 src/data/type-b/mnist_raw
+src/data/images/type-a/*
+!src/data/images/type-a/examples/
+!src/data/images/type-a/README.md
 src/data/images/type-b/*
 !src/data/images/type-b/examples/
 !src/data/images/type-b/README.md
+src/data/images/type-c/*
+!src/data/images/type-c/examples/
+!src/data/images/type-c/README.md
+
+# large binary files — store on Google Drive, not GitHub
+results/embeddings/
+results/checkpoints/
 
 __pycache__/
 .DS_Store
