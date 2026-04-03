@@ -23,7 +23,7 @@ class SkipGramEmbedder:
         self.epochs = epochs
         self.seed = seed
 
-        self.model = Word2Vec | None = None
+        self.model: Word2Vec | None = None
 
     def fit(self, sentences: Sentences) -> 'SkipGramEmbedder': 
         tokenised = [s.lower().split() for s in sentences] # TokenisedSentences = list[list[str]]
