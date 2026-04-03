@@ -1,0 +1,1 @@
+# type c - compute embeddings and save result (.pt files)
