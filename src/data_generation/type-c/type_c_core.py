@@ -1,7 +1,11 @@
 from dataclasses import dataclass, field
 from itertools import combinations
 from typing import Optional
+import random
 
+
+SEED = 42
+random.seed(SEED)
 
 POSITIONS = [
     "TL", "TM", "TR",
@@ -27,6 +31,37 @@ POSITION_TO_TEXT = {
     "BR": "bottom right",
 }
 
+POSITION_PHRASES = {
+    "C":  ["middle", "center"],
+    "ML": ["middle row left", "left of centre"],
+    "MR": ["middle row right", "right of centre"],
+    "TM": ["top middle", "above the center"],
+    "BM": ["bottom middle", "below the center"],
+    "TL": ["top left corner", "up and left from center"],
+    "TR": ["top right corner", "up and right from center"],
+    "BL": ["bottom left corner", "down and left from center"],
+    "BR": ["bottom right corner", "down and right from center"],
+}
+
+NAMES = ["Seoyeon", "Sujith", "Fergus", "Wenjia", "Zhenmao", "Kim", "Watson", "Goli", "SONG", "Wang"]
+
+ALIASES = {
+    "TC": "TM",
+    "BC": "BM",
+    "CTR": "C",
+    "M": "C",
+    "MM": "C",
+}
+
+
+def resolve_position(pos: str) -> str:
+    name = pos.strip().upper()
+    name = ALIASES.get(name, name)
+    if name not in POSITION_TO_COORD:
+        valid = ", ".join(POSITIONS)
+        raise ValueError(f"Unknown position '{pos}'. Valid positions: {valid}")
+    return name
+
 
 def sort_positions(pos_list: list[str]) -> list[str]:
     order = {name: i for i, name in enumerate(POSITIONS)}
@@ -43,14 +78,46 @@ def join_naturally(items: list[str]) -> str:
     return ", ".join(items[:-1]) + f", and {items[-1]}"
 
 
+def _phrase(pos: str) -> str:
+    """Pick a random English phrase for a position."""
+    pos = pos.strip().upper()
+    pos = ALIASES.get(pos, pos)
+    return random.choice(POSITION_PHRASES[pos])
+
+
+def _pick_names(x_name: Optional[str], o_name: Optional[str]) -> tuple[str, str]:
+    """Return (x_name, o_name), filling in random names as needed."""
+    if x_name and o_name:
+        return x_name, o_name
+    available = [n for n in NAMES if n not in (x_name, o_name)]
+    random.shuffle(available)
+    if not x_name:
+        x_name = available.pop()
+    if not o_name:
+        o_name = available.pop()
+    return x_name, o_name
+
+
 @dataclass
 class Board:
     x: list[str] = field(default_factory=list)
     o: list[str] = field(default_factory=list)
 
     def __post_init__(self):
-        self.x = sort_positions(self.x)
-        self.o = sort_positions(self.o)
+        self.x = sort_positions([resolve_position(p) for p in self.x])
+        self.o = sort_positions([resolve_position(p) for p in self.o])
+        self._validate()
+
+    def _validate(self) -> None:
+        occupied = self.x + self.o
+        if len(occupied) != len(set(occupied)):
+            raise ValueError("Duplicate positions detected across X and O.")
+
+        if not is_valid_move_count(self):
+            raise ValueError(
+                f"Invalid move counts: X={len(self.x)}, O={len(self.o)}. "
+                "X must have equal or one more move than O."
+            )
 
     def to_grid(self) -> list[list[str]]:
         grid = [[" "] * 3 for _ in range(3)]
@@ -105,30 +172,48 @@ def parse_notation(notation: str) -> Board:
         if part.startswith("X:"):
             value = part[2:]
             if value:
-                x_positions = [p.strip() for p in value.split(",") if p.strip()]
+                x_positions = [resolve_position(p) for p in value.split(",") if p.strip()]
         elif part.startswith("O:"):
             value = part[2:]
             if value:
-                o_positions = [p.strip() for p in value.split(",") if p.strip()]
+                o_positions = [resolve_position(p) for p in value.split(",") if p.strip()]
+        else:
+            raise ValueError(
+                f"Expected token starting with 'X:' or 'O:', got '{part}'."
+            )
 
     return Board(x=x_positions, o=o_positions)
 
 
-def board_to_sentence(board: Board) -> str:
+def board_to_sentence(board: Board, x_name: Optional[str] = None, o_name: Optional[str] = None) -> str:
+    """
+    Return an English sentence describing the board position.
+
+    Names are chosen randomly from NAMES if not provided.
+    Each position is described using one of its multiple alternative phrasings.
+    Verbs and phrasing are randomized for variety.
+    """
     if not board.x and not board.o:
         return "The board is empty."
 
+    name_x, name_o = _pick_names(x_name, o_name)
     parts = []
 
     if board.x:
-        x_text = join_naturally([POSITION_TO_TEXT[p] for p in board.x])
-        parts.append(f"X is in the {x_text}")
+        x_phrases = join_naturally([_phrase(p) for p in board.x])
+        verb = random.choice(["gone for", "taken"])
+        parts.append(f"{name_x} is X and has {verb} {x_phrases}")
+    else:
+        parts.append(f"{name_x} is X and has not moved yet")
 
     if board.o:
-        o_text = join_naturally([POSITION_TO_TEXT[p] for p in board.o])
-        parts.append(f"O is in the {o_text}")
+        o_phrases = join_naturally([_phrase(p) for p in board.o])
+        verb = random.choice(["gone for", "taken"])
+        parts.append(f"{name_o} is O and has {verb} {o_phrases}")
+    else:
+        parts.append(f"{name_o} is O and has not moved yet")
 
-    return ". ".join(parts) + "."
+    return "; ".join(parts) + "."
 
 
 def is_valid_move_count(board: Board) -> bool:
@@ -142,6 +227,22 @@ def is_valid_winner_state(board: Board) -> bool:
         return False
     if winner == "O" and len(board.x) != len(board.o):
         return False
+
+    return True
+
+
+def is_reachable(board: Board) -> bool:
+    if not is_valid_winner_state(board):
+        return False
+
+    last_player = "x" if len(board.x) > len(board.o) else "o"
+    prev_x = board.x[:-1] if last_player == "x" else board.x
+    prev_o = board.o[:-1] if last_player == "o" else board.o
+
+    if prev_x or prev_o or (len(board.x) + len(board.o) > 1):
+        prev_board = Board(x=prev_x, o=prev_o)
+        if prev_board.winner() is not None:
+            return False
 
     return True
 
@@ -162,7 +263,7 @@ def generate_all_boards() -> list[Board]:
 
                 if not is_valid_move_count(board):
                     continue
-                if not is_valid_winner_state(board):
+                if not is_reachable(board):
                     continue
 
                 boards.append(board)
