@@ -108,3 +108,6 @@ print(f'NEW: {data_t_n.shape}')
 cnn = CNN2(output_shape = 768)
 print(f'Model Architecture:\n{cnn}')
 cnn(data_t_n)
+
+# Hello world
+# Hello again
