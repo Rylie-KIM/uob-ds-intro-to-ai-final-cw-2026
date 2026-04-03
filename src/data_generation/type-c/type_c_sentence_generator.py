@@ -1,34 +1,52 @@
-import json
-import os
+import csv
+import random
+from pathlib import Path
 
-from type_c_core import generate_all_boards, to_notation, board_to_sentence
+from type_c_core import generate_all_boards, to_notation, board_to_sentence, SEED
+
+
+random.seed(SEED)
+
+
+SRC_ROOT = Path(__file__).resolve().parents[2]
+TYPE_C_DATA_DIR = SRC_ROOT / "data" / "type-c"
+DEFAULT_OUTPUT_CSV = TYPE_C_DATA_DIR / "sentences_c.csv"
 
 
 def generate_sentence_dataset(
-    limit: int = 5000,
-    output_file: str = "data/type_c_dataset.json"
+    limit: int = 5269,
+    output_csv: str = str(DEFAULT_OUTPUT_CSV)
 ) -> None:
-    os.makedirs("data", exist_ok=True)
+    output_path = Path(output_csv)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     boards = generate_all_boards()
     print(f"Total enumerated valid boards: {len(boards)}")
 
-    dataset = []
-    for i, board in enumerate(boards[:limit], start=1):
-        record = {
-            "id": i,
-            "notation": to_notation(board),
+    records = []
+    for i, board in enumerate(boards[:limit]):
+        sentence_id = f"c_{i}"
+        winner = board.winner() or ""
+        records.append({
+            "sentence_id": sentence_id,
             "sentence": board_to_sentence(board),
-            "image": f"type_c_{i}.png"
-        }
-        dataset.append(record)
+            "notation": to_notation(board),
+            "n_moves": len(board.x) + len(board.o),
+            "winner": winner,
+        })
 
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(dataset, f, indent=2, ensure_ascii=False)
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=["sentence_id", "sentence", "notation", "n_moves", "winner"],
+        )
+        writer.writeheader()
+        writer.writerows(records)
 
-    print(f"Generated {len(dataset)} sentence samples")
-    print(f"Dataset saved to: {output_file}")
+    print(f"Generated {len(records)} sentence samples")
+    print(f"Sentences saved to: {output_path}")
 
 
 if __name__ == "__main__":
-    generate_sentence_dataset(limit=5000)
+    print(f"[type-c] Using SEED={SEED} for reproducibility")
+    generate_sentence_dataset(limit=5269) # whole valid cases 

@@ -1,12 +1,25 @@
-import json
+import csv
 import math
-import os
+from pathlib import Path
 import random
 
 import numpy as np
 from PIL import Image, ImageDraw
 
-from type_c_core import Board, parse_notation
+from type_c_core import Board, parse_notation, SEED
+
+
+random.seed(SEED)
+np.random.seed(SEED)
+
+
+SRC_ROOT = Path(__file__).resolve().parents[2]
+TYPE_C_DATA_DIR = SRC_ROOT / "data" / "type-c"
+TYPE_C_IMAGE_DIR = SRC_ROOT / "data" / "images" / "type-c"
+
+INPUT_CSV = TYPE_C_DATA_DIR / "sentences_c.csv"
+OUTPUT_DIR = TYPE_C_IMAGE_DIR
+OUTPUT_MAP = TYPE_C_DATA_DIR / "image_map_c.csv"
 
 
 def _rotate_translate(img: Image.Image, angle_deg: float, dx: int, dy: int) -> Image.Image:
@@ -103,29 +116,50 @@ def save_board_image(board: Board, output_path: str, size: int = 500) -> None:
     img.save(output_path)
 
 
-def generate_images_from_dataset(
-    dataset_file: str = "data/type_c_dataset.json",
-    image_dir: str = "data/type_c_images",
-    image_size: int = 500
+def generate(
+    input_csv: str = str(INPUT_CSV),
+    output_dir: str = str(OUTPUT_DIR),
+    output_map: str = str(OUTPUT_MAP),
+    image_size: int = 500,
 ) -> None:
-    if not os.path.exists(dataset_file):
-        raise FileNotFoundError(f"Dataset file not found: {dataset_file}")
+    input_path = Path(input_csv)
+    output_dir_path = Path(output_dir)
+    output_map_path = Path(output_map)
 
-    os.makedirs(image_dir, exist_ok=True)
+    if not input_path.exists():
+        raise FileNotFoundError(f"Sentences file not found: {input_path}")
 
-    with open(dataset_file, "r", encoding="utf-8") as f:
-        dataset = json.load(f)
+    output_dir_path.mkdir(parents=True, exist_ok=True)
+    output_map_path.parent.mkdir(parents=True, exist_ok=True)
 
-    for record in dataset:
-        board = parse_notation(record["notation"])
-        image_filename = record.get("image", f"type_c_{record['id']}.png")
-        image_path = os.path.join(image_dir, image_filename)
+    with open(input_path, newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
 
-        save_board_image(board, image_path, size=image_size)
-        print(f"Generated image for sample {record['id']}: {image_filename}")
+    records = []
+    for i, row in enumerate(rows):
+        sentence_id = row["sentence_id"]
+        notation = row.get("notation", "")
+        if notation is None:
+            notation = ""
 
-    print(f"\nAll images saved to: {image_dir}")
+        board = parse_notation(notation)
+        filename = f"{sentence_id}.png"
+        image_path = output_dir_path / filename
+
+        save_board_image(board, str(image_path), size=image_size)
+        records.append({"filename": filename, "sentence_id": sentence_id})
+
+        if i % 500 == 0:
+            print(f"  {i}/{len(rows)} processed...")
+
+    with open(output_map_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["filename", "sentence_id"])
+        writer.writeheader()
+        writer.writerows(records)
+
+    print(f"[type-c] {len(records)} images saved >> {output_dir_path}")
+    print(f"[type-c] image map saved >> {output_map_path}")
 
 
 if __name__ == "__main__":
-    generate_images_from_dataset()
+    generate()

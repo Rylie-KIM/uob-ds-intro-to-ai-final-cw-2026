@@ -29,11 +29,12 @@ def build_resnet18_feature_extractor() -> tuple[nn.Module, transforms.Compose]:
     """
     Build a pre-trained ResNet18 feature extractor.
     Remove the final classification layer and retain only the 512-dimensional features.
+
     """
     weights = ResNet18_Weights.DEFAULT
     model = models.resnet18(weights=weights)
 
-    # Remove the last fully connected layer and retain the 512-d features after the avgpool.
+    # Remove the last fully connected (fc) layer and retain the 512-d features after the average pooling (avgpool).
     feature_extractor = nn.Sequential(*list(model.children())[:-1])
     feature_extractor.eval()
     feature_extractor.to(DEVICE)

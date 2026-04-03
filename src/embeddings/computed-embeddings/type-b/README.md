@@ -1,0 +1,1 @@
+# type b - compute embeddings and save result (.pt files)
