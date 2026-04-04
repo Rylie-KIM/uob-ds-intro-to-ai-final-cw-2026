@@ -1,4 +1,4 @@
-path,label,OneHot_emb,TB_Pooler_emb
+path,label,OneHot_emb,TB_pooler_emb
 src/data/images/type-a/eps/0.eps,a big green hexagon is below a big green circle,src\embeddings\computed-embeddings\type-a\OHC_emb\0.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\0.pt
 src/data/images/type-a/eps/1.eps,a medium black circle is above a medium orange octagon,src\embeddings\computed-embeddings\type-a\OHC_emb\1.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\1.pt
 src/data/images/type-a/eps/2.eps,the big orange hexagon is positioned left of a big orange circle,src\embeddings\computed-embeddings\type-a\OHC_emb\2.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\2.pt
