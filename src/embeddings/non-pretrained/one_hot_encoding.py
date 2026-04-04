@@ -1,0 +1,35 @@
+import numpy as np
+import torch
+
+class OneHot():
+    def __init__(self):
+
+        self.vocab = ['circle','triangle','square','diamond','hexagon',
+                    'octagon', 'red', 'blue', 'green', 'yellow', 'orange',
+                    'purple', 'pink', 'black','big', 'medium', 'small',
+                    'above', 'below', 'left', 'of', 'right','a', 'is',
+                    'the', 'positioned','can','be','seen']
+        self.vocab_dict = {word: idx for idx, word in enumerate(self.vocab)}
+    
+    def get_vocab(self):
+        return self.vocab_dict
+    
+    def get_word_embedding(self, word):
+        vector = np.zeros(len(self.vocab))
+        vector[self.vocab_dict[word]] = 1
+        return vector
+    
+    def get_sentence_embedding(self, sentence):
+        sentence_s = sentence.split()
+        embeddings = []
+        for word in sentence_s:
+            if word not in self.vocab:
+                raise ValueError('Word not in vocabulary')
+            embeddings.append(self.get_word_embedding(word))
+        embeddings = np.array(embeddings)
+        return torch.tensor(embeddings, dtype=float) 
+
+
+    
+
+
