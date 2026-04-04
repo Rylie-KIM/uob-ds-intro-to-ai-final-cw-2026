@@ -1,0 +1,21 @@
+path,label,OneHot_emb,TB_Pooler_emb
+src/data/images/type-a/eps/0.eps,a big green hexagon is below a big green circle,src\embeddings\computed-embeddings\type-a\OHC_emb\0.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\0.pt
+src/data/images/type-a/eps/1.eps,a medium black circle is above a medium orange octagon,src\embeddings\computed-embeddings\type-a\OHC_emb\1.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\1.pt
+src/data/images/type-a/eps/2.eps,the big orange hexagon is positioned left of a big orange circle,src\embeddings\computed-embeddings\type-a\OHC_emb\2.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\2.pt
+src/data/images/type-a/eps/3.eps,the small green diamond is positioned below a big pink square,src\embeddings\computed-embeddings\type-a\OHC_emb\3.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\3.pt
+src/data/images/type-a/eps/4.eps,the big orange square is positioned left of a medium orange diamond,src\embeddings\computed-embeddings\type-a\OHC_emb\4.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\4.pt
+src/data/images/type-a/eps/5.eps,a medium green octagon is left of a big yellow octagon,src\embeddings\computed-embeddings\type-a\OHC_emb\5.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\5.pt
+src/data/images/type-a/eps/6.eps,a big black diamond is above a medium purple octagon,src\embeddings\computed-embeddings\type-a\OHC_emb\6.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\6.pt
+src/data/images/type-a/eps/7.eps,below a big green octagon is a medium pink square,src\embeddings\computed-embeddings\type-a\OHC_emb\7.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\7.pt
+src/data/images/type-a/eps/8.eps,a medium green diamond is above a big blue hexagon,src\embeddings\computed-embeddings\type-a\OHC_emb\8.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\8.pt
+src/data/images/type-a/eps/9.eps,above a medium yellow triangle is a medium orange hexagon,src\embeddings\computed-embeddings\type-a\OHC_emb\9.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\9.pt
+src/data/images/type-a/eps/10.eps,a small red hexagon can be seen above a big yellow hexagon,src\embeddings\computed-embeddings\type-a\OHC_emb\10.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\10.pt
+src/data/images/type-a/eps/11.eps,a small blue triangle is right of a big pink circle,src\embeddings\computed-embeddings\type-a\OHC_emb\11.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\11.pt
+src/data/images/type-a/eps/12.eps,a big blue triangle is left of a big black triangle,src\embeddings\computed-embeddings\type-a\OHC_emb\12.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\12.pt
+src/data/images/type-a/eps/13.eps,a medium orange diamond is right of a big green octagon,src\embeddings\computed-embeddings\type-a\OHC_emb\13.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\13.pt
+src/data/images/type-a/eps/14.eps,the small green square is positioned below a medium yellow square,src\embeddings\computed-embeddings\type-a\OHC_emb\14.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\14.pt
+src/data/images/type-a/eps/15.eps,the big black square is positioned below a big orange triangle,src\embeddings\computed-embeddings\type-a\OHC_emb\15.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\15.pt
+src/data/images/type-a/eps/16.eps,right of a medium blue triangle is a medium green triangle,src\embeddings\computed-embeddings\type-a\OHC_emb\16.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\16.pt
+src/data/images/type-a/eps/17.eps,right of a big pink hexagon is a small black hexagon,src\embeddings\computed-embeddings\type-a\OHC_emb\17.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\17.pt
+src/data/images/type-a/eps/18.eps,a big red triangle is above a small black triangle,src\embeddings\computed-embeddings\type-a\OHC_emb\18.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\18.pt
+src/data/images/type-a/eps/19.eps,left of a medium orange square is a medium yellow diamond,src\embeddings\computed-embeddings\type-a\OHC_emb\19.pt,src\embeddings\computed-embeddings\type-a\Pooler_TB\19.pt
