@@ -2,9 +2,9 @@ from pathlib import Path
 import sys
 # ── Paths ──────────────────────────────────────────────────────────────────────
 _ROOT     = Path(__file__).resolve().parent.parent.parent.parent.parent
-_HERE     = Path(__file__).resolve().parent
-_DATA_DIR = _ROOT / 'src' / 'data' / 'type-b'
-_OUT_DIR  = _HERE / 'results'
+# _HERE     = Path(__file__).resolve().parent
+# _DATA_DIR = _ROOT / 'src' / 'data' / 'type-b'
+# _OUT_DIR  = _HERE / 'results'
 
 # Add repo root and non-pretrained dir (hyphenated name can't be imported normally)
 sys.path.insert(0, str(_ROOT))

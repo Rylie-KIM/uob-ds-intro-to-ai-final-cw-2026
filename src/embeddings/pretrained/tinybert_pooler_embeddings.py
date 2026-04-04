@@ -12,7 +12,7 @@ class TinyBertPoolerEmbedder:
         self.model     = AutoModel.from_pretrained('huawei-noah/TinyBERT_General_4L_312D')
         self.tokenizer = AutoTokenizer.from_pretrained('huawei-noah/TinyBERT_General_4L_312D', do_lower_case=True)
         self.master_path = Path('src/data/type-a/master.csv')
-        self.root = Path('src/embeddings/computed-embeddings/type-a/Pooler_TB')
+        self.folder_path = Path('src/embeddings/computed-embeddings/type-a/Pooler_TB')
         self.df = pd.read_csv(self.master_path)
 
 
@@ -28,9 +28,9 @@ class TinyBertPoolerEmbedder:
             output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
         pooler = output.pooler_output
         filename = f'{idx}.pt'
-        filepath = self.root / filename
+        filepath = self.folder_path / filename
         torch.save(pooler, filepath)
-        print(f'File: {filename}\nSaved to: {self.root}')
+        print(f'File: {filename}\nSaved to: {self.folder_path}')
         return filepath
     
     def process(self):
@@ -38,7 +38,7 @@ class TinyBertPoolerEmbedder:
         for idx, row in self.df.iterrows():
             sentence = row['label']
             filepaths.append(self.get_embedding(sentence, idx))
-        self.df['TB_Pooler_emb'] = filepaths
+        self.df['TB_pooler_emb'] = filepaths
         print(f'Success.{len(filepaths)} filepaths added')
         self.df.to_csv(self.master_path, index=False)
     
