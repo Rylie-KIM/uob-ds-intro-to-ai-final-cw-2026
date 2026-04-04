@@ -6,7 +6,7 @@ from pathlib import Path
 
 from relation_shapes_generator_a import ShapesGenerator
 
-NUM_OBSERVATIONS = 20000
+NUM_OBSERVATIONS = 20 # Temporary reduction to 20
 RANDOM_SEED = 42
 SCREEN_SIZE = (700, 700)
 
