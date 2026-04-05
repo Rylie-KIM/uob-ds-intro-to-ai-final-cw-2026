@@ -19,6 +19,7 @@ POSITION_TO_COORD = {
     "BL": (2, 0), "BM": (2, 1), "BR": (2, 2),
 }
 
+# Canonical position text
 POSITION_TO_TEXT = {
     "TL": "top left",
     "TM": "top center",
@@ -31,19 +32,19 @@ POSITION_TO_TEXT = {
     "BR": "bottom right",
 }
 
-POSITION_PHRASES = {
-    "C":  ["middle", "center"],
-    "ML": ["middle row left", "left of centre"],
-    "MR": ["middle row right", "right of centre"],
-    "TM": ["top middle", "above the center"],
-    "BM": ["bottom middle", "below the center"],
-    "TL": ["top left corner", "up and left from center"],
-    "TR": ["top right corner", "up and right from center"],
-    "BL": ["bottom left corner", "down and left from center"],
-    "BR": ["bottom right corner", "down and right from center"],
+# Controlled randomness:
+# keep some semantically meaningful variation in position expressions
+POSITION_VARIANTS = {
+    "TL": ["top left", "upper left"],
+    "TM": ["top center", "top middle"],
+    "TR": ["top right", "upper right"],
+    "ML": ["middle left", "center left"],
+    "C":  ["center", "middle"],
+    "MR": ["middle right", "center right"],
+    "BL": ["bottom left", "lower left"],
+    "BM": ["bottom center", "bottom middle"],
+    "BR": ["bottom right", "lower right"],
 }
-
-NAMES = ["Seoyeon", "Sujith", "Fergus", "Wenjia", "Zhenmao", "Kim", "Watson", "Goli", "SONG", "Wang"]
 
 ALIASES = {
     "TC": "TM",
@@ -68,7 +69,7 @@ def sort_positions(pos_list: list[str]) -> list[str]:
     return sorted(pos_list, key=lambda p: order[p])
 
 
-def join_naturally(items: list[str]) -> str:
+def join_naturally(items: list[str]) -> list[str] | str:
     if not items:
         return ""
     if len(items) == 1:
@@ -78,24 +79,9 @@ def join_naturally(items: list[str]) -> str:
     return ", ".join(items[:-1]) + f", and {items[-1]}"
 
 
-def _phrase(pos: str) -> str:
-    """Pick a random English phrase for a position."""
-    pos = pos.strip().upper()
-    pos = ALIASES.get(pos, pos)
-    return random.choice(POSITION_PHRASES[pos])
-
-
-def _pick_names(x_name: Optional[str], o_name: Optional[str]) -> tuple[str, str]:
-    """Return (x_name, o_name), filling in random names as needed."""
-    if x_name and o_name:
-        return x_name, o_name
-    available = [n for n in NAMES if n not in (x_name, o_name)]
-    random.shuffle(available)
-    if not x_name:
-        x_name = available.pop()
-    if not o_name:
-        o_name = available.pop()
-    return x_name, o_name
+def sample_position_phrase(pos: str) -> str:
+    pos = resolve_position(pos)
+    return random.choice(POSITION_VARIANTS[pos])
 
 
 @dataclass
@@ -185,35 +171,43 @@ def parse_notation(notation: str) -> Board:
     return Board(x=x_positions, o=o_positions)
 
 
-def board_to_sentence(board: Board, x_name: Optional[str] = None, o_name: Optional[str] = None) -> str:
+def board_to_sentence(board: Board) -> str:
     """
-    Return an English sentence describing the board position.
-
-    Names are chosen randomly from NAMES if not provided.
-    Each position is described using one of its multiple alternative phrasings.
-    Verbs and phrasing are randomized for variety.
+    Controlled-randomness sentence generator:
+    - removes random player names
+    - removes irrelevant verb variation
+    - keeps semantically meaningful variation in position phrases
+    - keeps sentence structure simple and learnable
     """
     if not board.x and not board.o:
         return "The board is empty."
 
-    name_x, name_o = _pick_names(x_name, o_name)
-    parts = []
+    sentence_patterns = []
 
-    if board.x:
-        x_phrases = join_naturally([_phrase(p) for p in board.x])
-        verb = random.choice(["gone for", "taken"])
-        parts.append(f"{name_x} is X and has {verb} {x_phrases}")
+    if board.x and board.o:
+        sentence_patterns = [
+            "X is in {x_pos}; O is in {o_pos}.",
+            "{x_pos} has X; {o_pos} has O.",
+            "There is X in {x_pos} and O in {o_pos}.",
+        ]
+    elif board.x:
+        sentence_patterns = [
+            "X is in {x_pos}.",
+            "{x_pos} has X.",
+            "There is X in {x_pos}.",
+        ]
     else:
-        parts.append(f"{name_x} is X and has not moved yet")
+        sentence_patterns = [
+            "O is in {o_pos}.",
+            "{o_pos} has O.",
+            "There is O in {o_pos}.",
+        ]
 
-    if board.o:
-        o_phrases = join_naturally([_phrase(p) for p in board.o])
-        verb = random.choice(["gone for", "taken"])
-        parts.append(f"{name_o} is O and has {verb} {o_phrases}")
-    else:
-        parts.append(f"{name_o} is O and has not moved yet")
+    x_pos = join_naturally([sample_position_phrase(p) for p in board.x]) if board.x else ""
+    o_pos = join_naturally([sample_position_phrase(p) for p in board.o]) if board.o else ""
 
-    return "; ".join(parts) + "."
+    template = random.choice(sentence_patterns)
+    return template.format(x_pos=x_pos, o_pos=o_pos)
 
 
 def is_valid_move_count(board: Board) -> bool:
@@ -269,7 +263,3 @@ def generate_all_boards() -> list[Board]:
                 boards.append(board)
 
     return boards
-
-# hello nworld 
-
-# hello ;;;;;;;;
