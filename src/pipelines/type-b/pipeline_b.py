@@ -190,7 +190,7 @@ def plot_results_heatmap(models: list[str], embeddings: list[str]) -> None:
 
 def run_gemini_comparison() -> None:
     """Run Gemini Vision API comparison on the test set."""
-    script = _ROOT / 'src' / 'pipelines' / 'evaluation' / 'gemini_comparison.py'
+    script = _ROOT / 'src' / 'pipelines' / 'evaluation' / 'type-b' /'gemini_comparison.py'
     if not script.exists():
         print('[gemini] gemini_comparison.py not found — skipping')
         return

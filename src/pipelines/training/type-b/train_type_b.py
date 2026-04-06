@@ -95,7 +95,7 @@ BATCH_SIZE   = 64
 EPOCHS       = 30
 LR           = 1e-4
 WEIGHT_DECAY = 1e-4
-NUM_WORKERS  = 0   # 0 required on MPS/CPU — importlib-loaded Dataset can't be pickled by workers
+NUM_WORKERS  = 0   # overridden per-device in run_experiment (0 for MPS, 4 for CUDA)
 SEED         = 42
 
 # AlexNet uses a lower LR due to its larger parameter count (~20M vs ~1.2M)
@@ -158,13 +158,14 @@ def run_experiment(
         seed=SEED,
     )
 
-    pin = (device == 'cuda') and (NUM_WORKERS > 0)  # pin_memory only useful with workers > 0
+    num_workers = 4 if device == 'cuda' else 0   # CUDA: parallel loading; MPS/CPU: no workers (pickle issue)
+    pin = (device == 'cuda')                     # pin_memory speeds up CPU→GPU transfer
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True,
-                              num_workers=NUM_WORKERS, pin_memory=pin)
+                              num_workers=num_workers, pin_memory=pin)
     val_loader   = DataLoader(val_set,   batch_size=BATCH_SIZE, shuffle=False,
-                              num_workers=NUM_WORKERS)
+                              num_workers=num_workers)
     test_loader  = DataLoader(test_set,  batch_size=BATCH_SIZE, shuffle=False,
-                              num_workers=NUM_WORKERS)
+                              num_workers=num_workers)
 
     # Full corpus for retrieval evaluation (all sentences + embeddings)
     full_dataset   = train_set.dataset

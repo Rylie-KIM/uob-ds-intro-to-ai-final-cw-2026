@@ -163,18 +163,18 @@ def save_results(
     results_df.to_csv(pred_path, index=False)
     print(f'  [saved] predictions → {pred_path.name}')
 
-    # ── Aggregate summary ──────────────────────────────────────────────────────
-    summary_path = metrics_dir / 'results_summary.csv'
-    row          = {'run_name': run_name, **metrics}
-    row_df       = pd.DataFrame([row])
+    # ── Per-run summary ────────────────────────────────────────────────────────
+    row_df           = pd.DataFrame([{'run_name': run_name, **metrics}])
+    run_summary_path = metrics_dir / f'{run_name}_summary.csv'
+    row_df.to_csv(run_summary_path, index=False)
+    print(f'  [saved] run summary → {run_summary_path.name}')
 
-    if summary_path.exists():
-        existing = pd.read_csv(summary_path)
-        # Update row if run_name already exists, otherwise append
+    # ── Aggregate summary (all runs combined) ──────────────────────────────────
+    agg_path = metrics_dir / 'results_summary.csv'
+    if agg_path.exists():
+        existing = pd.read_csv(agg_path)
         existing = existing[existing['run_name'] != run_name]
-        summary  = pd.concat([existing, row_df], ignore_index=True)
+        pd.concat([existing, row_df], ignore_index=True).to_csv(agg_path, index=False)
     else:
-        summary = row_df
-
-    summary.to_csv(summary_path, index=False)
-    print(f'  [saved] summary     → {summary_path.name}')
+        row_df.to_csv(agg_path, index=False)
+    print(f'  [saved] agg summary → {agg_path.name}')
