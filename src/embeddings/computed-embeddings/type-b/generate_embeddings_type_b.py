@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -40,21 +41,25 @@ _HERE     = Path(__file__).resolve().parent
 _DATA_DIR = _ROOT / 'src' / 'data' / 'type-b'
 _OUT_DIR  = _HERE / 'results'
 
-# Add repo root and non-pretrained dir (hyphenated name can't be imported normally)
+# Add repo root + src/ so 'embeddings.*' and 'src.embeddings.*' both resolve.
+# non-pretrained uses a hyphen so also add it directly for bare-name imports.
 sys.path.insert(0, str(_ROOT))
+sys.path.insert(0, str(_ROOT / 'src'))
 sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'non-pretrained'))
 
 
 # ── Imports from src/embeddings/ ───────────────────────────────────────────────
 from embeddings.pretrained.sbert_embeddings import SBERTEmbedder
+from embeddings.pretrained.finetune_sbert import FinetunedSBERTEmbedder, finetune
 from embeddings.pretrained.bert_mean_embeddings import BertMeanEmbedder
 from embeddings.pretrained.bert_pooler_embeddings import BertPoolerEmbedder
 from embeddings.pretrained.tinybert_mean_embeddings import TinyBertMeanEmbedder
 from embeddings.pretrained.tinybert_pooler_embeddings import TinyBertPoolerEmbedder
-from src.embeddings.pretrained.pretrained_word2vec_embeddings import PretrainedWord2VecEmbedder
-from src.embeddings.tfidf_embeddings import TfidfEmbedder       # top-level: sparse TF-IDF weights
-from word2vec_skipgram_embeddings import SkipGramEmbedder        # non-pretrained/
-from tfidf_embeddings import TFIDFEmbedder                       # non-pretrained/: SVD-reduced
+from embeddings.pretrained.pretrained_word2vec_embeddings import PretrainedWord2VecEmbedder
+from word2vec_skipgram_embeddings import SkipGramEmbedder                        # non-pretrained/
+from tfidf_embeddings import TFIDFEmbedder                                       # non-pretrained/
+from tfidf_lsa_embeddings import TFIDFLSAEmbedder                                # non-pretrained/
+from tfidf_weighted_word2vec_embeddings import TFIDFWeightedWord2VecEmbedder     # non-pretrained/
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -76,161 +81,158 @@ def skip_if_exists(method_name: str) -> bool:
     return False
 
 
-def save_embedding(method_name: str, sentences: list[str], emb: torch.Tensor) -> None:
+def save_embedding(method_name: str, sentences: list[str], emb: torch.Tensor, elapsed: float = 0.0) -> None:
     _OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = _OUT_DIR / f'{method_name}_embedding_result_typeb.pt'
     torch.save({
         'sentences':  sentences,
         'embeddings': emb,
         'method':     method_name,
-        # 'dataset':    'b',
+        'dataset':    'b',
     }, out_path)
-    print(f'[saved]  {out_path.name}  shape={tuple(emb.shape)}')
+    print(f'[saved]  {out_path.name}  shape={tuple(emb.shape)}  time={elapsed:.1f}s')
 
 
 # ── Embedding methods ──────────────────────────────────────────────────────────
+
+def _bert_loop(embedder, sentences: list[str], label: str) -> torch.Tensor:
+    """Encode sentences one-by-one with progress reporting every 100 steps."""
+    n    = len(sentences)
+    vecs = []
+    t0   = time.time()
+    for i, s in enumerate(sentences):
+        vecs.append(embedder.get_embedding(s).squeeze(0).cpu().detach())
+        if (i + 1) % 100 == 0 or (i + 1) == n:
+            pct     = (i + 1) / n * 100
+            elapsed = time.time() - t0
+            eta     = elapsed / (i + 1) * (n - i - 1)
+            print(f'  [{label}] {i+1}/{n}  ({pct:.0f}%)  elapsed={elapsed:.0f}s  eta={eta:.0f}s', end='\r')
+    print()
+    return torch.stack(vecs)
+
 
 def compute_sbert(sentences: list[str]) -> None:
     """SBERTEmbedder — all-MiniLM-L6-v2, 384-dim."""
     if skip_if_exists('sbert'):
         return
+    t0 = time.time()
     embedder = SBERTEmbedder(model_name='all-MiniLM-L6-v2')
     emb = torch.tensor(embedder.fit_transform(sentences))
-    save_embedding('sbert', sentences, emb)
+    save_embedding('sbert', sentences, emb, elapsed=time.time() - t0)
+
+
+def compute_sbert_finetuned(sentences: list[str]) -> None:
+    """FinetunedSBERTEmbedder — all-MiniLM-L6-v2 fine-tuned on Type-B sentence pairs, 384-dim."""
+    if skip_if_exists('sbert_finetuned'):
+        return
+    t0 = time.time()
+    finetune(dataset='b')           # no-op if model already saved
+    embedder = FinetunedSBERTEmbedder(dataset='b')
+    emb = torch.tensor(embedder.fit_transform(sentences))
+    save_embedding('sbert_finetuned', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_bert_mean(sentences: list[str]) -> None:
     """BertMeanEmbedder — bert-base-uncased, mean pooling, 768-dim."""
     if skip_if_exists('bert_mean'):
         return
+    t0 = time.time()
     embedder = BertMeanEmbedder()
-    vecs = []
-    for i, s in enumerate(sentences):
-        vecs.append(embedder.get_embedding(s).squeeze(0))
-        if (i + 1) % 500 == 0:
-            print(f'  {i + 1}/{len(sentences)}', end='\r')
-    print()
-    save_embedding('bert_mean', sentences, torch.stack(vecs))
+    emb = _bert_loop(embedder, sentences, 'bert_mean')
+    save_embedding('bert_mean', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_bert_pooler(sentences: list[str]) -> None:
     """BertPoolerEmbedder — bert-base-uncased, pooler output, 768-dim."""
     if skip_if_exists('bert_pooler'):
         return
+    t0 = time.time()
     embedder = BertPoolerEmbedder()
-    vecs = []
-    for i, s in enumerate(sentences):
-        vecs.append(embedder.get_embedding(s).squeeze(0))
-        if (i + 1) % 500 == 0:
-            print(f'  {i + 1}/{len(sentences)}', end='\r')
-    print()
-    save_embedding('bert_pooler', sentences, torch.stack(vecs))
+    emb = _bert_loop(embedder, sentences, 'bert_pooler')
+    save_embedding('bert_pooler', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_tinybert_mean(sentences: list[str]) -> None:
     """TinyBertMeanEmbedder — TinyBERT_General_4L_312D, mean pooling, 312-dim."""
     if skip_if_exists('tinybert_mean'):
         return
+    t0 = time.time()
     embedder = TinyBertMeanEmbedder()
-    vecs = []
-    for i, s in enumerate(sentences):
-        vecs.append(embedder.get_embedding(s).squeeze(0))
-        if (i + 1) % 500 == 0:
-            print(f'  {i + 1}/{len(sentences)}', end='\r')
-    print()
-    save_embedding('tinybert_mean', sentences, torch.stack(vecs))
+    emb = _bert_loop(embedder, sentences, 'tinybert_mean')
+    save_embedding('tinybert_mean', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_tinybert_pooler(sentences: list[str]) -> None:
     """TinyBertPoolerEmbedder — TinyBERT_General_4L_312D, pooler output, 312-dim."""
     if skip_if_exists('tinybert_pooler'):
         return
+    t0 = time.time()
     embedder = TinyBertPoolerEmbedder()
-    vecs = []
-    for i, s in enumerate(sentences):
-        vecs.append(embedder.get_embedding(s).squeeze(0))
-        if (i + 1) % 500 == 0:
-            print(f'  {i + 1}/{len(sentences)}', end='\r')
-    print()
-    save_embedding('tinybert_pooler', sentences, torch.stack(vecs))
+    emb = _bert_loop(embedder, sentences, 'tinybert_pooler')
+    save_embedding('tinybert_pooler', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_word2vec_skipgram(sentences: list[str]) -> None:
     """SkipGramEmbedder — trained from scratch on type-b corpus, 100-dim."""
     if skip_if_exists('word2vec_skipgram'):
         return
+    t0 = time.time()
     embedder = SkipGramEmbedder(vector_size=100)
     emb = torch.tensor(embedder.fit_transform(sentences))
-    save_embedding('word2vec_skipgram', sentences, emb)
+    save_embedding('word2vec_skipgram', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_word2vec_pretrained(sentences: list[str]) -> None:
     """PretrainedWord2VecEmbedder — Google News 300-dim."""
     if skip_if_exists('word2vec_pretrained'):
         return
+    t0 = time.time()
     embedder = PretrainedWord2VecEmbedder(lowercase=True)
     embedder.oov_rate(sentences)
     emb = torch.tensor(embedder.fit_transform(sentences))
-    save_embedding('word2vec_pretrained', sentences, emb)
+    save_embedding('word2vec_pretrained', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_tfidf(sentences: list[str]) -> None:
-    """TFIDFEmbedder (non-pretrained) — TF-IDF sparse → SVD → 100-dim."""
+    """TFIDFEmbedder (non-pretrained) — TF-IDF sparse → 100-dim."""
     if skip_if_exists('tfidf'):
         return
+    t0 = time.time()
     embedder = TFIDFEmbedder(vector_size=100)
     emb = torch.tensor(embedder.fit_transform(sentences))
-    save_embedding('tfidf', sentences, emb)
+    save_embedding('tfidf', sentences, emb, elapsed=time.time() - t0)
 
 
 def compute_tfidf_w2v(sentences: list[str]) -> None:
-    """TfidfEmbedder (weights) × SkipGramEmbedder (vectors) — weighted mean, 100-dim.
-
-    TfidfEmbedder provides per-token TF-IDF scores.
-    SkipGramEmbedder provides Word2Vec vectors.
-    Sentence vector = weighted average of token vectors.
-    """
+    """TFIDFWeightedWord2VecEmbedder — TF-IDF weighted Word2Vec (skip-gram), 100-dim."""
     if skip_if_exists('tfidf_w2v'):
         return
+    t0 = time.time()
+    embedder = TFIDFWeightedWord2VecEmbedder(vector_size=100)
+    emb = torch.tensor(embedder.fit_transform(sentences))
+    save_embedding('tfidf_w2v', sentences, emb, elapsed=time.time() - t0)
 
-    # TF-IDF weights (top-level TfidfEmbedder — uses sklearn TfidfVectorizer internally)
-    tfidf_embedder = TfidfEmbedder()
-    tfidf_embedder.fit(sentences)
-    vocab_to_idx = {w: i for i, w in enumerate(tfidf_embedder.vectorizer.get_feature_names_out())}
-    tfidf_matrix = tfidf_embedder.vectorizer.transform(sentences)   # sparse (N, vocab)
 
-    # Word2Vec vectors (SkipGramEmbedder)
-    w2v = SkipGramEmbedder(vector_size=100)
-    w2v.fit(sentences)
-
-    vecs = []
-    for i, s in enumerate(sentences):
-        tokens     = s.lower().split()
-        token_vecs = []
-        weights    = []
-        for t in tokens:
-            if t in w2v.model.wv and t in vocab_to_idx:
-                token_vecs.append(w2v.model.wv[t])
-                weights.append(tfidf_matrix[i, vocab_to_idx[t]])
-        if token_vecs and sum(weights) > 0:
-            vecs.append(np.average(token_vecs, axis=0, weights=weights))
-        elif token_vecs:
-            vecs.append(np.mean(token_vecs, axis=0))
-        else:
-            vecs.append(np.zeros(w2v.vector_size))
-
-    emb = torch.tensor(np.array(vecs), dtype=torch.float32)
-    save_embedding('tfidf_w2v', sentences, emb)
+def compute_tfidf_lsa(sentences: list[str]) -> None:
+    """TFIDFLSAEmbedder — full vocab TF-IDF + TruncatedSVD (LSA), 100-dim.
+    Handles digit-token corpora (e.g. '342 small red') without vocabulary truncation.
+    """
+    if skip_if_exists('tfidf_lsa'):
+        return
+    t0 = time.time()
+    embedder = TFIDFLSAEmbedder(n_components=100)
+    emb = torch.tensor(embedder.fit_transform(sentences))
+    save_embedding('tfidf_lsa', sentences, emb, elapsed=time.time() - t0)
 
 
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 ALL_METHODS = [
-    'sbert',
+    'sbert', 'sbert_finetuned',
     'bert_mean', 'bert_pooler',
     'tinybert_mean', 'tinybert_pooler',
     'word2vec_skipgram', 'word2vec_pretrained',
-    'tfidf', 'tfidf_w2v',
+    'tfidf', 'tfidf_lsa', 'tfidf_w2v',
 ]
 
 def main() -> None:
@@ -244,6 +246,7 @@ def main() -> None:
 
     dispatch = {
         'sbert':               lambda: compute_sbert(sentences),
+        'sbert_finetuned':     lambda: compute_sbert_finetuned(sentences),
         'bert_mean':           lambda: compute_bert_mean(sentences),
         'bert_pooler':         lambda: compute_bert_pooler(sentences),
         'tinybert_mean':       lambda: compute_tinybert_mean(sentences),
@@ -251,6 +254,7 @@ def main() -> None:
         'word2vec_skipgram':   lambda: compute_word2vec_skipgram(sentences),
         'word2vec_pretrained': lambda: compute_word2vec_pretrained(sentences),
         'tfidf':               lambda: compute_tfidf(sentences),
+        'tfidf_lsa':           lambda: compute_tfidf_lsa(sentences),
         'tfidf_w2v':           lambda: compute_tfidf_w2v(sentences),
     }
 

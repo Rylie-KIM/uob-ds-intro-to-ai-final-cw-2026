@@ -18,7 +18,11 @@ results/embeddings/computed-embeddings/type-a/results
 results/embeddings/computed-embeddings/type-c/results
 !results/embeddings/computed-embeddings/type-c/results/examples
 
-results/checkpoints/
+src/pipelines/results/checkpoints/type-a
+src/pipelines/results/checkpoints/type-b
+src/pipelines/results/checkpoints/type-c
+!src/pipelines/results/checkpoints/
+
 
 __pycache__/
 .DS_Store
