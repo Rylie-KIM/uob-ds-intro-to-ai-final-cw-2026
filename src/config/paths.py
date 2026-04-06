@@ -30,8 +30,8 @@ EMBED_RESULTS_A = ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a'
 EMBED_RESULTS_C = ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-c' / 'results'
 
 # ── Training outputs ──────────────────────────────────────────────────────────
-CHECKPOINTS_B = ROOT / 'src' / 'pipelines' / 'results' / 'checkpoints'
-METRICS_B     = ROOT / 'src' / 'pipelines' / 'results' / 'metrics'
+CHECKPOINTS_B = ROOT / 'src' / 'pipelines' / 'results' / 'checkpoints' / 'type-b'
+METRICS_B     = ROOT / 'src' / 'pipelines' / 'results' / 'metrics'     / 'type-b'
 
 # ── Fine-tuned SBERT checkpoints ─────────────────────────────────────────────
 SBERT_CKPT_B = ROOT / 'results' / 'checkpoints' / 'sbert_finetuned_typeb'
@@ -40,7 +40,7 @@ SBERT_CKPT_C = ROOT / 'results' / 'checkpoints' / 'sbert_finetuned_typec'
 
 # ── Results / figures ─────────────────────────────────────────────────────────
 RESULTS_DIR = ROOT / 'results'
-FIGURES_DIR = ROOT / 'src' / 'pipelines' / 'results' / 'figures'
+FIGURES_DIR = ROOT / 'src' / 'pipelines' / 'results' / 'figures' / 'type-b'
 
 # ── Config directory ──────────────────────────────────────────────────────────
 CONFIG_DIR = ROOT / 'src' / 'config'
