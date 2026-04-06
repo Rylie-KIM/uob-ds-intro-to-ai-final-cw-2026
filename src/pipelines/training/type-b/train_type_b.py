@@ -158,14 +158,20 @@ def run_experiment(
         seed=SEED,
     )
 
-    num_workers = 4 if device == 'cuda' else 0   # CUDA: parallel loading; MPS/CPU: no workers (pickle issue)
-    pin = (device == 'cuda')                     # pin_memory speeds up CPU→GPU transfer
+    # CUDA: use spawn context to avoid "Cannot re-initialize CUDA in forked subprocess"
+    # MPS/CPU: num_workers=0 (importlib-loaded Dataset not picklable across fork)
+    num_workers = 2 if device == 'cuda' else 0
+    mp_ctx      = 'spawn' if device == 'cuda' else None
+    pin         = (device == 'cuda')
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True,
-                              num_workers=num_workers, pin_memory=pin)
+                              num_workers=num_workers, pin_memory=pin,
+                              multiprocessing_context=mp_ctx)
     val_loader   = DataLoader(val_set,   batch_size=BATCH_SIZE, shuffle=False,
-                              num_workers=num_workers)
+                              num_workers=num_workers,
+                              multiprocessing_context=mp_ctx)
     test_loader  = DataLoader(test_set,  batch_size=BATCH_SIZE, shuffle=False,
-                              num_workers=num_workers)
+                              num_workers=num_workers,
+                              multiprocessing_context=mp_ctx)
 
     # Full corpus for retrieval evaluation (all sentences + embeddings)
     full_dataset   = train_set.dataset
