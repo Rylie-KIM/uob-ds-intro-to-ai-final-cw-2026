@@ -81,6 +81,36 @@ def skip_if_exists(method_name: str) -> bool:
     return False
 
 
+def _inspect(method_name: str, sentences: list[str], emb: torch.Tensor) -> None:
+    """Print sanity checks immediately after an embedding is computed."""
+    arr = emb.numpy() if isinstance(emb, torch.Tensor) else emb
+    n_nan      = int(np.isnan(arr).sum())
+    n_inf      = int(np.isinf(arr).sum())
+    zero_rows  = int((arr == 0).all(axis=1).sum())
+    norms      = np.linalg.norm(arr, axis=1)
+    n_unique_s = len(set(sentences))
+
+    # same sentence → same vector check (sample first 1000 for speed)
+    seen: dict[str, int] = {}
+    mismatch = 0
+    for idx, s in enumerate(sentences[:1000]):
+        if s in seen:
+            if not np.allclose(arr[seen[s]], arr[idx], atol=1e-5):
+                mismatch += 1
+        else:
+            seen[s] = idx
+
+    warn = lambda v, label: f'{v}  ⚠ WARNING' if v > 0 else f'{v}  OK'
+    print(f'  [inspect] NaN={warn(n_nan, "nan")}  |  Inf={warn(n_inf, "inf")}  |  zero-rows={warn(zero_rows, "zero")}  |  consistency-mismatches={warn(mismatch, "mismatch")}')
+    print(f'  [inspect] unique_sentences={n_unique_s}/{len(sentences)}'
+          f'  |  norm mean={norms.mean():.3f}  std={norms.std():.3f}'
+          f'  |  val mean={arr.mean():.4f}  std={arr.std():.4f}')
+    # 3 sample sentences
+    for i in [0, len(sentences)//2, len(sentences)-1]:
+        preview = ' '.join(f'{v:.3f}' for v in arr[i, :5])
+        print(f'  [inspect] [{i:5d}] "{sentences[i]}"  →  [{preview} ...]')
+
+
 def save_embedding(method_name: str, sentences: list[str], emb: torch.Tensor, elapsed: float = 0.0) -> None:
     _OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = _OUT_DIR / f'{method_name}_embedding_result_typeb.pt'
@@ -91,6 +121,7 @@ def save_embedding(method_name: str, sentences: list[str], emb: torch.Tensor, el
         'dataset':    'b',
     }, out_path)
     print(f'[saved]  {out_path.name}  shape={tuple(emb.shape)}  time={elapsed:.1f}s')
+    _inspect(method_name, sentences, emb)
 
 
 # ── Embedding methods ──────────────────────────────────────────────────────────

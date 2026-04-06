@@ -95,7 +95,7 @@ BATCH_SIZE   = 64
 EPOCHS       = 30
 LR           = 1e-4
 WEIGHT_DECAY = 1e-4
-NUM_WORKERS  = 2
+NUM_WORKERS  = 0   # 0 required on MPS/CPU — importlib-loaded Dataset can't be pickled by workers
 SEED         = 42
 
 # AlexNet uses a lower LR due to its larger parameter count (~20M vs ~1.2M)
@@ -210,7 +210,7 @@ def run_experiment(
         elapsed = time.time() - t0
         current_lr = optimizer.param_groups[0]['lr']
 
-        epoch_log.append({'epoch': epoch, 'train_loss': train_loss, 'val_loss': val_loss, 'lr': current_lr})
+        epoch_log.append({'epoch': epoch, 'train_loss': train_loss, 'val_loss': val_loss, 'lr': current_lr, 'epoch_time_s': round(elapsed, 2)})
 
         print(f'  Epoch {epoch:03d}/{epochs}  train={train_loss:.6f}  val={val_loss:.6f}'
               f'  lr={current_lr:.2e}  {elapsed:.1f}s', end='')
@@ -271,6 +271,8 @@ def run_experiment(
     print(f'  mean cosine sim  : {metrics["mean_cosine_sim"]:.4f}')
     print(f'  mean rank        : {metrics["mean_rank"]:.1f}')
 
+    metrics['total_train_time_s'] = round(total_train_time, 1)
+    metrics['best_epoch']         = best_epoch
     save_results(metrics, results_df, METRICS_B, run_name)
 
 
