@@ -32,7 +32,7 @@ def _copy_drive_results_to_repo(repo: Path) -> list[str]:
     into the real repo tree.  Returns a list of repo-relative paths added.
     """
     added: list[str] = []
-    for sub in ['figures', 'metrics']:
+    for sub in ['figures/type-b', 'metrics/type-b']:
         link = repo / 'src' / 'pipelines' / 'results' / sub
         real = link.resolve()          # Drive path if symlink, same path otherwise
 
