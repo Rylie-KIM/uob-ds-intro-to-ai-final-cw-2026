@@ -40,6 +40,10 @@ elif MODE == 'colab':
     else:
         print('Repo exists. Pulling latest...')
         subprocess.run(['git', '-C', REPO_DIR, 'pull'], check=True)
+        commit = subprocess.check_output(
+            ['git', '-C', REPO_DIR, 'rev-parse', '--short', 'HEAD']
+        ).decode().strip()
+        print(f'  HEAD: {commit}')
 
     # ── Copy images to Colab local disk (file-by-file, resume-safe) ───────────
     LOCAL_IMG_BASE = Path('/content/images')
