@@ -53,7 +53,7 @@ from src.models.alexnet    import AlexNet128
 from src.models.CNN        import CNN
 from src.models.cnn_1layer import CNN1Layer
 from src.models.cnn_2layer import CNN2Layer
-from src.evaluation.evaluate import evaluate, save_results
+from pipelines.evaluation.evaluate import evaluate, save_results
 from src.pipelines.shared   import train_one_epoch, run_validation, set_seed, CombinedLoss
 from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
 

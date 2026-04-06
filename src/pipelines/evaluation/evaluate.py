@@ -1,5 +1,5 @@
 """
-src/evaluation/evaluate.py
+src/pipelines/evaluation/evaluate.py
 Retrieval-based evaluation utilities for image-to-sentence experiments.
 
 Evaluation protocol

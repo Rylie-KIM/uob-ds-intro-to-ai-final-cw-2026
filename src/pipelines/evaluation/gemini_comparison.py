@@ -1,5 +1,5 @@
 """
-src/evaluation/gemini_comparison.py
+src/pipelines/evaluation/gemini_comparison.py
 Compare CNN retrieval performance against the Gemini Vision API (commercial LLM baseline).
 
 Protocol
@@ -9,7 +9,7 @@ Protocol
 3. Map Gemini's free-text response to the nearest sentence in the corpus
    using cosine similarity of SBERT embeddings.
 4. Compute the same retrieval metrics as evaluate.py (top-1 acc, cosine sim, etc.).
-5. Save results to src/training/type-b/results/metrics/gemini_predictions.csv
+5. Save results to src/pipelines/results/metrics/gemini_predictions.csv
    and append a row to results_summary.csv for direct comparison with CNN runs.
 
 Requirements
@@ -19,8 +19,8 @@ Requirements
 
 Usage
 -----
-  python src/evaluation/gemini_comparison.py
-  python src/evaluation/gemini_comparison.py --embedding sbert --max-samples 100
+  python src/pipelines/evaluation/gemini_comparison.py
+  python src/pipelines/evaluation/gemini_comparison.py --embedding sbert --max-samples 100
 """
 
 from __future__ import annotations
@@ -47,7 +47,7 @@ from src.config.paths import (
     TYPE_B_IMAGES,
     TYPE_B_SPLITS,
 )
-from src.evaluation.evaluate import save_results
+from src.pipelines.evaluation.evaluate import save_results
 
 # ── Prompt ─────────────────────────────────────────────────────────────────────
 # Structured prompt that matches the Type-B sentence format exactly.
