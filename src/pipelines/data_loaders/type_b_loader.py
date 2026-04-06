@@ -91,7 +91,7 @@ class TypeBDataset(Dataset):
         img_path, sentence, emb = self.records[idx]
         img = Image.open(img_path).convert('RGB')
         img = self.transform(img)
-        return img, sentence, emb
+        return img, sentence, emb.cpu()  # ensure CPU for pin_memory compatibility
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -139,7 +139,7 @@ def make_splits(
     # ── Load embedding cache ───────────────────────────────────────────────────
     cache = torch.load(embedding_cache, map_location='cpu')
     emb_sentences: list[str]    = cache['sentences']
-    emb_matrix:    torch.Tensor = cache['embeddings'].float()
+    emb_matrix:    torch.Tensor = cache['embeddings'].float().cpu()  # always keep on CPU; move to device in training loop
 
     sentence_to_emb: dict[str, torch.Tensor] = {
         s: emb_matrix[i] for i, s in enumerate(emb_sentences)
