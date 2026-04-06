@@ -158,7 +158,7 @@ def run_experiment(
         seed=SEED,
     )
 
-    pin = device == 'cuda'
+    pin = (device == 'cuda') and (NUM_WORKERS > 0)  # pin_memory only useful with workers > 0
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True,
                               num_workers=NUM_WORKERS, pin_memory=pin)
     val_loader   = DataLoader(val_set,   batch_size=BATCH_SIZE, shuffle=False,
