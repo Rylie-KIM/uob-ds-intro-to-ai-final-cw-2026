@@ -1,0 +1,111 @@
+{
+  "_comment": "Sentence embedding configuration. See docs/config/embedding_dim_rationale.md for mathematical justification of dimension choices.",
+
+  "pretrained_fixed_dim": {
+    "_description": "Embedding methods whose output dimension is fixed by the pre-trained model architecture and cannot be changed without retraining.",
+    "sbert": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dim": 384,
+      "type": "sentence-transformer",
+      "pooling": "mean",
+      "normalised": false,
+      "hf_link": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "rationale": "Trained on NLI + STS pairs with cosine similarity objective. 384-dim balances expressiveness and inference speed. Strong baseline for semantic retrieval tasks."
+    },
+    "sbert_finetuned": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2 (fine-tuned on dataset-specific sentence pairs)",
+      "dim": 384,
+      "type": "sentence-transformer",
+      "pooling": "mean",
+      "normalised": false,
+      "finetune_script": "src/embeddings/pretrained/fine-tune/finetune_sbert.py",
+      "finetune_loss": "CosineSimilarityLoss with Jaccard-overlap labels",
+      "rationale": "Fine-tuning adapts the general SBERT model to the specific vocabulary of each dataset type (e.g. 'large red 1' patterns for Type-B). Hypothesis: will outperform frozen SBERT on in-domain retrieval."
+    },
+    "bert_mean": {
+      "model": "bert-base-uncased",
+      "dim": 768,
+      "type": "transformer",
+      "pooling": "mean over token embeddings",
+      "hf_link": "https://huggingface.co/bert-base-uncased",
+      "rationale": "Full BERT model; mean pooling aggregates all token representations. Higher dim (768) provides more expressive target space but harder for CNN to regress to."
+    },
+    "bert_pooler": {
+      "model": "bert-base-uncased",
+      "dim": 768,
+      "type": "transformer",
+      "pooling": "[CLS] token pooler output",
+      "hf_link": "https://huggingface.co/bert-base-uncased",
+      "rationale": "Pooler output is a dense projection of the [CLS] token, originally trained for sentence-level classification. Comparison with bert_mean isolates the effect of pooling strategy."
+    },
+    "tinybert_mean": {
+      "model": "huawei-noah/TinyBERT_General_4L_312D",
+      "dim": 312,
+      "type": "transformer",
+      "pooling": "mean over token embeddings",
+      "hf_link": "https://huggingface.co/huawei-noah/TinyBERT_General_4L_312D",
+      "rationale": "4-layer distilled BERT. 312-dim is intermediate between TF-IDF (100) and BERT (768). Tests whether knowledge-distilled models retain enough semantic structure for this task."
+    },
+    "tinybert_pooler": {
+      "model": "huawei-noah/TinyBERT_General_4L_312D",
+      "dim": 312,
+      "type": "transformer",
+      "pooling": "[CLS] token pooler output",
+      "hf_link": "https://huggingface.co/huawei-noah/TinyBERT_General_4L_312D",
+      "rationale": "Compares pooler vs mean pooling for TinyBERT, mirroring the bert_mean vs bert_pooler comparison."
+    },
+    "word2vec_pretrained": {
+      "model": "word2vec-google-news-300",
+      "dim": 300,
+      "type": "word2vec",
+      "pooling": "mean over word vectors",
+      "rationale": "3M-word Google News vocabulary. 300-dim vectors trained on large news corpus. Type-B numbers may be OOV; lowercase=True to match vocabulary. Mean pooling ignores word order (bag-of-words)."
+    }
+  },
+
+  "configurable_dim": {
+    "_description": "Embedding methods where the output dimension is a free hyperparameter we choose. Choices are justified below.",
+    "word2vec_skipgram": {
+      "chosen_dim": 100,
+      "options": [50, 100, 200, 300],
+      "script": "src/embeddings/non-pretrained/word2vec_skipgram_embeddings.py",
+      "window": 3,
+      "min_count": 1,
+      "epochs": 10,
+      "seed": 42,
+      "rationale": "Type-B vocabulary: 2 sizes + 4 colours + ~1251 number tokens = ~1257 unique tokens. With N=10,008 sentences, the effective corpus is small. Johnson-Lindenstrauss lemma gives minimum dim ~ O(log N) ~ 14; dim=100 provides 7x headroom while avoiding overfitting sparse co-occurrence statistics. dim>100 risks over-parameterisation given the limited corpus size."
+    },
+    "tfidf": {
+      "chosen_dim": 100,
+      "options": [50, 100, 200],
+      "script": "src/embeddings/non-pretrained/tfidf_embeddings.py",
+      "max_features": 100,
+      "rationale": "Type-B sentences use at most 3 tokens each ('large red 12'). Total unique tokens ~1257. TF-IDF with max_features=100 keeps the 100 highest-IDF tokens, covering all colour/size words plus the most distinctive numbers. Higher dim adds near-zero columns for low-IDF tokens, adding noise. No SVD compression applied since dim=100 < vocab_size, making sparse→dense straightforward."
+    },
+    "tfidf_w2v": {
+      "chosen_dim": 100,
+      "script": "src/embeddings/non-pretrained/tfidf_weighted_word2vec_embeddings.py",
+      "rationale": "Dimension is set equal to word2vec_skipgram dim=100 to enable fair comparison between plain W2V mean-pool and TF-IDF-weighted W2V. The weighting re-weights tokens by their corpus-level discriminative power rather than uniform averaging."
+    },
+    "glove": {
+      "chosen_dim": 100,
+      "chosen_model": "glove-wiki-gigaword-100",
+      "options": [
+        {"dim": 50,  "model": "glove-wiki-gigaword-50"},
+        {"dim": 100, "model": "glove-wiki-gigaword-100"},
+        {"dim": 200, "model": "glove-wiki-gigaword-200"},
+        {"dim": 300, "model": "glove-wiki-gigaword-300"}
+      ],
+      "script": "src/embeddings/pretrained/glove_embeddings.py",
+      "rationale": "GloVe Wikipedia+Gigaword. Numeric tokens (e.g. '1234') are likely OOV. dim=100 is chosen to match word2vec_skipgram and tfidf for fair non-pretrained comparison, while being smaller than pretrained Word2Vec (300) to reflect the shallower Wikipedia coverage of number words."
+    }
+  },
+
+  "all_methods_ordered": [
+    "sbert", "sbert_finetuned",
+    "bert_mean", "bert_pooler",
+    "tinybert_mean", "tinybert_pooler",
+    "word2vec_pretrained", "word2vec_skipgram",
+    "glove", "tfidf", "tfidf_w2v"
+  ]
+}

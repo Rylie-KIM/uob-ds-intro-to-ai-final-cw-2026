@@ -1,0 +1,121 @@
+{
+  "_comment": "Training hyperparameters: batch size, epochs, data split, reproducibility. See docs/config/training_rationale.md for mathematical justification.",
+
+  "type_b": {
+    "_description": "Coloured MNIST numbers. Total samples: 10,008 (1 image per unique sentence).",
+
+    "batch_size": 64,
+    "epochs": 30,
+    "seed": 42,
+    "num_workers": 2,
+    "pin_memory": true,
+
+    "early_stopping": {
+      "enabled": true,
+      "monitor": "val_loss",
+      "patience": 7,
+      "min_delta": 1e-5,
+      "rationale": "Stop if val_loss does not improve by more than 1e-5 for 7 consecutive epochs. Prevents overfitting in later epochs while allowing the LR scheduler to attempt recovery first (scheduler patience=5)."
+    },
+
+    "data_split": {
+      "strategy": "stratified_by_n_digits",
+      "train_ratio": 0.80,
+      "val_ratio":   0.10,
+      "test_ratio":  0.10,
+      "total_samples": 10008,
+      "train_samples": 8006,
+      "val_samples":   1001,
+      "test_samples":  1001,
+      "grouping_split": false,
+      "rationale": {
+        "80_10_10": "80/10/10 maximises training data (8,006 samples) while keeping test set large enough for reliable retrieval evaluation. With N_test=1,001, the 95% CI on Recall@1 is ±1/sqrt(1001) ≈ ±3.2%p — acceptable precision. A 70/15/15 split would give only 7,006 training samples, which is 12% less data for the same evaluation precision.",
+        "stratified_by_n_digits": "Type-B has 6 digit-length groups with strongly unequal sizes: 1-digit=72 samples (0.7%), 2-digit=720 (7.2%), 3-6-digit=2304 each (23% each). Without stratification, a random 10% test could contain 0 or very few 1-digit samples, making error analysis across digit lengths unreliable. Stratification guarantees each digit length is proportionally represented in every split.",
+        "grouping_split_false": "A number-identity-based grouping split (where the same number, e.g. '42', cannot appear in both train and test) is NOT used here. Rationale: (1) The task is retrieval from the full corpus, not generation. The CNN embeds a test image and looks up the nearest sentence in the entire corpus, including training sentences. Grouping by number would create a mismatch between test and retrieval pool. (2) Each (size, colour, number) combination is unique — there is no label leakage even with random split. (3) The 8 variants of each number (2 sizes × 4 colours) provide independent training signal for colour and size, not number identity alone.",
+        "split_saved_to_csv": "Split indices saved to src/data/type-b/splits/type_b_splits_seed42.csv. This guarantees identical train/val/test sets across all model x embedding runs, enabling fair comparison."
+      }
+    },
+
+    "image_transforms": {
+      "train": [
+        "torchvision.transforms.Resize((128, 128))",
+        "torchvision.transforms.ToTensor()",
+        "torchvision.transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])"
+      ],
+      "val_and_test": [
+        "torchvision.transforms.Resize((128, 128))",
+        "torchvision.transforms.ToTensor()",
+        "torchvision.transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])"
+      ],
+      "augmentation": false,
+      "augmentation_rationale": "No augmentation applied. Type-B images are synthetically generated with fixed colour and size attributes. Colour jitter or flips would alter or destroy the label (e.g. flipping 'large red 5' horizontally changes digit appearance). The controlled generation process makes augmentation unnecessary and potentially harmful."
+    },
+
+    "image_embedding_mapping": {
+      "description": "Each image has a 1:1 mapping to a unique sentence. The mapping chain is: image filename -> sentence_id -> sentence string -> pre-computed embedding vector.",
+      "step_1": "Load image_map_b.csv: columns [filename, sentence_id]",
+      "step_2": "Load sentences_b.csv: columns [sentence_id, sentence, n_digits]",
+      "step_3": "Merge on sentence_id to get (filename, sentence, n_digits) for each image",
+      "step_4": "Load embedding .pt file: dict with keys 'sentences' (list[str]) and 'embeddings' (Tensor[N, dim])",
+      "step_5": "Build sentence->embedding lookup dict: {sentence: embedding_vector}",
+      "step_6": "For each record: image_path = TYPE_B_IMAGES / filename; embedding = lookup[sentence]",
+      "uniqueness": "All 10,008 (filename, sentence) pairs are unique. No sentence appears in more than one image."
+    },
+
+    "checkpoint_format": {
+      "fields": [
+        "epoch", "model_state", "optimizer_state",
+        "val_loss", "embedding_dim", "embedding_name",
+        "model_name", "dataset",
+        "train_size", "val_size", "test_size", "seed"
+      ],
+      "save_condition": "best val_loss",
+      "filename_pattern": "b_{model_name}_{embedding_name}_best.pt"
+    },
+
+    "history_logging": {
+      "per_epoch_csv": "b_{model_name}_{embedding_name}_epoch_log.csv",
+      "columns": ["epoch", "train_loss", "val_loss"],
+      "use_for": "Loss curve plots, convergence analysis, early stopping inspection"
+    },
+
+    "reproducibility": {
+      "python_random_seed": 42,
+      "numpy_seed": 42,
+      "torch_seed": 42,
+      "cuda_seed": 42,
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false
+    },
+
+    "rationale": {
+      "batch_size_64": "SGD gradient variance: sigma^2_grad = sigma^2_sample / B. B=64 gives a noise level that regularises without destabilising. Memory footprint: 64 x 3 x 128 x 128 x 4 bytes = 12.6 MB per batch — well within GPU limits. B=32 doubles noise (excessive for regression); B=128 reduces beneficial stochasticity.",
+      "epochs_30": "8,006 train samples / 64 batch_size = 125 steps/epoch. 30 epochs = 3,750 gradient updates. Empirical studies on MNIST-scale regression tasks show convergence in 2,000–5,000 updates. Early stopping with patience=7 provides a safety net if convergence is faster or slower.",
+      "seed_42": "Fixed seed for all random sources ensures reproducibility across runs and machines. Split CSV persistence guarantees the same data partition regardless of library version differences in random generators."
+    }
+  },
+
+  "type_a": {
+    "batch_size": 64,
+    "epochs": 30,
+    "seed": 42,
+    "data_split": {
+      "strategy": "random",
+      "train_ratio": 0.80,
+      "val_ratio":   0.10,
+      "test_ratio":  0.10
+    }
+  },
+
+  "type_c": {
+    "batch_size": 64,
+    "epochs": 30,
+    "seed": 42,
+    "data_split": {
+      "strategy": "random",
+      "train_ratio": 0.80,
+      "val_ratio":   0.10,
+      "test_ratio":  0.10
+    }
+  }
+}

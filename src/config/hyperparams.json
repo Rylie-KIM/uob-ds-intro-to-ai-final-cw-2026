@@ -1,0 +1,63 @@
+{
+  "_comment": "Hyperparameter configuration per dataset type and model. See docs/config/hyperparams_rationale.md for mathematical justification.",
+
+  "type_b": {
+    "_description": "Coloured MNIST numbers. N=10,008. Regression task: image -> sentence embedding vector.",
+    "optimizer": "Adam",
+    "lr": 1e-4,
+    "weight_decay": 1e-4,
+    "lr_scheduler": {
+      "type": "ReduceLROnPlateau",
+      "mode": "min",
+      "factor": 0.5,
+      "patience": 5,
+      "min_lr": 1e-6,
+      "rationale": "Halve LR when val_loss plateaus for 5 epochs. Allows fine-grained convergence without manual tuning."
+    },
+    "gradient_clip_norm": null,
+    "dropout": 0.5,
+    "model_overrides": {
+      "alexnet128": {
+        "lr": 5e-5,
+        "weight_decay": 5e-4,
+        "rationale": "AlexNet128 has ~20M params vs ~1.2M for custom CNNs. Lower LR and stronger WD prevent overfitting on the small Type-B dataset."
+      }
+    },
+    "rationale": {
+      "optimizer": "Adam combines adaptive per-parameter LR (RMSProp) with momentum (SGD). Well-suited for regression tasks with non-uniform gradient magnitudes across embedding dimensions.",
+      "lr_1e4": "1e-3 causes divergence in MSE regression with high-dim targets (dim=768). 1e-4 is empirically stable for visual regression with Adam. See rationale doc for convergence analysis.",
+      "weight_decay_1e4": "L2 penalty on FC layers prevents overfitting given N_train=8006. Equivalent to a Gaussian prior over weights with sigma=1/sqrt(lambda)=100.",
+      "dropout_0_5": "50% dropout on FC head provides an ensemble regularisation effect. Not applied to conv layers (already regularised by BatchNorm)."
+    }
+  },
+
+  "type_a": {
+    "_description": "Coloured geometric shapes with spatial relationships.",
+    "optimizer": "Adam",
+    "lr": 3e-4,
+    "weight_decay": 1e-4,
+    "lr_scheduler": {
+      "type": "ReduceLROnPlateau",
+      "factor": 0.5,
+      "patience": 5,
+      "min_lr": 1e-6
+    },
+    "dropout": 0.5,
+    "rationale": "Slightly higher LR than Type-B as Type-A sentences have richer vocabulary (colours, shapes, spatial words), requiring faster initial learning of more diverse features."
+  },
+
+  "type_c": {
+    "_description": "Tic-tac-toe boards.",
+    "optimizer": "Adam",
+    "lr": 1e-4,
+    "weight_decay": 1e-4,
+    "lr_scheduler": {
+      "type": "ReduceLROnPlateau",
+      "factor": 0.5,
+      "patience": 5,
+      "min_lr": 1e-6
+    },
+    "dropout": 0.5,
+    "rationale": "Same settings as Type-B. Type-C images are structured and simple; standard hyperparameters suffice."
+  }
+}

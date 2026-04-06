@@ -1,0 +1,101 @@
+{
+  "_comment": "CNN layer-by-layer configuration per dataset type. See docs/config/cnn_layers_rationale.md for full mathematical justification.",
+
+  "type_b": {
+    "_description": "Coloured MNIST numbers on plain backgrounds. Key visual features: digit shape (MNIST strokes), foreground colour (RGB), digit length (1–6 digits), size (large/small). 128x128 RGB input.",
+    "recommended_model": "cnn_3layer",
+    "models": {
+      "cnn_1layer": {
+        "input": [3, 128, 128],
+        "conv_blocks": [
+          {"block": 1, "in_ch": 3, "out_ch": 64, "kernel": 3, "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(2,2)",
+           "spatial_out": [64, 64], "receptive_field_px": 3}
+        ],
+        "adaptive_pool": [6, 6],
+        "flatten_size": 2304,
+        "fc_head": [{"in": 2304, "out": 512, "activation": "ReLU"}, {"in": 512, "out": "embedding_dim"}],
+        "dropout": 0.5,
+        "approx_params_at_384": "1.4M",
+        "effective_receptive_field": "3x3",
+        "rationale": "Single block captures local edges and colour gradients only. Sufficient for colour classification but limited for full digit recognition. Serves as the simplest baseline in the CNN-depth axis."
+      },
+      "cnn_2layer": {
+        "input": [3, 128, 128],
+        "conv_blocks": [
+          {"block": 1, "in_ch": 3,  "out_ch": 32, "kernel": 3, "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(2,2)",
+           "spatial_out": [64, 64], "receptive_field_px": 3},
+          {"block": 2, "in_ch": 32, "out_ch": 64, "kernel": 3, "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(2,2)",
+           "spatial_out": [32, 32], "receptive_field_px": 5}
+        ],
+        "adaptive_pool": [5, 5],
+        "flatten_size": 1600,
+        "fc_head": [{"in": 1600, "out": 512, "activation": "ReLU"}, {"in": 512, "out": "embedding_dim"}],
+        "dropout": 0.5,
+        "approx_params_at_384": "1.1M",
+        "effective_receptive_field": "5x5",
+        "rationale": "Two blocks allow hierarchical feature extraction: block 1 detects edges/colour; block 2 combines them into stroke directions. Effective receptive field of 5x5 is sufficient to distinguish most digit strokes."
+      },
+      "cnn_3layer": {
+        "input": [3, 128, 128],
+        "conv_blocks": [
+          {"block": 1, "in_ch": 3,   "out_ch": 32,  "kernel": 3, "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(2,2)",
+           "spatial_out": [64, 64], "receptive_field_px": 3},
+          {"block": 2, "in_ch": 32,  "out_ch": 64,  "kernel": 3, "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(2,2)",
+           "spatial_out": [32, 32], "receptive_field_px": 5},
+          {"block": 3, "in_ch": 64,  "out_ch": 128, "kernel": 3, "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(2,2)",
+           "spatial_out": [16, 16], "receptive_field_px": 7}
+        ],
+        "adaptive_pool": [4, 4],
+        "flatten_size": 2048,
+        "fc_head": [{"in": 2048, "out": 512, "activation": "ReLU"}, {"in": 512, "out": "embedding_dim"}],
+        "dropout": 0.5,
+        "approx_params_at_384": "1.2M",
+        "effective_receptive_field": "7x7",
+        "rationale": "Three blocks provide a 7x7 effective receptive field covering full digit strokes and global colour regions. Channel doubling (32→64→128) compensates for spatial resolution loss at each MaxPool. Recommended for Type-B as it balances depth with the simplicity of MNIST-based images."
+      },
+      "alexnet128": {
+        "input": [3, 128, 128],
+        "conv_blocks": [
+          {"block": 1, "in_ch": 3,   "out_ch": 64,  "kernel": 11, "stride": 4, "padding": 2,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(3,s2)"},
+          {"block": 2, "in_ch": 64,  "out_ch": 192, "kernel": 5,  "stride": 1, "padding": 2,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(3,s2)"},
+          {"block": 3, "in_ch": 192, "out_ch": 384, "kernel": 3,  "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU"},
+          {"block": 4, "in_ch": 384, "out_ch": 256, "kernel": 3,  "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU"},
+          {"block": 5, "in_ch": 256, "out_ch": 256, "kernel": 3,  "stride": 1, "padding": 1,
+           "norm": "BatchNorm2d", "activation": "ReLU", "pool": "MaxPool2d(3,s2)"}
+        ],
+        "adaptive_pool": [3, 3],
+        "flatten_size": 2304,
+        "fc_head": [
+          {"in": 2304, "out": 2048, "activation": "ReLU"},
+          {"in": 2048, "out": 1024, "activation": "ReLU"},
+          {"in": 1024, "out": "embedding_dim"}
+        ],
+        "dropout": 0.5,
+        "approx_params_at_384": "20M",
+        "rationale": "AlexNet adapted for 128x128. Significantly over-parameterised for simple MNIST images; included as a comparison point to study overfitting vs generalisation trade-off."
+      }
+    }
+  },
+
+  "type_a": {
+    "_description": "Arrangements of coloured geometric shapes with spatial relationships (above/below/left/right). 128x128 RGB. Requires understanding of both shape identity and spatial layout.",
+    "recommended_model": "cnn_3layer",
+    "rationale": "Spatial relationships (e.g. 'above', 'left of') require a wider effective receptive field to see both objects simultaneously. 3-layer CNN with 7x7 ERF covers enough of the image to capture relative positions."
+  },
+
+  "type_c": {
+    "_description": "Tic-tac-toe boards in various game states. 128x128 RGB. 3x3 grid; key features are the presence and position of X/O marks in each of 9 cells.",
+    "recommended_model": "cnn_2layer",
+    "rationale": "Grid cells are evenly distributed across the image. A 5x5 ERF (2-layer) is sufficient to identify marks within individual cells. 3-layer may introduce unnecessary abstraction for this structured input."
+  }
+}
