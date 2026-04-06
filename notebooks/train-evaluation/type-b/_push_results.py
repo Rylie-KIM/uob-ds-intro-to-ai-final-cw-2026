@@ -13,7 +13,7 @@ import subprocess
 def _git(args):
     subprocess.run(['git', '-C', REPO_DIR] + args, check=True)
 
-_git(['config', 'user.email', 'seoyeon@example.com'])
+_git(['config', 'user.email', 'yeonkim112599@gmail.com'])
 _git(['config', 'user.name', 'Seoyeon Kim'])
 
 _git(['add',
