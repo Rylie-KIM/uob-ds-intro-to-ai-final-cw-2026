@@ -121,10 +121,11 @@ def run_experiment(
     embedding_name: str,
     epochs:         int  = EPOCHS,
     device:         str  = 'cpu',
+    run_tag:        str  = '',
 ) -> None:
     set_seed(SEED)
 
-    run_name  = f'b_{model_name}_{embedding_name}'
+    run_name  = f'b_{model_name}_{embedding_name}' + (f'_{run_tag}' if run_tag else '')
     embed_dim = EMBEDDING_CONFIGS[embedding_name]['dim']
 
     print(f"\n{'='*60}")
@@ -193,6 +194,7 @@ def run_experiment(
     EARLY_STOP_PATIENCE = 7
 
     epoch_log: list[dict] = []
+    epoch_log_path = METRICS_B / f'{run_name}_epoch_log.csv'
     train_start = time.time()
 
     for epoch in range(1, epochs + 1):
@@ -204,6 +206,8 @@ def run_experiment(
         current_lr = optimizer.param_groups[0]['lr']
 
         epoch_log.append({'epoch': epoch, 'train_loss': train_loss, 'val_loss': val_loss, 'lr': current_lr, 'epoch_time_s': round(elapsed, 2)})
+        # Write after every epoch so progress survives a Colab disconnect
+        pd.DataFrame(epoch_log).to_csv(epoch_log_path, index=False)
 
         print(f'  Epoch {epoch:03d}/{epochs}  train={train_loss:.6f}  val={val_loss:.6f}'
               f'  lr={current_lr:.2e}  {elapsed:.1f}s', end='')
@@ -240,9 +244,6 @@ def run_experiment(
     print(f'\n  Training complete: best_epoch={best_epoch}  best_val_loss={best_val_loss:.6f}'
           f'  total_time={total_train_time:.1f}s')
 
-    # ── Save full epoch log ────────────────────────────────────────────────────
-    epoch_log_path = METRICS_B / f'{run_name}_epoch_log.csv'
-    pd.DataFrame(epoch_log).to_csv(epoch_log_path, index=False)
     print(f'  Epoch log saved  → {epoch_log_path.name}')
 
     # ── Evaluate best checkpoint on test set ───────────────────────────────────
