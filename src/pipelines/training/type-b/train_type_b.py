@@ -47,8 +47,6 @@ _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists(
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-import importlib.util as _ilu
-
 from src.models.alexnet    import AlexNet128
 from src.models.CNN        import CNN
 from src.models.cnn_1layer import CNN1Layer
@@ -56,15 +54,7 @@ from src.models.cnn_2layer import CNN2Layer
 from pipelines.evaluation.evaluate import evaluate, save_results
 from src.pipelines.shared   import train_one_epoch, run_validation, set_seed, CombinedLoss
 from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
-
-# src/pipelines/data_loaders/type-b/ has a hyphen — not directly importable.
-_loader_spec = _ilu.spec_from_file_location(
-    'type_b_loader',
-    _ROOT / 'src' / 'pipelines' / 'data_loaders' / 'type-b' / 'type_b_loader.py',
-)
-_loader_mod = _ilu.module_from_spec(_loader_spec)
-_loader_spec.loader.exec_module(_loader_mod)
-make_splits = _loader_mod.make_splits
+from src.pipelines.data_loaders.type_b_loader import make_splits
 
 
 # ── Embedding configurations ───────────────────────────────────────────────────
@@ -158,20 +148,14 @@ def run_experiment(
         seed=SEED,
     )
 
-    # CUDA: use spawn context to avoid "Cannot re-initialize CUDA in forked subprocess"
-    # MPS/CPU: num_workers=0 (importlib-loaded Dataset not picklable across fork)
-    num_workers = 2 if device == 'cuda' else 0
-    mp_ctx      = 'spawn' if device == 'cuda' else None
-    pin         = (device == 'cuda')
+    num_workers = 2 if device == 'cuda' else 0   # spawn-safe: TypeBDataset is now a proper importable class
+    pin = (device == 'cuda')
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True,
-                              num_workers=num_workers, pin_memory=pin,
-                              multiprocessing_context=mp_ctx)
+                              num_workers=num_workers, pin_memory=pin)
     val_loader   = DataLoader(val_set,   batch_size=BATCH_SIZE, shuffle=False,
-                              num_workers=num_workers,
-                              multiprocessing_context=mp_ctx)
+                              num_workers=num_workers)
     test_loader  = DataLoader(test_set,  batch_size=BATCH_SIZE, shuffle=False,
-                              num_workers=num_workers,
-                              multiprocessing_context=mp_ctx)
+                              num_workers=num_workers)
 
     # Full corpus for retrieval evaluation (all sentences + embeddings)
     full_dataset   = train_set.dataset
