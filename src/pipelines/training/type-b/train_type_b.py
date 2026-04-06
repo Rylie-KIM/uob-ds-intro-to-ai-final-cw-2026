@@ -148,8 +148,10 @@ def run_experiment(
         seed=SEED,
     )
 
-    num_workers = 2 if device == 'cuda' else 0   # spawn-safe: TypeBDataset is now a proper importable class
-    pin = (device == 'cuda')
+    # num_workers=0 is faster in Colab: small dataset + limited CPU cores mean
+    # worker process spawn/teardown overhead exceeds data loading benefit.
+    num_workers = 0
+    pin = False  # pin_memory only helps with num_workers > 0
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True,
                               num_workers=num_workers, pin_memory=pin)
     val_loader   = DataLoader(val_set,   batch_size=BATCH_SIZE, shuffle=False,
