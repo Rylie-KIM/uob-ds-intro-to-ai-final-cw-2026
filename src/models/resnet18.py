@@ -99,7 +99,7 @@ class ResNet18TextAlign(nn.Module):
         weights = ResNet18_Weights.DEFAULT
         backbone = models.resnet18(weights=weights)
 
-        # 原 resnet18 的 fc 输入是 512
+     
         in_features = backbone.fc.in_features
         backbone.fc = nn.Linear(in_features, output_dim)
 
