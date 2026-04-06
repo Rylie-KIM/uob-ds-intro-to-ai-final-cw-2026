@@ -100,7 +100,7 @@ class TypeBDataset(Dataset):
 
 def make_splits(
     embedding_cache: Path,
-    device: str = 'cpu',
+    device: str = 'cpu',  # kept for API compatibility; embeddings stay on CPU (move to device in training loop)
     seed: int = 42,
     train_ratio: float = 0.80,
     val_ratio:   float = 0.10,
@@ -162,7 +162,7 @@ def make_splits(
                 f"Sentence not found in embedding cache: '{sentence}'\n"
                 f"Re-run: python src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py"
             )
-        records.append((img_path, sentence, emb.to(device)))
+        records.append((img_path, sentence, emb))  # keep on CPU; move to device in training loop
 
     full_dataset = TypeBDataset(records, transform=transform)
     n = len(full_dataset)
