@@ -78,11 +78,14 @@ else:
     # Add only files that exist; never stage deletions of other tracked files
     _git(['add', '--'] + _files)
 
-    _status = subprocess.run(
-        ['git', '-C', REPO_DIR, 'status', '--porcelain'],  # noqa: F821
-        capture_output=True, text=True,
+    # Use --cached so only *staged* changes are checked (status --porcelain also
+    # shows untracked files, which would cause git commit to fail with exit 1
+    # when nothing is actually staged).
+    _staged = subprocess.run(
+        ['git', '-C', REPO_DIR, 'diff', '--cached', '--quiet'],  # noqa: F821
+        capture_output=True,
     )
-    if not _status.stdout.strip():
+    if _staged.returncode == 0:
         print('Nothing to commit — results already up to date.')
     else:
         _git(['commit', '-m', COMMIT_MSG])   # noqa: F821
