@@ -11,19 +11,6 @@ EmbeddingMatrix: TypeAlias = npt.NDArray[np.float32]
 
 
 class TFIDFWeightedWord2VecEmbedder:
-    """
-    Sentence embedding = TF-IDF weighted mean of Word2Vec (skip-gram) word vectors.
-
-    For each sentence:
-      - token weight  : TF-IDF score from the corpus vocabulary
-      - token vector  : Word2Vec vector trained on the same corpus
-      - sentence vec  : weighted average of token vectors
-
-    Fallback behaviour:
-      - token in W2V but not in TF-IDF vocab (or weight=0) → excluded
-      - all tokens excluded but some W2V vectors found → unweighted mean
-      - no W2V vectors found at all → zero vector
-    """
 
     def __init__(self, vector_size: int = 100):
         self.vector_size = vector_size

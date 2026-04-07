@@ -62,7 +62,7 @@ EmbeddingMatrix: TypeAlias = npt.NDArray[np.float32]
 # ── Paths ──────────────────────────────────────────────────────────────────────
 _ROOT     = Path(__file__).resolve().parent.parent.parent.parent
 _DATA_DIR = _ROOT / 'src' / 'data'
-_CKPT_DIR = _ROOT / 'results' / 'checkpoints'
+_CKPT_DIR = _ROOT / 'src' / 'pipelines' /'results' / 'checkpoints'
 
 # ── Dataset configs ────────────────────────────────────────────────────────────
 # All three types share the same CSV structure: sentence_id, sentence, ...
