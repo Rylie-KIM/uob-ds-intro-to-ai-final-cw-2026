@@ -15,24 +15,25 @@ class CNN2(nn.Module):
         self.conv_layers = nn.Sequential(
             nn.Conv2d(3, 32, kernel_size=3, padding=1), # Convolutional Layer 1
             nn.ReLU(),
+            nn.MaxPool2d(2,2),
             
             nn.Conv2d(32, 64, kernel_size=3, padding=1), # Convolutional Layer 2
             nn.ReLU(),
+            nn.MaxPool2d(2,2),
             
-            nn.Conv2d(64, 1, kernel_size = 1), # Convolutional Layer 3
+            nn.Conv2d(64, 128, kernel_size=3, padding=1), # Convolutional Layer 3
             nn.ReLU(),
-            nn.MaxPool2d(2,2)
-        ) # Output shape: [1, 262, 262]
+            # Increase this for greater spatial awareness
+            nn.AdaptiveAvgPool2d((3, 3)) 
+        )
 
         self.fc_layers = nn.Sequential(
         # Defines one input layer and one output layer
     
             nn.Flatten(), # flattens image to long vector
-            # 68644 was chosen as thats the shape of the output after the conv layers.
-            # This value needs to be configured to the number of cov layers
-            nn.Linear(68644, 5000),
+            nn.Linear(128*3*3, 2500),
             nn.ReLU(),
-            nn.Linear(5000, output_shape),
+            nn.Linear(2500, output_shape),
 
     )
 
@@ -88,7 +89,7 @@ def train_model(model, train_loader, test_loader, epochs=20, lr=1e-3):
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
-path = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data_generation\type-a\type-a-dataset-png\1.png'
+path = r'C:\Users\fergu\Documents\GitHub\uob-ds-intro-to-ai-final-cw-2026\src\data\images\type-a\a_1.png'
 img = Image.open(path).convert('RGB')
 # img.show()
 np_img = np.array(img)
@@ -105,9 +106,6 @@ data_t = converter(np_img)
 normalise = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 data_t_n = normalise(data_t)
 print(f'NEW: {data_t_n.shape}')
-cnn = CNN2(output_shape = 768)
+cnn = CNN2(output_shape = 312)
 print(f'Model Architecture:\n{cnn}')
-cnn(data_t_n)
-
-# Hello world
-# Hello again
+cnn(data_t_n.unsqueeze(0))

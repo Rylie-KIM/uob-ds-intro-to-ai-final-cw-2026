@@ -2,45 +2,38 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms
-from torchvision.datasets import ImageFolder
-from torch.utils.data import DataLoader
 
 
-class CNN(nn.Module):
-    def __init__(self):
+class CNN_encoder(nn.Module):
+    def __init__(self, embedding_dims):
         super().__init__()
-
+        # Input: 3, 512, 512
         # Convolution + pooling layers
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 6, kernel_size=5), 
+        self.convolution = nn.Sequential(
+            # Preferred the use of strided convolutions over max pooling
+            nn.Conv2d(3, 16, 3, stride=2, padding=1), 
             nn.ReLU(),
-            nn.MaxPool2d(2,2))   # conv1
-        """
+            nn.Conv2d(16, 32, 3, stride=2, padding=1),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),
+            nn.Conv2d(32, 64, 3, stride=2, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(64, 128, 3, stride=2, padding=1), 
+            nn.ReLU(),
 
-            nn.Conv2d(6, 16, kernel_size=5),  # conv2
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2)
-        """
-        
-    '''
-        # Fully connected layers
-        self.classifier = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(16 * 5 * 5, 120),  # fc1
-            nn.ReLU(),
-            nn.Linear(120, 84),         # fc2
-            nn.ReLU(),
-            nn.Linear(84, 10)           # fc3 (10 classes)
+            nn.AdaptiveAvgPool2d((1,1))
         )
-    '''
+        self.linear = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(128, embedding_dims)
+        )
+
 
     def forward(self, x):
-        x = self.features(x)
-        # x = self.classifier(x)
+        print(f'Pre Shape: {x.shape}')
+        x = self.convolution(x)
+        x = self.linear(x)
         print(f'Output:\n{x}')
-        print(f'After Network shape: {x.shape}')
+        print(f'Output Shape:\n{x.shape}')
         return x
     
 
@@ -106,7 +99,7 @@ data_t = converter(np_img)
 normalise = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 data_t_n = normalise(data_t)
 print(f'NEW: {data_t_n.shape}')
-cnn = CNN()
+cnn = CNN_encoder(embedding_dims = 512)
 print(f'Model Architecture:\n{cnn}')
-cnn(data_t_n)
+cnn(data_t_n.unsqueeze(0))
 

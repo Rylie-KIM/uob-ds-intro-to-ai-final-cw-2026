@@ -5,12 +5,25 @@ import pandas as pd
 from pathlib import Path
 from PIL import Image
 import sys
+import torchvision.transforms as transforms
 
 
 class Dataset_A(Dataset):
-    def __init__(self, embedding_type:str):
+    def __init__(self, embedding_type:str, transform_imgs:type):
+        """ 
+            transform = transforms.Compose([
+                transforms.Resize((100,100)),
+                transforms.ToTensor(),
+                transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+            ])
+        """
+        self._ROOT = Path(__file__).resolve().parent.parent.parent.parent
         # This needs to be updated to 'master.csv'
-        self.df = pd.read_csv(self._ROOT / 'src/data/type-a/master.csv')
+        self.csv_path = self._ROOT / 'src/data/type-a/master.csv'
+        if not self.csv_path.exists():
+            raise FileNotFoundError(f'PATH NOT FOUND: {self.csv_path}')
+        
+        self.df = pd.read_csv(self.csv_path)
         self.sentence_embedding_types = [
             'TB_pooler_emb',
             'bert_mean_embeddings',
@@ -18,29 +31,38 @@ class Dataset_A(Dataset):
             'word2vec_pretrained_embeddings']
         
         self.sentence_embedding_type = embedding_type
-        self._ROOT = Path(__file__).resolve().parent.parent.parent.parent
+        if self.sentence_embedding_type not in self.sentence_embedding_types:
+            raise ValueError(f'{self.sentence_embedding_type} not in {self.sentence_embedding_types}')
+
+        self.transform_imgs = transform_imgs
     
     def __len__(self):
         return len(self.df)
 
     def __getitem__(self, idx):
+        
         row = self.df.iloc[idx]
         sentence_label = row['label']
-        if self.sentence_embedding_type not in self.sentence_embedding_types:
-            raise ValueError(f'{self.sentence_embedding_type} not in {self.sentence_embedding_types}')
-        
+
         # Sentence EMB Retrival
         sentence_emb_filename = row[self.sentence_embedding_type]
         sentence_embedding_path = self._ROOT / sentence_emb_filename
+        if not sentence_embedding_path.exists():
+            raise FileNotFoundError(f'PATH NOT FOUND: {sentence_embedding_path}')
         sentence_embedding = torch.load(sentence_embedding_path)
+        if not isinstance(sentence_embedding, torch.Tensor):
+            raise TypeError(f'Sentence Embedding is not type tensor:\n{type(sentence_embedding)}')
+        sentence_embedding = sentence_embedding.float()
 
         #Image EMB Retrival
         img_filename = row['png_path'] # This currently isnt a column in the master csv
         img_path = self._ROOT / img_filename
+        if not img_path.exists():
+            raise FileNotFoundError(f'PATH NOT FOUND: {img_path}')
+        
         img = Image.open(img_path).convert('RGB')
-        np_img = np.array(img)
-        img_t = torch.tensor(np_img, dtype=torch.float)
-        return img_t, sentence_embedding, sentence_label
+        img = self.transform_imgs(img)
+        return img, sentence_embedding, sentence_label
 
 # example_tensor = torch.randn(3,4) created 3 by 4 tensor of random values
 # torch.save(example_tensor, 'example_tensor.pt')
