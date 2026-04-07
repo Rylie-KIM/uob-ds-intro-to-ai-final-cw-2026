@@ -9,7 +9,7 @@ import torchvision.transforms as transforms
 
 
 class Dataset_A(Dataset):
-    def __init__(self, embedding_type:str, transform_imgs:Object):
+    def __init__(self, embedding_type:str, transform_imgs:type):
         """ 
             transform = transforms.Compose([
                 transforms.Resize((100,100)),

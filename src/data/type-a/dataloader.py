@@ -9,6 +9,14 @@ transform = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
+"""
+For googlenet model:
+weights = GoogLeNet_Weights.DEFAULT
+transform = weights.transforms()
+
+"""
+
+
 dataset = Dataset_A('TB_pooler_emb', transform_img = transform)
 dataset_loader = DataLoader(dataset, batch_size=1, shuffle=True)
 
