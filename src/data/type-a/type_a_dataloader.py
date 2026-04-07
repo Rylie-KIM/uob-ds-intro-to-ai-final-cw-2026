@@ -5,6 +5,7 @@ import pandas as pd
 from pathlib import Path
 from PIL import Image
 import sys
+import torch.nn.functional as F
 import torchvision.transforms as transforms
 
 
@@ -12,10 +13,15 @@ class Dataset_A(Dataset):
     def __init__(self, embedding_type:str, transform_imgs:type):
         """ 
             transform = transforms.Compose([
-                transforms.Resize((100,100)),
+                transforms.Resize((128,128)),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
             ])
+        """
+        """
+        Returns image embedding - Normalised, as tensor, and resized
+        Returns sentence embedding, as tensor, normalized
+        
         """
         self._ROOT = Path(__file__).resolve().parent.parent.parent.parent
         # This needs to be updated to 'master.csv'
@@ -33,7 +39,6 @@ class Dataset_A(Dataset):
         self.sentence_embedding_type = embedding_type
         if self.sentence_embedding_type not in self.sentence_embedding_types:
             raise ValueError(f'{self.sentence_embedding_type} not in {self.sentence_embedding_types}')
-
         self.transform_imgs = transform_imgs
     
     def __len__(self):
@@ -42,7 +47,7 @@ class Dataset_A(Dataset):
     def __getitem__(self, idx):
         
         row = self.df.iloc[idx]
-        sentence_label = row['label']
+        # sentence_label = row['label']
 
         # Sentence EMB Retrival
         sentence_emb_filename = row[self.sentence_embedding_type]
@@ -52,7 +57,8 @@ class Dataset_A(Dataset):
         sentence_embedding = torch.load(sentence_embedding_path)
         if not isinstance(sentence_embedding, torch.Tensor):
             raise TypeError(f'Sentence Embedding is not type tensor:\n{type(sentence_embedding)}')
-        sentence_embedding = sentence_embedding.float()
+        # Normalize sentence embeddings
+        sentence_embedding_norm = F.normalize(sentence_embedding, p=2, dim=0)
 
         #Image EMB Retrival
         img_filename = row['png_path'] # This currently isnt a column in the master csv
@@ -61,8 +67,8 @@ class Dataset_A(Dataset):
             raise FileNotFoundError(f'PATH NOT FOUND: {img_path}')
         
         img = Image.open(img_path).convert('RGB')
-        img = self.transform_imgs(img)
-        return img, sentence_embedding, sentence_label
+        img_emb = self.transform_imgs(img)
+        return img_emb, sentence_embedding_norm
 
 # example_tensor = torch.randn(3,4) created 3 by 4 tensor of random values
 # torch.save(example_tensor, 'example_tensor.pt')
