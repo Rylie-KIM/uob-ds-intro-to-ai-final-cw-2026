@@ -1,159 +1,55 @@
-import re
 import numpy as np
-from gensim import downloader as api
-from sklearn.metrics.pairwise import cosine_similarity
+import numpy.typing as npt
+from typing import TypeAlias
+import gensim.downloader
 
+Sentences:       TypeAlias = list[str]
+EmbeddingMatrix: TypeAlias = npt.NDArray[np.float32]
 
-GLOVE_MODEL_NAME = "glove-wiki-gigaword-100"
-EMBEDDING_DIM = 100
+# Available gensim GloVe models:
+#   'glove-wiki-gigaword-50'   →  50-dim
+#   'glove-wiki-gigaword-100'  → 100-dim  (default)
+#   'glove-wiki-gigaword-200'  → 200-dim
+#   'glove-wiki-gigaword-300'  → 300-dim
+#   'glove-twitter-25'         →  25-dim  (Twitter corpus)
+#   'glove-twitter-100'        → 100-dim  (Twitter corpus)
 
-_glove_model = None
+class GloVeEmbedder:
+    def __init__(
+        self,
+        model_name: str = 'glove-wiki-gigaword-100',
+    ):
+        self.model_name  = model_name
+        print(f"GloVeEmbedder loading '{model_name}'")
+        self.model       = gensim.downloader.load(model_name)
+        self.vector_size = self.model.vector_size
+        print(f"GloVeEmbedder ready  vocab size: {len(self.model)}  dim: {self.vector_size}")
 
+    # Vectors are pretrained — no training needed
+    def fit(self, _sentences: Sentences) -> 'GloVeEmbedder':
+        return self
 
-def load_glove_model(model_name=GLOVE_MODEL_NAME):
+    def transform(self, sentences: Sentences) -> EmbeddingMatrix:
+        sentence_embeddings = []
+        for s in sentences:
+            tokens = s.lower().split()
+            found  = [self.model[t] for t in tokens if t in self.model]
+            if not found:
+                sentence_embeddings.append(np.zeros(self.vector_size, dtype=np.float32))
+            else:
+                sentence_embeddings.append(np.mean(found, axis=0).astype(np.float32))
+        return np.array(sentence_embeddings, dtype=np.float32)
 
-    global _glove_model
-    if _glove_model is None:
-        print(f"Loading GloVe model: {model_name} ...")
-        _glove_model = api.load(model_name)
-        print("GloVe model loaded.")
-    return _glove_model
+    def fit_transform(self, sentences: Sentences) -> EmbeddingMatrix:
+        return self.fit(sentences).transform(sentences)
 
-
-def normalize_text(text):
-
-    text = str(text)
-
-    text = text.replace("X", "cross")
-    text = text.replace("O", "nought")
-
-    return text.lower().strip()
-
-
-def tokenize_text(text):
-
-    text = normalize_text(text)
-    return re.findall(r"[a-z0-9]+", text)
-
-
-def sentence_to_glove_vector(sentence, glove_model=None, embedding_dim=EMBEDDING_DIM):
-
-    if glove_model is None:
-        glove_model = load_glove_model()
-
-    tokens = tokenize_text(sentence)
-
-    if len(tokens) == 0:
-        return np.zeros(embedding_dim), 0.0, []
-
-    valid_vectors = []
-    matched_tokens = []
-
-    for token in tokens:
-        if token in glove_model:
-            valid_vectors.append(glove_model[token])
-            matched_tokens.append(token)
-
-    if len(valid_vectors) == 0:
-        return np.zeros(embedding_dim), 0.0, []
-
-    sentence_vector = np.mean(valid_vectors, axis=0)
-    coverage = len(valid_vectors) / len(tokens)
-
-    return sentence_vector, coverage, matched_tokens
-
-
-def batch_sentences_to_glove_vectors(sentences, glove_model=None, embedding_dim=EMBEDDING_DIM):
-
-    if glove_model is None:
-        glove_model = load_glove_model()
-
-    vectors = []
-    coverages = []
-    matched_tokens_list = []
-
-    for sentence in sentences:
-        vec, coverage, matched_tokens = sentence_to_glove_vector(
-            sentence,
-            glove_model=glove_model,
-            embedding_dim=embedding_dim
-        )
-        vectors.append(vec)
-        coverages.append(coverage)
-        matched_tokens_list.append(matched_tokens)
-
-    return np.array(vectors), coverages, matched_tokens_list
-
-
-def glove_similarity(sentence1, sentence2, glove_model=None):
-
-    if glove_model is None:
-        glove_model = load_glove_model()
-
-    vec1, _, _ = sentence_to_glove_vector(sentence1, glove_model=glove_model)
-    vec2, _, _ = sentence_to_glove_vector(sentence2, glove_model=glove_model)
-
-    if np.all(vec1 == 0) or np.all(vec2 == 0):
-        return 0.0
-
-    sim = cosine_similarity([vec1], [vec2])[0][0]
-    return float(sim)
-
-
-def find_most_similar_sentence(query_sentence, candidate_sentences, glove_model=None):
-
-    if glove_model is None:
-        glove_model = load_glove_model()
-
-    query_vec, _, _ = sentence_to_glove_vector(query_sentence, glove_model=glove_model)
-    candidate_vecs, _, _ = batch_sentences_to_glove_vectors(candidate_sentences, glove_model=glove_model)
-
-    if np.all(query_vec == 0):
-        return None, 0.0, -1
-
-    sims = cosine_similarity([query_vec], candidate_vecs)[0]
-    best_index = int(np.argmax(sims))
-    best_score = float(sims[best_index])
-    best_sentence = candidate_sentences[best_index]
-
-    return best_sentence, best_score, best_index
-
-
-if __name__ == "__main__":
-    model = load_glove_model()
-
-    sentence_a = "X is at the top left"
-    sentence_b = "cross is in the upper left corner"
-    sentence_c = "O is at the bottom right"
-
-    vec_a, coverage_a, tokens_a = sentence_to_glove_vector(sentence_a, model)
-    vec_b, coverage_b, tokens_b = sentence_to_glove_vector(sentence_b, model)
-
-    print("Sentence A:", sentence_a)
-    print("Coverage A:", coverage_a)
-    print("Matched tokens A:", tokens_a)
-    print()
-
-    print("Sentence B:", sentence_b)
-    print("Coverage B:", coverage_b)
-    print("Matched tokens B:", tokens_b)
-    print()
-
-    sim_ab = glove_similarity(sentence_a, sentence_b, model)
-    sim_ac = glove_similarity(sentence_a, sentence_c, model)
-
-    print("Similarity A-B:", sim_ab)
-    print("Similarity A-C:", sim_ac)
-
-    candidates = [
-        "cross is in the upper left corner",
-        "nought is in the center",
-        "cross is at the bottom right"
-    ]
-
-    best_sentence, best_score, best_index = find_most_similar_sentence(sentence_a, candidates, model)
-
-    print()
-    print("Best matched sentence:", best_sentence)
-    print("Best score:", best_score)
-    print("Best index:", best_index)
+    def oov_rate(self, sentences: Sentences) -> float:
+        """Returns fraction of tokens not found in the GloVe vocabulary."""
+        total = oov = 0
+        for s in sentences:
+            tokens  = s.lower().split()
+            total  += len(tokens)
+            oov    += sum(1 for t in tokens if t not in self.model)
+        rate = oov / total if total > 0 else 0.0
+        print(f"OOV: {oov} / {total} tokens  ({rate * 100:.1f} %)")
+        return rate
