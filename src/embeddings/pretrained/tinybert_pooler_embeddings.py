@@ -27,6 +27,7 @@ class TinyBertPoolerEmbedder:
         with torch.no_grad():
             output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
         pooler = output.pooler_output.squeeze(0)
+        # print(f'P Shape: {pooler.shape}')
         filename = f'{idx}.pt'
         filepath = self.folder_path / filename
         torch.save(pooler, filepath)
