@@ -13,6 +13,7 @@ class TinyBertMeanEmbedder:
     def get_embedding(self, sentence: str) -> torch.Tensor:
         """
         Get mean embeddings function calculates the mean embedding from the embedding tensors produced in the model.
+        Output : torch.Size([312])
 
         NOTE:
         - The method INCLUDES CLS and SEP tokens in mean calculations and DOES NOT adjust for padding
@@ -24,9 +25,13 @@ class TinyBertMeanEmbedder:
         processed = self.tokenizer(sentence, return_tensors='pt')
         with torch.no_grad():
             output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
-        last_hidden_state = output['last_hidden_state']
-        sum_emb = last_hidden_state.sum(dim=1)
-        # Calculates num embeddings based off len(num_tokens)
-        num_embeddings = len(processed['input_ids'].squeeze(0).tolist())
-        mean_emb = sum_emb/num_embeddings
-        return mean_emb #.squeeze(0).tolist()
+        last_hidden_state = output['last_hidden_state'][0]
+        # print(f'LH Shape: {last_hidden_state.shape}')
+        last_hidden_state = last_hidden_state[1:-1]
+        mean_emb = last_hidden_state.mean(dim=0)
+        # print(f'Output Shape: {mean_emb.shape}')
+        return mean_emb
+    
+tb_emb = TinyBertMeanEmbedder()
+
+print(tb_emb.get_embedding('hello my name is bob'))

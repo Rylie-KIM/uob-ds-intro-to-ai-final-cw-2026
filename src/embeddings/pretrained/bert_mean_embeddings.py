@@ -16,15 +16,20 @@ class BertMeanEmbedder:
         - The method INCLUDES CLS and SEP tokens in mean calculations and DOES NOT adjust for padding
         - To adjust for padding, multiply attention mask vector by token embeddings where attention mask is
         either 1 or 0.
-        - To adjust for CLS and SEP tokens, remove first and last token in output.last_hidden_state
+        - Removed first and last tokens ie CLS and SEP tokens for mean calc
 
         """
         processed = self.tokenizer(sentence, return_tensors='pt')
         with torch.no_grad():
             output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
-        last_hidden_state = output['last_hidden_state']
-        sum_emb = last_hidden_state.sum(dim=1)
-        # Calculates num embeddings based off len(num_tokens)
-        num_embeddings = len(processed['input_ids'].squeeze(0).tolist())
-        mean_emb = sum_emb/num_embeddings
-        return mean_emb #.squeeze(0).tolist()
+        last_hidden_state = output['last_hidden_state'][0]
+        last_hidden_state = last_hidden_state[1:-1]
+        print(f'LS Size: {last_hidden_state.shape}')
+        mean_emb= last_hidden_state.mean(dim=0)
+        print(f'Output Shape: {mean_emb.shape}')
+        return mean_emb
+    
+
+b_emb = BertMeanEmbedder()
+
+print(b_emb.get_embedding('hello my name is jeff'))

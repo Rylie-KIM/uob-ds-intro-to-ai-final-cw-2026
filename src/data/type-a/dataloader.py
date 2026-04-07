@@ -4,7 +4,7 @@ import torchvision.transforms as transforms
 
 transform = transforms.Compose([
     # May want to vary the resizing and see how that effects the accuracy
-    transforms.Resize((100,100)),
+    transforms.Resize((128,128)),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
