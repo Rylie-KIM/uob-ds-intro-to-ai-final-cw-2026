@@ -25,8 +25,9 @@ class TinyBertMeanEmbedder:
         with torch.no_grad():
             output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
         last_hidden_state = output['last_hidden_state']
+        last_hidden_state = last_hidden_state[1:-1]
         sum_emb = last_hidden_state.sum(dim=1)
         # Calculates num embeddings based off len(num_tokens)
         num_embeddings = len(processed['input_ids'].squeeze(0).tolist())
         mean_emb = sum_emb/num_embeddings
-        return mean_emb #.squeeze(0).tolist()
+        return mean_emb.squeeze(0)

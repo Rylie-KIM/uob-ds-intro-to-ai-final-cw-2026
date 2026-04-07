@@ -19,4 +19,4 @@ class BertPoolerEmbedder:
         processed = self.tokenizer(sentence, return_tensors='pt')
         with torch.no_grad():
             output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
-        return output.pooler_output #.squeeze(0).tolist()
+        return output.pooler_output.squeeze(0)
