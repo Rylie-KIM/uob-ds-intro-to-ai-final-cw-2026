@@ -1,12 +1,14 @@
 import csv
+import os
 import random
+import subprocess
 import turtle
 from itertools import product
 from pathlib import Path
 
 from relation_shapes_generator_a import ShapesGenerator
 
-NUM_OBSERVATIONS = 20 # Temporary reduction to 20
+NUM_OBSERVATIONS = 50
 RANDOM_SEED = 42
 SCREEN_SIZE = (700, 700)
 
@@ -65,19 +67,64 @@ def build_candidates():
     return candidates
 
 
+def convert_eps_to_png(eps_path, png_path, imagemagick_cmd="magick"):
+    if not eps_path.exists():
+        raise FileNotFoundError(f"EPS file not found: {eps_path}")
+
+    png_path.parent.mkdir(parents=True, exist_ok=True)
+
+    cmd = [
+        imagemagick_cmd,
+        "-density", "300",
+        str(eps_path),
+        str(png_path)
+    ]
+
+    print("Running conversion:", " ".join(cmd))
+
+    try:
+        result = subprocess.run(
+            cmd,
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        if result.stdout:
+            print(result.stdout)
+        if result.stderr:
+            print(result.stderr)
+    except FileNotFoundError:
+        raise RuntimeError(
+            "ImageMagick not found. Install ImageMagick and make sure 'magick' is in PATH."
+        )
+    except subprocess.TimeoutExpired:
+        raise RuntimeError(f"Conversion timed out for {eps_path.name}")
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(
+            f"Failed to convert {eps_path.name} to PNG.\nstdout: {e.stdout}\nstderr: {e.stderr}"
+        )
+
+
 def main():
+    print("Script started")
+
     root = find_repo_root()
 
     eps_folder = root / 'src' / 'data' / 'images' / 'type-a' / 'eps'
+    png_folder = root / 'src' / 'data' / 'images' / 'type-a' / 'png'
     data_folder = root / 'src' / 'data' / 'type-a'
 
     sentences_csv = data_folder / 'sentences_a.csv'
     master_csv = data_folder / 'master.csv'
 
     eps_folder.mkdir(parents=True, exist_ok=True)
+    png_folder.mkdir(parents=True, exist_ok=True)
     data_folder.mkdir(parents=True, exist_ok=True)
 
+    print("Building candidates...")
     candidates = build_candidates()
+    print("Total candidate combinations:", len(candidates))
 
     if NUM_OBSERVATIONS > len(candidates):
         print("Not enough unique combinations")
@@ -86,6 +133,7 @@ def main():
     random.seed(RANDOM_SEED)
     observations = random.sample(candidates, NUM_OBSERVATIONS)
 
+    print("Creating turtle screen...")
     screen = turtle.Screen()
     screen.setup(width=SCREEN_SIZE[0], height=SCREEN_SIZE[1])
     screen.tracer(0, 0)
@@ -103,9 +151,15 @@ def main():
 
         for i, obs in enumerate(observations):
             sentence_id = 'a_' + str(i)
-            file_name = str(i) + '.eps'
-            eps_path = eps_folder / file_name
-            relative_path = Path('src/data/images/type-a/eps') / file_name
+
+            eps_name = str(i) + '.eps'
+            png_name = str(i) + '.png'
+
+            eps_path = eps_folder / eps_name
+            png_path = png_folder / png_name
+            relative_png_path = Path('src/data/images/type-a/png') / png_name
+
+            print(f"Drawing sample {i + 1}/{NUM_OBSERVATIONS}")
 
             shape.clear()
             shape.penup()
@@ -122,12 +176,17 @@ def main():
             )
 
             screen.update()
+
+            print("Saving EPS:", eps_path)
             screen.getcanvas().postscript(file=str(eps_path))
 
-            writer1.writerow([sentence_id, obs['sentence']])
-            writer2.writerow([str(relative_path).replace('\\', '/'), obs['sentence']])
+            print("Converting to PNG:", png_path)
+            convert_eps_to_png(eps_path, png_path)
 
-            if (i + 1) % 500 == 0:
+            writer1.writerow([sentence_id, obs['sentence']])
+            writer2.writerow([str(relative_png_path).replace('\\', '/'), obs['sentence']])
+
+            if (i + 1) % 10 == 0 or (i + 1) == NUM_OBSERVATIONS:
                 print("Generated", i + 1, "/", NUM_OBSERVATIONS)
 
     print("sentences_a.csv created at:", sentences_csv)
