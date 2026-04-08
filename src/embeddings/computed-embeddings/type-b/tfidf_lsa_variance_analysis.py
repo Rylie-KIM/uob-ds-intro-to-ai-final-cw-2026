@@ -39,15 +39,6 @@ def load_sentences() -> list[str]:
 
 
 def run_variance_analysis(sentences: list[str]) -> tuple[VarianceDF, int]:
-    """
-    Fit TF-IDF vectoriser and sweep TruncatedSVD from 1 to MAX_COMPONENTS.
-
-    Returns
-    -------
-    tuple[pd.DataFrame, int]
-        df         : DataFrame[VarianceRow] — one row per SVD dimension sweep
-        vocab_size : number of unique tokens in the TF-IDF vocabulary
-    """
     print("[tfidf] Fitting TF-IDF vectoriser on full vocabulary ...")
     tfidf = TfidfVectorizer(lowercase=True, max_features=None)
     tfidf_matrix = tfidf.fit_transform(sentences)
@@ -81,8 +72,7 @@ def run_variance_analysis(sentences: list[str]) -> tuple[VarianceDF, int]:
     return df, vocab_size
 
 
-# ── Save CSV ───────────────────────────────────────────────────────────────────
-
+# csv 
 def save_csv(df: pd.DataFrame) -> Path:
     out_path = _OUT_DIR / "tfidf_lsa_variance_type_b.csv"
     df.to_csv(out_path, index=False, float_format="%.6f")
@@ -90,8 +80,7 @@ def save_csv(df: pd.DataFrame) -> Path:
     return out_path
 
 
-# ── Plot ───────────────────────────────────────────────────────────────────────
-
+# png 
 def save_plot(df: pd.DataFrame, vocab_size: int) -> Path:
     fig, axes = plt.subplots(1, 2, figsize=(14, 5))
     fig.suptitle(
@@ -100,7 +89,7 @@ def save_plot(df: pd.DataFrame, vocab_size: int) -> Path:
         fontsize=13,
     )
 
-    # ── Left: cumulative explained variance ────────────────────────────────────
+    # left fig 
     ax = axes[0]
     ax.plot(df["n_components"], df["cumulative_var"], color="steelblue", linewidth=1.5)
     ax.set_xlabel("n_components")
@@ -130,7 +119,7 @@ def save_plot(df: pd.DataFrame, vocab_size: int) -> Path:
             )
     ax.legend(fontsize=8)
 
-    # ── Right: marginal gain (per-component variance) ──────────────────────────
+    # Right: marginal gain 
     ax2 = axes[1]
     ax2.plot(df["n_components"], df["marginal_gain"], color="darkorange", linewidth=1.0)
     ax2.set_xlabel("n_components")
@@ -168,11 +157,7 @@ def main() -> None:
     save_csv(df)
     save_plot(df, vocab_size)
     print_summary(df)
-    print(
-        "Recommendation: choose n_components at the 90–95% cumulative variance threshold.\n"
-        "Higher n_components → better number token separation but harder CNN regression.\n"
-        f"Results saved to: {_OUT_DIR}"
-    )
+    print(f"files svaed: {_OUT_DIR}")
 
 
 if __name__ == "__main__":
