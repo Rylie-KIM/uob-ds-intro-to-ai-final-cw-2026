@@ -53,6 +53,9 @@ uob-ds-intro-to-ai-final-cw-2026/
 │   ├── models/                         ← Phase 2: model definitions
 │   │   └── README.md
 │   │
+│   ├── pipelines/                      ← Phase 2: end-to-end experiment runners
+│   │   └── pipeline_b.py               ← Type-B training/evaluation orchestration
+│   │
 │   ├── training/                       ← Phase 2: training loop
 │   │   └── README.md
 │   │
@@ -76,3 +79,53 @@ uob-ds-intro-to-ai-final-cw-2026/
 ├── README.md
 └── PREPROCESSING_STRATEGY.md
 ```
+
+
+```
+uob-ds-intro-to-ai-final-cw-2026/
+├── src/
+│   ├── data/
+│   │   ├── images/type-{a,b,c}/          raw PNG images (gitignored — stored on Google Drive)
+│   │   └── type-{a,b,c}/                 sentence CSVs + image-map CSVs (committed)
+│   │
+│   ├── data_generation/type-{a,b,c}/     scripts to generate images and sentences
+│   │
+│   ├── embeddings/
+│   │   ├── precompute_embeddings.py       Phase 1 script — run once to save .pt files
+│   │   ├── bert_embeddings.py             BERT embedding utilities
+│   │   ├── sbert_embeddings.py            SBERT embedding utilities
+│   │   └── ...
+│   │
+│   ├── data_loaders/
+│   │   ├── type_b_loader.py               PyTorch Dataset for Type-B (load pre-saved embeddings)
+│   │   └── (type_a_loader.py, type_c_loader.py — to be created by each team)
+│   │
+│   ├── models/
+│   │   ├── alexnet.py                     AlexNet128: 128×128 input → embedding_dim output
+│   │   └── CNN.py                         Simple CNN: same interface as AlexNet128
+│   │
+│   ├── pipelines/                         ← canonical entry point for all experiments
+│   │   ├── shared.py                      Shared train/eval loop + EMBEDDING_CONFIGS + MODEL_CONFIGS
+│   │   ├── pipeline_b.py                  Type-B pipeline  (run this to train/evaluate)
+│   │   └── (pipeline_a.py, pipeline_c.py — to be created by each team)
+│   │
+│   ├── training/
+│   │   └── train_b.py                     DEPRECATED — superseded by src/pipelines/pipeline_b.py
+│   │
+│   └── evaluation/
+│       └── evaluate.py                    Retrieval metrics: top-k accuracy, cosine similarity
+│
+├── results/
+│   ├── embeddings/                        Pre-computed .pt files (gitignored — stored on Google Drive)
+│   ├── checkpoints/                       Trained model weights (gitignored — stored on Google Drive)
+│   ├── metrics/                           Experiment result CSVs (committed — small files)
+│   └── figures/                           Plots for report (committed — small files)
+│
+├── notebooks/
+│   └── colab_train.ipynb                  Colab entry point: mount Drive → symlink → train
+│
+├── CHECKPOINTS.md                         Index of Drive files (paste team Drive link here)
+├── .gitignore
+└── requirements.txt
+```
+

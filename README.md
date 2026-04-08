@@ -104,7 +104,7 @@ representations or features. Include figures and/or equations to make your desig
 why you think these improvements will help.
 
 4) Experimental evaluation (3.5 pages):
-- a) Explain your choice of performance metrics and their limitations.
+- a) Explain your choice of performance metrics and their limitations. 
 - b) Describe your experimental setup: how each dataset split was used, how hyperparameters
 were set, and any other important information about how your methods were run. It is not
 necessary to list all the software packages you used, but reference any libraries used for the
@@ -120,8 +120,9 @@ and insights or recommendations based on your analysis.
 well, what did not work, and the open challenges for this task.
 
 - What we are looking for
-Motivated design choices, supported by evidence. We are not looking for novel hypotheses, stateof-the-art leaderboard scores, or ground-breaking new research. A good report will justify design
-decisions, with data exploration and experimental analysis to provide support.
+Motivated design choices, supported by evidence. We are not looking for novel hypotheses, stateof-the-art leaderboard scores, or ground-breaking new research. 
+
+A good report will justify design decisions, with data exploration and experimental analysis to provide support.
 A few insightful claims about the nature of the task, and what works well, presented as a coherent
 story.
 Depth, rather than breadth – a report that provides a few interesting insights, with sound
@@ -129,8 +130,8 @@ experimental results, rather than testing a large number of different models and
 superficial way.
 Evidence of understanding the application itself – the requirements for a good system and how your
 system compares.
-Understanding of this particular task or dataset – how its peculiarities may affect the design of your
-pipeline and the performance of AI and NLP methods.
+Understanding of this particular task or dataset – how its peculiarities may affect the design of your pipeline and the performance of AI and NLP methods.
+
 10% of marks will be given for the overall clarity of the report and how well it communicates your
 ideas, analysis and results.
 
@@ -141,8 +142,7 @@ ideas, analysis and results.
 - Do not try to squeeze extra content in – you will lose marks. Conversely, there will be
 higher marks for more concise writing.
 - References do not count toward the page limit.
-• Use the Overleaf template from either NeurIPS or ACL to format your report (or the
-MSWord equivalent). This will automatically set margins and fonts.
+• Use the Overleaf template from either NeurIPS or ACL to format your report (or the MSWord equivalent). This will automatically set margins and fonts.
 • The text in your figures must be big enough to read without zooming in.
 • Use citations where appropriate, following a typical citation and reference style, as in the NeurIPS or ACL guidelines above.
 
@@ -193,12 +193,3 @@ university policies. Refer to the guidance and complete the application forms as
 ### Please see the guidance below and discuss with your personal tutor for more advice:
 https://www.bristol.ac.uk/students/support/academic-advice/assessment-support/request-acoursework-extension/
 https://www.bristol.ac.uk/students/support/academic-advice/assessment-support/exceptionalcircumstances/
-
-
-# Tasks before lab  
-1. Week21 (this week): 
-- Do you understand the main goals of the task?
-- How will you distribute tasks so that everyone in the team can contribute?
-- What tools do you need to co-ordinate the groupwork (Github; task/project management tools such as Trello).
-
-

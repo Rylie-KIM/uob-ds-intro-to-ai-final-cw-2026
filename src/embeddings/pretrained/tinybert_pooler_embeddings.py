@@ -1,9 +1,6 @@
 from transformers import AutoModel, AutoTokenizer
 import torch
-from pathlib import Path
-import pandas as pd
-# TinyBERT (huawei-noah/TinyBERT_General_4L_312D) — pooler output ([CLS] token projection).
-# Output dimension: 312
+
 
 # @NOTE: do_lower_case=True is required — TinyBERT tokenizer does not recognise capitalised words.
 class TinyBertPoolerEmbedder:
@@ -11,12 +8,8 @@ class TinyBertPoolerEmbedder:
         # TinyBert tokenizer doesnt recognise capitalised words
         self.model     = AutoModel.from_pretrained('huawei-noah/TinyBERT_General_4L_312D')
         self.tokenizer = AutoTokenizer.from_pretrained('huawei-noah/TinyBERT_General_4L_312D', do_lower_case=True)
-        self.master_path = Path('src/data/type-a/master.csv')
-        self.folder_path = Path('src/embeddings/computed-embeddings/type-a/Pooler_TB')
-        self.df = pd.read_csv(self.master_path)
 
-
-    def get_embedding(self, sentence: str, idx:int):
+    def get_embedding(self, sentence: str) -> torch.Tensor:
         """
         Sentence = 'hello my name is john'
         Tokenizer object converts sentence into dictionary of 'input_ids','token_type_ids','attention_mask' in tensor format.

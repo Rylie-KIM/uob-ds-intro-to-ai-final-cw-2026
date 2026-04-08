@@ -1,3 +1,16 @@
+"""
+src/models/CNN.py
+Simple CNN adapted for 128×128 RGB input → sentence embedding output.
+
+Architecture (input 128×128×3):
+  Conv(32,3,p1) → BN → ReLU → MaxPool(2,2)   → 64×64×32
+  Conv(64,3,p1) → BN → ReLU → MaxPool(2,2)   → 32×32×64
+  Conv(128,3,p1)→ BN → ReLU → MaxPool(2,2)   → 16×16×128
+  AdaptiveAvgPool(4×4) → Flatten → 2048
+  FC(2048→512) → ReLU → Dropout
+  FC(512→embedding_dim)
+"""
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
