@@ -1,47 +1,3 @@
-"""
-src/embeddings/pretrained/finetune_sbert.py
-
-Fine-tune SBERT (all-MiniLM-L6-v2) on sentence pairs for a given dataset type.
-
-Why fine-tune? (text-only)
---------------------------
-Default SBERT was trained on general NLI/STS data. Dataset-specific sentences
-(e.g. "large red 1", "a big blue hexagon is below a small red circle") are
-short, out-of-distribution phrases where SBERT may not distinguish
-attribute differences well.
-
-Fine-tuning on word-overlap similarity pairs teaches SBERT to:
-  - Give similar embeddings to sentences sharing the same words/attributes
-  - Give different embeddings to sentences with little overlap
-
-This keeps text representation as a clean, isolated experimental axis:
-    frozen SBERT  vs  fine-tuned SBERT  (CNN stays the same)
-
-Similarity scoring (CosineSimilarityLoss):
-  Jaccard word-overlap — works for all three dataset types:
-
-  Type-A: "a big blue circle above a red square"
-          vs "a big blue circle below a red square"  →  high overlap → ~0.75
-
-  Type-B: "large red 1" vs "large red 2"   →  2/3 ≈ 0.67
-          "large red 1" vs "small blue 2"  →  0/3 = 0.0
-
-  Type-C: "X in top left, O in center"
-          vs "X in top left, O in bottom right"  →  partial overlap
-
-Usage
------
-# Fine-tune for one dataset type:
-python src/embeddings/pretrained/finetune_sbert.py --dataset b
-python src/embeddings/pretrained/finetune_sbert.py --dataset a
-python src/embeddings/pretrained/finetune_sbert.py --dataset c
-
-# In generate_embeddings_type_{a,b,c}.py:
-from embeddings.pretrained.finetune_sbert import FinetunedSBERTEmbedder
-embedder = FinetunedSBERTEmbedder(dataset='b')
-emb = torch.tensor(embedder.fit_transform(sentences))
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -59,21 +15,17 @@ from torch.utils.data import DataLoader
 Sentences:       TypeAlias = list[str]
 EmbeddingMatrix: TypeAlias = npt.NDArray[np.float32]
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
 _ROOT     = Path(__file__).resolve().parent.parent.parent.parent
 _DATA_DIR = _ROOT / 'src' / 'data'
 _CKPT_DIR = _ROOT / 'src' / 'pipelines' /'results' / 'checkpoints'
 
-# ── Dataset configs ────────────────────────────────────────────────────────────
-# All three types share the same CSV structure: sentence_id, sentence, ...
+# All three types share the same CSV structure
 DATASET_CONFIGS = {
     'a': _DATA_DIR / 'type-a' / 'sentences_a.csv',
     'b': _DATA_DIR / 'type-b' / 'sentences_b.csv',
     'c': _DATA_DIR / 'type-c' / 'sentences_c.csv',
 }
 
-
-# ── Sentence loading ───────────────────────────────────────────────────────────
 
 def _load_sentences(dataset: str) -> Sentences:
     csv_path  = DATASET_CONFIGS[dataset]
@@ -83,39 +35,22 @@ def _load_sentences(dataset: str) -> Sentences:
     return sentences
 
 
-# ── Similarity scoring ─────────────────────────────────────────────────────────
-
+# similarity scoring (use average percentage per token)
 def _jaccard_similarity(s1: str, s2: str) -> float:
-    """
-    Word-overlap (Jaccard) similarity between two sentences.
-    Works for all dataset types without domain-specific attribute parsing.
-
-      |words(s1) ∩ words(s2)|
-      ───────────────────────  ∈ [0, 1]
-      |words(s1) ∪ words(s2)|
-
-    Exact matches (1.0) are excluded from training pairs.
-    """
     w1  = set(s1.lower().split())
     w2  = set(s2.lower().split())
     intersection = w1 & w2
-    union        = w1 | w2
+    union        = w1 | w2 # total number of tokens (no duplicated counts)
     if not union:
         return 0.0
     return round(len(intersection) / len(union), 4)
 
-
-# ── Training pair generation ───────────────────────────────────────────────────
-
+# random sentence pair generation and label with the Jaccard similarity 
 def _make_training_pairs(
     sentences: Sentences,
     n_pairs:   int = 50_000,
     seed:      int = 42,
 ) -> list[InputExample]:
-    """
-    Sample random sentence pairs and label them with Jaccard similarity.
-    Exact matches (sim=1.0) are excluded — no training signal there.
-    """
     rng    = random.Random(seed)
     unique = list(set(sentences))
     pairs  = []
@@ -131,9 +66,6 @@ def _make_training_pairs(
     print(f"[finetune_sbert] generated {len(pairs)} training pairs")
     return pairs
 
-
-# ── Fine-tuning ────────────────────────────────────────────────────────────────
-
 def finetune(
     dataset:    str,
     base_model: str   = 'all-MiniLM-L6-v2',
@@ -142,20 +74,6 @@ def finetune(
     n_pairs:    int   = 50_000,
     seed:       int   = 42,
 ) -> SentenceTransformer:
-    """
-    Fine-tune SBERT on sentence pairs for the given dataset type.
-
-    Args:
-        dataset:    'a', 'b', or 'c'
-        base_model: HuggingFace model name to start from
-        epochs:     number of fine-tuning epochs
-        batch_size: training batch size
-        n_pairs:    number of (sentence1, sentence2, similarity) training pairs
-        seed:       random seed for reproducibility
-
-    Returns:
-        fine-tuned SentenceTransformer model
-    """
     save_path = _CKPT_DIR / f'sbert_finetuned_type{dataset}'
 
     if save_path.exists():
@@ -182,18 +100,7 @@ def finetune(
     print(f"[finetune_sbert] model saved → {save_path}")
     return model
 
-
-# ── Inference embedder ─────────────────────────────────────────────────────────
-
 class FinetunedSBERTEmbedder:
-    """
-    Loads the fine-tuned SBERT model for a given dataset type and provides
-    the standard fit / transform / fit_transform interface.
-
-    Used in generate_embeddings_type_{a,b,c}.py as a drop-in replacement
-    for SBERTEmbedder.
-    """
-
     def __init__(self, dataset: str):
         model_path = _CKPT_DIR / f'sbert_finetuned_type{dataset}'
         if not model_path.exists():
@@ -217,9 +124,6 @@ class FinetunedSBERTEmbedder:
 
     def fit_transform(self, sentences: Sentences) -> EmbeddingMatrix:
         return self.fit(sentences).transform(sentences)
-
-
-# ── Entry point ────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Fine-tune SBERT on dataset-specific sentence pairs')
