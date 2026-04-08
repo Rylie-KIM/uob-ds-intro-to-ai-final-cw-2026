@@ -34,7 +34,7 @@ class SBERTEmbedder:
         embeddings = self.model.encode(
             sentences,
             convert_to_numpy=True,
-            normalize_embeddings=False
+            normalize_embeddings=True
         )
 
         return embeddings.astype(np.float32)
