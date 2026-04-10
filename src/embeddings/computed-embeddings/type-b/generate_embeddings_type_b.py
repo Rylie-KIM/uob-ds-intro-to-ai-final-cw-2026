@@ -1,29 +1,3 @@
-"""
-src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py
-
-Pre-compute all 9 text embeddings for the Type-B dataset.
-Results saved to: src/embeddings/computed-embeddings/type-b/results/
-
-Usage
------
-python src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py
-python src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py --embedding bert_mean
-
-Imports from
-------------
-src/embeddings/pretrained/
-    sbert_embeddings.py                       → SBERTEmbedder
-    bert_mean_embeddings.py                   → BertMeanEmbedder
-    bert_pooler_embeddings.py                 → BertPoolerEmbedder
-    tinybert_mean_embeddings.py               → TinyBertMeanEmbedder
-    tinybert_pooler_embeddings.py             → TinyBertPoolerEmbedder
-    pretrained_word2vec_embeddings.py         → PretrainedWord2VecEmbedder
-src/embeddings/non-pretrained/
-    word2vec_skipgram_embeddings.py           → SkipGramEmbedder
-    tfidf_embeddings.py                       → TFIDFEmbedder
-src/embeddings/tfidf_embeddings.py            → TfidfEmbedder  (for TF-IDF × W2V weights)
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -42,27 +16,29 @@ _DATA_DIR = _ROOT / 'src' / 'data' / 'type-b'
 _OUT_DIR  = _HERE / 'results'
 
 # Add repo root + src/ so 'embeddings.*' and 'src.embeddings.*' both resolve.
-# non-pretrained uses a hyphen so also add it directly for bare-name imports.
+# non-pretrained and fine-tune use hyphens so also add them directly for bare-name imports.
 sys.path.insert(0, str(_ROOT))
 sys.path.insert(0, str(_ROOT / 'src'))
 sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'non-pretrained'))
+sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'pretrained' / 'fine-tune'))
 
 
-# ── Imports from src/embeddings/ ───────────────────────────────────────────────
+
+# fine-tune/
+from only_typeb_finetune_sbert import FinetunedSBERTEmbedder, finetune  
+# pretrained  
 from embeddings.pretrained.sbert_embeddings import SBERTEmbedder
-from embeddings.pretrained.finetune_sbert import FinetunedSBERTEmbedder, finetune
-from embeddings.pretrained.bert_mean_embeddings import BertMeanEmbedder
-from embeddings.pretrained.bert_pooler_embeddings import BertPoolerEmbedder
-from embeddings.pretrained.tinybert_mean_embeddings import TinyBertMeanEmbedder
-from embeddings.pretrained.tinybert_pooler_embeddings import TinyBertPoolerEmbedder
+from embeddings.pretrained.glove_embedding import GloVeEmbedder
+from embeddings.pretrained.only_type_b_bert_mean_embeddings import BertMeanEmbedder
+from embeddings.pretrained.only_type_b_bert_pooler_embeddings import BertPoolerEmbedder
+from embeddings.pretrained.only_type_b_tinybert_mean_embeddings import TinyBertMeanEmbedder
+from embeddings.pretrained.only_type_b_tinybert_pooler_embeddings import TinyBertPoolerEmbedder
 from embeddings.pretrained.pretrained_word2vec_embeddings import PretrainedWord2VecEmbedder
-from word2vec_skipgram_embeddings import SkipGramEmbedder                        # non-pretrained/
-from tfidf_embeddings import TFIDFEmbedder                                       # non-pretrained/
-from tfidf_lsa_embeddings import TFIDFLSAEmbedder                                # non-pretrained/
-from tfidf_weighted_word2vec_embeddings import TFIDFWeightedWord2VecEmbedder     # non-pretrained/
+# non pretrained 
+from word2vec_skipgram_embeddings import SkipGramEmbedder                      
+from tfidf_lsa_embeddings import TFIDFLSAEmbedder                                
+from tfidf_weighted_word2vec_embeddings import TFIDFWeightedWord2VecEmbedder     
 
-
-# ── Helpers ────────────────────────────────────────────────────────────────────
 
 def load_sentences() -> list[str]:
     image_map    = pd.read_csv(_DATA_DIR / 'image_map_b.csv')
@@ -81,9 +57,8 @@ def skip_if_exists(method_name: str) -> bool:
     return False
 
 
-def _inspect(method_name: str, sentences: list[str], emb: torch.Tensor) -> None:
-    """Print sanity checks immediately after an embedding is computed."""
-    arr = emb.numpy() if isinstance(emb, torch.Tensor) else emb
+def _inspect(label: str, sentences: list[str], arr: np.ndarray) -> None:
+    """Print sanity checks for an embedding array."""
     n_nan      = int(np.isnan(arr).sum())
     n_inf      = int(np.isinf(arr).sum())
     zero_rows  = int((arr == 0).all(axis=1).sum())
@@ -100,47 +75,38 @@ def _inspect(method_name: str, sentences: list[str], emb: torch.Tensor) -> None:
         else:
             seen[s] = idx
 
-    warn = lambda v, label: f'{v}  ⚠ WARNING' if v > 0 else f'{v}  OK'
-    print(f'  [inspect] NaN={warn(n_nan, "nan")}  |  Inf={warn(n_inf, "inf")}  |  zero-rows={warn(zero_rows, "zero")}  |  consistency-mismatches={warn(mismatch, "mismatch")}')
-    print(f'  [inspect] unique_sentences={n_unique_s}/{len(sentences)}'
+    warn = lambda v: f'{v}  ⚠ WARNING' if v > 0 else f'{v}  OK'
+    print(f'  [inspect/{label}] NaN={warn(n_nan)}  |  Inf={warn(n_inf)}  |  zero-rows={warn(zero_rows)}  |  consistency-mismatches={warn(mismatch)}')
+    print(f'  [inspect/{label}] unique_sentences={n_unique_s}/{len(sentences)}'
           f'  |  norm mean={norms.mean():.3f}  std={norms.std():.3f}'
           f'  |  val mean={arr.mean():.4f}  std={arr.std():.4f}')
-    # 3 sample sentences
     for i in [0, len(sentences)//2, len(sentences)-1]:
         preview = ' '.join(f'{v:.3f}' for v in arr[i, :5])
-        print(f'  [inspect] [{i:5d}] "{sentences[i]}"  →  [{preview} ...]')
+        print(f'  [inspect/{label}] [{i:5d}] "{sentences[i]}"  →  [{preview} ...]')
 
 
 def save_embedding(method_name: str, sentences: list[str], emb: torch.Tensor, elapsed: float = 0.0) -> None:
+    # Save both original and L2-normalised embeddings to a single .pt file
+    # embeddings            : raw float32 tensor  (shape N×D)
+    # embeddings_normalised : L2-normalised float32 tensor (shape N×D, all norms ≈ 1)
+
     _OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = _OUT_DIR / f'{method_name}_embedding_result_typeb.pt'
+
+    emb_raw  = emb.float()
+    emb_norm = torch.nn.functional.normalize(emb_raw, p=2, dim=1)
+
     torch.save({
-        'sentences':  sentences,
-        'embeddings': emb,
-        'method':     method_name,
-        'dataset':    'b',
+        'sentences':             sentences,
+        'embeddings':            emb_raw,
+        'embeddings_normalised': emb_norm,
+        'method':                method_name,
+        'dataset':               'b',
     }, out_path)
-    print(f'[saved]  {out_path.name}  shape={tuple(emb.shape)}  time={elapsed:.1f}s')
-    _inspect(method_name, sentences, emb)
 
-
-# ── Embedding methods ──────────────────────────────────────────────────────────
-
-def _bert_loop(embedder, sentences: list[str], label: str) -> torch.Tensor:
-    """Encode sentences one-by-one with progress reporting every 100 steps."""
-    n    = len(sentences)
-    vecs = []
-    t0   = time.time()
-    for i, s in enumerate(sentences):
-        vecs.append(embedder.get_embedding(s).squeeze(0).cpu().detach())
-        if (i + 1) % 100 == 0 or (i + 1) == n:
-            pct     = (i + 1) / n * 100
-            elapsed = time.time() - t0
-            eta     = elapsed / (i + 1) * (n - i - 1)
-            print(f'  [{label}] {i+1}/{n}  ({pct:.0f}%)  elapsed={elapsed:.0f}s  eta={eta:.0f}s', end='\r')
-    print()
-    return torch.stack(vecs)
-
+    print(f'[saved]  {out_path.name}  shape={tuple(emb_raw.shape)}  time={elapsed:.1f}s')
+    _inspect('raw',  sentences, emb_raw.numpy())
+    _inspect('norm', sentences, emb_norm.numpy())
 
 def compute_sbert(sentences: list[str]) -> None:
     """SBERTEmbedder — all-MiniLM-L6-v2, 384-dim."""
@@ -169,7 +135,7 @@ def compute_bert_mean(sentences: list[str]) -> None:
         return
     t0 = time.time()
     embedder = BertMeanEmbedder()
-    emb = _bert_loop(embedder, sentences, 'bert_mean')
+    emb = torch.tensor(embedder.transform(sentences))
     save_embedding('bert_mean', sentences, emb, elapsed=time.time() - t0)
 
 
@@ -179,7 +145,7 @@ def compute_bert_pooler(sentences: list[str]) -> None:
         return
     t0 = time.time()
     embedder = BertPoolerEmbedder()
-    emb = _bert_loop(embedder, sentences, 'bert_pooler')
+    emb = torch.tensor(embedder.transform(sentences))
     save_embedding('bert_pooler', sentences, emb, elapsed=time.time() - t0)
 
 
@@ -189,7 +155,7 @@ def compute_tinybert_mean(sentences: list[str]) -> None:
         return
     t0 = time.time()
     embedder = TinyBertMeanEmbedder()
-    emb = _bert_loop(embedder, sentences, 'tinybert_mean')
+    emb = torch.tensor(embedder.transform(sentences))
     save_embedding('tinybert_mean', sentences, emb, elapsed=time.time() - t0)
 
 
@@ -199,7 +165,7 @@ def compute_tinybert_pooler(sentences: list[str]) -> None:
         return
     t0 = time.time()
     embedder = TinyBertPoolerEmbedder()
-    emb = _bert_loop(embedder, sentences, 'tinybert_pooler')
+    emb = torch.tensor(embedder.transform(sentences))
     save_embedding('tinybert_pooler', sentences, emb, elapsed=time.time() - t0)
 
 
@@ -224,16 +190,6 @@ def compute_word2vec_pretrained(sentences: list[str]) -> None:
     save_embedding('word2vec_pretrained', sentences, emb, elapsed=time.time() - t0)
 
 
-def compute_tfidf(sentences: list[str]) -> None:
-    """TFIDFEmbedder (non-pretrained) — TF-IDF sparse → 100-dim."""
-    if skip_if_exists('tfidf'):
-        return
-    t0 = time.time()
-    embedder = TFIDFEmbedder(vector_size=100)
-    emb = torch.tensor(embedder.fit_transform(sentences))
-    save_embedding('tfidf', sentences, emb, elapsed=time.time() - t0)
-
-
 def compute_tfidf_w2v(sentences: list[str]) -> None:
     """TFIDFWeightedWord2VecEmbedder — TF-IDF weighted Word2Vec (skip-gram), 100-dim."""
     if skip_if_exists('tfidf_w2v'):
@@ -256,6 +212,17 @@ def compute_tfidf_lsa(sentences: list[str]) -> None:
     save_embedding('tfidf_lsa', sentences, emb, elapsed=time.time() - t0)
 
 
+def compute_glove(sentences: list[str]) -> None:
+    """GloVeEmbedder — glove-wiki-gigaword-100, mean pooling over tokens, 100-dim."""
+    if skip_if_exists('glove'):
+        return
+    t0 = time.time()
+    embedder = GloVeEmbedder(model_name='glove-wiki-gigaword-100')
+    embedder.oov_rate(sentences)
+    emb = torch.tensor(embedder.fit_transform(sentences))
+    save_embedding('glove', sentences, emb, elapsed=time.time() - t0)
+
+
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 ALL_METHODS = [
@@ -263,7 +230,8 @@ ALL_METHODS = [
     'bert_mean', 'bert_pooler',
     'tinybert_mean', 'tinybert_pooler',
     'word2vec_skipgram', 'word2vec_pretrained',
-    'tfidf', 'tfidf_lsa', 'tfidf_w2v',
+    'glove',
+    'tfidf_lsa', 'tfidf_w2v',
 ]
 
 def main() -> None:
@@ -284,7 +252,7 @@ def main() -> None:
         'tinybert_pooler':     lambda: compute_tinybert_pooler(sentences),
         'word2vec_skipgram':   lambda: compute_word2vec_skipgram(sentences),
         'word2vec_pretrained': lambda: compute_word2vec_pretrained(sentences),
-        'tfidf':               lambda: compute_tfidf(sentences),
+        'glove':               lambda: compute_glove(sentences),
         'tfidf_lsa':           lambda: compute_tfidf_lsa(sentences),
         'tfidf_w2v':           lambda: compute_tfidf_w2v(sentences),
     }
