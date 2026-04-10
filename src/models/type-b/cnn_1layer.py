@@ -10,10 +10,10 @@ class CNN1Layer(nn.Module):
             nn.Conv2d(3, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(2, 2),                 # → 64×64×64
+            nn.MaxPool2d(2, 2),                 #  64×64×64
         )
 
-        self.avgpool = nn.AdaptiveAvgPool2d((8, 8))     # → 8×8×64 = 4096  (64÷8 exact, MPS-safe)
+        self.avgpool = nn.AdaptiveAvgPool2d((8, 8))     #  8×8×64 = 4096  (64÷8 exact, MPS-safe)
 
         self.classifier = nn.Sequential(
             nn.Flatten(),
