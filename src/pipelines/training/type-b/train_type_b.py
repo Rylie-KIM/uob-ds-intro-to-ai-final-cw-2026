@@ -1,35 +1,3 @@
-"""
-src/pipelines/training/type-b/train_type_b.py
-Local training script for Type-B (coloured MNIST numbers).
-
-Pre-requisite
--------------
-Generate sentence embeddings before training:
-    python src/embeddings/computed-embeddings/type-b/generate_embeddings_type_b.py
-
-Usage
------
-# Train a single model x embedding combination
-python src/pipelines/training/type-b/train_type_b.py --model cnn_1layer --embedding sbert
-
-# Train all combinations
-python src/pipelines/training/type-b/train_type_b.py
-
-# Custom options
-python src/pipelines/training/type-b/train_type_b.py --model resnet18_pt --embedding bert_mean --epochs 20 --device cpu
-
-Available models     : cnn_1layer | cnn_3layer | resnet18_pt
-Available embeddings : sbert | sbert_finetuned | bert_mean | bert_pooler | tinybert_mean | tinybert_pooler
-                       word2vec_skipgram | word2vec_pretrained | glove | tfidf_lsa | tfidf_w2v
-
-Outputs (per run)
------------------
-Checkpoints  : src/pipelines/results/checkpoints/b_{model}_{embedding}_best.pt
-Epoch log    : src/pipelines/results/metrics/b_{model}_{embedding}_epoch_log.csv
-Predictions  : src/pipelines/results/metrics/b_{model}_{embedding}_predictions.csv
-Summary      : src/pipelines/results/metrics/results_summary.csv
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -42,7 +10,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-# ── Path bootstrap ─────────────────────────────────────────────────────────────
+
 _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
@@ -56,6 +24,7 @@ def _load_hyphen_module(name: str, rel_path: str):
     _spec.loader.exec_module(_mod)
     return _mod
 
+_models  = _load_hyphen_module('_models_typeb',   '../../../models/type-b/__init__.py') if False else None
 _shared  = _load_hyphen_module('_shared_typeb',   'shared.py')
 
 train_one_epoch = _shared.train_one_epoch
@@ -76,7 +45,6 @@ from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
 from src.pipelines.data_loaders.type_b_loader import make_splits
 
 
-# ── Embedding configurations ───────────────────────────────────────────────────
 EMBEDDING_CONFIGS: dict[str, dict] = {
     'sbert':               {'dim': 384},
     'sbert_finetuned':     {'dim': 384},
@@ -91,7 +59,6 @@ EMBEDDING_CONFIGS: dict[str, dict] = {
     'tfidf_w2v':           {'dim': 100},
 }
 
-# ── Model configurations ───────────────────────────────────────────────────────
 MODEL_CONFIGS: dict[str, callable] = {
     'cnn_1layer':   lambda dim: CNN1Layer(embedding_dim=dim),
     'cnn_3layer':   lambda dim: CNN3Layer(embedding_dim=dim),
@@ -130,10 +97,6 @@ def _build_criterion(model_name: str, embedding_name: str) -> nn.Module:
     return nn.MSELoss()
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Single experiment
-# ══════════════════════════════════════════════════════════════════════════════
-
 def run_experiment(
     model_name:     str,
     embedding_name: str,
@@ -152,7 +115,7 @@ def run_experiment(
     print(f"  embed_dim : {embed_dim}     device: {device}")
     print(f"{'='*60}")
 
-    # ── Embedding cache ────────────────────────────────────────────────────────
+
     cache_path = EMBED_RESULTS_B / f'{embedding_name}_embedding_result_typeb.pt'
     if not cache_path.exists():
         print(f'[skip] Embedding file not found: {cache_path}')
@@ -160,7 +123,7 @@ def run_experiment(
               f'generate_embeddings_type_b.py --embedding {embedding_name}')
         return
 
-    # ── Data splits ────────────────────────────────────────────────────────────
+
     train_set, val_set, test_set = make_splits(
         embedding_cache=cache_path,
         device=device,
@@ -183,7 +146,6 @@ def run_experiment(
     all_embeddings = torch.stack([rec[2] for rec in full_dataset.records])
     all_sentences  = [rec[1] for rec in full_dataset.records]
 
-    # ── Model, optimiser, loss ─────────────────────────────────────────────────
     model = MODEL_CONFIGS[model_name](embed_dim).to(device)
 
     lr           = _ALEXNET_LR           if model_name == 'alexnet' else LR
@@ -264,7 +226,6 @@ def run_experiment(
 
     print(f'  Epoch log saved  → {epoch_log_path.name}')
 
-    # ── Evaluate best checkpoint on test set ───────────────────────────────────
     print('\n  Evaluating best checkpoint on test set...')
     ckpt = torch.load(ckpt_path, map_location=device)
     model.load_state_dict(ckpt['model_state'])
@@ -288,8 +249,6 @@ def run_experiment(
     save_results(metrics, results_df, METRICS_B, run_name)
 
 
-# ── Device auto-detection ──────────────────────────────────────────────────────
-
 def _default_device() -> str:
     if torch.cuda.is_available():
         return 'cuda'
@@ -297,8 +256,6 @@ def _default_device() -> str:
         return 'mps'
     return 'cpu'
 
-
-# ── CLI ────────────────────────────────────────────────────────────────────────
 
 def main() -> None:
     parser = argparse.ArgumentParser(description='Type-B local training')
