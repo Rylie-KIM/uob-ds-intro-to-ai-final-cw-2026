@@ -10,17 +10,17 @@ Generate sentence embeddings before training:
 Usage
 -----
 # Train a single model x embedding combination
-python src/pipelines/training/type-b/train_type_b.py --model cnn --embedding sbert
+python src/pipelines/training/type-b/train_type_b.py --model cnn_1layer --embedding sbert
 
-# Train all combinations (4 models x 7 embeddings = 28 runs)
+# Train all combinations
 python src/pipelines/training/type-b/train_type_b.py
 
 # Custom options
-python src/pipelines/training/type-b/train_type_b.py --model alexnet --embedding bert_mean --epochs 20 --device cpu
+python src/pipelines/training/type-b/train_type_b.py --model resnet18_pt --embedding bert_mean --epochs 20 --device cpu
 
-Available models     : alexnet | cnn | cnn_1layer | cnn_2layer
-Available embeddings : sbert | bert_mean | bert_pooler | tinybert_mean | tinybert_pooler
-                       word2vec_skipgram | word2vec_pretrained | tfidf | tfidf_w2v
+Available models     : cnn_1layer | cnn_3layer | resnet18_pt
+Available embeddings : sbert | sbert_finetuned | bert_mean | bert_pooler | tinybert_mean | tinybert_pooler
+                       word2vec_skipgram | word2vec_pretrained | glove | tfidf_lsa | tfidf_w2v
 
 Outputs (per run)
 -----------------
@@ -47,10 +47,9 @@ _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists(
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from src.models.alexnet    import AlexNet128
-from src.models.CNN        import CNN
-from src.models.cnn_1layer import CNN1Layer
-from src.models.cnn_2layer import CNN2Layer
+from src.models.type_b.cnn_1layer   import CNN1Layer
+from src.models.type_b.cnn_3layer   import CNN3Layer
+from src.models.type_b.resnet18_pt  import ResNet18Pretrained
 from pipelines.evaluation.evaluate import evaluate, save_results
 from src.pipelines.shared   import train_one_epoch, run_validation, set_seed, CombinedLoss
 from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
@@ -74,10 +73,9 @@ EMBEDDING_CONFIGS: dict[str, dict] = {
 
 # ── Model configurations ───────────────────────────────────────────────────────
 MODEL_CONFIGS: dict[str, callable] = {
-    'alexnet':    lambda dim: AlexNet128(embedding_dim=dim),
-    'cnn':        lambda dim: CNN(embedding_dim=dim),
-    'cnn_1layer': lambda dim: CNN1Layer(embedding_dim=dim),
-    'cnn_2layer': lambda dim: CNN2Layer(embedding_dim=dim),
+    'cnn_1layer':   lambda dim: CNN1Layer(embedding_dim=dim),
+    'cnn_3layer':   lambda dim: CNN3Layer(embedding_dim=dim),
+    'resnet18_pt':  lambda dim: ResNet18Pretrained(embedding_dim=dim),
 }
 
 # ── Default hyperparameters (from src/config/training.json + hyperparams.json) ─
@@ -93,8 +91,8 @@ _ALEXNET_LR           = 5e-5
 _ALEXNET_WEIGHT_DECAY = 5e-4
 
 # Loss function selection per model (from src/config/loss.json)
-# cnn_3layer and alexnet use CombinedLoss; simpler models use MSELoss
-_COMBINED_LOSS_MODELS = {'cnn', 'alexnet'}
+# cnn_3layer uses CombinedLoss; simpler/pretrained models use MSELoss
+_COMBINED_LOSS_MODELS = {'cnn_3layer'}
 # SBERT-family embeddings prefer CosineLoss
 _COSINE_LOSS_EMBEDDINGS = {'sbert', 'sbert_finetuned'}
 

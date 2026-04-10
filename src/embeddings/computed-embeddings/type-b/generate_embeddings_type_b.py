@@ -217,7 +217,7 @@ def compute_glove(sentences: list[str]) -> None:
     if skip_if_exists('glove'):
         return
     t0 = time.time()
-    embedder = GloVeEmbedder(model_name='glove-wiki-gigaword-100')
+    embedder = GloVeEmbedder(model_name='glove-wiki-gigaword-300')
     embedder.oov_rate(sentences)
     emb = torch.tensor(embedder.fit_transform(sentences))
     save_embedding('glove', sentences, emb, elapsed=time.time() - t0)

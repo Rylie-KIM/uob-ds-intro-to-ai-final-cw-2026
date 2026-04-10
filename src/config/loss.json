@@ -1,6 +1,5 @@
 {
   "_comment": "Loss function configuration per dataset type, model, and embedding. See docs/config/loss_rationale.md for mathematical justification.",
-
   "loss_definitions": {
     "MSELoss": {
       "formula": "L = (1/N) * sum(||y_hat_i - y_i||^2)",
@@ -19,62 +18,85 @@
       "alpha": 0.5,
       "pytorch": "alpha * mse_loss(y_hat, y) + (1-alpha) * (1 - cosine_sim(y_hat, y)).mean()",
       "optimises": "Both direction (cosine) and magnitude (L2) simultaneously",
-      "suitable_when": "Model has sufficient capacity to optimise both terms. Suitable for 3-layer CNN and AlexNet."
+      "suitable_when": "Model has sufficient capacity to optimise both terms. Suitable for 3-layer CNN and ResNet18."
     },
     "HuberLoss": {
       "formula": "L = 0.5*(e^2) if |e|<=delta, else delta*(|e| - 0.5*delta)",
       "delta": 1.0,
       "pytorch": "torch.nn.HuberLoss(delta=1.0)",
-      "optimises": "Smooth L1 — behaves like MSE near zero, like MAE for large errors",
+      "optimises": "Smooth L1 \u2014 behaves like MSE near zero, like MAE for large errors",
       "suitable_when": "Embedding targets contain outlier dimensions (e.g. BERT dim=768 with large-magnitude dimensions)"
     }
   },
-
   "type_b": {
     "primary_loss": "MSELoss",
     "primary_rationale": "MSELoss is the standard choice for regression to a continuous target vector. It penalises both directional and magnitude errors, encouraging the CNN to output embeddings close in Euclidean distance to the ground-truth.",
-
     "model_specific": {
-      "cnn_1layer":  {
+      "cnn_1layer": {
         "loss": "MSELoss",
         "rationale": "Simple model with limited capacity. MSELoss provides a stable, well-understood gradient signal. CombinedLoss may overwhelm the shallow network with competing objectives."
       },
-      "cnn_2layer":  {
-        "loss": "MSELoss",
-        "rationale": "Two-block CNN is intermediate complexity. MSELoss is sufficient and avoids hyperparameter alpha tuning."
-      },
-      "cnn_3layer":  {
+      "cnn_3layer": {
         "loss": "CombinedLoss",
         "alpha": 0.5,
         "rationale": "Three-block CNN has sufficient capacity to optimise the combined objective. Since the retrieval metric is cosine similarity, directly training with a cosine term (via CombinedLoss) better aligns training loss with the evaluation metric."
       },
-      "alexnet128": {
-        "loss": "CombinedLoss",
-        "alpha": 0.5,
-        "rationale": "AlexNet128 has the highest capacity and can benefit from the CombinedLoss signal. The cosine term also acts as an implicit normalisation incentive, partially counteracting the magnitude drift common in large models."
+      "resnet18_pt": {
+        "loss": "MSELoss",
+        "rationale": "ResNet18 pretrained uses MSELoss as default for non-SBERT embeddings. For SBERT/sbert_finetuned, the embedding-specific override applies CosineLoss (see embedding_specific section). With 11.4M params and pretrained init, the model can optimise MSE stably across all embedding dimensions."
       }
     },
-
     "embedding_specific": {
-      "sbert":            {"preferred_loss": "CosineLoss",   "reason": "SBERT was trained with cosine similarity objective (CosineSimilarityLoss). Using CosineLoss during CNN training aligns the CNN objective with how SBERT was originally optimised."},
-      "sbert_finetuned":  {"preferred_loss": "CosineLoss",   "reason": "Same reasoning as sbert."},
-      "bert_mean":        {"preferred_loss": "MSELoss",       "reason": "BERT embeddings are not normalised; MSELoss handles unnormalised targets more stably than CosineLoss alone."},
-      "bert_pooler":      {"preferred_loss": "MSELoss",       "reason": "Same reasoning as bert_mean."},
-      "tinybert_mean":    {"preferred_loss": "MSELoss",       "reason": "Same reasoning as bert_mean."},
-      "tinybert_pooler":  {"preferred_loss": "MSELoss",       "reason": "Same reasoning as bert_mean."},
-      "word2vec_pretrained": {"preferred_loss": "MSELoss",    "reason": "Word2Vec embeddings have consistent L2 norms. MSELoss is appropriate."},
-      "word2vec_skipgram":   {"preferred_loss": "MSELoss",    "reason": "Corpus-trained skip-gram vectors; MSELoss standard."},
-      "glove":            {"preferred_loss": "MSELoss",       "reason": "GloVe vectors have consistent magnitude. MSELoss appropriate."},
-      "tfidf":            {"preferred_loss": "MSELoss",       "reason": "TF-IDF sparse vectors after SVD are not unit-normalised. MSELoss handles the scale."},
-      "tfidf_w2v":        {"preferred_loss": "MSELoss",       "reason": "Weighted average of W2V vectors; same reasoning as word2vec."}
+      "sbert": {
+        "preferred_loss": "CosineLoss",
+        "reason": "SBERT was trained with cosine similarity objective (CosineSimilarityLoss). Using CosineLoss during CNN training aligns the CNN objective with how SBERT was originally optimised."
+      },
+      "sbert_finetuned": {
+        "preferred_loss": "CosineLoss",
+        "reason": "Same reasoning as sbert."
+      },
+      "bert_mean": {
+        "preferred_loss": "MSELoss",
+        "reason": "BERT embeddings are not normalised; MSELoss handles unnormalised targets more stably than CosineLoss alone."
+      },
+      "bert_pooler": {
+        "preferred_loss": "MSELoss",
+        "reason": "Same reasoning as bert_mean."
+      },
+      "tinybert_mean": {
+        "preferred_loss": "MSELoss",
+        "reason": "Same reasoning as bert_mean."
+      },
+      "tinybert_pooler": {
+        "preferred_loss": "MSELoss",
+        "reason": "Same reasoning as bert_mean."
+      },
+      "word2vec_pretrained": {
+        "preferred_loss": "MSELoss",
+        "reason": "Word2Vec embeddings have consistent L2 norms. MSELoss is appropriate."
+      },
+      "word2vec_skipgram": {
+        "preferred_loss": "MSELoss",
+        "reason": "Corpus-trained skip-gram vectors; MSELoss standard."
+      },
+      "glove": {
+        "preferred_loss": "MSELoss",
+        "reason": "GloVe vectors have consistent magnitude. MSELoss appropriate."
+      },
+      "tfidf": {
+        "preferred_loss": "MSELoss",
+        "reason": "TF-IDF sparse vectors after SVD are not unit-normalised. MSELoss handles the scale."
+      },
+      "tfidf_w2v": {
+        "preferred_loss": "MSELoss",
+        "reason": "Weighted average of W2V vectors; same reasoning as word2vec."
+      }
     }
   },
-
   "type_a": {
     "primary_loss": "CombinedLoss",
     "rationale": "Type-A sentences describe spatial relationships ('above', 'left of'). The embedding space must encode both object identity and spatial information. CombinedLoss encourages directional alignment (cosine) for semantic similarity while MSE term anchors embedding magnitudes."
   },
-
   "type_c": {
     "primary_loss": "MSELoss",
     "rationale": "Type-C tic-tac-toe sentences are structured and short. MSELoss provides a stable signal for the constrained vocabulary."
