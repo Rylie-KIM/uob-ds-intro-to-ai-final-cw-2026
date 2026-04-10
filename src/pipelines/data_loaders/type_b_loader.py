@@ -1,30 +1,3 @@
-"""
-src/pipelines/data_loaders/type-b/type_b_loader.py
-PyTorch Dataset and data-split utilities for the Type-B (coloured MNIST) dataset.
-
-Data structure
---------------
-  src/data/type-b/sentences_b.csv  : sentence_id, sentence, n_digits
-  src/data/type-b/image_map_b.csv  : filename, sentence_id
-  src/data/images/type-b/          : b_0.png … b_10007.png  (128x128 RGB)
-
-Mapping chain (1-to-1, no duplicates):
-  filename  ->  sentence_id  ->  sentence  ->  pre-computed embedding vector
-
-Usage
------
-    # loaded via importlib (hyphen in path prevents direct import)
-
-    train_set, val_set, test_set = make_splits(
-        embedding_cache=Path('src/embeddings/.../sbert_embedding_result_typeb.pt'),
-        device='cpu',
-        seed=42,
-    )
-
-    # Each __getitem__ returns: (image_tensor, sentence_str, embedding_tensor)
-    img, sentence, emb = train_set[0]
-"""
-
 from __future__ import annotations
 
 import sys
@@ -37,7 +10,6 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from torch.utils.data import Dataset, Subset
 from torchvision import transforms
 
-# ── Path bootstrap ─────────────────────────────────────────────────────────────
 _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
@@ -49,7 +21,7 @@ from src.config.paths import (
     TYPE_B_SPLITS,
 )
 
-# ── Default image transform ────────────────────────────────────────────────────
+# Set image to size 128 * 128 
 _DEFAULT_TRANSFORM = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
@@ -57,47 +29,26 @@ _DEFAULT_TRANSFORM = transforms.Compose([
 ])
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Dataset
-# ══════════════════════════════════════════════════════════════════════════════
-
 class TypeBDataset(Dataset):
-    """
-    PyTorch Dataset for Type-B (coloured MNIST numbers).
-
-    Each item returns a triple:
-        image_tensor : FloatTensor (3, 128, 128)  — normalised RGB image
-        sentence     : str                         — ground-truth description
-        embedding    : FloatTensor (dim,)          — pre-computed text embedding
-
-    Parameters
-    ----------
-    records : list of (image_path, sentence, embedding_tensor)
-    transform : torchvision transform applied to each PIL image
-    """
-
     def __init__(
         self,
         records: list[tuple[Path, str, torch.Tensor]],
         transform=None,
     ) -> None:
         self.records   = records
-        self.transform = transform or _DEFAULT_TRANSFORM
+        self.transform = transform or _DEFAULT_TRANSFORM # torchvision transform applied to each PIL image
 
     def __len__(self) -> int:
         return len(self.records)
 
+# embedding: FloatTensor (dim,), setence,  image_tensors - FloatTensor (3, 128, 128) normalised RGB image
     def __getitem__(self, idx: int) -> tuple[torch.Tensor, str, torch.Tensor]:
         img_path, sentence, emb = self.records[idx]
         img = Image.open(img_path).convert('RGB')
-        img = self.transform(img)
+        img = self.transform(img) # torchvision transform applied to each PIL image
         return img, sentence, emb.cpu()  # ensure CPU for pin_memory compatibility
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Split helper
-# ══════════════════════════════════════════════════════════════════════════════
-
+#  Stratification key: n_digits (1–6) — ensures each digit-length grou is proportionally represented in every split.
 def make_splits(
     embedding_cache: Path,
     device: str = 'cpu',  # kept for API compatibility; embeddings stay on CPU (move to device in training loop)
@@ -108,35 +59,7 @@ def make_splits(
     save_split_csv: bool = True,
     load_split_csv: bool = True,
 ) -> tuple[Subset, Subset, Subset]:
-    """
-    Build stratified train / val / test splits for Type-B.
 
-    Stratification key: n_digits (1–6) — ensures each digit-length group
-    is proportionally represented in every split.
-
-    Split indices are saved to / loaded from
-        TYPE_B_SPLITS / type_b_splits_seed{seed}.csv
-    so that all model × embedding experiments share the identical partition.
-
-    Parameters
-    ----------
-    embedding_cache : path to a .pt file produced by generate_embeddings_type_b.py
-                      Must contain keys 'sentences' (list[str]) and
-                      'embeddings' (Tensor[N, dim]).
-    device          : 'cpu' | 'cuda' | 'mps'  — target device for embedding tensors
-    seed            : random seed (must be the same across all runs)
-    train_ratio     : fraction of data used for training   (default 0.80)
-    val_ratio       : fraction of data used for validation (default 0.10)
-                      test_ratio = 1 - train_ratio - val_ratio
-    transform       : optional torchvision transform; falls back to default (Resize+Normalize)
-    save_split_csv  : persist split indices to CSV for reproducibility
-    load_split_csv  : if CSV already exists, load indices from it (skip re-splitting)
-
-    Returns
-    -------
-    (train_subset, val_subset, test_subset)  — all subsets of a single TypeBDataset
-    """
-    # ── Load embedding cache ───────────────────────────────────────────────────
     cache = torch.load(embedding_cache, map_location='cpu')
     emb_sentences: list[str]    = cache['sentences']
     emb_matrix:    torch.Tensor = cache['embeddings'].float().cpu()  # always keep on CPU; move to device in training loop
@@ -145,7 +68,6 @@ def make_splits(
         s: emb_matrix[i] for i, s in enumerate(emb_sentences)
     }
 
-    # ── Load CSV data ──────────────────────────────────────────────────────────
     image_map  = pd.read_csv(TYPE_B_IMAGE_MAP)    # filename, sentence_id
     sentences  = pd.read_csv(TYPE_B_SENTENCES)    # sentence_id, sentence, n_digits
     df = image_map.merge(sentences, on='sentence_id')
@@ -167,7 +89,6 @@ def make_splits(
     full_dataset = TypeBDataset(records, transform=transform)
     n = len(full_dataset)
 
-    # ── Load or compute split indices ──────────────────────────────────────────
     split_csv = TYPE_B_SPLITS / f'type_b_splits_seed{seed}.csv'
 
     if load_split_csv and split_csv.exists():
@@ -194,9 +115,7 @@ def make_splits(
         Subset(full_dataset, test_idx),
     )
 
-
-# ── Internal helpers ───────────────────────────────────────────────────────────
-
+#  Stratified split using n_digits as the stratification label.
 def _stratified_split(
     df: pd.DataFrame,
     n: int,
@@ -204,13 +123,6 @@ def _stratified_split(
     train_ratio: float,
     val_ratio:   float,
 ) -> tuple[list[int], list[int], list[int]]:
-    """
-    Stratified split using n_digits as the stratification label.
-
-    Strategy:
-      1. First split: separate test set  (size = 1 - train_ratio - val_ratio)
-      2. Second split: split remaining into train + val
-    """
     all_idx       = list(range(n))
     n_digits_arr  = df['n_digits'].astype(str).values   # stratification labels
 
@@ -247,8 +159,6 @@ def _save_split_csv(
     )
     pd.DataFrame(rows).to_csv(path, index=False)
 
-
-# ── Quick sanity check ─────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
     import argparse
