@@ -47,11 +47,31 @@ _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists(
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from src.models.type_b.cnn_1layer   import CNN1Layer
-from src.models.type_b.cnn_3layer   import CNN3Layer
-from src.models.type_b.resnet18_pt  import ResNet18Pretrained
+import importlib.util as _ilu
+
+def _load_hyphen_module(name: str, rel_path: str):
+    """Load a module from a path that contains hyphens (not valid Python identifiers)."""
+    _spec = _ilu.spec_from_file_location(name, Path(__file__).resolve().parent / rel_path)
+    _mod  = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
+    return _mod
+
+_shared  = _load_hyphen_module('_shared_typeb',   'shared.py')
+
+train_one_epoch = _shared.train_one_epoch
+run_validation  = _shared.run_validation
+set_seed        = _shared.set_seed
+CombinedLoss    = _shared.CombinedLoss
+
+_cnn1      = _load_hyphen_module('_cnn1layer',   '../../../models/type-b/cnn_1layer.py')
+_cnn3      = _load_hyphen_module('_cnn3layer',   '../../../models/type-b/cnn_3layer.py')
+_resnet    = _load_hyphen_module('_resnet18pt',  '../../../models/type-b/resnet18_pt.py')
+
+CNN1Layer          = _cnn1.CNN1Layer
+CNN3Layer          = _cnn3.CNN3Layer
+ResNet18Pretrained = _resnet.ResNet18Pretrained
+
 from pipelines.evaluation.evaluate import evaluate, save_results
-from src.pipelines.shared   import train_one_epoch, run_validation, set_seed, CombinedLoss
 from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
 from src.pipelines.data_loaders.type_b_loader import make_splits
 
