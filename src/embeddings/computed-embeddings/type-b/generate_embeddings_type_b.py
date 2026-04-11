@@ -218,7 +218,6 @@ def compute_glove(sentences: list[str]) -> None:
     save_embedding('glove', sentences, emb, elapsed=time.time() - t0)
 
 
-# ── Entry point ────────────────────────────────────────────────────────────────
 
 ALL_METHODS = [
     'sbert', 'sbert_finetuned',
