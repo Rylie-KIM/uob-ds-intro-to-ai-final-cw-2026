@@ -40,7 +40,6 @@ CNN1Layer          = _cnn1.CNN1Layer
 CNN3Layer          = _cnn3.CNN3Layer
 ResNet18Pretrained = _resnet.ResNet18Pretrained
 
-from pipelines.evaluation.evaluate import evaluate, save_results
 from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
 from src.pipelines.data_loaders.type_b_loader import make_splits
 
@@ -123,7 +122,7 @@ def run_experiment(
         return
 
 
-    train_set, val_set, test_set = make_splits(
+    train_set, val_set, _ = make_splits(
         embedding_cache=cache_path,
         device=device,
         seed=SEED,
@@ -137,13 +136,6 @@ def run_experiment(
                               num_workers=num_workers, pin_memory=pin)
     val_loader   = DataLoader(val_set,   batch_size=BATCH_SIZE, shuffle=False,
                               num_workers=num_workers)
-    test_loader  = DataLoader(test_set,  batch_size=BATCH_SIZE, shuffle=False,
-                              num_workers=num_workers)
-
-    # Full corpus for retrieval evaluation (all sentences + embeddings)
-    full_dataset   = train_set.dataset
-    all_embeddings = torch.stack([rec[2] for rec in full_dataset.records])
-    all_sentences  = [rec[1] for rec in full_dataset.records]
 
     model = MODEL_CONFIGS[model_name](embed_dim).to(device)
 
@@ -160,7 +152,7 @@ def run_experiment(
     print(f'  trainable params : {total_params:,}')
     print(f'  loss function    : {criterion.__class__.__name__}')
     print(f'  optimizer lr     : {lr}   weight_decay: {weight_decay}')
-    print(f'  train={len(train_set)}  val={len(val_set)}  test={len(test_set)}')
+    print(f'  train={len(train_set)}  val={len(val_set)}')
 
     # ── Training loop ──────────────────────────────────────────────────────────
     CHECKPOINTS_B.mkdir(parents=True, exist_ok=True)
@@ -206,7 +198,6 @@ def run_experiment(
                 'dataset':        'b',
                 'train_size':     len(train_set),
                 'val_size':       len(val_set),
-                'test_size':      len(test_set),
                 'seed':           SEED,
             }, ckpt_path)
             print('  ✓ best', end='')
@@ -224,28 +215,8 @@ def run_experiment(
           f'  total_time={total_train_time:.1f}s')
 
     print(f'  Epoch log saved  → {epoch_log_path.name}')
-
-    print('\n  Evaluating best checkpoint on test set...')
-    ckpt = torch.load(ckpt_path, map_location=device)
-    model.load_state_dict(ckpt['model_state'])
-
-    metrics, results_df = evaluate(
-        model=model,
-        test_loader=test_loader,
-        all_embeddings=all_embeddings,
-        all_sentences=all_sentences,
-        device=device,
-        top_k=(1, 5),
-    )
-
-    print(f'  top-1 accuracy   : {metrics["top_1_acc"]:.4f}')
-    print(f'  top-5 accuracy   : {metrics["top_5_acc"]:.4f}')
-    print(f'  mean cosine sim  : {metrics["mean_cosine_sim"]:.4f}')
-    print(f'  mean rank        : {metrics["mean_rank"]:.1f}')
-
-    metrics['total_train_time_s'] = round(total_train_time, 1)
-    metrics['best_epoch']         = best_epoch
-    save_results(metrics, results_df, METRICS_B, run_name)
+    print(f'  Checkpoint saved → {ckpt_path.name}')
+    print('  Run local evaluation scripts to get test metrics.')
 
 
 def _default_device() -> str:
