@@ -54,7 +54,6 @@ EMBEDDING_CONFIGS: dict[str, dict] = {
     'tinybert_pooler':     {'dim': 312},
     'word2vec_skipgram':   {'dim': 100},
     'word2vec_pretrained': {'dim': 300},
-    'tfidf':               {'dim': 100},
     'tfidf_lsa':           {'dim': 100},
     'tfidf_w2v':           {'dim': 100},
 }

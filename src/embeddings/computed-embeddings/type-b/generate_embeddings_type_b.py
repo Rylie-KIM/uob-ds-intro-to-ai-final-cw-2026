@@ -85,27 +85,23 @@ def _inspect(label: str, sentences: list[str], arr: np.ndarray) -> None:
 
 
 def save_embedding(method_name: str, sentences: list[str], emb: torch.Tensor, elapsed: float = 0.0) -> None:
-    # Save both original and L2-normalised embeddings to a single .pt file
-    # embeddings            : raw float32 tensor  (shape N×D)
-    # embeddings_normalised : L2-normalised float32 tensor (shape N×D, all norms ≈ 1)
+    # Save raw float32 embeddings (shape N×D).
+    # Normalisation is applied at retrieval time in eval_metrics_b.py.
 
     _OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = _OUT_DIR / f'{method_name}_embedding_result_typeb.pt'
 
-    emb_raw  = emb.float()
-    emb_norm = torch.nn.functional.normalize(emb_raw, p=2, dim=1)
+    emb_raw = emb.float()
 
     torch.save({
-        'sentences':             sentences,
-        'embeddings':            emb_raw,
-        'embeddings_normalised': emb_norm,
-        'method':                method_name,
-        'dataset':               'b',
+        'sentences':  sentences,
+        'embeddings': emb_raw,
+        'method':     method_name,
+        'dataset':    'b',
     }, out_path)
 
     print(f'[saved]  {out_path.name}  shape={tuple(emb_raw.shape)}  time={elapsed:.1f}s')
-    _inspect('raw',  sentences, emb_raw.numpy())
-    _inspect('norm', sentences, emb_norm.numpy())
+    _inspect('raw', sentences, emb_raw.numpy())
 
 def compute_sbert(sentences: list[str]) -> None:
     """SBERTEmbedder — all-MiniLM-L6-v2, 384-dim."""
