@@ -1,51 +1,51 @@
-path,label
-src/data/images/type-a/png/0.png,a big green hexagon is below a big green circle
-src/data/images/type-a/png/1.png,a medium black circle is above a medium orange octagon
-src/data/images/type-a/png/2.png,the big orange hexagon is positioned left of a big orange circle
-src/data/images/type-a/png/3.png,the small green diamond is positioned below a big pink square
-src/data/images/type-a/png/4.png,the big orange square is positioned left of a medium orange diamond
-src/data/images/type-a/png/5.png,a medium green octagon is left of a big yellow octagon
-src/data/images/type-a/png/6.png,a big black diamond is above a medium purple octagon
-src/data/images/type-a/png/7.png,below a big green octagon is a medium pink square
-src/data/images/type-a/png/8.png,a medium green diamond is above a big blue hexagon
-src/data/images/type-a/png/9.png,above a medium yellow triangle is a medium orange hexagon
-src/data/images/type-a/png/10.png,a small red hexagon can be seen above a big yellow hexagon
-src/data/images/type-a/png/11.png,a small blue triangle is right of a big pink circle
-src/data/images/type-a/png/12.png,a big blue triangle is left of a big black triangle
-src/data/images/type-a/png/13.png,a medium orange diamond is right of a big green octagon
-src/data/images/type-a/png/14.png,the small green square is positioned below a medium yellow square
-src/data/images/type-a/png/15.png,the big black square is positioned below a big orange triangle
-src/data/images/type-a/png/16.png,right of a medium blue triangle is a medium green triangle
-src/data/images/type-a/png/17.png,right of a big pink hexagon is a small black hexagon
-src/data/images/type-a/png/18.png,a big red triangle is above a small black triangle
-src/data/images/type-a/png/19.png,left of a medium orange square is a medium yellow diamond
-src/data/images/type-a/png/20.png,the small orange triangle is positioned above a big orange triangle
-src/data/images/type-a/png/21.png,left of a medium black square is a medium pink square
-src/data/images/type-a/png/22.png,a big red hexagon can be seen below a big blue diamond
-src/data/images/type-a/png/23.png,the medium yellow square is positioned left of a medium green circle
-src/data/images/type-a/png/24.png,a big blue octagon can be seen left of a big yellow hexagon
-src/data/images/type-a/png/25.png,above a medium purple circle is a big orange hexagon
-src/data/images/type-a/png/26.png,the small orange hexagon is positioned above a medium black octagon
-src/data/images/type-a/png/27.png,a small blue circle is right of a small purple octagon
-src/data/images/type-a/png/28.png,the small red circle is positioned right of a medium red square
-src/data/images/type-a/png/29.png,a big blue hexagon can be seen right of a big blue square
-src/data/images/type-a/png/30.png,a small black circle can be seen below a small blue octagon
-src/data/images/type-a/png/31.png,the small orange hexagon is positioned above a big blue hexagon
-src/data/images/type-a/png/32.png,a medium black octagon is above a medium red diamond
-src/data/images/type-a/png/33.png,the small blue square is positioned left of a small red square
-src/data/images/type-a/png/34.png,a small pink circle can be seen above a big blue diamond
-src/data/images/type-a/png/35.png,a big black diamond is right of a small red hexagon
-src/data/images/type-a/png/36.png,a medium orange diamond is below a medium red circle
-src/data/images/type-a/png/37.png,a big orange square can be seen right of a big yellow triangle
-src/data/images/type-a/png/38.png,a medium purple diamond is right of a big black diamond
-src/data/images/type-a/png/39.png,a small purple triangle can be seen above a small blue circle
-src/data/images/type-a/png/40.png,a big blue triangle can be seen right of a small orange triangle
-src/data/images/type-a/png/41.png,left of a medium blue square is a medium red octagon
-src/data/images/type-a/png/42.png,the small red hexagon is positioned below a small purple square
-src/data/images/type-a/png/43.png,a big purple triangle is above a small black hexagon
-src/data/images/type-a/png/44.png,a medium orange octagon can be seen left of a small orange circle
-src/data/images/type-a/png/45.png,below a big red diamond is a small yellow square
-src/data/images/type-a/png/46.png,a big pink hexagon is above a small yellow square
-src/data/images/type-a/png/47.png,a medium yellow square can be seen below a big pink octagon
-src/data/images/type-a/png/48.png,a big red diamond is below a small green triangle
-src/data/images/type-a/png/49.png,above a small black octagon is a medium red diamond
+path,label,sbert_path,word2vec_path
+src/data/images/type-a/png/0.png,a big green hexagon is below a big green circle,src/embeddings/computed-embeddings/type-a/sbert/0.pt,src/embeddings/computed-embeddings/type-a/word2vec/0.pt
+src/data/images/type-a/png/1.png,a medium black circle is above a medium orange octagon,src/embeddings/computed-embeddings/type-a/sbert/1.pt,src/embeddings/computed-embeddings/type-a/word2vec/1.pt
+src/data/images/type-a/png/2.png,the big orange hexagon is positioned left of a big orange circle,src/embeddings/computed-embeddings/type-a/sbert/2.pt,src/embeddings/computed-embeddings/type-a/word2vec/2.pt
+src/data/images/type-a/png/3.png,the small green diamond is positioned below a big pink square,src/embeddings/computed-embeddings/type-a/sbert/3.pt,src/embeddings/computed-embeddings/type-a/word2vec/3.pt
+src/data/images/type-a/png/4.png,the big orange square is positioned left of a medium orange diamond,src/embeddings/computed-embeddings/type-a/sbert/4.pt,src/embeddings/computed-embeddings/type-a/word2vec/4.pt
+src/data/images/type-a/png/5.png,a medium green octagon is left of a big yellow octagon,src/embeddings/computed-embeddings/type-a/sbert/5.pt,src/embeddings/computed-embeddings/type-a/word2vec/5.pt
+src/data/images/type-a/png/6.png,a big black diamond is above a medium purple octagon,src/embeddings/computed-embeddings/type-a/sbert/6.pt,src/embeddings/computed-embeddings/type-a/word2vec/6.pt
+src/data/images/type-a/png/7.png,below a big green octagon is a medium pink square,src/embeddings/computed-embeddings/type-a/sbert/7.pt,src/embeddings/computed-embeddings/type-a/word2vec/7.pt
+src/data/images/type-a/png/8.png,a medium green diamond is above a big blue hexagon,src/embeddings/computed-embeddings/type-a/sbert/8.pt,src/embeddings/computed-embeddings/type-a/word2vec/8.pt
+src/data/images/type-a/png/9.png,above a medium yellow triangle is a medium orange hexagon,src/embeddings/computed-embeddings/type-a/sbert/9.pt,src/embeddings/computed-embeddings/type-a/word2vec/9.pt
+src/data/images/type-a/png/10.png,a small red hexagon can be seen above a big yellow hexagon,src/embeddings/computed-embeddings/type-a/sbert/10.pt,src/embeddings/computed-embeddings/type-a/word2vec/10.pt
+src/data/images/type-a/png/11.png,a small blue triangle is right of a big pink circle,src/embeddings/computed-embeddings/type-a/sbert/11.pt,src/embeddings/computed-embeddings/type-a/word2vec/11.pt
+src/data/images/type-a/png/12.png,a big blue triangle is left of a big black triangle,src/embeddings/computed-embeddings/type-a/sbert/12.pt,src/embeddings/computed-embeddings/type-a/word2vec/12.pt
+src/data/images/type-a/png/13.png,a medium orange diamond is right of a big green octagon,src/embeddings/computed-embeddings/type-a/sbert/13.pt,src/embeddings/computed-embeddings/type-a/word2vec/13.pt
+src/data/images/type-a/png/14.png,the small green square is positioned below a medium yellow square,src/embeddings/computed-embeddings/type-a/sbert/14.pt,src/embeddings/computed-embeddings/type-a/word2vec/14.pt
+src/data/images/type-a/png/15.png,the big black square is positioned below a big orange triangle,src/embeddings/computed-embeddings/type-a/sbert/15.pt,src/embeddings/computed-embeddings/type-a/word2vec/15.pt
+src/data/images/type-a/png/16.png,right of a medium blue triangle is a medium green triangle,src/embeddings/computed-embeddings/type-a/sbert/16.pt,src/embeddings/computed-embeddings/type-a/word2vec/16.pt
+src/data/images/type-a/png/17.png,right of a big pink hexagon is a small black hexagon,src/embeddings/computed-embeddings/type-a/sbert/17.pt,src/embeddings/computed-embeddings/type-a/word2vec/17.pt
+src/data/images/type-a/png/18.png,a big red triangle is above a small black triangle,src/embeddings/computed-embeddings/type-a/sbert/18.pt,src/embeddings/computed-embeddings/type-a/word2vec/18.pt
+src/data/images/type-a/png/19.png,left of a medium orange square is a medium yellow diamond,src/embeddings/computed-embeddings/type-a/sbert/19.pt,src/embeddings/computed-embeddings/type-a/word2vec/19.pt
+src/data/images/type-a/png/20.png,the small orange triangle is positioned above a big orange triangle,src/embeddings/computed-embeddings/type-a/sbert/20.pt,src/embeddings/computed-embeddings/type-a/word2vec/20.pt
+src/data/images/type-a/png/21.png,left of a medium black square is a medium pink square,src/embeddings/computed-embeddings/type-a/sbert/21.pt,src/embeddings/computed-embeddings/type-a/word2vec/21.pt
+src/data/images/type-a/png/22.png,a big red hexagon can be seen below a big blue diamond,src/embeddings/computed-embeddings/type-a/sbert/22.pt,src/embeddings/computed-embeddings/type-a/word2vec/22.pt
+src/data/images/type-a/png/23.png,the medium yellow square is positioned left of a medium green circle,src/embeddings/computed-embeddings/type-a/sbert/23.pt,src/embeddings/computed-embeddings/type-a/word2vec/23.pt
+src/data/images/type-a/png/24.png,a big blue octagon can be seen left of a big yellow hexagon,src/embeddings/computed-embeddings/type-a/sbert/24.pt,src/embeddings/computed-embeddings/type-a/word2vec/24.pt
+src/data/images/type-a/png/25.png,above a medium purple circle is a big orange hexagon,src/embeddings/computed-embeddings/type-a/sbert/25.pt,src/embeddings/computed-embeddings/type-a/word2vec/25.pt
+src/data/images/type-a/png/26.png,the small orange hexagon is positioned above a medium black octagon,src/embeddings/computed-embeddings/type-a/sbert/26.pt,src/embeddings/computed-embeddings/type-a/word2vec/26.pt
+src/data/images/type-a/png/27.png,a small blue circle is right of a small purple octagon,src/embeddings/computed-embeddings/type-a/sbert/27.pt,src/embeddings/computed-embeddings/type-a/word2vec/27.pt
+src/data/images/type-a/png/28.png,the small red circle is positioned right of a medium red square,src/embeddings/computed-embeddings/type-a/sbert/28.pt,src/embeddings/computed-embeddings/type-a/word2vec/28.pt
+src/data/images/type-a/png/29.png,a big blue hexagon can be seen right of a big blue square,src/embeddings/computed-embeddings/type-a/sbert/29.pt,src/embeddings/computed-embeddings/type-a/word2vec/29.pt
+src/data/images/type-a/png/30.png,a small black circle can be seen below a small blue octagon,src/embeddings/computed-embeddings/type-a/sbert/30.pt,src/embeddings/computed-embeddings/type-a/word2vec/30.pt
+src/data/images/type-a/png/31.png,the small orange hexagon is positioned above a big blue hexagon,src/embeddings/computed-embeddings/type-a/sbert/31.pt,src/embeddings/computed-embeddings/type-a/word2vec/31.pt
+src/data/images/type-a/png/32.png,a medium black octagon is above a medium red diamond,src/embeddings/computed-embeddings/type-a/sbert/32.pt,src/embeddings/computed-embeddings/type-a/word2vec/32.pt
+src/data/images/type-a/png/33.png,the small blue square is positioned left of a small red square,src/embeddings/computed-embeddings/type-a/sbert/33.pt,src/embeddings/computed-embeddings/type-a/word2vec/33.pt
+src/data/images/type-a/png/34.png,a small pink circle can be seen above a big blue diamond,src/embeddings/computed-embeddings/type-a/sbert/34.pt,src/embeddings/computed-embeddings/type-a/word2vec/34.pt
+src/data/images/type-a/png/35.png,a big black diamond is right of a small red hexagon,src/embeddings/computed-embeddings/type-a/sbert/35.pt,src/embeddings/computed-embeddings/type-a/word2vec/35.pt
+src/data/images/type-a/png/36.png,a medium orange diamond is below a medium red circle,src/embeddings/computed-embeddings/type-a/sbert/36.pt,src/embeddings/computed-embeddings/type-a/word2vec/36.pt
+src/data/images/type-a/png/37.png,a big orange square can be seen right of a big yellow triangle,src/embeddings/computed-embeddings/type-a/sbert/37.pt,src/embeddings/computed-embeddings/type-a/word2vec/37.pt
+src/data/images/type-a/png/38.png,a medium purple diamond is right of a big black diamond,src/embeddings/computed-embeddings/type-a/sbert/38.pt,src/embeddings/computed-embeddings/type-a/word2vec/38.pt
+src/data/images/type-a/png/39.png,a small purple triangle can be seen above a small blue circle,src/embeddings/computed-embeddings/type-a/sbert/39.pt,src/embeddings/computed-embeddings/type-a/word2vec/39.pt
+src/data/images/type-a/png/40.png,a big blue triangle can be seen right of a small orange triangle,src/embeddings/computed-embeddings/type-a/sbert/40.pt,src/embeddings/computed-embeddings/type-a/word2vec/40.pt
+src/data/images/type-a/png/41.png,left of a medium blue square is a medium red octagon,src/embeddings/computed-embeddings/type-a/sbert/41.pt,src/embeddings/computed-embeddings/type-a/word2vec/41.pt
+src/data/images/type-a/png/42.png,the small red hexagon is positioned below a small purple square,src/embeddings/computed-embeddings/type-a/sbert/42.pt,src/embeddings/computed-embeddings/type-a/word2vec/42.pt
+src/data/images/type-a/png/43.png,a big purple triangle is above a small black hexagon,src/embeddings/computed-embeddings/type-a/sbert/43.pt,src/embeddings/computed-embeddings/type-a/word2vec/43.pt
+src/data/images/type-a/png/44.png,a medium orange octagon can be seen left of a small orange circle,src/embeddings/computed-embeddings/type-a/sbert/44.pt,src/embeddings/computed-embeddings/type-a/word2vec/44.pt
+src/data/images/type-a/png/45.png,below a big red diamond is a small yellow square,src/embeddings/computed-embeddings/type-a/sbert/45.pt,src/embeddings/computed-embeddings/type-a/word2vec/45.pt
+src/data/images/type-a/png/46.png,a big pink hexagon is above a small yellow square,src/embeddings/computed-embeddings/type-a/sbert/46.pt,src/embeddings/computed-embeddings/type-a/word2vec/46.pt
+src/data/images/type-a/png/47.png,a medium yellow square can be seen below a big pink octagon,src/embeddings/computed-embeddings/type-a/sbert/47.pt,src/embeddings/computed-embeddings/type-a/word2vec/47.pt
+src/data/images/type-a/png/48.png,a big red diamond is below a small green triangle,src/embeddings/computed-embeddings/type-a/sbert/48.pt,src/embeddings/computed-embeddings/type-a/word2vec/48.pt
+src/data/images/type-a/png/49.png,above a small black octagon is a medium red diamond,src/embeddings/computed-embeddings/type-a/sbert/49.pt,src/embeddings/computed-embeddings/type-a/word2vec/49.pt
