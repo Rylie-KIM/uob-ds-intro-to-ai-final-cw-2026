@@ -1,0 +1,2 @@
+run_name,top_1_acc,top_5_acc,mean_cosine_sim,mean_rank,n_test,total_train_time_s,best_epoch
+b_cnn_1layer_tfidf_lsa_baseline,0.001998001998001998,0.004995004995004995,0.5173862682921546,923.928071928072,1001,421.1,1
