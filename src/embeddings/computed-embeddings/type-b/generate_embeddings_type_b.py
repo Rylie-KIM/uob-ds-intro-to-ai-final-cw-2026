@@ -9,7 +9,6 @@ import numpy as np
 import pandas as pd
 import torch
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
 _ROOT     = Path(__file__).resolve().parent.parent.parent.parent.parent
 _HERE     = Path(__file__).resolve().parent
 _DATA_DIR = _ROOT / 'src' / 'data' / 'type-b'
