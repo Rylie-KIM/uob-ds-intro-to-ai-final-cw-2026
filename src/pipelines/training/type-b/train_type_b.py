@@ -54,6 +54,7 @@ EMBEDDING_CONFIGS: dict[str, dict] = {
     'tinybert_pooler':     {'dim': 312},
     'word2vec_skipgram':   {'dim': 100},
     'word2vec_pretrained': {'dim': 300},
+    'glove':               {'dim': 300},
     'tfidf_lsa':           {'dim': 100},
     'tfidf_w2v':           {'dim': 100},
 }
@@ -185,6 +186,7 @@ def run_experiment(
 
         epoch_log.append({
             'epoch':           epoch,
+            'loss_fn':         criterion.__class__.__name__,
             'train_loss':      round(train_loss, 6),
             'val_loss':        round(val_loss, 6),
             'val_top1':        val_ret.get('val_top1', float('nan')),
@@ -218,6 +220,7 @@ def run_experiment(
                 'embedding_dim':  embed_dim,
                 'embedding_name': embedding_name,
                 'model_name':     model_name,
+                'loss_fn':        criterion.__class__.__name__,
                 'dataset':        'b',
                 'train_size':     len(train_set),
                 'val_size':       len(val_set),
