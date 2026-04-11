@@ -27,10 +27,11 @@ def _load_hyphen_module(name: str, rel_path: str):
 _models  = _load_hyphen_module('_models_typeb',   '../../../models/type-b/__init__.py') if False else None
 _shared  = _load_hyphen_module('_shared_typeb',   'shared.py')
 
-train_one_epoch = _shared.train_one_epoch
-run_validation  = _shared.run_validation
-set_seed        = _shared.set_seed
-CombinedLoss    = _shared.CombinedLoss
+train_one_epoch    = _shared.train_one_epoch
+run_validation     = _shared.run_validation
+run_val_retrieval  = _shared.run_val_retrieval
+set_seed           = _shared.set_seed
+CombinedLoss       = _shared.CombinedLoss
 
 _cnn1      = _load_hyphen_module('_cnn1layer',   '../../../models/type-b/cnn_1layer.py')
 _cnn3      = _load_hyphen_module('_cnn3layer',   '../../../models/type-b/cnn_3layer.py')
@@ -137,6 +138,11 @@ def run_experiment(
     val_loader   = DataLoader(val_set,   batch_size=BATCH_SIZE, shuffle=False,
                               num_workers=num_workers)
 
+    # Full corpus for per-epoch retrieval evaluation on the validation set
+    full_dataset   = train_set.dataset
+    all_embeddings = torch.stack([rec[2] for rec in full_dataset.records])  # (N, dim) on CPU
+    all_sentences  = [rec[1] for rec in full_dataset.records]
+
     model = MODEL_CONFIGS[model_name](embed_dim).to(device)
 
     lr           = _ALEXNET_LR           if model_name == 'alexnet' else LR
@@ -154,7 +160,7 @@ def run_experiment(
     print(f'  optimizer lr     : {lr}   weight_decay: {weight_decay}')
     print(f'  train={len(train_set)}  val={len(val_set)}')
 
-    # ── Training loop ──────────────────────────────────────────────────────────
+    # training loop 
     CHECKPOINTS_B.mkdir(parents=True, exist_ok=True)
     METRICS_B.mkdir(parents=True, exist_ok=True)
 
@@ -165,22 +171,39 @@ def run_experiment(
     EARLY_STOP_PATIENCE = 7
 
     epoch_log: list[dict] = []
-    epoch_log_path = METRICS_B / f'{run_name}_epoch_log.csv'
+    epoch_log_path = METRICS_B / f'{run_name}_training_log.csv'
     train_start = time.time()
 
     for epoch in range(1, epochs + 1):
         t0 = time.time()
-        train_loss = train_one_epoch(model, train_loader, optimizer, criterion, device)
-        val_loss   = run_validation(model, val_loader, criterion, device)
+        train_loss  = train_one_epoch(model, train_loader, optimizer, criterion, device)
+        val_loss    = run_validation(model, val_loader, criterion, device)
+        val_ret     = run_val_retrieval(model, val_loader, all_embeddings, all_sentences, device)
         scheduler.step(val_loss)
-        elapsed = time.time() - t0
+        elapsed    = time.time() - t0
         current_lr = optimizer.param_groups[0]['lr']
 
-        epoch_log.append({'epoch': epoch, 'train_loss': train_loss, 'val_loss': val_loss, 'lr': current_lr, 'epoch_time_s': round(elapsed, 2)})
+        epoch_log.append({
+            'epoch':           epoch,
+            'train_loss':      round(train_loss, 6),
+            'val_loss':        round(val_loss, 6),
+            'val_top1':        val_ret.get('val_top1', float('nan')),
+            'val_top2':        val_ret.get('val_top2', float('nan')),
+            'val_top3':        val_ret.get('val_top3', float('nan')),
+            'val_top4':        val_ret.get('val_top4', float('nan')),
+            'val_top5':        val_ret.get('val_top5', float('nan')),
+            'val_mrr':         val_ret.get('val_mrr', float('nan')),
+            'val_mean_cosine': val_ret.get('val_mean_cosine', float('nan')),
+            'val_mean_rank':   val_ret.get('val_mean_rank', float('nan')),
+            'val_median_rank': val_ret.get('val_median_rank', float('nan')),
+            'lr':              current_lr,
+            'epoch_time_s':    round(elapsed, 2),
+        })
         # Write after every epoch so progress survives a Colab disconnect
         pd.DataFrame(epoch_log).to_csv(epoch_log_path, index=False)
 
         print(f'  Epoch {epoch:03d}/{epochs}  train={train_loss:.6f}  val={val_loss:.6f}'
+              f'  top1={val_ret.get("val_top1", float("nan")):.4f}'
               f'  lr={current_lr:.2e}  {elapsed:.1f}s', end='')
 
         if val_loss < best_val_loss - 1e-5:
@@ -214,7 +237,7 @@ def run_experiment(
     print(f'\n  Training complete: best_epoch={best_epoch}  best_val_loss={best_val_loss:.6f}'
           f'  total_time={total_train_time:.1f}s')
 
-    print(f'  Epoch log saved  → {epoch_log_path.name}')
+    print(f'  Training log saved → {epoch_log_path.name}')
     print(f'  Checkpoint saved → {ckpt_path.name}')
     print('  Run local evaluation scripts to get test metrics.')
 

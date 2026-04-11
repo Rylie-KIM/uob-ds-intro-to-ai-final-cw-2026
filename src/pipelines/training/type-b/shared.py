@@ -5,6 +5,7 @@ import random
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
 def set_seed(seed: int = 42) -> None:
@@ -68,6 +69,68 @@ def run_validation(
             total_loss += criterion(preds, embs).item()
 
     return total_loss / len(loader)
+
+def run_val_retrieval(
+    model:          nn.Module,
+    val_loader:     DataLoader,
+    all_embeddings: torch.Tensor,   # (N_corpus, dim) — full corpus on CPU
+    all_sentences:  list[str],
+    device:         str,
+    top_k:          tuple[int, ...] = (1, 2, 3, 4, 5),
+) -> dict[str, float]:
+    """Compute retrieval metrics on the validation set against the full corpus.
+
+    For each val image the model predicts an embedding, then ranks all corpus
+    sentences by cosine similarity.  Returns val_top1–5, val_mrr,
+    val_mean_cosine, val_mean_rank, val_median_rank.
+    """
+    model.eval()
+    corpus = all_embeddings.to(device)              # (N, dim)
+    sent_to_idx: dict[str, int] = {s: i for i, s in enumerate(all_sentences)}
+
+    ranks:       list[int]   = []
+    cosine_sims: list[float] = []
+    correct_at_k             = {k: 0 for k in top_k}
+    total                    = 0
+
+    with torch.no_grad():
+        for imgs, true_sentences, _true_embs in val_loader:
+            imgs      = imgs.to(device)
+            pred_embs = model(imgs)                 # (B, dim)
+
+            # (B, N) cosine similarity matrix
+            sims = F.cosine_similarity(
+                pred_embs.unsqueeze(1),             # (B, 1, dim)
+                corpus.unsqueeze(0),                # (1, N, dim)
+                dim=2,
+            )
+            sorted_idx = sims.argsort(dim=1, descending=True)  # (B, N)
+
+            for b_i, true_sent in enumerate(true_sentences):
+                true_idx = sent_to_idx.get(true_sent)
+                if true_idx is None:
+                    continue
+                rank = int(
+                    (sorted_idx[b_i] == true_idx).nonzero(as_tuple=True)[0][0].item()
+                ) + 1   # 1-indexed
+                cosine_sims.append(float(sims[b_i, true_idx].item()))
+                ranks.append(rank)
+                for k in top_k:
+                    if rank <= k:
+                        correct_at_k[k] += 1
+                total += 1
+
+    if total == 0:
+        return {}
+
+    return {
+        **{f'val_top{k}': round(correct_at_k[k] / total, 6) for k in top_k},
+        'val_mrr':         round(float(sum(1.0 / r for r in ranks) / total), 6),
+        'val_mean_cosine': round(float(sum(cosine_sims) / total), 6),
+        'val_mean_rank':   round(float(sum(ranks) / total), 2),
+        'val_median_rank': round(float(np.median(ranks)), 2),
+    }
+
 
 class CombinedLoss(nn.Module):
 
