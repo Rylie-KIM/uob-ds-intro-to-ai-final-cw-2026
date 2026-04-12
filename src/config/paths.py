@@ -30,8 +30,15 @@ EMBED_RESULTS_A = ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a'
 EMBED_RESULTS_C = ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-c' / 'results'
 
 # ── Training outputs ──────────────────────────────────────────────────────────
-CHECKPOINTS_B = ROOT / 'src' / 'pipelines' / 'results' / 'checkpoints' / 'type-b'
-METRICS_B     = ROOT / 'src' / 'pipelines' / 'results' / 'metrics'     / 'type-b'
+CHECKPOINTS_B       = ROOT / 'src' / 'pipelines' / 'results' / 'checkpoints' / 'type-b'
+CHECKPOINTS_B_NORMED = CHECKPOINTS_B / 'normalised'
+
+METRICS_B            = ROOT / 'src' / 'pipelines' / 'results' / 'metrics' / 'type-b'
+METRICS_B_NON_NORMED = METRICS_B / 'non-normalised'    # training logs for base runs
+METRICS_B_NORMED     = METRICS_B / 'normalised'        # training logs for normalised runs
+PREDICTIONS_B        = METRICS_B / 'prediction'
+PREDICTIONS_B_NORMED = METRICS_B / 'prediction-normalised'
+METRICS_FINAL        = ROOT / 'src' / 'pipelines' / 'results' / 'metrics' / 'type-b' / 'final'
 
 # ── Fine-tuned SBERT checkpoints ─────────────────────────────────────────────
 SBERT_CKPT_B = ROOT / 'results' / 'checkpoints' / 'sbert_finetuned_typeb'
@@ -39,8 +46,11 @@ SBERT_CKPT_A = ROOT / 'results' / 'checkpoints' / 'sbert_finetuned_typea'
 SBERT_CKPT_C = ROOT / 'results' / 'checkpoints' / 'sbert_finetuned_typec'
 
 # ── Results / figures ─────────────────────────────────────────────────────────
-RESULTS_DIR = ROOT / 'results'
-FIGURES_DIR = ROOT / 'src' / 'pipelines' / 'results' / 'figures' / 'type-b'
+RESULTS_DIR          = ROOT / 'results'
+FIGURES_DIR          = ROOT / 'src' / 'pipelines' / 'results' / 'figures' / 'type-b'
+FIGURES_EVAL_B       = FIGURES_DIR / 'evaluation'
+FIGURES_EVAL_NORM_B  = FIGURES_DIR / 'evaluation' / 'normalised'
+FIGURES_EVAL_CMP_B   = FIGURES_DIR / 'evaluation' / 'comparison'
 
 # ── Config directory ──────────────────────────────────────────────────────────
 CONFIG_DIR = ROOT / 'src' / 'config'

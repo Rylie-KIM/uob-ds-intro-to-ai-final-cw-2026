@@ -26,7 +26,7 @@ from src.config.paths import (
     EMBED_RESULTS_B,
     CHECKPOINTS_B,
     CHECKPOINTS_B_NORMED,
-    METRICS_B,
+    METRICS_B_NON_NORMED,
     METRICS_B_NORMED,
     PREDICTIONS_B,
     PREDICTIONS_B_NORMED,
@@ -842,7 +842,7 @@ def run_evaluation(
     #   b_{model}_{embedding}_{run_tag}_{timestamp}_best.pt
     #   → b_{model}_{embedding}_{run_tag}_{timestamp}_training_log.csv
     log_stem       = ckpt_path.stem.replace('_best', '_training_log')
-    epoch_log_path = METRICS_B / f'{log_stem}.csv'
+    epoch_log_path = METRICS_B_NON_NORMED / f'{log_stem}.csv'
     total_epochs   = best_epoch   # fallback
     if epoch_log_path.exists():
         try:
@@ -873,7 +873,7 @@ def run_evaluation(
         metrics=metrics,
         per_sample=per_sample,
         pred_dir=PREDICTIONS_B,
-        results_path=METRICS_B / 'test_results.csv',
+        results_path=PREDICTIONS_B / 'test_results.csv',
     )
 
     return metrics

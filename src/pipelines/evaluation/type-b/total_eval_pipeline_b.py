@@ -124,7 +124,7 @@ def main() -> None:
         print('  STAGE 2 — Aggregate cross-run plots')
         print(sep)
 
-        from src.config.paths import PREDICTIONS_B, FIGURES_EVAL_B
+        from src.config.paths import FIGURES_EVAL_B
         FIGURES_EVAL_B.mkdir(parents=True, exist_ok=True)
 
         preds = _aggregate._load_predictions(list(completed))
