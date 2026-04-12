@@ -132,6 +132,57 @@ def run_val_retrieval(
     }
 
 
+def train_one_epoch_normalised(
+    model:     nn.Module,
+    loader:    DataLoader,
+    optimizer: torch.optim.Optimizer,
+    criterion: nn.Module,
+    device:    str,
+) -> float:
+    """Same as train_one_epoch but L2-normalises target embeddings before loss.
+
+    Normalising the target to unit norm makes MSELoss mathematically equivalent
+    to (1 - cosine_similarity), aligning the training objective with the cosine-
+    based retrieval metric used at evaluation time.
+    """
+    model.train()
+    total_loss = 0.0
+
+    for imgs, _sentences, embs in loader:
+        imgs = imgs.to(device)
+        embs = F.normalize(embs.float(), dim=1).to(device)
+
+        optimizer.zero_grad()
+        preds = model(imgs)
+        loss  = criterion(preds, embs)
+        loss.backward()
+        optimizer.step()
+
+        total_loss += loss.item()
+
+    return total_loss / len(loader)
+
+
+def run_validation_normalised(
+    model:     nn.Module,
+    loader:    DataLoader,
+    criterion: nn.Module,
+    device:    str,
+) -> float:
+    """Same as run_validation but L2-normalises target embeddings before loss."""
+    model.eval()
+    total_loss = 0.0
+
+    with torch.no_grad():
+        for imgs, _sentences, embs in loader:
+            imgs = imgs.to(device)
+            embs = F.normalize(embs.float(), dim=1).to(device)
+            preds = model(imgs)
+            total_loss += criterion(preds, embs).item()
+
+    return total_loss / len(loader)
+
+
 class CombinedLoss(nn.Module):
 
     # L = alpha * MSE(y_hat, y) + (1 - alpha) * (1 - cosine_similarity(y_hat, y)).mean()
