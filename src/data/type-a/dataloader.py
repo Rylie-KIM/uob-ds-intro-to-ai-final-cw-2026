@@ -24,3 +24,5 @@ for embedding_type in embedding_types:
         print(f'DATASET: {embedding_type}\nImage_emb shape: {img_embedding.shape}\nSentence_emb shape: {sentence_emb.shape}')
         print('------------------------------------------')
         break
+
+

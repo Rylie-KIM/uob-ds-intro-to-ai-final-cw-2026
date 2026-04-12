@@ -8,7 +8,7 @@ class EarlyStopping:
 
     def check(self, test_loss):
         if self.best_loss is None or test_loss < self.best_loss:
-            self.best_loss = self.test_loss
+            self.best_loss = test_loss
             # have to reset the counter
             self.no_improvement_count = 0
         else:
