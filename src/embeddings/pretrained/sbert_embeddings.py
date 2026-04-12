@@ -2,11 +2,13 @@ import numpy as np
 import numpy.typing as npt
 from typing import TypeAlias
 from sentence_transformers import SentenceTransformer
+from pathlib import Path
+import pandas as pd
+import torch
 
 # Type Aliases
 Sentences: TypeAlias = list[str]
 EmbeddingMatrix: TypeAlias = npt.NDArray[np.float32]
-
 
 class SBERTEmbedder:
     def __init__(
@@ -16,28 +18,36 @@ class SBERTEmbedder:
     ):
         self.model_name = model_name
         self.device = device
-        self.model: SentenceTransformer | None = None
-
-    def fit(self, sentences: Sentences) -> "SBERTEmbedder":
-        # SBERT is pretrained → just load model
         self.model = SentenceTransformer(self.model_name, device=self.device)
+        self.master_path = Path('src/data/type-a/master.csv')
+        self.folder_path = Path('src/embeddings/computed-embeddings/type-a/sbert')
+        self.df = pd.read_csv(self.master_path)
 
-        print(
-            f"SBERT loaded: {self.model_name} | dim: {self.model.get_sentence_embedding_dimension()}"
-        )
-        return self
-
-    def transform(self, sentences: Sentences) -> EmbeddingMatrix:
+    def transform(self, sentence: str, idx:int):
+        
         if self.model is None:
             raise ValueError("Call fit() before transform()")
 
         embeddings = self.model.encode(
-            sentences,
+            # changed to sentence
+            sentence,
             convert_to_numpy=True,
+            # Unsure if we need to normalize this embedding
             normalize_embeddings=True
         )
+        embeddings = embeddings.astype(np.float32)
+        filename = f'{idx}_sbert.pt'
+        filepath = self.folder_path / filename
+        torch.save(torch.tensor(embeddings), filepath)
+        print(f'File: {filename}\nSaved to: {self.folder_path}')
+        return filepath
 
-        return embeddings.astype(np.float32)
+    def process(self):
+        filepaths = []
+        for idx, row in self.df.iterrows():
+            sentence = row['label']
+            filepaths.append(self.transform(sentence, idx))
+        self.df['sbert_emb'] = filepaths
+        print(f'Success.{len(filepaths)} filepaths added')
+        self.df.to_csv(self.master_path, index=False)
 
-    def fit_transform(self, sentences: Sentences) -> EmbeddingMatrix:
-        return self.fit(sentences).transform(sentences)
