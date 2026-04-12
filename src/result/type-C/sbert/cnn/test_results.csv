@@ -1,0 +1,2 @@
+run_id,cnn,embedding,raw_text_dim,shared_dim,loss_fn,optimizer,learning_rate,batch_size,best_epoch,total_epochs,seed,train_ratio,val_ratio,test_ratio,image_size,test_mse_loss,test_mean_cosine,test_top1,test_top5,test_mean_rank,test_median_rank,test_mrr
+cnn3_sbert,cnn3,sbert,384,256,MSE,Adam,0.0001,32,10,10,42,0.8,0.1,0.1,64,2.9383214206807846e-06,0.9981199502944946,0.15151515151515152,0.3409090909090909,49.47159090909091,13.0,0.25505622174910836
