@@ -16,17 +16,17 @@ Experiments
 -----------
   Run   | Embedding              | Loss              | Notes
   ------|------------------------|-------------------|-----------------------
-  B0n   | tfidf_lsa              | CosineLoss_normed | Baseline (normed)
+  B0n   | tfidf_lsa              | MSELoss_normed    | Baseline (normed)
   E2an  | sbert                  | CosineLoss_normed |
   E2bn  | sbert_finetuned        | CosineLoss_normed |
-  E2en  | tinybert_mean          | CosineLoss_normed |
-  E2fn  | tinybert_pooler        | CosineLoss_normed |
-  E2gn  | glove                  | CosineLoss_normed |
-  E2hn  | word2vec_pretrained    | CosineLoss_normed |
-  E2in  | word2vec_skipgram      | CosineLoss_normed |
-  E2kn  | tfidf_w2v              | CosineLoss_normed |
-  E2ln  | bert_mean              | CosineLoss_normed | bert_mean (normed-only)
-  E2mn  | bert_pooler            | CosineLoss_normed | bert_pooler (normed-only)
+  E2en  | tinybert_mean          | MSELoss_normed    |
+  E2fn  | tinybert_pooler        | MSELoss_normed    |
+  E2gn  | glove                  | MSELoss_normed    |
+  E2hn  | word2vec_pretrained    | MSELoss_normed    |
+  E2in  | word2vec_skipgram      | MSELoss_normed    |
+  E2kn  | tfidf_w2v              | MSELoss_normed    |
+  E2ln  | bert_mean              | MSELoss_normed    | bert_mean (normed-only)
+  E2mn  | bert_pooler            | MSELoss_normed    | bert_pooler (normed-only)
 
 """
 
@@ -63,7 +63,7 @@ EXPERIMENTS_NORMED: dict[str, dict] = {
     'B0n': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'tfidf_lsa',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'Baseline TF-IDF LSA (100-dim), L2-normed targets',
     },
     'E2an': {
@@ -81,49 +81,49 @@ EXPERIMENTS_NORMED: dict[str, dict] = {
     'E2en': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'tinybert_mean',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'TinyBERT mean-pool (312-dim), L2-normed targets',
     },
     'E2fn': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'tinybert_pooler',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'TinyBERT [CLS] pooler (312-dim), L2-normed targets',
     },
     'E2gn': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'glove',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'GloVe word-avg (300-dim), L2-normed targets',
     },
     'E2hn': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'word2vec_pretrained',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'Word2Vec Google News pretrained (300-dim), L2-normed targets',
     },
     'E2in': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'word2vec_skipgram',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'Word2Vec skip-gram on Type-B corpus (100-dim), L2-normed targets',
     },
     'E2kn': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'tfidf_w2v',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'TF-IDF weighted Word2Vec (100-dim), L2-normed targets',
     },
     'E2ln': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'bert_mean',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'BERT base mean-pool (768-dim), L2-normed targets',
     },
     'E2mn': {
         'model_name':     'cnn_1layer',
         'embedding_name': 'bert_pooler',
-        'loss_fn':        'CosineLoss_normed',
+        'loss_fn':        'MSELoss_normed',
         'description':    'BERT base [CLS] pooler (768-dim), L2-normed targets',
     },
 }

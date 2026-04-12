@@ -228,9 +228,9 @@ def load_model(ckpt_path: Path) -> tuple[nn.Module, dict[str, Any]]:
         )
 
     model = factory[model_name](embedding_dim)
-    # load weights saved in .pt files 
+    # load weights saved in .pt files
     model.load_state_dict(state_dict)
-    # turn on every neurons and use accumulated statistical info from training 
+    # turn on every neurons and use accumulated statistical info from training
     model.eval()
 
     return model, {
@@ -238,6 +238,7 @@ def load_model(ckpt_path: Path) -> tuple[nn.Module, dict[str, Any]]:
         'embedding_name': embedding_name,
         'embedding_dim':  embedding_dim,
         'best_epoch':     best_epoch,
+        'loss_fn':        str(ckpt.get('loss_fn', '')),
     }
 
 # predicition 
@@ -929,6 +930,11 @@ def run_evaluation_normed(
     embed_dim   = meta['embedding_dim']
     # embedding_name in checkpoint is the BASE name (e.g. 'sbert'), not 'sbert_normed'
     ckpt_emb    = meta['embedding_name']
+    # Use the loss_fn stored in the checkpoint so the CSV reflects the actual
+    # criterion used during training, not the (potentially wrong) registry value.
+    ckpt_loss_fn = meta.get('loss_fn', '')
+    if ckpt_loss_fn:
+        loss_fn = ckpt_loss_fn
     print(f'  best_epoch    : {best_epoch}')
     print(f'  embedding_dim : {embed_dim}')
     print(f'  ckpt emb_name : {ckpt_emb}')
