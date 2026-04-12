@@ -13,31 +13,33 @@ sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'non-pretrained'))
 from one_hot_encoding import OneHot
 
 onehot = OneHot()
-
-## Add OneHot Embeddings
-
 onehot.process()
 
 sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'pretrained'))
 
-from tinybert_pooler_embeddings import TinyBertPoolerEmbedder
+from only_type_a_TB_pooler import TinyBertPoolerEmbedder
 
 tinyBert_embedder = TinyBertPoolerEmbedder()
 tinyBert_embedder.process()
 
+from only_type_a_TB_mean import TinyBertMeanEmbedder
+
+tinyBert_mean = TinyBertMeanEmbedder()
+tinyBert_mean.process()
+
+from only_type_a_B_pooler import BertPoolerEmbedder
+
+bert_pooler = BertPoolerEmbedder()
+bert_pooler.process()
+
+from only_type_a_B_mean import BertMeanEmbedder
+bert_mean = BertMeanEmbedder()
+bert_mean.process()
+
 from sbert_embeddings import SBERTEmbedder
 
 sbert_embedder = SBERTEmbedder()
-
-## Configure sbert class so it can update the master csv....
-# Check out my tinybert and och embedding objects for how i did it - if you have a better way then just implement it
-
-from pretrained_word2vec_embeddings import PretrainedWord2VecEmbedder
-
-pt_word2vec = PretrainedWord2VecEmbedder()
-
-
-
+sbert_embedder.process()
 
 
 

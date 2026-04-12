@@ -15,14 +15,12 @@ weights = GoogLeNet_Weights.DEFAULT
 transform = weights.transforms()
 
 """
+embedding_types = ['TB_pooler_emb','TB_mean_emb','B_pooler_emb','B_mean_emb','sbert_emb']
 
-
-dataset = Dataset_A('TB_pooler_emb', transform_img = transform)
-dataset_loader = DataLoader(dataset, batch_size=1, shuffle=True)
-
-
-for embedding, label in dataset_loader:
-    print(f'This is the emb: {embedding}')
-    print(f'Sentence: {label}')
-    break
-
+for embedding_type in embedding_types:
+    dataset = Dataset_A(embedding_type, transform_imgs = transform)
+    data_loader = DataLoader(dataset, batch_size = 32, shuffle=True)
+    for img_embedding, sentence_emb in data_loader:
+        print(f'DATASET: {embedding_type}\nImage_emb shape: {img_embedding.shape}\nSentence_emb shape: {sentence_emb.shape}')
+        print('------------------------------------------')
+        break

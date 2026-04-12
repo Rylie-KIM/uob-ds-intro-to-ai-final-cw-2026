@@ -31,10 +31,13 @@ class Dataset_A(Dataset):
         
         self.df = pd.read_csv(self.csv_path)
         self.sentence_embedding_types = [
+            #'OneHot_emb',
             'TB_pooler_emb',
-            'bert_mean_embeddings',
-            'sbert_embeddings',
-            'word2vec_pretrained_embeddings']
+            'TB_mean_emb',
+            'B_pooler_emb',
+            'B_mean_emb',
+            'sbert_emb'
+            ]
         
         self.sentence_embedding_type = embedding_type
         if self.sentence_embedding_type not in self.sentence_embedding_types:
@@ -61,7 +64,7 @@ class Dataset_A(Dataset):
         sentence_embedding_norm = F.normalize(sentence_embedding, p=2, dim=0)
 
         #Image EMB Retrival
-        img_filename = row['png_path'] # This currently isnt a column in the master csv
+        img_filename = row['path'] # This currently isnt a column in the master csv
         img_path = self._ROOT / img_filename
         if not img_path.exists():
             raise FileNotFoundError(f'PATH NOT FOUND: {img_path}')
