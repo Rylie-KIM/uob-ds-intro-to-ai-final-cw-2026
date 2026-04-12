@@ -76,30 +76,3 @@ def train_model(model, train_loader, test_loader, epochs=20, lr=1e-3):
               f"Val Loss: {avg_dev_loss:.4f}")
 
     return train_losses, dev_losses
-
-import os
-import numpy as np
-import matplotlib.pyplot as plt
-from PIL import Image
-
-path = os.path.join(os.path.dirname(__file__), '..', 'data', 'images', 'type-a', 'a_1.png')
-img = Image.open(path).convert('RGB')
-# img.show()
-np_img = np.array(img)
-print(np_img.shape)
-# plt.imshow(np_img)
-# plt.axis('off')
-# plt.show()
-
-
-# Convert to tensor
-converter = transforms.ToTensor()
-data_t = converter(np_img)
-# Normalise
-normalise = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-data_t_n = normalise(data_t)
-print(f'NEW: {data_t_n.shape}')
-cnn = CNN_encoder(embedding_dims = 512)
-print(f'Model Architecture:\n{cnn}')
-cnn(data_t_n.unsqueeze(0))
-
