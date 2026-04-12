@@ -5,6 +5,11 @@ import pandas as pd
 import sys 
 
 class OneHot():
+    """
+    Big problem with one hot coding as embeddings are depenant on sentence length thus without fixed length, cant work in model
+    Could try mean pooling np.array(embeddings).mean(axis=0) but will lose spatial info
+    
+    """
     def __init__(self):
 
         self.vocab = ['circle','triangle','square','diamond','hexagon',
@@ -34,6 +39,7 @@ class OneHot():
                 raise ValueError('Word not in vocabulary')
             embeddings.append(self.get_word_embedding(word))
         embeddings = np.array(embeddings)
+        print(embeddings)
         embeddings = torch.tensor(embeddings, dtype=torch.float)
         filename = f'{idx}.pt'
         filepath = self.folder_path / filename
@@ -50,4 +56,7 @@ class OneHot():
         print(f'Success.{len(filepaths)} filepaths added')
         self.df.to_csv(self.master_path, index=False)
 
-print(Path(__file__).resolve().parent.parent.parent.parent)
+
+onehot = OneHot()
+
+onehot.get_sentence_embedding('a red square', -1)

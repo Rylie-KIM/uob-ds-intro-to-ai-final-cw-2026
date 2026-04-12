@@ -3,8 +3,8 @@ import torch.nn as nn
 import torch.optim as optim
 from pathlib import Path
 import torch.nn.functional as F
-from CNN import CNN_encoder
-from earlyStopping import EarlyStopping
+from src.models.earlyStopping import EarlyStopping
+import matplotlib.pyplot as plt
 
 def train(model, train_set, test_set, epochs, learning_rate, weight_decay):
     criterion = nn.CosineEmbeddingLoss()
@@ -52,7 +52,7 @@ def train(model, train_set, test_set, epochs, learning_rate, weight_decay):
         test_losses.append(avg_test_loss)
         early_stopping.check(avg_test_loss)
         if early_stopping.stop == True:
-            print('Early Stopping!')
+            print('Early Stopping Activated!')
             print(f'Epoch: {epoch+1}/{epochs} | Train Loss: {round(avg_train_loss,2)} | Test Loss: {round(avg_test_loss,2)}')
             break
         print(f'Epoch: {epoch+1}/{epochs} | Train Loss: {round(avg_train_loss,2)} | Test Loss: {round(avg_test_loss,2)}')
