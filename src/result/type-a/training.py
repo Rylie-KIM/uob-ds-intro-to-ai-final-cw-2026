@@ -31,13 +31,14 @@ embedding_types = ['TB_pooler_emb','TB_mean_emb','B_pooler_emb','B_mean_emb','sb
 embedding_type = 'TB_pooler_emb'
 dataset = Dataset_A(embedding_type, transform_imgs = transform)
 training, testing = Subset(dataset, range(16000)), Subset(dataset, range(16000, len(dataset)))
-train_loader = DataLoader(training, batch_size = 32, shuffle=True)
+train_loader = DataLoader(training, batch_size = 1, shuffle=True)
 # Dont shuffle test set so you get consistent eval
-test_loader = DataLoader(testing, batch_size = 32, shuffle=False)
+test_loader = DataLoader(testing, batch_size = 1, shuffle=False)
 # print(f'Train_loader length:\n  >>Batches: {len(train_loader)}\n  >>Size: {len(train_loader) * 32}')
 # print(f'Test_loader length:\n  >>Batches: {len(test_loader)}\n  >>Size: {len(test_loader) * 32}')
 
 model = CNN_encoder(embedding_dims = 312)
+print('here')
 train_losses, test_losses = train(model, train_set = train_loader, test_set = test_loader, epochs = 30, learning_rate = 0.003, weight_decay = 0.001)
 
 plt.plot(train_losses)

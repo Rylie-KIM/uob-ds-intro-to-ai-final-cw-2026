@@ -25,7 +25,7 @@ class Dataset_A(Dataset):
         """
         self._ROOT = Path(__file__).resolve().parent.parent.parent.parent
         # This needs to be updated to 'master.csv'
-        self.csv_path = self._ROOT / 'src/data/type-a/master.csv'
+        self.csv_path = self._ROOT / 'src' / 'data' / 'type-a' / 'master.csv'
         if not self.csv_path.exists():
             raise FileNotFoundError(f'PATH NOT FOUND: {self.csv_path}')
         
@@ -50,11 +50,11 @@ class Dataset_A(Dataset):
     def __getitem__(self, idx):
         
         row = self.df.iloc[idx]
-        # sentence_label = row['label']
+        
 
         # Sentence EMB Retrival
         sentence_emb_filename = row[self.sentence_embedding_type]
-        sentence_embedding_path = self._ROOT / sentence_emb_filename
+        sentence_embedding_path = self._ROOT / Path(sentence_emb_filename)
         if not sentence_embedding_path.exists():
             raise FileNotFoundError(f'PATH NOT FOUND: {sentence_embedding_path}')
         sentence_embedding = torch.load(sentence_embedding_path)
@@ -65,7 +65,7 @@ class Dataset_A(Dataset):
 
         #Image EMB Retrival
         img_filename = row['path'] # This currently isnt a column in the master csv
-        img_path = self._ROOT / img_filename
+        img_path = self._ROOT / Path(img_filename)
         if not img_path.exists():
             raise FileNotFoundError(f'PATH NOT FOUND: {img_path}')
         
