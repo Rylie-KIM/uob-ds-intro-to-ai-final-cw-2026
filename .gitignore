@@ -18,10 +18,14 @@ embeddings/computed-embeddings/type-a/results
 embeddings/computed-embeddings/type-c/results
 !embeddings/computed-embeddings/type-c/results/examples
 
-src/pipelines/results/checkpoints/type-a
-src/pipelines/results/checkpoints/type-b
-src/pipelines/results/checkpoints/type-c
-!src/pipelines/results/checkpoints/
+src/pipelines/results/checkpoints/type-a/
+src/pipelines/results/checkpoints/type-b/
+src/pipelines/results/checkpoints/type-c/
+src/pipelines/results/checkpoints/sbert_finetuned_typeb/
+
+# never commit model checkpoints in Type-C result folders
+src/result/type-C/**/*.pt
+result/type-C/**/*.pt
 
 
 __pycache__/
