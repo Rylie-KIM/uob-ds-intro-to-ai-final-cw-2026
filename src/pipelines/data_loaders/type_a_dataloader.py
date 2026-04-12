@@ -53,7 +53,7 @@ class Dataset_A(Dataset):
         
 
         # Sentence EMB Retrival
-        sentence_emb_filename = row[self.sentence_embedding_type]
+        sentence_emb_filename = row[self.sentence_embedding_type].replace('\\', '/')
         sentence_embedding_path = self._ROOT / Path(sentence_emb_filename)
         if not sentence_embedding_path.exists():
             raise FileNotFoundError(f'PATH NOT FOUND: {sentence_embedding_path}')
@@ -64,7 +64,8 @@ class Dataset_A(Dataset):
         sentence_embedding_norm = F.normalize(sentence_embedding, p=2, dim=0)
 
         #Image EMB Retrival
-        img_filename = row['path'] # This currently isnt a column in the master csv
+        img_filename = row['path'].replace('\\', '/')
+        
         img_path = self._ROOT / Path(img_filename)
         if not img_path.exists():
             raise FileNotFoundError(f'PATH NOT FOUND: {img_path}')
