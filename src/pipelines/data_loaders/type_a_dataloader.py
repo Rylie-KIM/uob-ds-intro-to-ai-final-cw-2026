@@ -1,17 +1,12 @@
 import torch
 from torch.utils.data import Dataset, DataLoader
-import numpy as np 
-import pandas as pd
 from pathlib import Path
-from PIL import Image
-import sys
 import torch.nn.functional as F
 import torchvision.transforms as transforms
-import time
 
 
 class Dataset_A(Dataset):
-    def __init__(self, embedding_type:str):
+    def __init__(self, embedding_type:str, img_embs_path, sentence_embs_path ):
         """ 
             transform = transforms.Compose([
                 transforms.Resize((128,128)),
@@ -24,44 +19,26 @@ class Dataset_A(Dataset):
         Returns sentence embedding, as tensor, normalized
         
         """
-        self._ROOT = Path(__file__).resolve().parent.parent.parent.parent
-        self.sentence_embedding_types = [
-            'TB_pooler_emb',
-            'TB_mean_emb',
-            'B_pooler_emb',
-            'B_mean_emb',
-            'sbert_emb'
-            ]
-        self.sentence_emb_paths = {
-            'TB_pooler_emb': self._ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a' / 'results' / 'TB_pooler_emb_master.pt',
-            'TB_mean_emb': self._ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a' / 'results' / 'TB_mean_emb_master.pt',
-            'B_pooler_emb': self._ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a' / 'results' / 'B_pooler_emb_master.pt',
-            'B_mean_emb': self._ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a' / 'results' / 'B_mean_emb_master.pt',
-            'sbert_emb': self._ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a' / 'results' / 'sbert_emb_master.pt'
-        }
-                    
-        self.sentence_embedding_type = embedding_type
-        if self.sentence_embedding_type not in self.sentence_embedding_types:
-            raise ValueError(f'{self.sentence_embedding_type} not in {self.sentence_embedding_types}')
-        
-        self.sentence_embeddings_path = self.sentence_emb_paths[self.sentence_embedding_type]
-        if not self.sentence_embeddings_path.exists():
-            raise FileNotFoundError(f'PATH NOT FOUND: {self.sentence_embeddings_path}')
-        self.sentence_embs = torch.load(self.sentence_embeddings_path, weights_only=True)
-
-        self.image_embeddings_path = self._ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a' / 'results' / 'images_master.pt'
-        if not self.image_embeddings_path.exists():
-            raise FileNotFoundError(f'PATH NOT FOUND: {self.image_embeddings_path}')
-        
-        self.image_embs= torch.load(self.image_embeddings_path, weights_only=True)
+        self.sentence_embs_path = Path(sentence_embs_path)
+        if not self.sentence_embs_path.exists():
+            raise FileNotFoundError(f'PATH NOT FOUND: {self.sentence_embs_path}')
+        self.img_embs_path = Path(img_embs_path)
+        if not self.img_embs_path.exists():
+            raise FileNotFoundError(f'PATH NOT FOUND: {self.img_embs_path}')
+        self.sentence_embs = torch.load(self.sentence_embs_path)
+        self.img_embs= torch.load(self.img_embs_path)
+        self.sentence_emb_type = embedding_type
+        if len(self.img_embs) != len(self.sentence_embs):
+            raise ValueError(f'Mismatch in embedding lengths. IMG_EMB: {len(self.img_embs)} | SENTENCE_EMB: {len(self.sentence_embs)}')
+        print('Dataloader initialisation complete')
         print(f'Sentence embeddings:\n>>> Shape: {self.sentence_embs.shape}\n>>> Type: {self.sentence_embs.dtype}')
-        print(f'Image embeddings:\n>>> Shape: {self.image_embs.shape}\n>>> Type: {self.image_embs.dtype}')
-    
+        print(f'Image embeddings:\n>>> Shape: {self.img_embs.shape}\n>>> Type: {self.img_embs.dtype}')
+                    
     def __len__(self):
-        return len(self.image_embs)
+        return len(self.img_embs)
 
     def __getitem__(self, idx):
-        img_emb = self.image_embs[idx]
+        img_emb = self.img_embs[idx]
         if img_emb is None:
             raise ValueError(f'Img embedding for {idx} is none')
         sentence_emb = self.sentence_embs[idx]

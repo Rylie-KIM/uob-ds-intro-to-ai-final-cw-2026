@@ -24,10 +24,11 @@ I have pre transformed the data in one_emb so if i need different sizes will hav
 
 """
 
-
 embedding_types = ['TB_pooler_emb','TB_mean_emb','B_pooler_emb','B_mean_emb','sbert_emb']
 embedding_type = 'TB_pooler_emb'
-dataset = Dataset_A(embedding_type)
+img_emb_path = Path("C:/Masters/Text Analytics/AI_Coursework/embeddings/images_master.pt")
+sentence_emb_path = Path("C:/Masters/Text Analytics/AI_Coursework/embeddings/TB_pooler_emb_master.pt")
+dataset = Dataset_A('TB_pooler', img_emb_path, sentence_emb_path)
 training, testing = Subset(dataset, range(16000)), Subset(dataset, range(16000, len(dataset)))
 bs = 32
 train_loader = DataLoader(training, batch_size = bs, shuffle=True)
@@ -37,8 +38,11 @@ test_loader = DataLoader(testing, batch_size = bs, shuffle=False)
 # print(f'Test_loader length:\n  >>Batches: {len(test_loader)}\n  >>Size: {len(test_loader) * 32}')
 
 model = CNN_encoder(embedding_dims = 312)
-train_losses, test_losses = train(model, train_set = train_loader, test_set = test_loader, epochs = 10, learning_rate = 0.000001)
-
-plt.plot(train_losses)
-plt.plot(test_losses)
-plt.show()
+train_losses, test_losses, best_model = train(model, train_set = train_loader, test_set = test_loader, epochs = 10, learning_rate = 0.000001)
+main_path = Path("C:/Masters/Text Analytics/AI_Coursework/trained_models")
+model_name = f'{best_model.__class__.__name__}.pt'
+file_path = main_path / model_name
+torch.save(best_model.state_dict(), file_path)
+#plt.plot(train_losses)
+#plt.plot(test_losses)
+#plt.show()

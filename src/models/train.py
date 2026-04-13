@@ -73,4 +73,4 @@ def train(model, train_set, test_set, epochs, learning_rate):
             break
         print(f'Epoch: {epoch+1}/{epochs} | Train Loss: {round(avg_train_loss,4)} | Test Loss: {round(avg_test_loss,4)}')
    
-    return train_losses, test_losses
+    return train_losses, test_losses, model
