@@ -15,23 +15,34 @@ Reads test_results.csv and per-sample prediction CSVs, then produces:
 
 Ranking methodology
 -------------------
-  Three axes are scored and combined:
+  Step 1 — Collapse hard filter
+     collapsed = colour_size_correct < COLLAPSE_THRESHOLD (0.95)
+     Any collapsed run receives composite_score = 0.0 and is ranked last.
+     Rationale: a model that cannot distinguish sentences at all has no retrieval
+     value; a soft penalty would let it compete with genuinely discriminative models.
 
-  1. MRR (weight 0.4)
-     - Rewards getting the answer near the top, not just exactly rank-1
-     - Most robust single metric for retrieval
+  Step 2 — Normalise each metric to [0, 1] across all runs
+     mrr_norm          = test_mrr        / max(test_mrr)          (relative)
+     median_rank_norm  = 1 - (test_median_rank / CORPUS_SIZE)     (absolute)
+     top1_norm         = test_top1       / max(test_top1)         (relative)
+     top5_norm         = test_top5       / max(test_top5)         (relative)
+     cosine_norm       = test_mean_cosine                         (already [0,1])
 
-  2. median_rank normalised (weight 0.35)
-     - median_rank / corpus_size, inverted → higher = better
-     - Median is more robust than mean to collapse outliers
+  Step 3 — Weighted composite (non-collapsed runs only)
+     composite_score = 0.35 * mrr_norm
+                     + 0.25 * median_rank_norm
+                     + 0.20 * top1_norm
+                     + 0.15 * top5_norm
+                     + 0.05 * cosine_norm
 
-  3. collapse_penalty (weight 0.25)
-     - colour_size_correct: fraction of top-1 retrievals with correct colour+size
-     - If < 1.0 → embedding space collapsed (all outputs map near the same vector)
-     - A collapsed model cannot distinguish sentences → disqualified from top ranks
-
-  composite_score = 0.4 * mrr_norm + 0.35 * median_rank_norm + 0.25 * colour_size_correct
-  (all components in [0, 1])
+  Weight rationale:
+     MRR (0.35)         — captures rank quality across all test samples; most
+                          comprehensive single retrieval metric
+     Median rank (0.25) — robust to outliers; reflects typical retrieval experience
+     Top-1 (0.20)       — strictest correctness criterion; most interpretable in report
+     Top-5 (0.15)       — practical retrieval success (answer in first 5 results)
+     Cosine (0.05)      — tiebreaker only; excluded from collapse penalty because
+                          near-constant outputs produce artificially high cosine
 
 Usage
 -----
@@ -46,7 +57,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-# ── Path bootstrap ─────────────────────────────────────────────────────────────
+# ── Path bootstrap ────
 _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
@@ -55,10 +66,12 @@ from src.config.paths import PREDICTIONS_B  # noqa: E402
 
 CORPUS_SIZE = 1001   # Type-B corpus sentence count
 
-# Weighting scheme for composite score
-W_MRR         = 0.40
-W_MEDIAN_RANK = 0.35
-W_COLLAPSE    = 0.25
+# Weighting scheme for composite score (collapsed runs always receive 0.0)
+W_MRR         = 0.35
+W_MEDIAN_RANK = 0.25
+W_TOP1        = 0.20
+W_TOP5        = 0.15
+W_COSINE      = 0.05
 
 # Collapse threshold: colour_size_correct below this = collapsed
 COLLAPSE_THRESHOLD = 0.95
@@ -85,26 +98,46 @@ def compute_ranking(df: pd.DataFrame) -> pd.DataFrame:
     """
     Add normalised score components and composite_score to the results dataframe.
 
-    mrr_norm         = test_mrr / max(test_mrr)          ∈ [0, 1]
-    median_rank_norm = 1 - (test_median_rank / CORPUS_SIZE)  ∈ [0, 1]
-    colour_size_correct already ∈ [0, 1]
+    Normalisation:
+      mrr_norm         = test_mrr        / max(test_mrr)        ∈ [0, 1]
+      median_rank_norm = 1 - (test_median_rank / CORPUS_SIZE)   ∈ [0, 1]
+      top1_norm        = test_top1       / max(test_top1)        ∈ [0, 1]
+      top5_norm        = test_top5       / max(test_top5)        ∈ [0, 1]
+      cosine_norm      = test_mean_cosine                        ∈ [0, 1]
 
-    composite_score = W_MRR * mrr_norm
-                    + W_MEDIAN_RANK * median_rank_norm
-                    + W_COLLAPSE    * colour_size_correct
+    Composite (non-collapsed runs only):
+      composite_score = W_MRR * mrr_norm + W_MEDIAN_RANK * median_rank_norm
+                      + W_TOP1 * top1_norm + W_TOP5 * top5_norm
+                      + W_COSINE * cosine_norm
+
+    Collapsed runs (colour_size_correct < COLLAPSE_THRESHOLD) receive
+    composite_score = 0.0 unconditionally.
     """
     out = df.copy()
 
-    mrr_max = out['test_mrr'].max()
-    out['mrr_norm']         = out['test_mrr'] / mrr_max if mrr_max > 0 else 0.0
-    out['median_rank_norm'] = 1.0 - (out['test_median_rank'] / CORPUS_SIZE)
-    out['collapsed']        = out['colour_size_correct'] < COLLAPSE_THRESHOLD
+    out['collapsed'] = out['colour_size_correct'] < COLLAPSE_THRESHOLD
 
-    out['composite_score'] = (
+    # Normalise all metrics (use max across ALL runs for a fair relative scale)
+    def _safe_norm(series: pd.Series) -> pd.Series:
+        mx = series.max()
+        return series / mx if mx > 0 else series * 0.0
+
+    out['mrr_norm']         = _safe_norm(out['test_mrr'])
+    out['median_rank_norm'] = 1.0 - (out['test_median_rank'] / CORPUS_SIZE)
+    out['top1_norm']        = _safe_norm(out['test_top1'])
+    out['top5_norm']        = _safe_norm(out['test_top5'])
+    out['cosine_norm']      = out['test_mean_cosine']
+
+    raw_score = (
         W_MRR         * out['mrr_norm']
         + W_MEDIAN_RANK * out['median_rank_norm']
-        + W_COLLAPSE    * out['colour_size_correct']
+        + W_TOP1        * out['top1_norm']
+        + W_TOP5        * out['top5_norm']
+        + W_COSINE      * out['cosine_norm']
     )
+
+    # Hard penalty: collapsed → 0.0
+    out['composite_score'] = raw_score.where(~out['collapsed'], other=0.0)
 
     out = out.sort_values('composite_score', ascending=False).reset_index(drop=True)
     out.insert(0, 'rank', range(1, len(out) + 1))
@@ -140,7 +173,8 @@ def _print_ranking(ranked: pd.DataFrame) -> None:
     print(f'\n{sep}')
     print('  Type-B Stage-1 Final Embedding Ranking')
     print(f'  Composite score = {W_MRR}×MRR_norm + {W_MEDIAN_RANK}×MedianRank_norm'
-          f' + {W_COLLAPSE}×ColourSize')
+          f' + {W_TOP1}×Top1_norm + {W_TOP5}×Top5_norm + {W_COSINE}×Cosine'
+          f'  [collapsed → 0.0]')
     print(sep)
     print(f"  {'Rank':<5} {'Run':<6} {'Embedding':<22} {'top-1':>6} {'MRR':>7} "
           f"{'median_rank':>12} {'mean_rank':>10} {'CS_correct':>11} "
@@ -197,10 +231,7 @@ def _print_top3(ranked: pd.DataFrame) -> None:
     print()
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Main
-# ══════════════════════════════════════════════════════════════════════════════
-
+# main 
 def main() -> None:
     test_results_csv = PREDICTIONS_B / 'test_results.csv'
     if not test_results_csv.exists():
@@ -216,23 +247,24 @@ def main() -> None:
 
     print(f'\nLoaded {len(df)} runs from {test_results_csv.name}')
 
-    # ── Compute ranking ────────────────────────────────────────────────────────
+    # ── Compute ranking 
     ranked     = compute_ranking(df)
     per_digit  = build_per_digit(ranked)
 
-    # ── Console output ─────────────────────────────────────────────────────────
+    # ── Console output 
     _print_ranking(ranked)
     _print_collapse_diagnosis(ranked)
     _print_top3(ranked)
 
-    # ── Save CSVs ──────────────────────────────────────────────────────────────
+    # ── Save CSVs 
     out_cols = [
         'rank', 'run_id', 'embedding', 'dim', 'loss_fn',
         'best_epoch', 'total_epochs',
         'test_top1', 'test_top5', 'test_mrr',
         'test_mean_rank', 'test_median_rank', 'test_mean_cosine',
         'colour_size_correct',
-        'mrr_norm', 'median_rank_norm', 'composite_score',
+        'mrr_norm', 'median_rank_norm', 'top1_norm', 'top5_norm', 'cosine_norm',
+        'composite_score',
         'collapsed', 'description',
     ]
     out_cols = [c for c in out_cols if c in ranked.columns]
@@ -246,6 +278,24 @@ def main() -> None:
     digit_csv = PREDICTIONS_B / 'final_per_digit.csv'
     per_digit.to_csv(digit_csv, index=False)
     print(f'  [saved] {digit_csv}')
+
+    # ── Leaderboard CSV (report-ready, reduced columns) ────────────────────
+    leaderboard_cols = [
+        'rank', 'run_id', 'cnn', 'embedding', 'dim', 'loss_fn',
+        'test_top1', 'test_top5', 'test_mrr',
+        'test_median_rank', 'collapsed', 'composite_score',
+    ]
+    leaderboard_cols = [c for c in leaderboard_cols if c in ranked.columns]
+    lb = ranked[leaderboard_cols].copy()
+
+    # Round floats for readability
+    for col in ('test_top1', 'test_top5', 'test_mrr', 'composite_score'):
+        if col in lb.columns:
+            lb[col] = lb[col].round(4)
+
+    lb_csv = PREDICTIONS_B / 'leaderboard.csv'
+    lb.to_csv(lb_csv, index=False)
+    print(f'  [saved] {lb_csv}')
 
     print(f'\nDone.\n')
 

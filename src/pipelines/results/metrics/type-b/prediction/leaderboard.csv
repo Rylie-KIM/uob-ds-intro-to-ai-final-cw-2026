@@ -1,0 +1,10 @@
+rank,run_id,cnn,embedding,dim,loss_fn,test_top1,test_top5,test_mrr,test_median_rank,collapsed,composite_score
+1,E2e,cnn_1layer,tinybert_mean,312,MSE,0.006,0.029,0.0275,169.0,False,0.9561
+2,E2b,cnn_1layer,sbert_finetuned,384,Cosine,0.003,0.021,0.0176,351.0,False,0.6386
+3,E2g,cnn_1layer,glove,300,MSE,0.003,0.014,0.0135,481.0,False,0.5229
+4,B0,cnn_1layer,tfidf_lsa,100,MSE,0.004,0.006,0.0085,639.0,False,0.4033
+5,E2a,cnn_1layer,sbert,384,Cosine,0.002,0.006,0.0092,510.0,False,0.3557
+6,E2h,cnn_1layer,word2vec_pretrained,300,MSE,0.0,0.004,0.0045,629.0,False,0.2212
+7,E2f,cnn_1layer,tinybert_pooler,312,MSE,0.0,0.001,0.0033,1302.0,True,0.0
+8,E2i,cnn_1layer,word2vec_skipgram,100,MSE,0.002,0.002,0.0039,1730.0,True,0.0
+9,E2k,cnn_1layer,tfidf_w2v,100,MSE,0.0,0.001,0.0022,2424.0,True,0.0

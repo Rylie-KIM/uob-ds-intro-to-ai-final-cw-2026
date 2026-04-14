@@ -1,0 +1,4 @@
+true_sentence,llm_raw,pred_sentence,n_digits,true_rank,cosine_sim,top_1_correct,top_2_correct,top_3_correct,top_4_correct,top_5_correct
+large red 15,small red 15,small red 15,2,5,1.0000001192092896,0,0,0,0,1
+small yellow 346,small yellow 346,small yellow 346,3,1,1.0,1,1,1,1,1
+small yellow 12671,small yellow 12671,small yellow 12671,5,1,1.0000001192092896,1,1,1,1,1

@@ -36,8 +36,9 @@ CHECKPOINTS_B_NORMED = CHECKPOINTS_B / 'normalised'
 METRICS_B            = ROOT / 'src' / 'pipelines' / 'results' / 'metrics' / 'type-b'
 METRICS_B_NON_NORMED = METRICS_B / 'non-normalised'    # training logs for base runs
 METRICS_B_NORMED     = METRICS_B / 'normalised'        # training logs for normalised runs
-PREDICTIONS_B        = METRICS_B / 'prediction'
-PREDICTIONS_B_NORMED = METRICS_B / 'prediction-normalised'
+PREDICTIONS_B               = METRICS_B / 'prediction'
+PREDICTIONS_B_NORMED        = METRICS_B / 'prediction-normalised'
+PREDICTIONS_B_COMMERCIAL_AI = METRICS_B / 'prediction-commercial-ai'
 METRICS_FINAL        = ROOT / 'src' / 'pipelines' / 'results' / 'metrics' / 'type-b' / 'final'
 
 # ── Fine-tuned SBERT checkpoints ─────────────────────────────────────────────

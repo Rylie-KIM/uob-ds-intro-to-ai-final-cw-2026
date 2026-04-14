@@ -1,0 +1,2 @@
+model,embedding,n_test,top_1_acc,top_2_acc,top_3_acc,top_5_acc,mrr,mean_cosine_sim,mean_rank,median_rank
+meta-llama/llama-4-scout,sbert,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.6825396825396824,1.00000003973643,7.666666666666667,1.0
