@@ -13,3 +13,4 @@ ImageMagick 7.1.2-18 Q16 x64 d4e4b2b:20260322 https://imagemagick.org/download/#
 GPL Ghostscript 10.07.0 (2026-03-16) https://www.ghostscript.com/releases/gsdnld.html 'Ghostscript 10.07.0 for Windows (64 bit)'
 seaborn
 python-dotenv
+natsort
