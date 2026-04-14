@@ -15,6 +15,7 @@ from src.models.train import train
 from src.pipelines.data_loaders.type_a_dataloader import Dataset_A
 from src.models.CNN import CNN_encoder
 from src.models.CNN2 import CNN2
+from src.models.googleNet import GoogleNet
 
 
 """
@@ -63,14 +64,13 @@ sentence_embs_dict = {
         }
 
 img_emb_path = Path("C:/Masters/Text Analytics/AI_Coursework/embeddings/images_master.pt")
-sentence_emb_path = Path("C:/Masters/Text Analytics/AI_Coursework/embeddings/TB_pooler_emb_master.pt")
 
 ################################ 
 ################################ 
 ###### From Scrtach Models###### 
 ################################ 
 ################################ 
-
+"""
 models = [CNN_encoder, CNN2]
 bs = 32
 main_path = Path("C:/Masters/Text Analytics/AI_Coursework/trained_models")
@@ -90,3 +90,20 @@ for model_type in models:
         torch.save(best_model.state_dict(), output_path)
         print(f'Successfully trained {model_name} in {time}')
         print(f'Saved model to: {output_path}')
+
+"""
+
+################################ 
+################################ 
+###### Pre-trained Models ###### # training googlenet took approx 6-7 mins per epoch
+################################ 
+################################ 
+
+sentence_emb_path = Path("C:/Masters/Text Analytics/AI_Coursework/embeddings/sbert_emb_master.pt")
+bs = 32
+model = GoogleNet(output_dims = 384)
+dataset = Dataset_A('sbert_emb', img_emb_path, sentence_emb_path, transformation = transform_pt)
+training, validation =  Subset(dataset, range(8000)), Subset(dataset, range(8000, 9000))
+train_loader = DataLoader(training, batch_size = bs, shuffle=False)
+test_loader = DataLoader(validation, batch_size = bs, shuffle=False)
+train_losses, val_losses, best_model, time = train(model, train_set = train_loader, test_set = test_loader, epochs = 10, learning_rate = 0.000001)
