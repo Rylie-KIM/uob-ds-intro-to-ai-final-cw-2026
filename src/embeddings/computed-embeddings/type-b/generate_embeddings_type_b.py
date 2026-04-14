@@ -26,13 +26,13 @@ sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'pretrained' / 'fine-tune'
 # fine-tune/
 from only_typeb_finetune_sbert import FinetunedSBERTEmbedder, finetune  
 # pretrained  
-from embeddings.pretrained.sbert_embeddings import SBERTEmbedder
+from embeddings.pretrained.only_type_a_sbert_embeddings import SBERTEmbedder
 from embeddings.pretrained.glove_embedding import GloVeEmbedder
 from embeddings.pretrained.only_type_b_bert_mean_embeddings import BertMeanEmbedder
 from embeddings.pretrained.only_type_b_bert_pooler_embeddings import BertPoolerEmbedder
 from embeddings.pretrained.only_type_b_tinybert_mean_embeddings import TinyBertMeanEmbedder
 from embeddings.pretrained.only_type_b_tinybert_pooler_embeddings import TinyBertPoolerEmbedder
-from embeddings.pretrained.pretrained_word2vec_embeddings import PretrainedWord2VecEmbedder
+from embeddings.pretrained.only_type_a_pretrained_word2vec_embeddings import PretrainedWord2VecEmbedder
 # non pretrained 
 from word2vec_skipgram_embeddings import SkipGramEmbedder                      
 from tfidf_lsa_embeddings import TFIDFLSAEmbedder                                

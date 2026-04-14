@@ -5,7 +5,7 @@ from torchvision import transforms
 
 
 class CNN_encoder(nn.Module):
-    def __init__(self, embedding_dims):
+    def __init__(self, output_dims):
         super().__init__()
         # Input: 3, 512, 512
         # Convolution + pooling layers
@@ -24,7 +24,7 @@ class CNN_encoder(nn.Module):
         )
         self.linear = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(128, embedding_dims)
+            nn.Linear(128, output_dims)
         )
 
     def forward(self, x):

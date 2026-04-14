@@ -6,7 +6,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-NUM_OBSERVATIONS = 20000
+NUM_OBSERVATIONS = 10000
 RANDOM_SEED = 42
 CANVAS_SIZE = (700, 700)
 BACKGROUND_COLOR = "white"

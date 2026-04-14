@@ -22,6 +22,18 @@ transform = weights.transforms()
 
 I have pre transformed the data in one_emb so if i need different sizes will have to edit that
 
+Embeddings:
+>>TB_pooler = 312
+>>TB_mean = 312
+>>B_pooler = 768
+>>B_mean = 768
+>>sbert = 384
+
+Models:
+>>CNN_encoder(output_dims = ANY)
+>>CNN2(output_dims_dims = ANY)
+>>GoogleNet(output_dims_dims = ANY) BUT shape == [batch_size, 3, 224, 224]
+>>alexnet(output_dims_dims = ANY) BUT shape == [batch_size, 3, 224, 224]
 """
 
 embedding_types = ['TB_pooler_emb','TB_mean_emb','B_pooler_emb','B_mean_emb','sbert_emb']

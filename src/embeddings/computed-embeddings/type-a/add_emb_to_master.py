@@ -36,11 +36,15 @@ from only_type_a_B_mean import BertMeanEmbedder
 bert_mean = BertMeanEmbedder()
 bert_mean.process()
 
-from sbert_embeddings import SBERTEmbedder
+from only_type_a_sbert_embeddings import SBERTEmbedder
 
 sbert_embedder = SBERTEmbedder()
 sbert_embedder.process()
 
+from only_type_a_p_w2v import PretrainedWord2VecEmbedder
+
+p_w2vec = PretrainedWord2VecEmbedder()
+p_w2vec.process()
 
 
 
