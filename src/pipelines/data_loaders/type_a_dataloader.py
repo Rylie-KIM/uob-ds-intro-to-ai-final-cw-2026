@@ -6,7 +6,7 @@ import torchvision.transforms as transforms
 
 
 class Dataset_A(Dataset):
-    def __init__(self, embedding_type:str, img_embs_path, sentence_embs_path ):
+    def __init__(self, embedding_type:str, img_embs_path, sentence_embs_path, transformation ):
         """ 
             transform = transforms.Compose([
                 transforms.Resize((128,128)),
@@ -28,6 +28,7 @@ class Dataset_A(Dataset):
         self.sentence_embs = torch.load(self.sentence_embs_path)
         self.img_embs= torch.load(self.img_embs_path)
         self.sentence_emb_type = embedding_type
+        self.transformation = transformation
         if len(self.img_embs) != len(self.sentence_embs):
             raise ValueError(f'Mismatch in embedding lengths. IMG_EMB: {len(self.img_embs)} | SENTENCE_EMB: {len(self.sentence_embs)}')
         print('Dataloader initialisation complete')
@@ -41,11 +42,6 @@ class Dataset_A(Dataset):
         img_emb = self.img_embs[idx]
         if img_emb is None:
             raise ValueError(f'Img embedding for {idx} is none')
+        img_emb_t = self.transformation(img_emb)
         sentence_emb = self.sentence_embs[idx]
-        sentence_embedding_norm = F.normalize(sentence_emb.float(), p=2, dim=0)
-        return img_emb, sentence_embedding_norm
-
-
-# example_tensor = torch.randn(3,4) created 3 by 4 tensor of random values
-# torch.save(example_tensor, 'example_tensor.pt')
-# tensor_data = torch.load('example_tensor.pt')
+        return img_emb_t, sentence_emb

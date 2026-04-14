@@ -39,7 +39,6 @@ class OneHot():
                 raise ValueError('Word not in vocabulary')
             embeddings.append(self.get_word_embedding(word))
         embeddings = np.array(embeddings)
-        print(embeddings)
         embeddings = torch.tensor(embeddings, dtype=torch.float)
         filename = f'{idx}.pt'
         filepath = self.folder_path / filename

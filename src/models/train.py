@@ -5,6 +5,7 @@ from pathlib import Path
 import torch.nn.functional as F
 from src.models.earlyStopping import EarlyStopping
 import matplotlib.pyplot as plt
+import time
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 """
@@ -24,7 +25,7 @@ def train(model, train_set, test_set, epochs, learning_rate):
 
     train_losses = []
     test_losses = []
-
+    start = time.time()
     for epoch in range(epochs):
         print('starting new epoch...')
         model.train()
@@ -72,5 +73,5 @@ def train(model, train_set, test_set, epochs, learning_rate):
             print(f'Epoch: {epoch+1}/{epochs} | Train Loss: {round(avg_train_loss,4)} | Test Loss: {round(avg_test_loss,4)}')
             break
         print(f'Epoch: {epoch+1}/{epochs} | Train Loss: {round(avg_train_loss,4)} | Test Loss: {round(avg_test_loss,4)}')
-   
-    return train_losses, test_losses, model
+    total_time = time.time() - start
+    return train_losses, test_losses, model, total_time

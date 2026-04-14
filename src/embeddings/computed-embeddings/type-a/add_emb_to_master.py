@@ -8,13 +8,6 @@ _ROOT     = Path(__file__).resolve().parent.parent.parent.parent.parent
 
 # Add repo root and non-pretrained dir (hyphenated name can't be imported normally)
 sys.path.insert(0, str(_ROOT))
-sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'non-pretrained'))
-
-from one_hot_encoding import OneHot
-
-onehot = OneHot()
-onehot.process()
-
 sys.path.insert(0, str(_ROOT / 'src' / 'embeddings' / 'pretrained'))
 
 from only_type_a_TB_pooler import TinyBertPoolerEmbedder
