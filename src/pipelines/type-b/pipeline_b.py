@@ -1,31 +1,6 @@
-"""
-src/pipelines/type-b/pipeline_b.py
-End-to-end pipeline for the Type-B (coloured MNIST numbers) experiments.
 
-Pipeline stages
----------------
-1. [Optional] Generate sentence embeddings (skip if .pt files already exist)
-2. Train all model x embedding combinations
-3. Evaluate each trained model on the test set
-4. Plot loss curves (epoch_log CSV -> matplotlib figure)
-5. Plot results heatmap (results_summary CSV -> seaborn heatmap)
-6. [Optional] Run Gemini Vision API comparison
-
-Usage
------
-# Full pipeline (all models x all embeddings, auto-detect device)
-python src/pipelines/type-b/pipeline_b.py
-
-# Subset run
-python src/pipelines/type-b/pipeline_b.py --models cnn cnn_1layer --embeddings sbert tfidf
-
-# Skip embedding generation (already done), also run Gemini comparison
-python src/pipelines/type-b/pipeline_b.py --skip-embed --run-gemini
-
-# Quick smoke test (2 epochs)
-python src/pipelines/type-b/pipeline_b.py --models cnn --embeddings tfidf --epochs 2
-"""
-
+# Done on colab 
+# This is local env training file
 from __future__ import annotations
 
 import argparse
@@ -37,7 +12,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import torch
 
-# ── Path bootstrap ─────────────────────────────────────────────────────────────
 _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
@@ -61,12 +35,7 @@ run_experiment    = _train_mod.run_experiment
 _default_device   = _train_mod._default_device
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Stage 1: Embedding generation
-# ══════════════════════════════════════════════════════════════════════════════
-
 def generate_embeddings(embedding_names: list[str]) -> None:
-    """Generate pre-computed embeddings for the specified methods (skip if exists)."""
     script = _ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-b' / \
              'generate_embeddings_type_b.py'
 
@@ -82,10 +51,7 @@ def generate_embeddings(embedding_names: list[str]) -> None:
         )
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 # Stage 2 & 3: Training and evaluation
-# ══════════════════════════════════════════════════════════════════════════════
-
 def train_and_evaluate(
     models:     list[str],
     embeddings: list[str],
@@ -104,8 +70,6 @@ def train_and_evaluate(
 
 # ══════════════════════════════════════════════════════════════════════════════
 # Stage 4: Loss curve plots
-# ══════════════════════════════════════════════════════════════════════════════
-
 def plot_loss_curves(models: list[str], embeddings: list[str]) -> None:
     """
     Plot train/val loss curves from epoch_log CSV files.
@@ -183,11 +147,7 @@ def plot_results_heatmap(models: list[str], embeddings: list[str]) -> None:
     plt.close(fig)
     print(f'[plot] Heatmap saved → {out.name}')
 
-
-# ══════════════════════════════════════════════════════════════════════════════
 # Stage 6: Gemini comparison (optional)
-# ══════════════════════════════════════════════════════════════════════════════
-
 def run_gemini_comparison() -> None:
     """Run Gemini Vision API comparison on the test set."""
     script = _ROOT / 'src' / 'pipelines' / 'evaluation' / 'type-b' /'gemini_comparison.py'
@@ -198,10 +158,7 @@ def run_gemini_comparison() -> None:
     subprocess.run([sys.executable, str(script)], check=True)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
 # Main
-# ══════════════════════════════════════════════════════════════════════════════
-
 def run_pipeline(
     models:      list[str],
     embeddings:  list[str],
