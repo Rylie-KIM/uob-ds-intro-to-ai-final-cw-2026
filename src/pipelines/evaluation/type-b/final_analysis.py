@@ -62,9 +62,9 @@ _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists(
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from src.config.paths import PREDICTIONS_B  # noqa: E402
+from src.config.paths import PREDICTIONS_B, PREDICTIONS_B_COMMERCIAL_AI  # noqa: E402
 
-CORPUS_SIZE = 1001   # Type-B corpus sentence count
+CORPUS_SIZE = 10008  # Type-B full corpus sentence count (all sentences, not just test split)
 
 # Weighting scheme for composite score (collapsed runs always receive 0.0)
 W_MRR         = 0.35
@@ -78,16 +78,107 @@ COLLAPSE_THRESHOLD = 0.95
 
 # Experiment descriptions (for the report)
 _DESCRIPTIONS: dict[str, str] = {
-    'B0':  'TF-IDF + LSA (100-dim), MSE — statistical baseline',
-    'E2a': 'SBERT all-MiniLM-L6-v2 (384-dim), frozen, CosineLoss',
-    'E2b': 'SBERT fine-tuned on Type-B corpus (384-dim), CosineLoss',
-    'E2e': 'TinyBERT mean-pool (312-dim), MSE',
-    'E2f': 'TinyBERT [CLS] pooler (312-dim), MSE',
-    'E2g': 'GloVe word-avg (300-dim), MSE',
-    'E2h': 'Word2Vec Google News pretrained (300-dim), MSE',
-    'E2i': 'Word2Vec skip-gram in-domain (100-dim), MSE',
-    'E2k': 'TF-IDF weighted Word2Vec (100-dim), MSE',
+    'B0':              'TF-IDF + LSA (100-dim), MSE — statistical baseline',
+    'E2a':             'SBERT all-MiniLM-L6-v2 (384-dim), frozen, CosineLoss',
+    'E2b':             'SBERT fine-tuned on Type-B corpus (384-dim), CosineLoss',
+    'E2e':             'TinyBERT mean-pool (312-dim), MSE',
+    'E2f':             'TinyBERT [CLS] pooler (312-dim), MSE',
+    'E2g':             'GloVe word-avg (300-dim), MSE',
+    'E2h':             'Word2Vec Google News pretrained (300-dim), MSE',
+    'E2i':             'Word2Vec skip-gram in-domain (100-dim), MSE',
+    'E2k':             'TF-IDF weighted Word2Vec (100-dim), MSE',
+    'LLM-gemini-lite': 'Gemini 2.0 Flash Lite → TinyBERT-mean retrieval (detailed prompt)',
+    'LLM-gemini-lite-p2':   'Gemini 2.0 Flash Lite → TinyBERT-mean retrieval (minimal prompt)',
 }
+
+# ── LLM prediction files (model tag → run_id) ─────────────────────────────────
+_LLM_PRED_FILES: dict[str, str] = {
+    'openrouter_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite',
+    'openrouter_prompt2_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite-p2',
+}
+
+_COLOURS = {'red', 'blue', 'green', 'yellow'}
+_SIZES   = {'large', 'small'}
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# LLM result loader
+# ══════════════════════════════════════════════════════════════════════════════
+
+def _extract_colour_size(sentence: str) -> tuple[str | None, str | None]:
+    tokens = str(sentence).lower().split()
+    size   = next((t for t in tokens if t in _SIZES),   None)
+    colour = next((t for t in tokens if t in _COLOURS), None)
+    return size, colour
+
+# llm result loader 
+def _load_llm_rows() -> pd.DataFrame:
+    """
+    Read each LLM predictions CSV from PREDICTIONS_B_COMMERCIAL_AI, compute all
+    metrics that match the test_results.csv schema, and return a DataFrame that
+    can be concatenated directly with the CNN/embedding runs.
+
+    Metrics computed per run:
+      test_top1..5, test_mrr, test_mean_cosine, test_mean_rank, test_median_rank
+      colour_size_correct  — fraction where pred_sentence matches true on colour+size
+      top1_{n}d / mean_rank_{n}d / mean_cosine_{n}d  — breakdown by digit count (1-6)
+    """
+    rows: list[dict] = []
+
+    for filename, run_id in _LLM_PRED_FILES.items():
+        pred_path = PREDICTIONS_B_COMMERCIAL_AI / filename
+        if not pred_path.exists():
+            print(f'  [LLM] skipping {filename} — file not found')
+            continue
+
+        df = pd.read_csv(pred_path)
+
+        
+        ranks   = df['true_rank'].values
+        n       = len(df)
+        row: dict = {
+            'run_id':            run_id,
+            'cnn':               'none',
+            'embedding':         'tinybert_mean_312d',
+            'dim':               312,
+            'loss_fn':           'N/A',
+            'best_epoch':        float('nan'),
+            'total_epochs':      float('nan'),
+            'test_top1':         float(df['top_1_correct'].mean()),
+            'test_top2':         float(df['top_2_correct'].mean()),
+            'test_top3':         float(df['top_3_correct'].mean()),
+            'test_top4':         float(df['top_4_correct'].mean()),
+            'test_top5':         float(df['top_5_correct'].mean()),
+            'test_mrr':          float(np.mean(1.0 / ranks)),
+            'test_mean_cosine':  float(df['cosine_sim'].mean()),
+            'test_mean_rank':    float(np.mean(ranks)),
+            'test_median_rank':  float(np.median(ranks)),
+        }
+
+        # ── colour+size correctness ───────────────────────────────────────────
+        cs_hits = sum(
+            _extract_colour_size(p) == _extract_colour_size(t)
+            for p, t in zip(df['pred_sentence'], df['true_sentence'])
+        )
+        row['colour_size_correct'] = cs_hits / n
+
+        # ── per-digit breakdown ───────────────────────────────────────────────
+        for nd in range(1, 7):
+            sub = df[df['n_digits'] == nd]
+            if len(sub) > 0:
+                row[f'top1_{nd}d']       = float(sub['top_1_correct'].mean())
+                row[f'mean_rank_{nd}d']  = float(sub['true_rank'].mean())
+                row[f'mean_cosine_{nd}d'] = float(sub['cosine_sim'].mean())
+            else:
+                row[f'top1_{nd}d']       = float('nan')
+                row[f'mean_rank_{nd}d']  = float('nan')
+                row[f'mean_cosine_{nd}d'] = float('nan')
+
+        rows.append(row)
+        print(f'  [LLM] loaded {run_id}: top-1={row["test_top1"]:.4f}, '
+              f'MRR={row["test_mrr"]:.4f}, colour_size={row["colour_size_correct"]:.4f}')
+
+    return pd.DataFrame(rows)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -115,7 +206,9 @@ def compute_ranking(df: pd.DataFrame) -> pd.DataFrame:
     """
     out = df.copy()
 
-    out['collapsed'] = out['colour_size_correct'] < COLLAPSE_THRESHOLD
+    # LLM runs are exempt from collapse detection (different retrieval paradigm)
+    is_llm = out['run_id'].str.startswith('LLM-')
+    out['collapsed'] = (~is_llm) & (out['colour_size_correct'] < COLLAPSE_THRESHOLD)
 
     # Normalise all metrics (use max across ALL runs for a fair relative scale)
     def _safe_norm(series: pd.Series) -> pd.Series:
@@ -247,7 +340,13 @@ def main() -> None:
 
     print(f'\nLoaded {len(df)} runs from {test_results_csv.name}')
 
-    # ── Compute ranking 
+    # ── Append LLM comparison rows ────────────────────────────────────────────
+    llm_df = _load_llm_rows()
+    if not llm_df.empty:
+        df = pd.concat([df, llm_df], ignore_index=True)
+        print(f'  → {len(llm_df)} LLM run(s) appended; total {len(df)} rows')
+
+    # ── Compute ranking
     ranked     = compute_ranking(df)
     per_digit  = build_per_digit(ranked)
 
