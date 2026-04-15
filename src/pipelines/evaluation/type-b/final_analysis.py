@@ -1,68 +1,26 @@
-"""
-src/pipelines/evaluation/type-b/final_analysis.py
-
-Final embedding comparison analysis for Type-B (Stage 1).
-
-Reads test_results.csv and per-sample prediction CSVs, then produces:
-
-  CSV outputs (METRICS_B/):
-    final_ranking.csv         — ranked summary with composite score + collapse flag
-    final_per_digit.csv       — top-1 and mean_rank broken down by n_digits per run
-
-  Console output:
-    Ranked table with composite score breakdown
-    Collapse diagnosis per run
-
-Ranking methodology
--------------------
-  Step 1 — Collapse hard filter
-     collapsed = colour_size_correct < COLLAPSE_THRESHOLD (0.95)
-     Any collapsed run receives composite_score = 0.0 and is ranked last.
-     Rationale: a model that cannot distinguish sentences at all has no retrieval
-     value; a soft penalty would let it compete with genuinely discriminative models.
-
-  Step 2 — Normalise each metric to [0, 1] across all runs
-     mrr_norm          = test_mrr        / max(test_mrr)          (relative)
-     median_rank_norm  = 1 - (test_median_rank / CORPUS_SIZE)     (absolute)
-     top1_norm         = test_top1       / max(test_top1)         (relative)
-     top5_norm         = test_top5       / max(test_top5)         (relative)
-     cosine_norm       = test_mean_cosine                         (already [0,1])
-
-  Step 3 — Weighted composite (non-collapsed runs only)
-     composite_score = 0.35 * mrr_norm
-                     + 0.25 * median_rank_norm
-                     + 0.20 * top1_norm
-                     + 0.15 * top5_norm
-                     + 0.05 * cosine_norm
-
-  Weight rationale:
-     MRR (0.35)         — captures rank quality across all test samples; most
-                          comprehensive single retrieval metric
-     Median rank (0.25) — robust to outliers; reflects typical retrieval experience
-     Top-1 (0.20)       — strictest correctness criterion; most interpretable in report
-     Top-5 (0.15)       — practical retrieval success (answer in first 5 results)
-     Cosine (0.05)      — tiebreaker only; excluded from collapse penalty because
-                          near-constant outputs produce artificially high cosine
-
-Usage
------
-  python src/pipelines/evaluation/type-b/final_analysis.py
-"""
-
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.colors import LinearSegmentedColormap
 
-# ── Path bootstrap ────
 _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from src.config.paths import PREDICTIONS_B, PREDICTIONS_B_COMMERCIAL_AI  # noqa: E402
+from src.config.paths import PREDICTIONS_B, PREDICTIONS_B_COMMERCIAL_AI, FIGURES_EVAL_B  # noqa: E402
+
+# Step 1 — Collapse hard filter
+# Step 2 — Normalise each metric to [0, 1] across all runs
+# Step 3 — Weighted composite (non-collapsed runs only)
+
+FIGURES_LLM = FIGURES_EVAL_B / 'llm'
 
 CORPUS_SIZE = 10008  # Type-B full corpus sentence count (all sentences, not just test split)
 
@@ -91,7 +49,7 @@ _DESCRIPTIONS: dict[str, str] = {
     'LLM-gemini-lite-p2':   'Gemini 2.0 Flash Lite → TinyBERT-mean retrieval (minimal prompt)',
 }
 
-# ── LLM prediction files (model tag → run_id) ─────────────────────────────────
+# LLM prediction files (model tag → run_id) 
 _LLM_PRED_FILES: dict[str, str] = {
     'openrouter_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite',
     'openrouter_prompt2_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite-p2',
@@ -101,28 +59,14 @@ _COLOURS = {'red', 'blue', 'green', 'yellow'}
 _SIZES   = {'large', 'small'}
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# LLM result loader
-# ══════════════════════════════════════════════════════════════════════════════
-
+# llm result loader 
 def _extract_colour_size(sentence: str) -> tuple[str | None, str | None]:
     tokens = str(sentence).lower().split()
     size   = next((t for t in tokens if t in _SIZES),   None)
     colour = next((t for t in tokens if t in _COLOURS), None)
     return size, colour
 
-# llm result loader 
 def _load_llm_rows() -> pd.DataFrame:
-    """
-    Read each LLM predictions CSV from PREDICTIONS_B_COMMERCIAL_AI, compute all
-    metrics that match the test_results.csv schema, and return a DataFrame that
-    can be concatenated directly with the CNN/embedding runs.
-
-    Metrics computed per run:
-      test_top1..5, test_mrr, test_mean_cosine, test_mean_rank, test_median_rank
-      colour_size_correct  — fraction where pred_sentence matches true on colour+size
-      top1_{n}d / mean_rank_{n}d / mean_cosine_{n}d  — breakdown by digit count (1-6)
-    """
     rows: list[dict] = []
 
     for filename, run_id in _LLM_PRED_FILES.items():
@@ -155,14 +99,14 @@ def _load_llm_rows() -> pd.DataFrame:
             'test_median_rank':  float(np.median(ranks)),
         }
 
-        # ── colour+size correctness ───────────────────────────────────────────
+        # color size correctness 
         cs_hits = sum(
             _extract_colour_size(p) == _extract_colour_size(t)
             for p, t in zip(df['pred_sentence'], df['true_sentence'])
         )
         row['colour_size_correct'] = cs_hits / n
 
-        # ── per-digit breakdown ───────────────────────────────────────────────
+        #  per-digit breakdown 
         for nd in range(1, 7):
             sub = df[df['n_digits'] == nd]
             if len(sub) > 0:
@@ -180,11 +124,7 @@ def _load_llm_rows() -> pd.DataFrame:
 
     return pd.DataFrame(rows)
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Scoring
-# ══════════════════════════════════════════════════════════════════════════════
-
+# scoring logic 
 def compute_ranking(df: pd.DataFrame) -> pd.DataFrame:
     """
     Add normalised score components and composite_score to the results dataframe.
@@ -257,10 +197,7 @@ def build_per_digit(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(records)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Console output
-# ══════════════════════════════════════════════════════════════════════════════
-
+# console output 
 def _print_ranking(ranked: pd.DataFrame) -> None:
     sep = '=' * 90
     print(f'\n{sep}')
@@ -324,7 +261,113 @@ def _print_top3(ranked: pd.DataFrame) -> None:
     print()
 
 
-# main 
+
+# llm confusion matrix 
+def _plot_llm_confusion(figures_dir: Path) -> None:
+    figures_dir.mkdir(parents=True, exist_ok=True)
+    _cmap = LinearSegmentedColormap.from_list('wb', ['#ffffff', '#1f77b4'])
+
+    for filename, run_id in _LLM_PRED_FILES.items():
+        pred_path = PREDICTIONS_B_COMMERCIAL_AI / filename
+        if not pred_path.exists():
+            continue
+
+        df = pd.read_csv(pred_path)
+
+        def extract(s: str) -> tuple[str, str]:
+            tokens = str(s).lower().split()
+            size   = next((t for t in tokens if t in _SIZES),   'unknown')
+            colour = next((t for t in tokens if t in _COLOURS), 'unknown')
+            return size, colour
+
+        df['true_size'],  df['true_colour']  = zip(*df['true_sentence'].map(extract))
+        df['llm_size'],   df['llm_colour']   = zip(*df['llm_raw'].map(extract))
+
+        n = len(df)
+        size_acc   = (df['llm_size']   == df['true_size']).mean()
+        colour_acc = (df['llm_colour'] == df['true_colour']).mean()
+        both_acc   = ((df['llm_size'] == df['true_size']) &
+                      (df['llm_colour'] == df['true_colour'])).mean()
+
+        # 1. Size confusion matrix 
+        size_labels = sorted(_SIZES)
+        size_cm = pd.crosstab(
+            df['true_size'], df['llm_size'],
+            rownames=['True'], colnames=['Predicted'],
+        ).reindex(index=size_labels, columns=size_labels, fill_value=0)
+
+        fig, ax = plt.subplots(figsize=(4.5, 4))
+        im = ax.imshow(size_cm.values, cmap=_cmap, aspect='auto')
+        ax.set_xticks(range(len(size_labels))); ax.set_xticklabels(size_labels, fontsize=11)
+        ax.set_yticks(range(len(size_labels))); ax.set_yticklabels(size_labels, fontsize=11)
+        ax.set_xlabel('Predicted size', fontsize=12)
+        ax.set_ylabel('True size',      fontsize=12)
+        ax.set_title(f'Size Confusion Matrix\n{run_id}  (acc={size_acc:.2%})', fontsize=12)
+        for i in range(len(size_labels)):
+            for j in range(len(size_labels)):
+                v = int(size_cm.values[i, j])
+                pct = v / size_cm.values[i].sum() if size_cm.values[i].sum() > 0 else 0
+                ax.text(j, i, f'{v}\n({pct:.0%})',
+                        ha='center', va='center', fontsize=10,
+                        color='white' if size_cm.values[i, j] > size_cm.values.max() * 0.5 else 'black')
+        plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+        fig.tight_layout()
+        out = figures_dir / f'size_confusion_{run_id}.png'
+        fig.savefig(out, dpi=150, bbox_inches='tight')
+        plt.close(fig)
+        print(f'  [saved] {out}')
+
+        #  2. Colour confusion matrix 
+        colour_labels = sorted(_COLOURS)
+        colour_cm = pd.crosstab(
+            df['true_colour'], df['llm_colour'],
+            rownames=['True'], colnames=['Predicted'],
+        ).reindex(index=colour_labels, columns=colour_labels, fill_value=0)
+
+        fig, ax = plt.subplots(figsize=(5.5, 5))
+        im = ax.imshow(colour_cm.values, cmap=_cmap, aspect='auto')
+        ax.set_xticks(range(len(colour_labels))); ax.set_xticklabels(colour_labels, fontsize=11, rotation=20)
+        ax.set_yticks(range(len(colour_labels))); ax.set_yticklabels(colour_labels, fontsize=11)
+        ax.set_xlabel('Predicted colour', fontsize=12)
+        ax.set_ylabel('True colour',      fontsize=12)
+        ax.set_title(f'Colour Confusion Matrix\n{run_id}  (acc={colour_acc:.2%})', fontsize=12)
+        for i in range(len(colour_labels)):
+            for j in range(len(colour_labels)):
+                v = int(colour_cm.values[i, j])
+                pct = v / colour_cm.values[i].sum() if colour_cm.values[i].sum() > 0 else 0
+                ax.text(j, i, f'{v}\n({pct:.0%})',
+                        ha='center', va='center', fontsize=9,
+                        color='white' if colour_cm.values[i, j] > colour_cm.values.max() * 0.5 else 'black')
+        plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+        fig.tight_layout()
+        out = figures_dir / f'colour_confusion_{run_id}.png'
+        fig.savefig(out, dpi=150, bbox_inches='tight')
+        plt.close(fig)
+        print(f'  [saved] {out}')
+
+        # 3. Attribute accuracy bar chart 
+        fig, ax = plt.subplots(figsize=(5, 4))
+        bars = ax.bar(
+            ['Size', 'Colour', 'Both'],
+            [size_acc, colour_acc, both_acc],
+            color=['#4C72B0', '#DD8452', '#55A868'],
+            edgecolor='black', linewidth=0.7, width=0.5,
+        )
+        for bar, val in zip(bars, [size_acc, colour_acc, both_acc]):
+            ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.01,
+                    f'{val:.2%}', ha='center', va='bottom', fontsize=11)
+        ax.set_ylim(0, 1.12)
+        ax.set_ylabel('Accuracy', fontsize=12)
+        ax.set_title(f'LLM Attribute Accuracy\n{run_id}  (n={n})', fontsize=12)
+        ax.axhline(1.0, color='grey', linewidth=0.8, linestyle='--')
+        fig.tight_layout()
+        out = figures_dir / f'attribute_accuracy_{run_id}.png'
+        fig.savefig(out, dpi=150, bbox_inches='tight')
+        plt.close(fig)
+        print(f'  [saved] {out}')
+
+
+# main
 def main() -> None:
     test_results_csv = PREDICTIONS_B / 'test_results.csv'
     if not test_results_csv.exists():
@@ -340,22 +383,22 @@ def main() -> None:
 
     print(f'\nLoaded {len(df)} runs from {test_results_csv.name}')
 
-    # ── Append LLM comparison rows ────────────────────────────────────────────
+    # Append LLM comparison rows 
     llm_df = _load_llm_rows()
     if not llm_df.empty:
         df = pd.concat([df, llm_df], ignore_index=True)
         print(f'  → {len(llm_df)} LLM run(s) appended; total {len(df)} rows')
 
-    # ── Compute ranking
+    #  Compute ranking
     ranked     = compute_ranking(df)
     per_digit  = build_per_digit(ranked)
 
-    # ── Console output 
+    #  Console output 
     _print_ranking(ranked)
     _print_collapse_diagnosis(ranked)
     _print_top3(ranked)
 
-    # ── Save CSVs 
+    #  Save CSVs 
     out_cols = [
         'rank', 'run_id', 'embedding', 'dim', 'loss_fn',
         'best_epoch', 'total_epochs',
@@ -378,7 +421,7 @@ def main() -> None:
     per_digit.to_csv(digit_csv, index=False)
     print(f'  [saved] {digit_csv}')
 
-    # ── Leaderboard CSV (report-ready, reduced columns) ────────────────────
+    #  Leaderboard CSV (report-ready, reduced columns) 
     leaderboard_cols = [
         'rank', 'run_id', 'cnn', 'embedding', 'dim', 'loss_fn',
         'test_top1', 'test_top5', 'test_mrr',
@@ -395,6 +438,9 @@ def main() -> None:
     lb_csv = PREDICTIONS_B / 'leaderboard.csv'
     lb.to_csv(lb_csv, index=False)
     print(f'  [saved] {lb_csv}')
+
+    #  LLM confusion matrix plots 
+    _plot_llm_confusion(FIGURES_LLM)
 
     print(f'\nDone.\n')
 
