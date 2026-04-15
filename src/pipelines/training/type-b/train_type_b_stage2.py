@@ -29,11 +29,14 @@ _cnn1   = _load_hyphen_module('_cnn1layer',     '../../../models/type-b/cnn_1lay
 _cnn3   = _load_hyphen_module('_cnn3layer',     '../../../models/type-b/cnn_3layer.py')
 _resnet = _load_hyphen_module('_resnet18pt',    '../../../models/type-b/resnet18_pt.py')
 
-train_one_epoch   = _shared.train_one_epoch_normalised   # L2-normalise targets before loss
-run_validation    = _shared.run_validation_normalised    # same normalisation at val time
-run_val_retrieval = _shared.run_val_retrieval            # cosine retrieval — scale-invariant
-set_seed          = _shared.set_seed
-CombinedLoss      = _shared.CombinedLoss
+# MSELoss uses raw targets; CombinedLoss normalises targets so MSE and Cosine terms are on the same scale.
+train_one_epoch_raw    = _shared.train_one_epoch             # no target normalisation
+run_validation_raw     = _shared.run_validation              # no target normalisation
+train_one_epoch_normed = _shared.train_one_epoch_normalised  # L2-normalise targets before loss
+run_validation_normed  = _shared.run_validation_normalised   # same normalisation at val time
+run_val_retrieval      = _shared.run_val_retrieval           # cosine retrieval — scale-invariant
+set_seed               = _shared.set_seed
+CombinedLoss           = _shared.CombinedLoss
 
 CNN1Layer          = _cnn1.CNN1Layer
 CNN3Layer          = _cnn3.CNN3Layer
@@ -103,8 +106,17 @@ def run_experiment_stage2(
 
     set_seed(SEED)
 
-    n_epochs = epochs if epochs is not None else MODEL_EPOCHS[model_name]
-    run_name = f'b_s2_{model_name}_{loss_key}_{EMBEDDING}_normed' + (f'_{run_tag}' if run_tag else '')
+    # CombinedLoss normalises targets (balances MSE + Cosine scale); MSELoss uses raw targets.
+    use_norm = (loss_key == 'combined')
+    _train_fn = train_one_epoch_normed if use_norm else train_one_epoch_raw
+    _val_fn   = run_validation_normed  if use_norm else run_validation_raw
+
+    n_epochs  = epochs if epochs is not None else MODEL_EPOCHS[model_name]
+    run_name  = (
+        f'b_s2_{model_name}_{loss_key}_{EMBEDDING}_normed'
+        if use_norm else
+        f'b_s2_{model_name}_{loss_key}_{EMBEDDING}'
+    ) + (f'_{run_tag}' if run_tag else '')
 
     print(f"\n{'='*64}")
     print(f"  Stage 2 Run : {run_name}")
@@ -159,8 +171,8 @@ def run_experiment_stage2(
 
     for epoch in range(1, n_epochs + 1):
         t0 = time.time()
-        train_loss = train_one_epoch(model, train_loader, optimizer, criterion, device)
-        val_loss   = run_validation(model, val_loader, criterion, device)
+        train_loss = _train_fn(model, train_loader, optimizer, criterion, device)
+        val_loss   = _val_fn(model, val_loader, criterion, device)
         val_ret    = run_val_retrieval(model, val_loader, all_embeddings, all_sentences, device)
         scheduler.step(val_loss)
         elapsed    = time.time() - t0
@@ -202,7 +214,7 @@ def run_experiment_stage2(
                 'embedding_name': EMBEDDING,
                 'model_name':     model_name,
                 'loss_fn':        loss_key,
-                'normalised':     True,
+                'normalised':     use_norm,
                 'stage':          2,
                 'dataset':        'b',
                 'train_size':     len(train_set),
