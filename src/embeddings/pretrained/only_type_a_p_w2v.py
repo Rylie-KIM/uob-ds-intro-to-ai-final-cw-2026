@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 import torch
 
+# to run use python src/embeddings/pretrained/only_type_a_p_w2v.py in .venv312/Scripts/activate
 Sentences: TypeAlias = list[str]
 TokenisedSentences: TypeAlias = list[list[str]]
 EmbeddingMatrix: TypeAlias = npt.NDArray[np.float32]
