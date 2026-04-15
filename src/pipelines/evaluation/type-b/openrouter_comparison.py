@@ -44,7 +44,11 @@ _PROMPT = (
     "Respond with only the description, nothing else."
 )
 
-
+_PROMPT2 = (
+    "Describe this image in the following exact format: "
+    "'[size] [colour] [number]'\n"
+    "Respond with only the description, nothing else."
+)
 
 def _load_test_records() -> tuple[list[tuple[Path, str, int]], torch.Tensor, list[str]]:
     cache_path = EMBED_RESULTS_B / 'tinybert_mean_embedding_result_typeb.pt'
@@ -94,19 +98,16 @@ def _openrouter_describe(
     img_path: Path,
     retries:  int = 3,
 ) -> tuple[str, dict]:
-    """
-    Send image to OpenRouter and return (lowercased text, raw response as dict).
-    Uses the OpenAI chat completions format with base64-encoded image.
-    """
     import re
     b64 = _img_to_base64(img_path)
+    # adjust the prompt 
     messages = [
         {
             'role': 'user',
             'content': [
                 {'type': 'image_url',
                  'image_url': {'url': f'data:image/png;base64,{b64}'}},
-                {'type': 'text', 'text': _PROMPT},
+                {'type': 'text', 'text': _PROMPT2},
             ],
         }
     ]
@@ -259,9 +260,10 @@ def run_openrouter_comparison(
     # output path 
     PREDICTIONS_B_COMMERCIAL_AI.mkdir(parents=True, exist_ok=True)
     safe_tag     = model.replace('/', '-')
-    pred_path    = PREDICTIONS_B_COMMERCIAL_AI / f'openrouter_{safe_tag}_predictions.csv'
-    jsonl_path   = PREDICTIONS_B_COMMERCIAL_AI / f'openrouter_{safe_tag}_raw_responses.jsonl'
-    summary_path = PREDICTIONS_B_COMMERCIAL_AI / f'openrouter_{safe_tag}_summary.csv'
+    prompt_tag   = "prompt2"
+    pred_path    = PREDICTIONS_B_COMMERCIAL_AI / f'openrouter_{prompt_tag}_{safe_tag}_predictions.csv'
+    jsonl_path   = PREDICTIONS_B_COMMERCIAL_AI / f'openrouter_{prompt_tag}_{safe_tag}_raw_responses.jsonl'
+    summary_path = PREDICTIONS_B_COMMERCIAL_AI / f'openrouter_{prompt_tag}_{safe_tag}_summary.csv'
 
     test_records, all_embeddings, all_sentences = _load_test_records()
     if max_samples:
