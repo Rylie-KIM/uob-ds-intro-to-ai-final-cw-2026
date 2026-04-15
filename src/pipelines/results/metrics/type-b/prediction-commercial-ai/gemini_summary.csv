@@ -1,2 +1,0 @@
-model,embedding,n_test,top_1_acc,top_2_acc,top_3_acc,top_5_acc,mrr,mean_cosine_sim,mean_rank,median_rank
-gemini-2.5-flash-lite,sbert,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.6666666666666666,0.43253968253968256,1.00000003973643,8.666666666666666,4.0

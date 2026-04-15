@@ -1,2 +1,0 @@
-model,embedding,n_test,top_1_acc,top_2_acc,top_3_acc,top_5_acc,mrr,mean_cosine_sim,mean_rank,median_rank
-nvidia/nemotron-nano-12b-v2-vl:free,sbert,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.35091575091575095,0.9792303840319315,72.33333333333333,21.0
