@@ -47,15 +47,6 @@ _PROMPT = (
 
 
 def _load_test_records() -> tuple[list[tuple[Path, str, int]], torch.Tensor, list[str]]:
-    """
-    Load test-split records and full SBERT corpus embeddings.
-
-    Returns
-    -------
-    test_records   : list of (image_path, sentence, n_digits)
-    all_embeddings : Tensor (N_corpus, dim) — L2-normalised SBERT corpus embeddings
-    all_sentences  : list[str]
-    """
     cache_path = EMBED_RESULTS_B / 'tinybert_mean_embedding_result_typeb.pt'
     if not cache_path.exists():
         raise FileNotFoundError(
@@ -105,7 +96,6 @@ def _openrouter_describe(
 ) -> tuple[str, dict]:
     """
     Send image to OpenRouter and return (lowercased text, raw response as dict).
-
     Uses the OpenAI chat completions format with base64-encoded image.
     """
     import re
@@ -145,19 +135,15 @@ def _openrouter_describe(
 
 
 def _retrieve(
-    llm_text:       str,
-    sbert_model,
-    all_embeddings: torch.Tensor,   # (N, dim) — already L2-normalised
-    all_sentences:  list[str],
-    true_sentence:  str,
-    top_k:          tuple[int, ...] = (1, 2, 3, 4, 5),
+    llm_text:        str,
+    tinybert_model,
+    all_embeddings:  torch.Tensor,   # (N, dim) — already L2-normalised
+    all_sentences:   list[str],
+    true_sentence:   str,
+    top_k:           tuple[int, ...] = (1, 2, 3, 4, 5),
 ) -> dict:
-    """
-    Encode llm_text with SBERT, retrieve nearest corpus sentence,
-    and compute rank of the ground-truth sentence.
-    """
     vec = torch.tensor(
-        sbert_model.encode([llm_text], convert_to_numpy=True)
+        tinybert_model.transform([llm_text])
     ).float()
     vec = F.normalize(vec, dim=1)
 
@@ -184,7 +170,7 @@ def _build_metrics(rows: list[dict], model: str) -> dict:
     ranks = np.array([r['true_rank'] for r in rows])
     return {
         'model':           model,
-        'embedding':       'sbert',
+        'embedding':       'tinybert_mean_312d',
         'n_test':          n,
         'top_1_acc':       float(np.mean([r['top_1_correct'] for r in rows])),
         'top_2_acc':       float(np.mean([r['top_2_correct'] for r in rows])),
@@ -266,12 +252,9 @@ def run_openrouter_comparison(
     )
     print(f'[openrouter] Model: {model}')
 
-    from sentence_transformers import SentenceTransformer
-    import warnings
-    with warnings.catch_warnings():
-        warnings.simplefilter('ignore')
-        sbert = SentenceTransformer('all-MiniLM-L6-v2')
-    print('[openrouter] SBERT loaded (all-MiniLM-L6-v2)')
+    from src.embeddings.pretrained.only_type_b_tinybert_mean_embeddings import TinyBertMeanEmbedder
+    tinybert = TinyBertMeanEmbedder()
+    print('[openrouter] TinyBERT loaded (huawei-noah/TinyBERT_General_4L_312D, mean pooling)')
 
     # output path 
     PREDICTIONS_B_COMMERCIAL_AI.mkdir(parents=True, exist_ok=True)
@@ -307,7 +290,7 @@ def run_openrouter_comparison(
             print(f'[openrouter] {n_done} samples saved to {pred_path}')
             raise
 
-        result = _retrieve(llm_raw, sbert, all_embeddings, all_sentences, true_sentence)
+        result = _retrieve(llm_raw, tinybert, all_embeddings, all_sentences, true_sentence)
         n_done += 1
         hit = 'HIT ' if result['top_1_correct'] else 'MISS'
 
