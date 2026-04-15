@@ -21,11 +21,20 @@ from src.config.paths import (
     TYPE_B_SPLITS,
 )
 
-# Set image to size 128 * 128 
+# Default transform for scratch-trained CNNs (CNN1Layer, CNN3Layer)
 _DEFAULT_TRANSFORM = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
+])
+
+# ImageNet transform for pretrained models (ResNet18Pretrained)
+# Pretrained weights were calibrated on ImageNet statistics; using [0.5,0.5,0.5]
+# shifts the input distribution away from what the pretrained features expect.
+IMAGENET_TRANSFORM = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 
 

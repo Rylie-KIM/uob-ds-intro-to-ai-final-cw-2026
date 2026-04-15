@@ -44,7 +44,7 @@ CNN3Layer          = _cnn3.CNN3Layer
 ResNet18Pretrained = _resnet.ResNet18Pretrained
 
 from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
-from src.pipelines.data_loaders.type_b_loader import make_splits
+from src.pipelines.data_loaders.type_b_loader import make_splits, IMAGENET_TRANSFORM
 
 
 EMBEDDING_CONFIGS: dict[str, dict] = {
@@ -86,6 +86,10 @@ _COMBINED_LOSS_MODELS = {'cnn_3layer'}
 _COSINE_LOSS_EMBEDDINGS = {'sbert', 'sbert_finetuned'}
 
 
+# Models that require ImageNet-normalised input (pretrained on ImageNet weights)
+_IMAGENET_NORM_MODELS = {'resnet18_pt'}
+
+
 def _build_criterion(model_name: str, embedding_name: str) -> nn.Module:
     """Select loss function based on model and embedding combination."""
     if embedding_name in _COSINE_LOSS_EMBEDDINGS:
@@ -125,11 +129,12 @@ def run_experiment(
               f'generate_embeddings_type_b.py --embedding {embedding_name}')
         return
 
-
+    img_transform = IMAGENET_TRANSFORM if model_name in _IMAGENET_NORM_MODELS else None
     train_set, val_set, _ = make_splits(
         embedding_cache=cache_path,
         device=device,
         seed=SEED,
+        transform=img_transform,
     )
 
     # num_workers=0 is faster in Colab: small dataset + limited CPU cores mean
@@ -280,10 +285,12 @@ def run_experiment_normalised(
               f'generate_embeddings_type_b.py --embedding {embedding_name}')
         return
 
+    img_transform = IMAGENET_TRANSFORM if model_name in _IMAGENET_NORM_MODELS else None
     train_set, val_set, _ = make_splits(
         embedding_cache=cache_path,
         device=device,
         seed=SEED,
+        transform=img_transform,
     )
 
     num_workers = 0

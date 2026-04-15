@@ -29,11 +29,11 @@ _cnn1   = _load_hyphen_module('_cnn1layer',     '../../../models/type-b/cnn_1lay
 _cnn3   = _load_hyphen_module('_cnn3layer',     '../../../models/type-b/cnn_3layer.py')
 _resnet = _load_hyphen_module('_resnet18pt',    '../../../models/type-b/resnet18_pt.py')
 
-train_one_epoch  = _shared.train_one_epoch
-run_validation   = _shared.run_validation
-run_val_retrieval = _shared.run_val_retrieval
-set_seed         = _shared.set_seed
-CombinedLoss     = _shared.CombinedLoss
+train_one_epoch   = _shared.train_one_epoch_normalised   # L2-normalise targets before loss
+run_validation    = _shared.run_validation_normalised    # same normalisation at val time
+run_val_retrieval = _shared.run_val_retrieval            # cosine retrieval — scale-invariant
+set_seed          = _shared.set_seed
+CombinedLoss      = _shared.CombinedLoss
 
 CNN1Layer          = _cnn1.CNN1Layer
 CNN3Layer          = _cnn3.CNN3Layer
@@ -43,8 +43,7 @@ from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
 from src.pipelines.data_loaders.type_b_loader import make_splits
 
 
-# ── Constants ────────────────────────────────────────────────────────────────
-
+# stage 2 - fixed sentence embeeding 
 EMBEDDING      = 'tinybert_mean'
 EMBEDDING_DIM  = 312
 
@@ -105,7 +104,7 @@ def run_experiment_stage2(
     set_seed(SEED)
 
     n_epochs = epochs if epochs is not None else MODEL_EPOCHS[model_name]
-    run_name = f'b_s2_{model_name}_{loss_key}_{EMBEDDING}' + (f'_{run_tag}' if run_tag else '')
+    run_name = f'b_s2_{model_name}_{loss_key}_{EMBEDDING}_normed' + (f'_{run_tag}' if run_tag else '')
 
     print(f"\n{'='*64}")
     print(f"  Stage 2 Run : {run_name}")
@@ -203,6 +202,7 @@ def run_experiment_stage2(
                 'embedding_name': EMBEDDING,
                 'model_name':     model_name,
                 'loss_fn':        loss_key,
+                'normalised':     True,
                 'stage':          2,
                 'dataset':        'b',
                 'train_size':     len(train_set),
@@ -225,8 +225,6 @@ def run_experiment_stage2(
     print(f'  Log        → {epoch_log_path.name}')
     print(f'  Checkpoint → {ckpt_path.name}')
 
-
-# ── CLI ──────────────────────────────────────────────────────────────────────
 
 def _default_device() -> str:
     if torch.cuda.is_available():

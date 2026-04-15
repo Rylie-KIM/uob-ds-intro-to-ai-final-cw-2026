@@ -34,12 +34,25 @@ from src.config.paths import (
     FIGURES_EVAL_NORM_B,
 )
 
-# image transformer same config as training data loader 
+# Default transform: matches training config for scratch CNNs (CNN1Layer, CNN3Layer)
 _TRANSFORM = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
 ])
+
+# ImageNet transform: required for ResNet18Pretrained (ImageNet-calibrated weights)
+_IMAGENET_TRANSFORM = transforms.Compose([
+    transforms.Resize((128, 128)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+
+_IMAGENET_NORM_MODELS = {'resnet18_pt'}
+
+
+def _get_transform(model_name: str):
+    return _IMAGENET_TRANSFORM if model_name in _IMAGENET_NORM_MODELS else _TRANSFORM
 
 # SHARED EVALUATION LOGIC METHODS 
 # test_results.csv column order, matches performance_metrics.md
@@ -255,15 +268,16 @@ class _TestImageDataset(Dataset):
         return self.transform(img)
 
 
-# cnn forward pass on all test sets. >> return: predicted embeddings 
+# cnn forward pass on all test sets. >> return: predicted embeddings
 def predict_all(
     model:        nn.Module,
     test_records: list[tuple[Path, str, int, int]],
     device:       str,
     batch_size:   int = 64,
+    transform=None,
 ) -> torch.Tensor:
     img_paths = [r[0] for r in test_records]
-    dataset   = _TestImageDataset(img_paths, _TRANSFORM)
+    dataset   = _TestImageDataset(img_paths, transform or _TRANSFORM)
     loader    = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
     model = model.to(device)
@@ -826,7 +840,8 @@ def run_evaluation(
 
     # ── Predict ────────────────────────────────────────────────────────────────
     print('  Running CNN inference…')
-    pred_embs = predict_all(model, test_records, device=device, batch_size=batch_size)
+    pred_embs = predict_all(model, test_records, device=device, batch_size=batch_size,
+                            transform=_get_transform(model_name))
     print(f'  pred_embs shape: {tuple(pred_embs.shape)}')
 
     # ── Compute metrics ────────────────────────────────────────────────────────
@@ -949,7 +964,8 @@ def run_evaluation_normed(
 
     # ── Predict ────────────────────────────────────────────────────────────────
     print('  Running CNN inference…')
-    pred_embs = predict_all(model, test_records, device=device, batch_size=batch_size)
+    pred_embs = predict_all(model, test_records, device=device, batch_size=batch_size,
+                            transform=_get_transform(model_name))
     print(f'  pred_embs shape: {tuple(pred_embs.shape)}')
 
     # ── Compute metrics ────────────────────────────────────────────────────────
