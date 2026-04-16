@@ -30,14 +30,21 @@ EMBED_RESULTS_A = ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-a'
 EMBED_RESULTS_C = ROOT / 'src' / 'embeddings' / 'computed-embeddings' / 'type-c' / 'results'
 
 # ── Training outputs ──────────────────────────────────────────────────────────
-CHECKPOINTS_B       = ROOT / 'src' / 'pipelines' / 'results' / 'checkpoints' / 'type-b'
-CHECKPOINTS_B_NORMED = CHECKPOINTS_B / 'normalised'
+CHECKPOINTS_B            = ROOT / 'src' / 'pipelines' / 'results' / 'checkpoints' / 'type-b'
+CHECKPOINTS_B_NORMED     = CHECKPOINTS_B / 'normalised'
+CHECKPOINTS_B_S2_NON_NORMED = CHECKPOINTS_B / 's2' / 'non-normalised'
+CHECKPOINTS_B_S2_NORMED     = CHECKPOINTS_B / 's2' / 'normalised'
 
 METRICS_B            = ROOT / 'src' / 'pipelines' / 'results' / 'metrics' / 'type-b'
 METRICS_B_NON_NORMED = METRICS_B / 'non-normalised'    # training logs for base runs
 METRICS_B_NORMED     = METRICS_B / 'normalised'        # training logs for normalised runs
+METRICS_B_S2_NON_NORMED = METRICS_B / 's2-non-normalised'
+METRICS_B_S2_NORMED     = METRICS_B / 's2-normalised'
 PREDICTIONS_B               = METRICS_B / 'prediction'
 PREDICTIONS_B_NORMED        = METRICS_B / 'prediction-normalised'
+PREDICTIONS_B_S2            = METRICS_B / 'prediction-s2'
+PREDICTIONS_B_S2_NORMED     = METRICS_B / 'prediction-s2-normalised'
+PREDICTIONS_B_COMBINED      = METRICS_B / 'prediction-combined'
 PREDICTIONS_B_COMMERCIAL_AI = METRICS_B / 'prediction-commercial-ai'
 METRICS_FINAL        = ROOT / 'src' / 'pipelines' / 'results' / 'metrics' / 'type-b' / 'final'
 
@@ -49,9 +56,13 @@ SBERT_CKPT_C = ROOT / 'results' / 'checkpoints' / 'sbert_finetuned_typec'
 # ── Results / figures ─────────────────────────────────────────────────────────
 RESULTS_DIR          = ROOT / 'results'
 FIGURES_DIR          = ROOT / 'src' / 'pipelines' / 'results' / 'figures' / 'type-b'
-FIGURES_EVAL_B       = FIGURES_DIR / 'evaluation'
-FIGURES_EVAL_NORM_B  = FIGURES_DIR / 'evaluation' / 'normalised'
-FIGURES_EVAL_CMP_B   = FIGURES_DIR / 'evaluation' / 'comparison'
+FIGURES_EVAL_B              = FIGURES_DIR / 'evaluation'
+FIGURES_EVAL_NORM_B         = FIGURES_DIR / 'evaluation' / 'normalised'
+FIGURES_EVAL_CMP_B          = FIGURES_DIR / 'evaluation' / 'comparison'
+FIGURES_EVAL_B_S2           = FIGURES_DIR / 'evaluation' / 's2'
+FIGURES_EVAL_B_S2_NON_NORMED = FIGURES_DIR / 'evaluation' / 's2' / 'non-normalised'
+FIGURES_EVAL_B_S2_NORMED    = FIGURES_DIR / 'evaluation' / 's2' / 'normalised'
+FIGURES_EVAL_B_COMBINED     = FIGURES_DIR / 'evaluation' / 'combined'
 
 # ── Config directory ──────────────────────────────────────────────────────────
 CONFIG_DIR = ROOT / 'src' / 'config'

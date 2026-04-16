@@ -794,6 +794,9 @@ def run_evaluation(
     ckpt_path:      Path | None = None,
     seed:           int = 42,
     batch_size:     int = 64,
+    pred_dir:       Path | None = None,
+    results_path:   Path | None = None,
+    log_dir:        Path | None = None,
 ) -> dict[str, float]:
     device    = device or _auto_device()
     run_label = run_id.lower()
@@ -857,8 +860,9 @@ def run_evaluation(
     # Derive the training_log path from the checkpoint stem:
     #   b_{model}_{embedding}_{run_tag}_{timestamp}_best.pt
     #   → b_{model}_{embedding}_{run_tag}_{timestamp}_training_log.csv
+    _log_dir       = log_dir or METRICS_B_NON_NORMED
     log_stem       = ckpt_path.stem.replace('_best', '_training_log')
-    epoch_log_path = METRICS_B_NON_NORMED / f'{log_stem}.csv'
+    epoch_log_path = _log_dir / f'{log_stem}.csv'
     total_epochs   = best_epoch   # fallback
     if epoch_log_path.exists():
         try:
@@ -878,6 +882,8 @@ def run_evaluation(
     print(f'  colour+size : {metrics["colour_size_correct"]:.4f}')
 
     # ── Save results ───────────────────────────────────────────────────────────
+    _pred_dir     = pred_dir     or PREDICTIONS_B
+    _results_path = results_path or (PREDICTIONS_B / 'test_results.csv')
     save_evaluation_results(
         run_id=run_id,
         model_name=model_name,
@@ -888,8 +894,8 @@ def run_evaluation(
         total_epochs=total_epochs,
         metrics=metrics,
         per_sample=per_sample,
-        pred_dir=PREDICTIONS_B,
-        results_path=PREDICTIONS_B / 'test_results.csv',
+        pred_dir=_pred_dir,
+        results_path=_results_path,
     )
 
     return metrics
@@ -908,6 +914,9 @@ def run_evaluation_normed(
     ckpt_path:      Path | None = None,
     seed:           int = 42,
     batch_size:     int = 64,
+    pred_dir:       Path | None = None,
+    results_path:   Path | None = None,
+    log_dir:        Path | None = None,
 ) -> dict[str, float]:
     device    = device or _auto_device()
 
@@ -979,8 +988,9 @@ def run_evaluation_normed(
 
     # ── Resolve training log ───────────────────────────────────────────────────
     # Normed log: METRICS_B_NORMED / b_{model}_{embedding}_normed_{tag}_{ts}_training_log.csv
+    _log_dir       = log_dir or METRICS_B_NORMED
     log_stem       = ckpt_path.stem.replace('_best', '_training_log')
-    epoch_log_path = METRICS_B_NORMED / f'{log_stem}.csv'
+    epoch_log_path = _log_dir / f'{log_stem}.csv'
     total_epochs   = best_epoch
     if epoch_log_path.exists():
         try:
@@ -1000,6 +1010,8 @@ def run_evaluation_normed(
     print(f'  colour+size : {metrics["colour_size_correct"]:.4f}')
 
     # ── Save results ───────────────────────────────────────────────────────────
+    _pred_dir     = pred_dir     or PREDICTIONS_B_NORMED
+    _results_path = results_path or (PREDICTIONS_B_NORMED / 'test_results_normed.csv')
     save_evaluation_results(
         run_id=run_id,
         model_name=model_name,
@@ -1010,8 +1022,8 @@ def run_evaluation_normed(
         total_epochs=total_epochs,
         metrics=metrics,
         per_sample=per_sample,
-        pred_dir=PREDICTIONS_B_NORMED,
-        results_path=PREDICTIONS_B_NORMED / 'test_results_normed.csv',
+        pred_dir=_pred_dir,
+        results_path=_results_path,
     )
 
     return metrics

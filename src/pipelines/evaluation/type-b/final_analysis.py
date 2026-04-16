@@ -14,7 +14,12 @@ _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists(
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from src.config.paths import PREDICTIONS_B, PREDICTIONS_B_COMMERCIAL_AI, FIGURES_EVAL_B  # noqa: E402
+from src.config.paths import (  # noqa: E402
+    PREDICTIONS_B,
+    PREDICTIONS_B_S2,
+    PREDICTIONS_B_COMMERCIAL_AI,
+    FIGURES_EVAL_B,
+)
 
 # Step 1 — Collapse hard filter
 # Step 2 — Normalise each metric to [0, 1] across all runs
@@ -36,6 +41,7 @@ COLLAPSE_THRESHOLD = 0.95
 
 # Experiment descriptions (for the report)
 _DESCRIPTIONS: dict[str, str] = {
+    # Stage 1 — embedding axis (cnn_1layer fixed)
     'B0':              'TF-IDF + LSA (100-dim), MSE — statistical baseline',
     'E2a':             'SBERT all-MiniLM-L6-v2 (384-dim), frozen, CosineLoss',
     'E2b':             'SBERT fine-tuned on Type-B corpus (384-dim), CosineLoss',
@@ -45,6 +51,11 @@ _DESCRIPTIONS: dict[str, str] = {
     'E2h':             'Word2Vec Google News pretrained (300-dim), MSE',
     'E2i':             'Word2Vec skip-gram in-domain (100-dim), MSE',
     'E2k':             'TF-IDF weighted Word2Vec (100-dim), MSE',
+    # Stage 2 — architecture axis (tinybert_mean fixed)
+    'S2a':             'Stage-2 cnn_1layer + TinyBERT-mean (312-dim), MSE',
+    'S2b':             'Stage-2 cnn_3layer + TinyBERT-mean (312-dim), MSE',
+    'S2c':             'Stage-2 ResNet18-pretrained + TinyBERT-mean (312-dim), MSE',
+    # LLM baseline
     'LLM-gemini-lite': 'Gemini 2.0 Flash Lite → TinyBERT-mean retrieval (detailed prompt)',
     'LLM-gemini-lite-p2':   'Gemini 2.0 Flash Lite → TinyBERT-mean retrieval (minimal prompt)',
 }
@@ -201,7 +212,7 @@ def build_per_digit(df: pd.DataFrame) -> pd.DataFrame:
 def _print_ranking(ranked: pd.DataFrame) -> None:
     sep = '=' * 90
     print(f'\n{sep}')
-    print('  Type-B Stage-1 Final Embedding Ranking')
+    print('  Type-B Stage-1 + Stage-2 Final Ranking')
     print(f'  Composite score = {W_MRR}×MRR_norm + {W_MEDIAN_RANK}×MedianRank_norm'
           f' + {W_TOP1}×Top1_norm + {W_TOP5}×Top5_norm + {W_COSINE}×Cosine'
           f'  [collapsed → 0.0]')
@@ -381,9 +392,21 @@ def main() -> None:
         print('ERROR: test_results.csv is empty.')
         return
 
-    print(f'\nLoaded {len(df)} runs from {test_results_csv.name}')
+    print(f'\nLoaded {len(df)} Stage-1 runs from {test_results_csv.name}')
 
-    # Append LLM comparison rows 
+    # Append Stage-2 non-normalised results (if available)
+    s2_csv = PREDICTIONS_B_S2 / 'test_results_s2.csv'
+    if s2_csv.exists():
+        s2_df = pd.read_csv(s2_csv)
+        if not s2_df.empty:
+            df = pd.concat([df, s2_df], ignore_index=True)
+            print(f'  → {len(s2_df)} Stage-2 run(s) appended from {s2_csv.name}')
+    else:
+        print(f'  [info] Stage-2 results not found at {s2_csv}')
+        print('         Run: python src/pipelines/evaluation/type-b/run_evals_stage2_b.py '
+              '--variant non-normalised')
+
+    # Append LLM comparison rows
     llm_df = _load_llm_rows()
     if not llm_df.empty:
         df = pd.concat([df, llm_df], ignore_index=True)
