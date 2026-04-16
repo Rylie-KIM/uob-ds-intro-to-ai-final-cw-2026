@@ -42,8 +42,14 @@ CNN1Layer          = _cnn1.CNN1Layer
 CNN3Layer          = _cnn3.CNN3Layer
 ResNet18Pretrained = _resnet.ResNet18Pretrained
 
-from src.config.paths import EMBED_RESULTS_B, CHECKPOINTS_B, METRICS_B
-from src.pipelines.data_loaders.type_b_loader import make_splits
+from src.config.paths import (
+    EMBED_RESULTS_B,
+    CHECKPOINTS_B_S2_NON_NORMED,
+    CHECKPOINTS_B_S2_NORMED,
+    METRICS_B_S2_NON_NORMED,
+    METRICS_B_S2_NORMED,
+)
+from src.pipelines.data_loaders.type_b_loader import make_splits, IMAGENET_TRANSFORM
 
 
 # stage 2 - fixed sentence embeeding 
@@ -56,14 +62,21 @@ MODEL_CONFIGS: dict[str, callable] = {
     'resnet18_pt': lambda dim: ResNet18Pretrained(embedding_dim=dim),
 }
 
-# Per-model epoch budget (resnet18 converges faster due to pretrained backbone)
+# Per-model epoch budget
 MODEL_EPOCHS: dict[str, int] = {
     'cnn_1layer':  30,
     'cnn_3layer':  30,
-    'resnet18_pt': 20,
+    'resnet18_pt': 30,
 }
 
-LOSS_OPTIONS = ('mse', 'combined')
+# ResNet18 requires ImageNet-style preprocessing (224×224, ImageNet mean/std)
+MODEL_TRANSFORMS: dict[str, object] = {
+    'cnn_1layer':  None,            # uses loader default (128×128)
+    'cnn_3layer':  None,
+    'resnet18_pt': IMAGENET_TRANSFORM,
+}
+
+LOSS_OPTIONS = ('mse', 'mse_normed', 'combined')
 
 BATCH_SIZE        = 64
 LR                = 1e-4
@@ -84,7 +97,7 @@ def _build_criterion(loss_key: str) -> nn.Module:
     Explicitly construct the requested loss, ignoring the default model/embedding
     heuristics used in Stage 1. This ensures Stage 2 is a controlled comparison.
     """
-    if loss_key == 'mse':
+    if loss_key in ('mse', 'mse_normed'):
         return _MSELoss()
     if loss_key == 'combined':
         return CombinedLoss(alpha=0.5)
@@ -106,16 +119,20 @@ def run_experiment_stage2(
 
     set_seed(SEED)
 
-    # CombinedLoss normalises targets (balances MSE + Cosine scale); MSELoss uses raw targets.
-    use_norm = (loss_key == 'combined')
+    # mse_normed = MSELoss on L2-normalised targets (unit sphere geometry, no cosine term)
+    # combined   = CombinedLoss on L2-normalised targets (MSE + cosine)
+    # mse        = MSELoss on raw targets
+    use_norm = (loss_key in ('mse_normed', 'combined'))
     _train_fn = train_one_epoch_normed if use_norm else train_one_epoch_raw
     _val_fn   = run_validation_normed  if use_norm else run_validation_raw
 
     n_epochs  = epochs if epochs is not None else MODEL_EPOCHS[model_name]
+    # mse_normed → filename uses 'mse' with '_normed' suffix (matches S2an/S2cn glob patterns)
+    loss_slug = 'mse' if loss_key == 'mse_normed' else loss_key
     run_name  = (
-        f'b_s2_{model_name}_{loss_key}_{EMBEDDING}_normed'
+        f'b_s2_{model_name}_{loss_slug}_{EMBEDDING}_normed'
         if use_norm else
-        f'b_s2_{model_name}_{loss_key}_{EMBEDDING}'
+        f'b_s2_{model_name}_{loss_slug}_{EMBEDDING}'
     ) + (f'_{run_tag}' if run_tag else '')
 
     print(f"\n{'='*64}")
@@ -132,10 +149,12 @@ def run_experiment_stage2(
         print(f'  Place tinybert_mean_embedding_result_typeb.pt in {EMBED_RESULTS_B}')
         return
 
+    transform = MODEL_TRANSFORMS[model_name]
     train_set, val_set, _ = make_splits(
         embedding_cache=cache_path,
         device=device,
         seed=SEED,
+        transform=transform,
     )
 
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True,  num_workers=0)
@@ -158,11 +177,13 @@ def run_experiment_stage2(
     print(f'  optimizer lr     : {LR}   weight_decay: {WEIGHT_DECAY}')
     print(f'  train={len(train_set)}  val={len(val_set)}')
 
-    CHECKPOINTS_B.mkdir(parents=True, exist_ok=True)
-    METRICS_B.mkdir(parents=True, exist_ok=True)
+    ckpt_dir    = CHECKPOINTS_B_S2_NORMED    if use_norm else CHECKPOINTS_B_S2_NON_NORMED
+    metrics_dir = METRICS_B_S2_NORMED       if use_norm else METRICS_B_S2_NON_NORMED
+    ckpt_dir.mkdir(parents=True, exist_ok=True)
+    metrics_dir.mkdir(parents=True, exist_ok=True)
 
-    ckpt_path          = CHECKPOINTS_B / f'{run_name}_best.pt'
-    epoch_log_path     = METRICS_B     / f'{run_name}_training_log.csv'
+    ckpt_path      = ckpt_dir    / f'{run_name}_best.pt'
+    epoch_log_path = metrics_dir / f'{run_name}_training_log.csv'
     best_val_loss      = float('inf')
     best_epoch         = 0
     early_stop_counter = 0
