@@ -14,3 +14,4 @@ GPL Ghostscript 10.07.0 (2026-03-16) https://www.ghostscript.com/releases/gsdnld
 seaborn
 python-dotenv
 natsort
+openai

@@ -1,24 +1,11 @@
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
 from pathlib import Path
-import torch.nn.functional as F
-import torchvision.transforms as transforms
 
 
 class Dataset_A(Dataset):
-    def __init__(self, embedding_type:str, img_embs_path, sentence_embs_path, transformation ):
-        """ 
-            transform = transforms.Compose([
-                transforms.Resize((128,128)),
-                transforms.ToTensor(),
-                transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-            ]) - Transformation already done in one_emb file
-        """
-        """
-        Returns image embedding - Normalised, as tensor, and resized
-        Returns sentence embedding, as tensor, normalized
-        
-        """
+    def __init__(self, img_embs_path : Path, sentence_embs_path : Path, transformation ):
+
         self.sentence_embs_path = Path(sentence_embs_path)
         if not self.sentence_embs_path.exists():
             raise FileNotFoundError(f'PATH NOT FOUND: {self.sentence_embs_path}')
@@ -27,7 +14,6 @@ class Dataset_A(Dataset):
             raise FileNotFoundError(f'PATH NOT FOUND: {self.img_embs_path}')
         self.sentence_embs = torch.load(self.sentence_embs_path)
         self.img_embs= torch.load(self.img_embs_path)
-        self.sentence_emb_type = embedding_type
         self.transformation = transformation
         if len(self.img_embs) != len(self.sentence_embs):
             raise ValueError(f'Mismatch in embedding lengths. IMG_EMB: {len(self.img_embs)} | SENTENCE_EMB: {len(self.sentence_embs)}')
