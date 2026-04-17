@@ -16,6 +16,7 @@ from src.pipelines.data_loaders.type_a_dataloader import Dataset_A
 from src.models.CNN import CNN_encoder
 from src.models.CNN2 import CNN2
 from src.models.googleNet import GoogleNet
+from src.models.cosine_loss import CosineLoss
 
 
 """
@@ -70,7 +71,7 @@ img_emb_path = Path("C:/Masters/Text Analytics/AI_Coursework/embeddings/images_m
 ###### From Scrtach Models###### 
 ################################ 
 ################################ 
-"""
+
 models = [CNN_encoder, CNN2]
 bs = 32
 main_path = Path("C:/Masters/Text Analytics/AI_Coursework/trained_models")
@@ -84,14 +85,21 @@ for model_type in models:
         emb_dims = sentence_embs_dict[emb][0]
         print(f'Training {model_type.__name__} with {emb}.....')
         model = model_type(output_dims=emb_dims)
-        train_losses, val_losses, best_model, time = train(model, train_set = train_loader, test_set = test_loader, epochs = 10, learning_rate = 0.000001)
+        train_losses, val_losses, best_model, total_time, loss_type = train(model, train_set = train_loader, test_set = test_loader, epochs = 10, learning_rate = 0.000001, criterion = CosineLoss())
         model_name = f'{best_model.__class__.__name__}_{emb}.pt'
         output_path = main_path / model_name
-        torch.save(best_model.state_dict(), output_path)
-        print(f'Successfully trained {model_name} in {time}')
+
+        best_model_data = {
+            'name': best_model.__class__.__name__,
+            'parameters': best_model.state_dict(),
+            'loss_type' : loss_type,
+            'embedding_type': emb
+        }
+        torch.save(best_model_data, output_path)
+        print(f'Successfully trained {model_name} in {total_time}')
         print(f'Saved model to: {output_path}')
 
-"""
+
 
 ################################ 
 ################################ 
