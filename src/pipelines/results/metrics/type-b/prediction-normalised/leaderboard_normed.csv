@@ -11,8 +11,8 @@ rank,run_id,cnn,embedding,dim,loss_fn,test_top1,test_top5,test_mrr,test_median_r
 10,E2hn,cnn_1layer,word2vec_pretrained_normed,300,MSELoss_normed,0.001,0.005,0.0062,628.0,False,0.3967
 11,E2fn,cnn_1layer,tinybert_pooler_normed,312,MSELoss_normed,0.001,0.003,0.0068,605.0,False,0.3943
 12,B0n,cnn_1layer,tfidf_lsa_normed,100,MSELoss_normed,0.001,0.004,0.0065,642.0,False,0.3845
-13,S2cn,resnet18_pt,tinybert_mean_normed,312,mse,0.0,0.0,0.0008,5131.0,True,0.0
+13,S2cn,resnet18_pt,tinybert_mean_normed,312,mse_normed,0.0,0.0,0.0004,5044.0,True,0.0
 14,E2kn,cnn_1layer,tfidf_w2v_normed,100,MSELoss_normed,0.0,0.001,0.0024,2109.0,True,0.0
 15,E2mn,cnn_1layer,bert_pooler_normed,768,MSELoss_normed,0.0,0.006,0.0041,3242.0,True,0.0
 16,E2in,cnn_1layer,word2vec_skipgram_normed,100,MSELoss_normed,0.0,0.004,0.0024,3233.0,True,0.0
-17,S2cd,resnet18_pt,tinybert_mean_normed,312,combined,0.0,0.0,0.0008,4840.0,True,0.0
+17,S2cd,resnet18_pt,tinybert_mean_normed,312,combined,0.001,0.008,0.0062,3755.0,True,0.0
