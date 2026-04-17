@@ -37,6 +37,7 @@ run_validation_normed  = _shared.run_validation_normalised   # same normalisatio
 run_val_retrieval      = _shared.run_val_retrieval           # cosine retrieval — scale-invariant
 set_seed               = _shared.set_seed
 CombinedLoss           = _shared.CombinedLoss
+CosineLoss             = _shared.CosineLoss
 
 CNN1Layer          = _cnn1.CNN1Layer
 CNN3Layer          = _cnn3.CNN3Layer
@@ -52,9 +53,9 @@ from src.config.paths import (
 from src.pipelines.data_loaders.type_b_loader import make_splits, IMAGENET_TRANSFORM
 
 
-# stage 2 - fixed sentence embeeding 
-EMBEDDING      = 'tinybert_mean'
-EMBEDDING_DIM  = 312
+# stage 2 - fixed sentence embedding
+EMBEDDING      = 'sbert'
+EMBEDDING_DIM  = 384
 
 MODEL_CONFIGS: dict[str, callable] = {
     'cnn_1layer':  lambda dim: CNN1Layer(embedding_dim=dim),
@@ -76,7 +77,7 @@ MODEL_TRANSFORMS: dict[str, object] = {
     'resnet18_pt': IMAGENET_TRANSFORM,
 }
 
-LOSS_OPTIONS = ('mse', 'mse_normed', 'combined')
+LOSS_OPTIONS = ('mse', 'mse_normed', 'combined', 'cosine')
 
 BATCH_SIZE        = 64
 LR                = 1e-4
@@ -101,6 +102,8 @@ def _build_criterion(loss_key: str) -> nn.Module:
         return _MSELoss()
     if loss_key == 'combined':
         return CombinedLoss(alpha=0.5)
+    if loss_key == 'cosine':
+        return CosineLoss()
     raise ValueError(f'Unknown loss_key: {loss_key!r}. Choose from {LOSS_OPTIONS}.')
 
 
@@ -122,7 +125,7 @@ def run_experiment_stage2(
     # mse_normed = MSELoss on L2-normalised targets (unit sphere geometry, no cosine term)
     # combined   = CombinedLoss on L2-normalised targets (MSE + cosine)
     # mse        = MSELoss on raw targets
-    use_norm = (loss_key in ('mse_normed', 'combined'))
+    use_norm = (loss_key in ('mse_normed', 'combined', 'cosine'))
     _train_fn = train_one_epoch_normed if use_norm else train_one_epoch_raw
     _val_fn   = run_validation_normed  if use_norm else run_validation_raw
 

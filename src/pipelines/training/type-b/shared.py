@@ -183,6 +183,18 @@ def run_validation_normalised(
     return total_loss / len(loader)
 
 
+class CosineLoss(nn.Module):
+    """L = (1 - cosine_similarity(y_hat, y)).mean()
+
+    Directly optimises the same directional objective used at retrieval time.
+    Scale-invariant: only the direction of the predicted embedding matters.
+    """
+
+    def forward(self, y_hat: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
+        cosine_sim = F.cosine_similarity(y_hat, y, dim=1)
+        return (1.0 - cosine_sim).mean()
+
+
 class CombinedLoss(nn.Module):
 
     # L = alpha * MSE(y_hat, y) + (1 - alpha) * (1 - cosine_similarity(y_hat, y)).mean()

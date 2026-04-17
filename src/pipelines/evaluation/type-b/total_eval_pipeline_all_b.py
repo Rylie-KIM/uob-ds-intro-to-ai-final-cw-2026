@@ -295,14 +295,14 @@ _COLLAPSE_THRESHOLD = 0.95
 
 
 def _build_superman_leaderboard() -> None:
-    non_normed_path = PREDICTIONS_B / 'leaderboard.csv'
-    normed_path     = PREDICTIONS_B_NORMED / 'leaderboard_normed.csv'
+    non_normed_path = PREDICTIONS_B / 'final_ranking.csv'
+    normed_path     = PREDICTIONS_B_NORMED / 'final_ranking_normed.csv'
     out_path        = METRICS_B / 'superman_leaderboard.csv'
 
     frames = []
     for path, label in [(non_normed_path, 'non-normed'), (normed_path, 'normed')]:
         if not path.exists():
-            print(f'  [skip] {label} leaderboard not found: {path}')
+            print(f'  [skip] {label} final_ranking not found: {path}')
             continue
         df = pd.read_csv(path)
         df.insert(0, 'variant', label)
@@ -318,8 +318,11 @@ def _build_superman_leaderboard() -> None:
                   errors='ignore', inplace=True)
 
     # Recompute composite using a single shared CNN-only max across both leaderboards
-    is_llm    = combined['run_id'].str.startswith('LLM-')
-    collapsed = combined['collapsed'].fillna(False)
+    is_llm = combined['run_id'].str.startswith('LLM-')
+    if 'colour_size_correct' in combined.columns:
+        collapsed = (~is_llm) & (combined['colour_size_correct'] < _COLLAPSE_THRESHOLD)
+    else:
+        collapsed = combined['collapsed'].fillna(False)
     combined['collapsed'] = collapsed
 
     cnn_mask = ~is_llm
@@ -332,7 +335,7 @@ def _build_superman_leaderboard() -> None:
     combined['median_rank_norm'] = 1.0 - (combined['test_median_rank'] / _CORPUS_SIZE)
     combined['top1_norm']        = _norm('test_top1')
     combined['top5_norm']        = _norm('test_top5')
-    combined['cosine_norm']      = combined['test_mean_cosine'] if 'test_mean_cosine' in combined.columns else 0.0
+    combined['cosine_norm']      = combined['test_mean_cosine'] if 'test_mean_cosine' in combined.columns else pd.Series(0.0, index=combined.index)
 
     raw = (
         _W_MRR         * combined['mrr_norm']
