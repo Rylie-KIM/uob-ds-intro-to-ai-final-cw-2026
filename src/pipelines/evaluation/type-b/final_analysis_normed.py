@@ -39,8 +39,6 @@ _DESCRIPTIONS: dict[str, str] = {
     'E2hn': 'Word2Vec Google News pretrained (300-dim), MSE — normed',
     'E2in': 'Word2Vec skip-gram in-domain (100-dim), MSE — normed',
     'E2kn': 'TF-IDF weighted Word2Vec (100-dim), MSE — normed',
-    'E2ln': 'BERT base mean-pool (768-dim), MSE — normed',
-    'E2mn': 'BERT base [CLS] pooler (768-dim), MSE — normed',
     # Stage 2 normed — architecture axis (tinybert_mean fixed, L2-normed targets)
     'S2an': 'Stage-2 cnn_1layer + TinyBERT-mean (312-dim), MSE — normed',
     'S2bn': 'Stage-2 cnn_3layer + TinyBERT-mean (312-dim), MSE — normed',
@@ -189,6 +187,12 @@ def main() -> None:
     if df.empty:
         print('ERROR: test_results_normed.csv is empty.')
         return
+
+    _EXCLUDED = {'E2ln', 'E2mn'}
+    before = len(df)
+    df = df[~df['run_id'].isin(_EXCLUDED)].reset_index(drop=True)
+    if len(df) < before:
+        print(f'  [excluded] {_EXCLUDED} — BERT base runs removed from analysis')
 
     print(f'\nLoaded {len(df)} Stage-1 normed runs from {results_csv.name}')
 

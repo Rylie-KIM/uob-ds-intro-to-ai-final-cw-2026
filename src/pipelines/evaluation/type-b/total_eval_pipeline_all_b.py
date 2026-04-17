@@ -61,11 +61,14 @@ import final_analysis_normed   as _final_nor   # noqa: E402
 import final_analysis_combined as _final_comb  # noqa: E402
 import plot_eval_comparison_b  as _cmp         # noqa: E402
 
+import pandas as pd  # noqa: E402
+
 from src.config.paths import (  # noqa: E402
     PREDICTIONS_B,
     PREDICTIONS_B_NORMED,
     PREDICTIONS_B_S2,
     PREDICTIONS_B_S2_NORMED,
+    METRICS_B,
     FIGURES_EVAL_B,
     FIGURES_EVAL_NORM_B,
     FIGURES_EVAL_B_S2_NON_NORMED,
@@ -270,12 +273,83 @@ def main() -> None:
     else:
         print(f'\n  [skip-combined] Skipping combined analysis.')
 
+    # ── 6. Superman leaderboard (merge non-normed + normed) ───────────────────
+    _header('STEP 6 — Superman Leaderboard')
+    _build_superman_leaderboard()
+
     # ── Summary ────────────────────────────────────────────────────────────────
     print(f'\n{SEP}')
     print('  Master pipeline complete.')
     for label, c in completed.items():
         print(f'  {label:<10}: {list(c)}')
     print(SEP)
+
+
+_W_MRR         = 0.35
+_W_MEDIAN_RANK = 0.25
+_W_TOP1        = 0.20
+_W_TOP5        = 0.15
+_W_COSINE      = 0.05
+_CORPUS_SIZE   = 10008
+_COLLAPSE_THRESHOLD = 0.95
+
+
+def _build_superman_leaderboard() -> None:
+    non_normed_path = PREDICTIONS_B / 'leaderboard.csv'
+    normed_path     = PREDICTIONS_B_NORMED / 'leaderboard_normed.csv'
+    out_path        = METRICS_B / 'superman_leaderboard.csv'
+
+    frames = []
+    for path, label in [(non_normed_path, 'non-normed'), (normed_path, 'normed')]:
+        if not path.exists():
+            print(f'  [skip] {label} leaderboard not found: {path}')
+            continue
+        df = pd.read_csv(path)
+        df.insert(0, 'variant', label)
+        frames.append(df)
+
+    if not frames:
+        print('  [skip] No leaderboard files found — superman_leaderboard.csv not created.')
+        return
+
+    combined = pd.concat(frames, ignore_index=True).reset_index(drop=True)
+    combined.drop(columns=['rank', 'mrr_norm', 'median_rank_norm', 'top1_norm',
+                           'top5_norm', 'cosine_norm', 'composite_score'],
+                  errors='ignore', inplace=True)
+
+    # Recompute composite using a single shared CNN-only max across both leaderboards
+    is_llm    = combined['run_id'].str.startswith('LLM-')
+    collapsed = combined['collapsed'].fillna(False)
+    combined['collapsed'] = collapsed
+
+    cnn_mask = ~is_llm
+
+    def _norm(col: str) -> pd.Series:
+        mx = combined.loc[cnn_mask, col].max()
+        return combined[col] / mx if mx > 0 else combined[col] * 0.0
+
+    combined['mrr_norm']         = _norm('test_mrr')
+    combined['median_rank_norm'] = 1.0 - (combined['test_median_rank'] / _CORPUS_SIZE)
+    combined['top1_norm']        = _norm('test_top1')
+    combined['top5_norm']        = _norm('test_top5')
+    combined['cosine_norm']      = combined['test_mean_cosine'] if 'test_mean_cosine' in combined.columns else 0.0
+
+    raw = (
+        _W_MRR         * combined['mrr_norm']
+        + _W_MEDIAN_RANK * combined['median_rank_norm']
+        + _W_TOP1        * combined['top1_norm']
+        + _W_TOP5        * combined['top5_norm']
+        + _W_COSINE      * combined['cosine_norm']
+    )
+    combined['composite_score'] = raw.where(~collapsed, other=0.0)
+
+    combined = combined.sort_values('composite_score', ascending=False).reset_index(drop=True)
+    combined.insert(0, 'overall_rank', combined.index + 1)
+
+    METRICS_B.mkdir(parents=True, exist_ok=True)
+    combined.to_csv(out_path, index=False)
+    print(f'  [ok] superman_leaderboard.csv saved → {out_path}')
+    print(f'       {len(combined)} rows, composite recomputed on shared CNN-only max')
 
 
 if __name__ == '__main__':

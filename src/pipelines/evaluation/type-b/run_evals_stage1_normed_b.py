@@ -114,18 +114,6 @@ EXPERIMENTS_NORMED: dict[str, dict] = {
         'loss_fn':        'MSELoss_normed',
         'description':    'TF-IDF weighted Word2Vec (100-dim), L2-normed targets',
     },
-    'E2ln': {
-        'model_name':     'cnn_1layer',
-        'embedding_name': 'bert_mean',
-        'loss_fn':        'MSELoss_normed',
-        'description':    'BERT base mean-pool (768-dim), L2-normed targets',
-    },
-    'E2mn': {
-        'model_name':     'cnn_1layer',
-        'embedding_name': 'bert_pooler',
-        'loss_fn':        'MSELoss_normed',
-        'description':    'BERT base [CLS] pooler (768-dim), L2-normed targets',
-    },
 }
 
 

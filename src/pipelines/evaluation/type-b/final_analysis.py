@@ -141,11 +141,14 @@ def compute_ranking(df: pd.DataFrame) -> pd.DataFrame:
     Add normalised score components and composite_score to the results dataframe.
 
     Normalisation:
-      mrr_norm         = test_mrr        / max(test_mrr)        ∈ [0, 1]
-      median_rank_norm = 1 - (test_median_rank / CORPUS_SIZE)   ∈ [0, 1]
-      top1_norm        = test_top1       / max(test_top1)        ∈ [0, 1]
-      top5_norm        = test_top5       / max(test_top5)        ∈ [0, 1]
-      cosine_norm      = test_mean_cosine                        ∈ [0, 1]
+      mrr_norm         = test_mrr        / max_cnn(test_mrr)        ∈ [0, 1] for CNN; may exceed 1 for LLM
+      median_rank_norm = 1 - (test_median_rank / CORPUS_SIZE)       ∈ [0, 1]
+      top1_norm        = test_top1       / max_cnn(test_top1)       ∈ [0, 1] for CNN; may exceed 1 for LLM
+      top5_norm        = test_top5       / max_cnn(test_top5)       ∈ [0, 1] for CNN; may exceed 1 for LLM
+      cosine_norm      = test_mean_cosine                           ∈ [0, 1]
+
+    max_cnn = max over CNN-only runs; LLM runs are placed on the same scale
+    but their norms can exceed 1.0 (showing how much better than the best CNN).
 
     Composite (non-collapsed runs only):
       composite_score = W_MRR * mrr_norm + W_MEDIAN_RANK * median_rank_norm
@@ -161,15 +164,17 @@ def compute_ranking(df: pd.DataFrame) -> pd.DataFrame:
     is_llm = out['run_id'].str.startswith('LLM-')
     out['collapsed'] = (~is_llm) & (out['colour_size_correct'] < COLLAPSE_THRESHOLD)
 
-    # Normalise all metrics (use max across ALL runs for a fair relative scale)
-    def _safe_norm(series: pd.Series) -> pd.Series:
-        mx = series.max()
+    # Normalise using CNN-only max so LLM does not inflate the denominator.
+    # LLM scores are placed on the same CNN-anchored scale (may exceed 1.0).
+    def _safe_norm(series: pd.Series, mask: pd.Series) -> pd.Series:
+        mx = series[mask].max()
         return series / mx if mx > 0 else series * 0.0
 
-    out['mrr_norm']         = _safe_norm(out['test_mrr'])
+    cnn_mask = ~is_llm
+    out['mrr_norm']         = _safe_norm(out['test_mrr'],          cnn_mask)
     out['median_rank_norm'] = 1.0 - (out['test_median_rank'] / CORPUS_SIZE)
-    out['top1_norm']        = _safe_norm(out['test_top1'])
-    out['top5_norm']        = _safe_norm(out['test_top5'])
+    out['top1_norm']        = _safe_norm(out['test_top1'],         cnn_mask)
+    out['top5_norm']        = _safe_norm(out['test_top5'],         cnn_mask)
     out['cosine_norm']      = out['test_mean_cosine']
 
     raw_score = (
