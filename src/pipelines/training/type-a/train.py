@@ -1,13 +1,8 @@
 import torch
-import torch.nn as nn
 import torch.optim as optim
-from pathlib import Path
-import torch.nn.functional as F
-from src.models.earlyStopping import EarlyStopping
-import matplotlib.pyplot as plt
+from pipelines.training.earlyStopping import EarlyStopping
 import time
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-from tqdm import tqdm
 
 def train_one_epoch(model, train_set, optimizer, criterion):
     model.train()
@@ -44,7 +39,7 @@ def train(model, train_set, val_set, epochs, learning_rate, criterion):
     train_losses = []
     val_losses = []
     start = time.time()
-    for epoch in tqdm(range(epochs), desc='Epochs'):
+    for epoch in range(epochs):
         total_train_loss = train_one_epoch(model, train_set, optimizer, criterion)
         avg_train_loss = total_train_loss / len(train_set)
         train_losses.append(avg_train_loss)

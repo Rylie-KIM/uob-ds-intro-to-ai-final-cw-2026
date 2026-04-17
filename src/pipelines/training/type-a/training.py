@@ -16,7 +16,7 @@ from src.pipelines.data_loaders.type_a_dataloader import Dataset_A
 from src.models.CNN import CNN_encoder
 from src.models.CNN2 import CNN2
 from src.models.googleNet import GoogleNet
-from src.models.cosine_loss import CosineLoss
+from pipelines.training.cosine_loss import CosineLoss
 
 
 """
@@ -90,10 +90,11 @@ for model_type in models:
         output_path = main_path / model_name
 
         best_model_data = {
-            'name': best_model.__class__.__name__,
+            'model_architecture': best_model.__class__.__name__,
             'parameters': best_model.state_dict(),
             'loss_type' : loss_type,
-            'embedding_type': emb
+            'embedding_type': emb,
+            'total_time' : total_time
         }
         torch.save(best_model_data, output_path)
         print(f'Successfully trained {model_name} in {total_time}')
@@ -115,3 +116,9 @@ training, validation =  Subset(dataset, range(8000)), Subset(dataset, range(8000
 train_loader = DataLoader(training, batch_size = bs, shuffle=False)
 test_loader = DataLoader(validation, batch_size = bs, shuffle=False)
 train_losses, val_losses, best_model, time = train(model, train_set = train_loader, test_set = test_loader, epochs = 10, learning_rate = 0.000001)
+
+
+#####################################
+######## Train GoogleNet#############
+#####################################
+
