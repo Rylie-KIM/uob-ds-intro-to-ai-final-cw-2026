@@ -94,7 +94,9 @@ for model_type in models:
             'parameters': best_model.state_dict(),
             'loss_type' : loss_type,
             'embedding_type': emb,
-            'total_time' : total_time
+            'total_time' : total_time,
+            'train_losses' : train_losses,
+            'val_losses' : val_losses
         }
         torch.save(best_model_data, output_path)
         print(f'Successfully trained {model_name} in {total_time}')
