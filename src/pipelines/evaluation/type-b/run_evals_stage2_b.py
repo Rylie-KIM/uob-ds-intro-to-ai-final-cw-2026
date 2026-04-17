@@ -101,6 +101,20 @@ EXPERIMENTS_NORMED: dict[str, dict] = {
         'glob_pattern':   'b_s2_resnet18_pt_combined_tinybert_mean_normed_*_best.pt',
         'description':    'Stage-2 ResNet18-pretrained + TinyBERT-mean normed (312-dim), Combined',
     },
+    'S2dn': {
+        'model_name':     'cnn_3layer',
+        'embedding_name': 'sbert',
+        'loss_fn':        'Cosine',
+        'glob_pattern':   'b_s2_cnn_3layer_cosine_sbert_normed_*_best.pt',
+        'description':    'Stage-2 cnn_3layer + SBERT normed (384-dim), Cosine',
+    },
+    'S2en': {
+        'model_name':     'resnet18_pt',
+        'embedding_name': 'sbert',
+        'loss_fn':        'Cosine',
+        'glob_pattern':   'b_s2_resnet18_pt_cosine_sbert_normed_*_best.pt',
+        'description':    'Stage-2 ResNet18-pretrained + SBERT normed (384-dim), Cosine',
+    },
 }
 
 
@@ -224,7 +238,7 @@ def main() -> None:
         help=(
             'Specific run IDs to evaluate. '
             'Non-normed: S2a S2b S2c. '
-            'Normed: S2an S2bn S2cn S2ad S2bd S2cd.'
+            'Normed: S2an S2bn S2cn S2ad S2bd S2cd S2dn S2en.'
         ),
     )
     parser.add_argument(

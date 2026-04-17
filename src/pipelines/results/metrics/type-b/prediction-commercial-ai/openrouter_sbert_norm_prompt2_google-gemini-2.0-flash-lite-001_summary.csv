@@ -1,0 +1,2 @@
+model,embedding,n_test,top_1_acc,top_2_acc,top_3_acc,top_5_acc,mrr,mean_cosine_sim,mean_rank,median_rank
+google/gemini-2.0-flash-lite-001,sbert_norm,1001,0.14385614385614387,0.15684315684315683,0.16683316683316685,0.1918081918081918,0.166116192093613,0.814478242522353,860.7852147852147,656.0

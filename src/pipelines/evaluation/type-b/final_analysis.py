@@ -58,16 +58,28 @@ _DESCRIPTIONS: dict[str, str] = {
     # LLM baseline
     'LLM-gemini-lite': 'Gemini 2.0 Flash Lite → TinyBERT-mean retrieval (detailed prompt)',
     'LLM-gemini-lite-p2':   'Gemini 2.0 Flash Lite → TinyBERT-mean retrieval (minimal prompt)',
+    'LLM-gemini-lite-sbert-norm': 'Gemini 2.0 Flash Lite → SBERT-norm retrieval (detailed prompt)',
+    'LLM-gemini-lite-sbert-norm-p2': 'Gemini 2.0 Flash Lite → SBERT-norm retrieval (minimal prompt)',
 }
 
 # LLM prediction files (model tag → run_id) 
 _LLM_PRED_FILES: dict[str, str] = {
     'openrouter_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite',
     'openrouter_prompt2_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite-p2',
+    'openrouter_sbert_norm_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite-sbert-norm',
+    'openrouter_sbert_norm_prompt2_google-gemini-2.0-flash-lite-001_predictions.csv': 'LLM-gemini-lite-sbert-norm-p2',
 }
 
 _COLOURS = {'red', 'blue', 'green', 'yellow'}
 _SIZES   = {'large', 'small'}
+
+
+def _llm_embedding_meta_from_filename(filename: str) -> tuple[str, int]:
+    """Infer embedding label/dim for an LLM run from prediction filename."""
+    lower = filename.lower()
+    if 'sbert_norm' in lower:
+        return 'sbert_norm_384d', 384
+    return 'tinybert_mean_312d', 312
 
 
 # llm result loader 
@@ -91,11 +103,13 @@ def _load_llm_rows() -> pd.DataFrame:
         
         ranks   = df['true_rank'].values
         n       = len(df)
+        emb_name, emb_dim = _llm_embedding_meta_from_filename(filename)
+
         row: dict = {
             'run_id':            run_id,
             'cnn':               'none',
-            'embedding':         'tinybert_mean_312d',
-            'dim':               312,
+            'embedding':         emb_name,
+            'dim':               emb_dim,
             'loss_fn':           'N/A',
             'best_epoch':        float('nan'),
             'total_epochs':      float('nan'),

@@ -184,7 +184,7 @@ def main() -> None:
         help=(
             'Explicit run IDs (overrides --stage). '
             'S1: B0n E2an … E2kn E2ln E2mn. '
-            'S2: S2an S2bn S2cn S2ad S2bd S2cd.'
+            'S2: S2an S2bn S2cn S2ad S2bd S2cd S2dn S2en.'
         ),
     )
     parser.add_argument('--device', default=None,

@@ -1,0 +1,1158 @@
+image_id,img_path,true_sentence,llm_raw,pred_sentence,n_digits,true_rank,cosine_sim,top_1_correct,top_2_correct,top_3_correct,top_4_correct,top_5_correct
+b_112.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_112.png,large red 15,small red 15,small red 15,2,5,1.0,0,0,0,0,1
+b_2431.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2431.png,small yellow 346,small yellow 346,small yellow 346,3,1,1.0,1,1,1,1,1
+b_6055.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6055.png,small yellow 12671,small yellow 12671,small yellow 12671,5,1,1.0,1,1,1,1,1
+b_819.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_819.png,large yellow 859,small yellow 859,small yellow 859,3,47,1.0,0,0,0,0,0
+b_3915.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3915.png,large yellow 7939,small yellow 7939,small yellow 7939,4,72,1.0,0,0,0,0,0
+b_8331.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8331.png,large yellow 733039,small yellow 133039,small yellow 13365,6,763,0.9602356553077698,0,0,0,0,0
+b_9819.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9819.png,large yellow 448121,large yellow 48121,large yellow 4872,6,11,0.959814727306366,0,0,0,0,0
+b_5697.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5697.png,large blue 62994,small blue 62994,small blue 62994,5,155,1.0,0,0,0,0,0
+b_4004.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4004.png,small red 2832,small red 2832,small red 2832,4,1,1.0,1,1,1,1,1
+b_2044.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2044.png,small red 165,small red 165,small red 165,3,1,1.0,1,1,1,1,1
+b_4002.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4002.png,large green 2832,small green 2832,small green 2832,4,6,0.9999998807907104,0,0,0,0,0
+b_7597.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7597.png,small blue 88135,small blue 88135,small blue 88135,5,1,1.0,1,1,1,1,1
+b_7307.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7307.png,large yellow 82529,small yellow 81529,small yellow 82529,5,850,0.9794220924377441,0,0,0,0,0
+b_989.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_989.png,small blue 674,small blue 674,small blue 674,3,1,1.0,1,1,1,1,1
+b_2164.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2164.png,small red 957,small red 957,small red 957,3,1,1.000000238418579,1,1,1,1,1
+b_8717.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8717.png,small blue 897441,small blue 891441,small blue 89415,6,6,0.9745016694068909,0,0,0,0,0
+b_3457.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3457.png,large blue 4853,small blue 4853,small blue 4853,4,23,1.0,0,0,0,0,0
+b_3648.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3648.png,large red 9808,small red 8,small red 8,4,2406,1.0000001192092896,0,0,0,0,0
+b_8577.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8577.png,large blue 592841,small blue 592841,small blue 592841,6,460,1.0,0,0,0,0,0
+b_1034.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1034.png,large green 529,small green 529,small green 529,3,5,1.0,0,0,0,0,1
+b_242.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_242.png,large green 31,small green 3,small green 3,2,970,1.0000001192092896,0,0,0,0,0
+b_5270.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5270.png,small green 9540,small green 9540,small green 9540,4,1,1.000000238418579,1,1,1,1,1
+b_985.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_985.png,large blue 674,small blue 674,small blue 674,3,33,1.0,0,0,0,0,0
+b_3080.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3080.png,large red 893,large red 893,large red 893,3,1,1.000000238418579,1,1,1,1,1
+b_7648.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7648.png,large red 48974,small red 48974,small red 48974,5,486,1.0,0,0,0,0,0
+b_2507.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2507.png,large yellow 586,small yellow 586,small yellow 586,3,9,1.0,0,0,0,0,0
+b_469.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_469.png,small blue 59,small blue 59,small blue 59,2,1,1.0,1,1,1,1,1
+b_6953.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6953.png,large blue 50135,small blue 50135,small blue 50135,5,6,1.0,0,0,0,0,0
+b_8948.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8948.png,small red 313446,small red 213446,small red 313446,6,1,0.9641833305358887,1,1,1,1,1
+b_645.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_645.png,small blue 81,small blue 81,small blue 81,2,1,0.9999999403953552,1,1,1,1,1
+b_6594.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6594.png,large green 45179,large green 45179,large green 45179,5,1,1.0000001192092896,1,1,1,1,1
+b_7665.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7665.png,large blue 66207,small blue 66207,small blue 66207,5,20,1.0,0,0,0,0,0
+b_6858.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6858.png,large green 82768,small green 82768,small green 82768,5,478,1.0,0,0,0,0,0
+b_9596.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9596.png,small red 437408,small red 437408,small red 437408,6,1,1.0000001192092896,1,1,1,1,1
+b_3172.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3172.png,small red 3724,small red 3724,small red 3724,4,1,0.9999998807907104,1,1,1,1,1
+b_3237.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3237.png,small blue 7209,small blue 7209,small blue 7209,4,1,1.0,1,1,1,1,1
+b_1961.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1961.png,large blue 605,small blue 605,small blue 605,3,7,1.0,0,0,0,0,0
+b_1871.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1871.png,small yellow 862,small yellow 862,small yellow 862,3,1,1.000000238418579,1,1,1,1,1
+b_3274.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3274.png,large green 5673,small green 5673,small green 5673,4,195,1.000000238418579,0,0,0,0,0
+b_5958.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5958.png,small green 12540,small green 12540,small green 12540,5,1,1.0,1,1,1,1,1
+b_2813.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2813.png,small blue 343,small blue 3,small blue 3,3,252,0.9999999403953552,0,0,0,0,0
+b_1714.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1714.png,large green 983,small green 583,small green 586,3,2522,0.9540979862213135,0,0,0,0,0
+b_4495.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4495.png,small yellow 6663,small yellow 6663,small yellow 6663,4,1,0.9999998211860657,1,1,1,1,1
+b_8239.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8239.png,small yellow 522060,small yellow 522060,small yellow 522060,6,1,0.9999998807907104,1,1,1,1,1
+b_6229.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6229.png,small blue 50888,small blue 50889,small blue 50888,5,1,0.9826894402503967,1,1,1,1,1
+b_797.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_797.png,small blue 754,small blue 754,small blue 754,3,1,0.9999998807907104,1,1,1,1,1
+b_8836.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8836.png,small red 668950,small red 668950,small red 668950,6,1,1.0000001192092896,1,1,1,1,1
+b_8755.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8755.png,large yellow 429795,"small yellow 4
+small yellow 2
+small yellow 9
+small yellow 7
+small yellow 9
+small yellow 5",small yellow 5,6,1618,0.6907115578651428,0,0,0,0,0
+b_4309.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4309.png,small blue 6000,small blue 6000,small blue 6000,4,1,1.0,1,1,1,1,1
+b_8061.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8061.png,small blue 335729,small blue 335729,small blue 335729,6,1,1.0,1,1,1,1,1
+b_1805.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1805.png,small blue 611,small blue 611,small blue 611,3,1,0.9999999403953552,1,1,1,1,1
+b_8856.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8856.png,large red 156837,small red 156837,small red 156837,6,41,1.0,0,0,0,0,0
+b_7428.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7428.png,small red 43092,small red 43092,small red 43092,5,1,1.0,1,1,1,1,1
+b_2252.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2252.png,small red 208,small red 208,small red 208,3,1,1.0,1,1,1,1,1
+b_3499.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3499.png,large yellow 2343,small yellow 2348,small yellow 2343,4,804,0.9846150875091553,0,0,0,0,0
+b_3754.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3754.png,large green 9666,small green 6,small green 6,4,1007,1.0,0,0,0,0,0
+b_2411.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2411.png,large yellow 345,small yellow 345,small yellow 345,3,2,1.0,0,1,1,1,1
+b_5787.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5787.png,large yellow 13552,small yellow 13552,small yellow 13552,5,15,1.0000001192092896,0,0,0,0,0
+b_7543.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7543.png,small yellow 49824,small yellow 49824,small yellow 49824,5,1,1.0,1,1,1,1,1
+b_4527.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4527.png,small yellow 2894,small yellow 2894,small yellow 2894,4,1,1.0,1,1,1,1,1
+b_5953.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5953.png,large blue 12540,small blue 12540,small blue 12540,5,4,1.0000001192092896,0,0,0,1,1
+b_9311.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9311.png,small yellow 299869,small yellow 249869,small yellow 24993,6,4,0.976982593536377,0,0,0,1,1
+b_2649.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2649.png,large blue 353,small blue 353,small blue 353,3,6,1.0,0,0,0,0,0
+b_5411.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5411.png,large yellow 38043,small yellow 38043,small yellow 38043,5,4,1.0,0,0,0,1,1
+b_9493.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9493.png,small blue 791998,small blue 791998,small blue 791998,6,1,1.0000001192092896,1,1,1,1,1
+b_314.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_314.png,large green 40,small green 40,small green 40,2,4,1.0,0,0,0,1,1
+b_9553.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9553.png,large blue 678727,small blue 678727,small blue 678727,6,433,1.0,0,0,0,0,0
+b_4232.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4232.png,large red 3608,small red 3608,small red 3608,4,3,1.0000001192092896,0,0,1,1,1
+b_7538.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7538.png,large green 49824,small green 49824,small green 49824,5,74,1.0,0,0,0,0,0
+b_8115.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8115.png,large yellow 162535,small yellow 162535,small yellow 162535,6,2,0.9999999403953552,0,1,1,1,1
+b_3857.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3857.png,large blue 4335,small blue 4335,small blue 4335,4,11,1.0,0,0,0,0,0
+b_3269.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3269.png,small blue 8454,small blue 8454,small blue 8454,4,1,1.0000001192092896,1,1,1,1,1
+b_6325.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6325.png,small blue 99687,small blue 99687,small blue 99687,5,1,1.0,1,1,1,1,1
+b_9367.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9367.png,small yellow 910208,small yellow 910209,small yellow 910208,6,1,0.9913500547409058,1,1,1,1,1
+b_7302.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7302.png,small green 17146,small green 7146,small green 716,5,3199,0.9626691341400146,0,0,0,0,0
+b_451.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_451.png,large yellow 57,small yellow 57,small yellow 57,2,17,1.0,0,0,0,0,0
+b_4937.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4937.png,large blue 4262,small blue 4262,small blue 4262,4,149,1.0,0,0,0,0,0
+b_8284.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8284.png,small red 184349,small red 184349,small red 184349,6,1,1.0,1,1,1,1,1
+b_7201.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7201.png,large blue 23176,small blue 23176,small blue 23176,5,140,1.000000238418579,0,0,0,0,0
+b_1445.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1445.png,small blue 949,small blue 949,small blue 949,3,1,1.000000238418579,1,1,1,1,1
+b_6412.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6412.png,small red 76317,small red 76317,small red 76317,5,1,1.0000001192092896,1,1,1,1,1
+b_852.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_852.png,small red 242,small red 242,small red 242,3,1,1.0,1,1,1,1,1
+b_4006.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4006.png,small green 2832,small green 2832,small green 2832,4,1,0.9999998807907104,1,1,1,1,1
+b_9564.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9564.png,small red 899929,small red 894929,small red 899929,6,1,0.9661984443664551,1,1,1,1,1
+b_7474.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7474.png,large green 19710,small green 19710,small green 19710,5,2,1.000000238418579,0,1,1,1,1
+b_2747.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2747.png,large yellow 746,small yellow 746,small yellow 746,3,17,1.0,0,0,0,0,0
+b_4731.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4731.png,large yellow 7211,small yellow 7211,small yellow 7211,4,71,1.000000238418579,0,0,0,0,0
+b_5919.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5919.png,small yellow 46471,small yellow 46471,small yellow 46471,5,1,1.0,1,1,1,1,1
+b_6237.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6237.png,small blue 85470,small blue 85410,small blue 85470,5,1,0.9778014421463013,1,1,1,1,1
+b_1481.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1481.png,large blue 266,small blue 266,small blue 266,3,2,1.0,0,1,1,1,1
+b_2840.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2840.png,large red 961,small red 961,small red 961,3,63,1.0,0,0,0,0,0
+b_9865.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9865.png,large blue 579123,small blue 579123,small blue 579123,6,244,0.9999999403953552,0,0,0,0,0
+b_7151.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7151.png,small yellow 38361,small yellow 38361,small yellow 38361,5,1,1.0000001192092896,1,1,1,1,1
+b_1052.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1052.png,small red 559,small red 589,small red 569,3,6,0.9521629810333252,0,0,0,0,0
+b_3227.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3227.png,large yellow 3697,large yellow 3697,large yellow 3697,4,1,1.0,1,1,1,1,1
+b_2761.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2761.png,large blue 885,small blue 385,small blue 385,3,1521,1.0,0,0,0,0,0
+b_3436.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3436.png,small red 4044,small red 4044,small red 4044,4,1,1.000000238418579,1,1,1,1,1
+b_4992.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4992.png,large red 8461,small red 8461,small red 8461,4,369,1.000000238418579,0,0,0,0,0
+b_8195.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8195.png,large yellow 230394,small yellow 330394,small yellow 335729,6,1272,0.9253494143486023,0,0,0,0,0
+b_6326.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6326.png,small green 99687,small green 99687,small green 99687,5,1,1.0,1,1,1,1,1
+b_543.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_543.png,small yellow 68,small yellow 68,small yellow 68,2,1,0.9999998211860657,1,1,1,1,1
+b_6976.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6976.png,large red 58368,small red 5836,small red 58368,5,163,0.970218300819397,0,0,0,0,0
+b_1016.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1016.png,large red 818,small red 818,small red 818,3,70,0.9999998807907104,0,0,0,0,0
+b_6494.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6494.png,small green 70258,small green 70258,small green 70258,5,1,1.0,1,1,1,1,1
+b_1128.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1128.png,large red 448,small red 448,small red 448,3,10,1.0000001192092896,0,0,0,0,0
+b_756.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_756.png,small red 95,small red 95,small red 95,2,1,1.0,1,1,1,1,1
+b_628.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_628.png,small red 79,small red 79,small red 79,2,1,1.0,1,1,1,1,1
+b_8335.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8335.png,small yellow 733039,small yellow 739039,small yellow 733039,6,1,0.9878846406936646,1,1,1,1,1
+b_9681.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9681.png,large blue 433632,"small blue 4
+small blue 3
+small blue 3
+small blue 6
+small blue 3
+small blue 2",small blue 5,6,2303,0.647600531578064,0,0,0,0,0
+b_782.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_782.png,small green 98,small green 98,small green 98,2,1,0.9999999403953552,1,1,1,1,1
+b_7111.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7111.png,small yellow 51359,small yellow 51359,small yellow 51359,5,1,1.0,1,1,1,1,1
+b_99.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_99.png,large yellow 13,small yellow 13,small yellow 13,2,9,0.9999999403953552,0,0,0,0,0
+b_5774.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5774.png,small green 83975,small green 83975,small green 83975,5,1,1.0,1,1,1,1,1
+b_3867.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3867.png,large yellow 5325,small yellow 5,small yellow 5,4,2448,1.0,0,0,0,0,0
+b_4031.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4031.png,small yellow 9938,small yellow 9938,small yellow 9938,4,1,1.0000001192092896,1,1,1,1,1
+b_2830.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2830.png,small green 791,small green 791,small green 791,3,1,1.0000001192092896,1,1,1,1,1
+b_1269.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1269.png,small blue 570,small blue 570,small blue 570,3,1,1.000000238418579,1,1,1,1,1
+b_2450.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2450.png,large green 187,small green 187,small green 187,3,2,1.0,0,1,1,1,1
+b_8839.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8839.png,small yellow 668950,small yellow 668950,small yellow 668950,6,1,0.9999998807907104,1,1,1,1,1
+b_1841.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1841.png,large blue 371,small blue 371,small blue 371,3,16,1.000000238418579,0,0,0,0,0
+b_5032.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5032.png,large red 7547,small red 7547,small red 7547,4,113,1.0000001192092896,0,0,0,0,0
+b_3515.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3515.png,large yellow 9565,"small yellow 9
+small yellow 3
+small yellow 6
+small yellow 5",small yellow 5,4,1705,0.769425094127655,0,0,0,0,0
+b_1893.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1893.png,small blue 369,small blue 369,small blue 369,3,1,1.0,1,1,1,1,1
+b_7986.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7986.png,large green 929683,"small green 9
+small green 2
+small green 9
+small green 6
+small green 8
+small green 3",small green 6,6,2291,0.6809537410736084,0,0,0,0,0
+b_7862.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7862.png,small green 822858,small green 822858,small green 822858,6,1,1.0,1,1,1,1,1
+b_8141.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8141.png,small blue 422554,small blue 42954,small blue 4269,6,393,0.9757856726646423,0,0,0,0,0
+b_1516.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1516.png,small red 786,small red 786,small red 786,3,1,1.000000238418579,1,1,1,1,1
+b_4226.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4226.png,large green 5371,large green 5371,large green 5371,4,1,1.0,1,1,1,1,1
+b_7338.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7338.png,large green 74340,large green 74340,large green 74340,5,1,0.9999999403953552,1,1,1,1,1
+b_8833.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8833.png,large blue 668950,small blue 66890,small blue 668950,6,434,0.979853093624115,0,0,0,0,0
+b_7752.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7752.png,large red 321275,large red 31275,large red 31465,6,12,0.889037013053894,0,0,0,0,0
+b_288.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_288.png,large red 37,small red 37,small red 37,2,10,1.0000001192092896,0,0,0,0,0
+b_3622.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3622.png,small green 1152,small green 1152,small green 1152,4,1,1.0,1,1,1,1,1
+b_3551.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3551.png,small yellow 6147,small yellow 6147,small yellow 6147,4,1,1.000000238418579,1,1,1,1,1
+b_1407.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1407.png,small yellow 891,small yellow 891,small yellow 891,3,1,1.0,1,1,1,1,1
+b_6486.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6486.png,small green 93307,small green 93307,small green 93307,5,1,1.0,1,1,1,1,1
+b_8340.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8340.png,small red 362529,small red 362519,small red 362529,6,1,0.9816373586654663,1,1,1,1,1
+b_9219.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9219.png,large yellow 839677,"small yellow 8
+small yellow 3
+small yellow 9
+small yellow 6
+small yellow 2
+small yellow 7",small yellow 10,6,2362,0.6875454187393188,0,0,0,0,0
+b_210.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_210.png,large green 27,small green 27,small green 27,2,4,1.0000001192092896,0,0,0,1,1
+b_9069.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9069.png,small blue 266071,small blue 264071,small blue 67091,6,13,0.9360625743865967,0,0,0,0,0
+b_9758.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9758.png,small green 960616,small green 960616,small green 960616,6,1,1.0000001192092896,1,1,1,1,1
+b_5990.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5990.png,small green 39389,small green 39384,small green 39389,5,1,0.9863423109054565,1,1,1,1,1
+b_8491.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8491.png,large yellow 644173,small yellow 644173,small yellow 644173,6,478,1.0,0,0,0,0,0
+b_60.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_60.png,small red 8,small red 8,small red 8,1,1,1.0000001192092896,1,1,1,1,1
+b_8516.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8516.png,small red 391668,small red 39168,small red 39816,6,2,0.996584415435791,0,1,1,1,1
+b_6787.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6787.png,large yellow 46211,small yellow 46211,small yellow 46211,5,573,1.0000001192092896,0,0,0,0,0
+b_7666.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7666.png,large green 66207,small green 66207,small green 66207,5,20,1.0,0,0,0,0,0
+b_561.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_561.png,large blue 71,small blue 7,small blue 7,2,475,1.0,0,0,0,0,0
+b_7160.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7160.png,large red 46241,small red 46341,small red 46241,5,566,0.9764474034309387,0,0,0,0,0
+b_9457.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9457.png,large blue 413058,"small blue 4
+small blue 1
+small blue 3
+small blue 0
+small blue 5
+small blue 6",small blue 6,6,3053,0.6619564294815063,0,0,0,0,0
+b_5867.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5867.png,large yellow 52906,small yellow 52906,small yellow 52906,5,605,1.0,0,0,0,0,0
+b_3881.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3881.png,large blue 9004,small blue 9004,small blue 9004,4,5,1.0,0,0,0,0,1
+b_3962.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3962.png,large green 5291,small green 5291,small green 5291,4,33,1.0000001192092896,0,0,0,0,0
+b_884.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_884.png,small red 858,small red 88,small red 88,3,31,1.000000238418579,0,0,0,0,0
+b_635.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_635.png,large yellow 80,small yellow 8,small yellow 8,2,1300,1.0,0,0,0,0,0
+b_9686.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9686.png,small green 433632,small green 433632,small green 433632,6,1,1.0,1,1,1,1,1
+b_2007.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2007.png,small yellow 742,small yellow 742,small yellow 742,3,1,1.0000001192092896,1,1,1,1,1
+b_464.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_464.png,large red 59,small red 59,small red 59,2,11,1.0000001192092896,0,0,0,0,0
+b_6062.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6062.png,small green 91439,small green 91439,small green 91439,5,1,1.000000238418579,1,1,1,1,1
+b_714.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_714.png,large green 90,small green 90,small green 90,2,6,1.0,0,0,0,0,0
+b_5543.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5543.png,small yellow 72518,small yellow 72518,small yellow 72518,5,1,0.9999999403953552,1,1,1,1,1
+b_3039.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3039.png,small yellow 735,small yellow 735,small yellow 735,3,1,1.0,1,1,1,1,1
+b_6797.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6797.png,small blue 82848,small blue 82848,small blue 82848,5,1,1.0,1,1,1,1,1
+b_4907.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4907.png,large yellow 2530,small yellow 2530,small yellow 2530,4,10,1.0,0,0,0,0,0
+b_8010.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8010.png,large green 793300,small green 713700,small green 71261,6,1493,0.9417759776115417,0,0,0,0,0
+b_1392.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1392.png,large red 333,small red 333,small red 333,3,2,1.0,0,1,1,1,1
+b_6315.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6315.png,large yellow 49529,small yellow 49529,small yellow 49529,5,5,0.9999999403953552,0,0,0,0,1
+b_3916.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3916.png,small red 7939,small red 7939,small red 7939,4,1,1.0000001192092896,1,1,1,1,1
+b_1112.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1112.png,large red 814,small red 814,small red 814,3,53,1.0000001192092896,0,0,0,0,0
+b_4827.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4827.png,large yellow 8238,small yellow 8238,small yellow 8238,4,21,1.0000001192092896,0,0,0,0,0
+b_6377.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6377.png,large blue 66148,small blue 66148,small blue 66148,5,105,1.0000001192092896,0,0,0,0,0
+b_4255.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4255.png,small yellow 7267,small yellow 7267,small yellow 7267,4,1,1.0000001192092896,1,1,1,1,1
+b_9868.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9868.png,small red 579123,small red 579123,small red 579123,6,1,1.0000001192092896,1,1,1,1,1
+b_9576.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9576.png,large red 495533,small red 49533,small red 49529,6,200,0.9579812288284302,0,0,0,0,0
+b_5839.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5839.png,small yellow 33819,small yellow 33819,small yellow 33819,5,1,1.0000001192092896,1,1,1,1,1
+b_7818.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7818.png,large green 178711,small green 128711,small green 10772,6,6345,0.9195173978805542,0,0,0,0,0
+b_4670.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4670.png,small green 6067,small green 6067,small green 6067,4,1,1.0,1,1,1,1,1
+b_2680.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2680.png,large red 121,small red 121,small red 121,3,4,1.0000001192092896,0,0,0,1,1
+b_7260.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7260.png,small red 11854,small red 11854,small red 11854,5,1,1.000000238418579,1,1,1,1,1
+b_4462.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4462.png,small green 5349,small green 5349,small green 5349,4,1,0.9999999403953552,1,1,1,1,1
+b_2692.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2692.png,small red 702,small red 702,small red 702,3,1,1.0,1,1,1,1,1
+b_9677.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9677.png,small blue 145767,small blue 146767,small blue 14067,6,3,0.9408831000328064,0,0,1,1,1
+b_2657.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2657.png,large blue 330,small blue 330,small blue 330,3,3,1.0,0,0,1,1,1
+b_9371.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9371.png,large yellow 928381,small yellow 928381,small yellow 928381,6,391,1.000000238418579,0,0,0,0,0
+b_1416.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1416.png,large red 181,small red 181,small red 181,3,2,1.0000001192092896,0,1,1,1,1
+b_6307.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6307.png,large yellow 23356,"small yellow 2
+small yellow 3
+small yellow 3
+small yellow 5
+small yellow 6",small yellow 6,5,1447,0.7310522794723511,0,0,0,0,0
+b_2844.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2844.png,small red 961,small red 961,small red 961,3,1,1.0,1,1,1,1,1
+b_726.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_726.png,small green 91,small green 91,small green 91,2,1,1.0,1,1,1,1,1
+b_1838.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1838.png,small green 246,small green 246,small green 246,3,1,1.0000001192092896,1,1,1,1,1
+b_7281.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7281.png,large blue 45954,small blue 45954,small blue 45954,5,212,1.0,0,0,0,0,0
+b_3357.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3357.png,small blue 6138,small blue 6138,small blue 6138,4,1,1.0000001192092896,1,1,1,1,1
+b_7019.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7019.png,large yellow 65771,small yellow 65711,small yellow 65771,5,775,0.9765379428863525,0,0,0,0,0
+b_4535.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4535.png,small yellow 7311,small yellow 7311,small yellow 7311,4,1,1.0,1,1,1,1,1
+b_6604.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6604.png,small red 52245,small red 52245,small red 52245,5,1,1.0,1,1,1,1,1
+b_8209.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8209.png,large blue 822131,small blue 822131,small blue 822131,6,446,0.9999998807907104,0,0,0,0,0
+b_3102.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3102.png,small green 5092,small green 5092,small green 5092,4,1,1.0,1,1,1,1,1
+b_7770.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7770.png,large green 792509,small green 792509,small green 792509,6,227,1.0000001192092896,0,0,0,0,0
+b_7310.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7310.png,small green 82529,small green 29,small green 29,5,1486,0.9999999403953552,0,0,0,0,0
+b_1503.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1503.png,small yellow 463,small yellow 463,small yellow 463,3,1,1.0,1,1,1,1,1
+b_4498.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4498.png,large green 6139,small green 6139,small green 6139,4,109,1.0,0,0,0,0,0
+b_3674.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3674.png,large green 3170,small green 3170,small green 3170,4,3,1.0,0,0,1,1,1
+b_8769.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8769.png,large blue 438977,small blue 438977,small blue 438977,6,472,0.9999998807907104,0,0,0,0,0
+b_758.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_758.png,small green 95,small green 95,small green 95,2,1,1.0,1,1,1,1,1
+b_4203.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4203.png,large yellow 6442,small yellow 642,small yellow 643,4,132,0.9787193536758423,0,0,0,0,0
+b_5028.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5028.png,small red 9099,small red 9099,small red 9099,4,1,0.9999998807907104,1,1,1,1,1
+b_2852.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2852.png,small red 235,small red 235,small red 235,3,1,1.0,1,1,1,1,1
+b_3492.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3492.png,small red 1651,small red 1651,small red 1651,4,1,1.0,1,1,1,1,1
+b_1137.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1137.png,large blue 965,small blue 965,small blue 965,3,33,0.9999999403953552,0,0,0,0,0
+b_6240.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6240.png,large red 98781,small red 98781,small red 98781,5,507,1.0000001192092896,0,0,0,0,0
+b_8624.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8624.png,large red 209680,small red 209680,small red 209680,6,70,1.0,0,0,0,0,0
+b_7951.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7951.png,small yellow 174637,small yellow 174637,small yellow 174637,6,1,1.0,1,1,1,1,1
+b_4652.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4652.png,small red 5920,small red 5920,small red 5920,4,1,0.9999998807907104,1,1,1,1,1
+b_8423.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8423.png,small yellow 804938,small yellow 104935,small yellow 919488,6,590,0.9564163684844971,0,0,0,0,0
+b_8525.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8525.png,small blue 290305,small blue 29036,small blue 290305,6,1,0.941657304763794,1,1,1,1,1
+b_6352.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6352.png,large red 15383,small red 15383,small red 15383,5,74,0.9999999403953552,0,0,0,0,0
+b_5623.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5623.png,small yellow 73993,small yellow 73993,small yellow 73993,5,1,1.0000001192092896,1,1,1,1,1
+b_7276.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7276.png,small red 26591,small red 26591,small red 26591,5,1,1.0,1,1,1,1,1
+b_2864.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2864.png,large red 690,small red 0,small red 1,3,1424,0.8623759746551514,0,0,0,0,0
+b_8529.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8529.png,large blue 713762,small blue 713762,small blue 713762,6,423,1.000000238418579,0,0,0,0,0
+b_9209.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9209.png,large blue 633590,small blue 633590,small blue 633590,6,546,1.0,0,0,0,0,0
+b_6877.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6877.png,small blue 72402,small blue 7240a,small blue 72402,5,1,0.9379083514213562,1,1,1,1,1
+b_9836.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9836.png,small red 986088,small red 986088,small red 986088,6,1,1.0,1,1,1,1,1
+b_4275.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4275.png,large yellow 4644,small yellow 4644,small yellow 4644,4,170,1.0000001192092896,0,0,0,0,0
+b_7572.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7572.png,small red 83147,small red 83147,small red 83147,5,1,1.0,1,1,1,1,1
+b_1414.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1414.png,small green 396,small green 396,small green 396,3,1,1.000000238418579,1,1,1,1,1
+b_5783.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5783.png,small yellow 96900,small yellow 96900,small yellow 96900,5,1,0.9999999403953552,1,1,1,1,1
+b_71.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_71.png,small yellow 9,small yellow 4,small yellow 4,1,27,1.0,0,0,0,0,0
+b_1276.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1276.png,small red 649,small red 649,small red 649,3,1,1.000000238418579,1,1,1,1,1
+b_6322.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6322.png,large green 99687,small green 99687,small green 99687,5,310,1.0,0,0,0,0,0
+b_3163.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3163.png,large yellow 4872,small yellow 4872,small yellow 4872,4,456,1.0,0,0,0,0,0
+b_9336.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9336.png,large red 243139,small red 243/39,small red 243,6,311,0.944890022277832,0,0,0,0,0
+b_7826.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7826.png,large green 264136,small green 264136,small green 264136,6,52,1.000000238418579,0,0,0,0,0
+b_5687.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5687.png,small yellow 97670,small yellow 97670,small yellow 97670,5,1,0.9999999403953552,1,1,1,1,1
+b_5926.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5926.png,small green 65255,small green 65255,small green 65255,5,1,1.0000001192092896,1,1,1,1,1
+b_7292.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7292.png,small red 15965,small red 5965,small red 591465,5,69,0.969628632068634,0,0,0,0,0
+b_2553.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2553.png,large blue 533,small blue 533,small blue 533,3,10,1.0,0,0,0,0,0
+b_4005.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4005.png,small blue 2832,small blue 2832,small blue 2832,4,1,1.0000001192092896,1,1,1,1,1
+b_1094.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1094.png,small green 877,small green 877,small green 877,3,1,1.000000238418579,1,1,1,1,1
+b_450.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_450.png,large green 57,small green 57,small green 57,2,10,0.9999999403953552,0,0,0,0,0
+b_4870.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4870.png,small green 3780,small green 3780,small green 3780,4,1,1.0,1,1,1,1,1
+b_1125.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1125.png,small blue 984,small blue 984,small blue 984,3,1,1.0000001192092896,1,1,1,1,1
+b_5246.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5246.png,small green 5246,small green 5246,small green 5246,4,1,1.0000001192092896,1,1,1,1,1
+b_1742.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1742.png,small green 374,small green 374,small green 374,3,1,1.0000001192092896,1,1,1,1,1
+b_5459.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5459.png,large yellow 71069,small yellow 71069,small yellow 71069,5,464,1.0,0,0,0,0,0
+b_8076.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8076.png,small red 256226,small red 25626,small red 256,6,2,0.9684766530990601,0,1,1,1,1
+b_7287.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7287.png,small yellow 45954,small yellow 45954,small yellow 45954,5,1,1.0,1,1,1,1,1
+b_9906.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9906.png,large green 786587,small green 786587,small green 786587,6,513,1.0,0,0,0,0,0
+b_6737.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6737.png,large blue 37802,"small blue 3
+small blue 7
+small blue 8
+small blue 0
+small blue 2",small blue 7,5,1480,0.7204835414886475,0,0,0,0,0
+b_1784.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1784.png,large red 317,small red 317,small red 317,3,3,1.0,0,0,1,1,1
+b_7659.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7659.png,large yellow 87139,"small yellow 8
+small yellow 7
+small yellow 1
+small yellow 3
+small yellow 9",small yellow 10,5,1990,0.7287324666976929,0,0,0,0,0
+b_7803.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7803.png,large yellow 282256,small yellow 282256,small yellow 282256,6,528,1.0000001192092896,0,0,0,0,0
+b_4619.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4619.png,large yellow 2146,small yellow 2146,small yellow 2146,4,5,1.0000001192092896,0,0,0,0,1
+b_3260.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3260.png,small red 5345,small red 5345,small red 5345,4,1,0.9999999403953552,1,1,1,1,1
+b_8663.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8663.png,small yellow 531641,small yellow 531641,small yellow 531641,6,1,1.0,1,1,1,1,1
+b_7804.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7804.png,small red 282256,small red 82256,small red 87656,6,20,0.9455776214599609,0,0,0,0,0
+b_6415.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6415.png,small yellow 76317,small yellow 76317,small yellow 76317,5,1,1.0000001192092896,1,1,1,1,1
+b_2928.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2928.png,large red 541,small red 541,small red 541,3,23,1.000000238418579,0,0,0,0,0
+b_7178.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7178.png,large green 78765,small green 78765,small green 78765,5,239,1.0000001192092896,0,0,0,0,0
+b_3427.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3427.png,large yellow 2312,small yellow 2312,small yellow 2312,4,6,1.0000001192092896,0,0,0,0,0
+b_1693.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1693.png,small blue 886,small blue 886,small blue 886,3,1,1.0000001192092896,1,1,1,1,1
+b_134.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_134.png,small green 17,small green 17,small green 17,2,1,1.0,1,1,1,1,1
+b_3796.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3796.png,small red 5333,small red 5333,small red 5333,4,1,1.0,1,1,1,1,1
+b_8984.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8984.png,large red 559398,"small red 5
+small red 5
+small red 9
+small red 3
+small red 9
+small red 8",small red 5,6,1555,0.7033240795135498,0,0,0,0,0
+b_9241.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9241.png,large blue 975271,small blue 975271,small blue 975271,6,163,0.9999999403953552,0,0,0,0,0
+b_3395.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3395.png,large yellow 9701,small yellow 9701,small yellow 9701,4,31,1.0000001192092896,0,0,0,0,0
+b_1710.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1710.png,small green 334,small green 334,small green 334,3,1,1.0000001192092896,1,1,1,1,1
+b_8998.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8998.png,small green 832168,small green 832168,small green 832168,6,1,1.0,1,1,1,1,1
+b_8317.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8317.png,small blue 870214,small blue 870214,small blue 870214,6,1,1.0,1,1,1,1,1
+b_6306.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6306.png,large green 23356,small green a3356,small green 5533,5,1139,0.8865296840667725,0,0,0,0,0
+b_4099.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4099.png,large yellow 1653,small yellow 1658,small yellow 159,4,1177,0.9010312557220459,0,0,0,0,0
+b_4397.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4397.png,small blue 9346,small blue 9346,small blue 9346,4,1,1.0000001192092896,1,1,1,1,1
+b_360.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_360.png,large red 46,small red 46,small red 46,2,9,1.0,0,0,0,0,0
+b_5638.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5638.png,small green 45774,small green 45774,small green 45774,5,1,0.9999999403953552,1,1,1,1,1
+b_3378.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3378.png,large green 8811,small green 8811,small green 8811,4,22,1.0,0,0,0,0,0
+b_2256.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2256.png,large red 740,small red 740,small red 740,3,3,1.0,0,0,1,1,1
+b_259.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_259.png,large yellow 33,small yellow 33,small yellow 33,2,15,1.0,0,0,0,0,0
+b_5307.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5307.png,large yellow 2269,small yellow 2269,small yellow 2269,4,4,1.0,0,0,0,1,1
+b_3234.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3234.png,large green 7209,small green 7209,small green 7209,4,4,1.0,0,0,0,1,1
+b_1612.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1612.png,small red 267,small red 267,small red 267,3,1,1.0,1,1,1,1,1
+b_2318.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2318.png,small green 482,small green 482,small green 482,3,1,1.0,1,1,1,1,1
+b_5166.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5166.png,small green 9702,small green 9702,small green 9702,4,1,1.0,1,1,1,1,1
+b_7843.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7843.png,large yellow 528361,large yellow 528361,large yellow 528361,6,1,1.0000001192092896,1,1,1,1,1
+b_1776.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1776.png,large red 422,small red 422,small red 422,3,3,1.0,0,0,1,1,1
+b_8826.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8826.png,large green 789606,small green 789666,small green 789606,6,755,0.9729503989219666,0,0,0,0,0
+b_4724.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4724.png,small red 7888,small red 1888,small red 1931,4,287,0.8236491084098816,0,0,0,0,0
+b_4093.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4093.png,small blue 6974,small blue 6974,small blue 6974,4,1,1.000000238418579,1,1,1,1,1
+b_9185.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9185.png,large blue 622584,small blue 122584,small blue 63424,6,1430,0.9381846189498901,0,0,0,0,0
+b_7672.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7672.png,large red 50026,small red 50026,small red 50026,5,53,1.000000238418579,0,0,0,0,0
+b_5563.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5563.png,large yellow 49139,small yellow 49134,small yellow 49139,5,582,0.9815454483032227,0,0,0,0,0
+b_2127.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2127.png,small yellow 217,small yellow 217,small yellow 217,3,1,1.0000001192092896,1,1,1,1,1
+b_3219.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3219.png,large yellow 1960,small yellow 1960,small yellow 1960,4,2,1.0,0,1,1,1,1
+b_5489.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5489.png,large blue 65069,small blue 6569,small blue 651499,5,1641,0.9598065614700317,0,0,0,0,0
+b_1259.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1259.png,large yellow 847,large yellow 847,large yellow 847,3,1,1.0,1,1,1,1,1
+b_8306.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8306.png,large green 553014,small green 553014,small green 553014,6,267,1.0,0,0,0,0,0
+b_4926.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4926.png,small green 6085,small green 605,small green 605,4,4,1.0,0,0,0,1,1
+b_289.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_289.png,large blue 37,small blue 37,small blue 37,2,10,1.0,0,0,0,0,0
+b_898.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_898.png,large green 189,small green /89,small green 89,3,784,0.9632546305656433,0,0,0,0,0
+b_5584.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5584.png,large red 80545,small red 8,small red 8,5,3455,1.0000001192092896,0,0,0,0,0
+b_5192.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5192.png,large red 7991,small red 7991,small red 7991,4,154,0.9999998807907104,0,0,0,0,0
+b_1936.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1936.png,large red 890,small red 890,small red 890,3,42,1.0,0,0,0,0,0
+b_6706.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6706.png,large green 74789,small green 7,small green 7,5,3947,1.0000001192092896,0,0,0,0,0
+b_7549.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7549.png,small blue 21164,small blue 21164,small blue 21164,5,1,1.0,1,1,1,1,1
+b_3297.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3297.png,large blue 3536,small blue 3536,small blue 3536,4,21,1.0,0,0,0,0,0
+b_478.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_478.png,small green 60,small green 0,small green 1,2,98,0.8522010445594788,0,0,0,0,0
+b_869.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_869.png,small blue 204,small blue 204,small blue 204,3,1,1.0,1,1,1,1,1
+b_6756.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6756.png,small red 43862,small red 43862,small red 43862,5,1,1.0000001192092896,1,1,1,1,1
+b_5092.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5092.png,small red 3881,small red 3881,small red 3881,4,1,0.9999998807907104,1,1,1,1,1
+b_3458.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3458.png,large green 4853,small green 4853,small green 4853,4,15,1.0,0,0,0,0,0
+b_1430.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1430.png,small green 979,small green 9,small green 9,3,74,1.0000001192092896,0,0,0,0,0
+b_4094.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4094.png,small green 6974,small green 6974,small green 6974,4,1,1.0000001192092896,1,1,1,1,1
+b_9798.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9798.png,small green 232378,small green 232378,small green 232378,6,1,1.0,1,1,1,1,1
+b_2760.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2760.png,large red 885,small red 885,small red 885,3,31,1.0000001192092896,0,0,0,0,0
+b_3637.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3637.png,small blue 2638,small blue 2638,small blue 2638,4,1,1.0,1,1,1,1,1
+b_1674.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1674.png,large green 801,small green 801,small green 801,3,7,1.000000238418579,0,0,0,0,0
+b_2564.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2564.png,small red 879,small red 879,small red 879,3,1,1.000000238418579,1,1,1,1,1
+b_2786.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2786.png,large green 438,small green 436,small green 438,3,196,0.9403653144836426,0,0,0,0,0
+b_9707.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9707.png,large yellow 839485,"small yellow 8
+small yellow 3
+small yellow 9
+small yellow 4
+small yellow 8
+small yellow 5",small yellow 5,6,2580,0.6917496919631958,0,0,0,0,0
+b_9211.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9211.png,large yellow 633590,small yellow 633590,small yellow 633590,6,730,1.0,0,0,0,0,0
+b_2461.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2461.png,small blue 597,small blue 597,small blue 597,3,1,1.0000001192092896,1,1,1,1,1
+b_8299.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8299.png,large yellow 141797,small yellow 141797,small yellow 141797,6,3,1.0,0,0,1,1,1
+b_8508.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8508.png,small red 563711,small red 37,small red 37,6,915,1.0000001192092896,0,0,0,0,0
+b_6897.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6897.png,large blue 68743,small blue 68743,small blue 68743,5,88,1.000000238418579,0,0,0,0,0
+b_6207.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6207.png,small yellow 24168,small yellow 24168,small yellow 24168,5,1,1.0,1,1,1,1,1
+b_8915.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8915.png,large yellow 755788,small yellow 755788,small yellow 755788,6,585,1.000000238418579,0,0,0,0,0
+b_7626.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7626.png,large green 59856,small green 59856,small green 59856,5,321,1.0,0,0,0,0,0
+b_5415.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5415.png,small yellow 38043,small yellow 3048,small yellow 3041,5,1388,0.9687603116035461,0,0,0,0,0
+b_3951.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3951.png,small yellow 6464,small yellow 6464,small yellow 6464,4,1,1.0000001192092896,1,1,1,1,1
+b_2438.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2438.png,small green 878,small green 878,small green 878,3,1,1.000000238418579,1,1,1,1,1
+b_9790.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9790.png,small green 138817,small green 138917,small green 138817,6,1,0.98431795835495,1,1,1,1,1
+b_8159.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8159.png,small yellow 885339,small yellow 885339,small yellow 885339,6,1,1.0000001192092896,1,1,1,1,1
+b_9268.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9268.png,small red 355570,small red 355570,small red 355570,6,1,1.0,1,1,1,1,1
+b_4511.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4511.png,small yellow 8149,small yellow 8149,small yellow 8149,4,1,1.0000001192092896,1,1,1,1,1
+b_3538.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3538.png,large green 4346,small green 4346,small green 4346,4,29,0.9999999403953552,0,0,0,0,0
+b_7765.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7765.png,small blue 377501,small blue 377501,small blue 377501,6,1,1.0000001192092896,1,1,1,1,1
+b_6669.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6669.png,small blue 89997,small blue 89997,small blue 89997,5,1,1.0,1,1,1,1,1
+b_5375.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5375.png,small yellow 3267,small yellow 3267,small yellow 3267,4,1,1.0,1,1,1,1,1
+b_9160.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9160.png,large red 779172,small red 779172,small red 779172,6,390,0.9999999403953552,0,0,0,0,0
+b_7919.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7919.png,small yellow 841296,small yellow 841296,small yellow 841296,6,1,1.0,1,1,1,1,1
+b_4557.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4557.png,small blue 1727,small blue 1127,small blue 1128,4,4725,0.9704036116600037,0,0,0,0,0
+b_4463.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4463.png,small yellow 5349,small yellow 5349,small yellow 5349,4,1,1.0,1,1,1,1,1
+b_1020.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1020.png,small red 818,small red 818,small red 818,3,1,0.9999998807907104,1,1,1,1,1
+b_6230.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6230.png,small green 50888,small green 50848,small green 5082,5,4,0.9697624444961548,0,0,0,1,1
+b_757.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_757.png,small blue 95,small blue 95,small blue 95,2,1,0.9999998807907104,1,1,1,1,1
+b_7565.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7565.png,small blue 25525,small blue 2525,small blue 2528,5,55,0.9796038866043091,0,0,0,0,0
+b_5921.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5921.png,large blue 65255,small blue 65255,small blue 65255,5,124,1.000000238418579,0,0,0,0,0
+b_842.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_842.png,large green 328,large green 328,large green 328,3,1,1.0,1,1,1,1,1
+b_9012.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9012.png,small red 227324,small red 22734,small red 227324,6,1,0.9644618034362793,1,1,1,1,1
+b_4938.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4938.png,large green 4262,small green 4262,small green 4262,4,154,1.0000001192092896,0,0,0,0,0
+b_4777.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4777.png,large blue 5978,small blue 5978,small blue 5978,4,324,1.0000001192092896,0,0,0,0,0
+b_9026.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9026.png,large green 760626,small green 760626,small green 760626,6,3,1.0000001192092896,0,0,1,1,1
+b_1738.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1738.png,large green 374,small green 374,small green 374,3,14,1.0000001192092896,0,0,0,0,0
+b_5243.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5243.png,large yellow 5246,small yellow 5246,small yellow 5246,4,87,1.0,0,0,0,0,0
+b_3615.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3615.png,small yellow 2188,small yellow 3188,small yellow 3184,4,707,0.9859565496444702,0,0,0,0,0
+b_9612.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9612.png,small red 831380,small red 631380,small red 633590,6,8,0.9674336910247803,0,0,0,0,0
+b_1315.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1315.png,large yellow 400,small yellow 400,small yellow 400,3,5,1.0,0,0,0,0,1
+b_801.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_801.png,large blue 214,small blue 214,small blue 214,3,3,1.0,0,0,1,1,1
+b_8617.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8617.png,large blue 802685,small blue 8,small blue 8,6,7625,1.0,0,0,0,0,0
+b_4740.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4740.png,small red 3851,small red 3851,small red 3851,4,1,0.9999999403953552,1,1,1,1,1
+b_2831.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2831.png,small yellow 791,small yellow 791,small yellow 791,3,1,1.0,1,1,1,1,1
+b_4410.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4410.png,large green 9785,small green 9,small green 9,4,3291,1.0000001192092896,0,0,0,0,0
+b_3752.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3752.png,large red 9666,small red 6666,small red 66179,4,538,0.9543090462684631,0,0,0,0,0
+b_4274.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4274.png,large green 4644,small green 4644,small green 4644,4,31,1.0,0,0,0,0,0
+b_8970.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8970.png,large green 237377,small green 23237,small green 232378,6,290,0.9620252847671509,0,0,0,0,0
+b_9544.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9544.png,large red 448588,small red 448588,small red 448588,6,445,1.000000238418579,0,0,0,0,0
+b_9393.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9393.png,large blue 456385,"small blue 4
+small blue 5
+small blue 6
+small blue 3
+small blue 8
+small blue 5",small blue 5,6,4239,0.6792091131210327,0,0,0,0,0
+b_6187.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6187.png,large yellow 31465,"small yellow 3
+small yellow 1
+small yellow 4
+small yellow 6
+small yellow 5",small yellow 5,5,4093,0.7218232154846191,0,0,0,0,0
+b_1308.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1308.png,small red 665,small red 665,small red 665,3,1,1.0,1,1,1,1,1
+b_7778.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7778.png,large green 185131,small green 185131,small green 185131,6,2,1.0,0,1,1,1,1
+b_9428.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9428.png,small red 960408,small red 965408,small red 964998,6,294,0.9710657596588135,0,0,0,0,0
+b_1820.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1820.png,small red 758,small red 758,small red 758,3,1,0.9999999403953552,1,1,1,1,1
+b_8651.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8651.png,large yellow 445824,small yellow 445824,small yellow 445824,6,452,1.0000001192092896,0,0,0,0,0
+b_8368.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8368.png,large red 807053,small red 807053,small red 807053,6,115,1.0000001192092896,0,0,0,0,0
+b_5830.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5830.png,small green 70515,small green 76515,small green 765,5,2,0.942184329032898,0,1,1,1,1
+b_4403.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4403.png,large yellow 7548,small yellow 7548,small yellow 7548,4,353,1.0000001192092896,0,0,0,0,0
+b_7546.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7546.png,large green 21164,small green 2164,small green 36130,5,1030,0.8959710597991943,0,0,0,0,0
+b_4668.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4668.png,small red 6067,small red 6067,small red 6067,4,1,1.0000001192092896,1,1,1,1,1
+b_9540.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9540.png,small red 461888,small red 46188,small red 461888,6,1,0.9902293682098389,1,1,1,1,1
+b_1317.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1317.png,small blue 400,small blue 400,small blue 400,3,1,1.0000001192092896,1,1,1,1,1
+b_8090.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8090.png,large green 966785,small green 966785,small green 966785,6,414,1.0,0,0,0,0,0
+b_9622.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9622.png,small green 350405,small green 350405,small green 350405,6,1,1.0,1,1,1,1,1
+b_3987.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3987.png,large yellow 8007,small yellow 8007,small yellow 8007,4,368,1.0,0,0,0,0,0
+b_1517.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1517.png,small blue 786,small blue 786,small blue 786,3,1,1.0,1,1,1,1,1
+b_5416.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5416.png,large red 18418,small red 18418,small red 18418,5,2,1.0,0,1,1,1,1
+b_4551.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4551.png,small yellow 5173,small yellow 5173,small yellow 5173,4,1,1.0,1,1,1,1,1
+b_4669.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4669.png,small blue 6067,small blue 6067,small blue 6067,4,1,1.0,1,1,1,1,1
+b_5600.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5600.png,large red 89069,small red 89069,small red 89069,5,514,0.9999999403953552,0,0,0,0,0
+b_8488.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8488.png,large red 644173,small red 644173,small red 644173,6,453,1.0,0,0,0,0,0
+b_2395.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2395.png,large yellow 471,small yellow 471,small yellow 471,3,89,0.9999998807907104,0,0,0,0,0
+b_1294.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1294.png,small green 487,small green 487,small green 487,3,1,1.0,1,1,1,1,1
+b_8739.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8739.png,large yellow 576919,small yellow number,small yellow 99974,6,1275,0.8360821008682251,0,0,0,0,0
+b_765.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_765.png,small blue 96,small blue 46,small blue 46,2,143,1.0,0,0,0,0,0
+b_3866.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3866.png,large green 5325,"small green 5
+small green 3
+small green 2
+small green 5",small green 5,4,3535,0.8102381229400635,0,0,0,0,0
+b_612.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_612.png,small red 77,small red 77,small red 77,2,1,1.0,1,1,1,1,1
+b_9924.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9924.png,small red 178463,small red 178463,small red 178463,6,1,1.0,1,1,1,1,1
+b_6017.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6017.png,large blue 15276,small blue 15276,small blue 15276,5,3,1.0000001192092896,0,0,1,1,1
+b_9624.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9624.png,large red 699573,"small red 6
+small red 1
+small red 9
+small red 5
+small red 1
+small red 3",small red 6,6,2561,0.7056876420974731,0,0,0,0,0
+b_8997.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8997.png,small blue 832168,small blue 832/68,small blue 68,6,73,0.9059300422668457,0,0,0,0,0
+b_564.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_564.png,small red 71,small red 71,small red 71,2,1,1.0,1,1,1,1,1
+b_4611.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4611.png,large yellow 8066,small yellow 8066,small yellow 8066,4,137,1.0000001192092896,0,0,0,0,0
+b_5216.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5216.png,large red 3607,small red 3607,small red 3607,4,3,1.0,0,0,1,1,1
+b_7083.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7083.png,large yellow 40217,small yellow 40217,small yellow 40217,5,131,1.0,0,0,0,0,0
+b_2106.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2106.png,large green 111,small green 3,small green 3,3,3414,1.0000001192092896,0,0,0,0,0
+b_3096.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3096.png,large red 5092,small red 5692,small red 5669,4,1324,0.9690955877304077,0,0,0,0,0
+b_802.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_802.png,large green 214,small green 2/4,small green 4,3,2113,0.8653899431228638,0,0,0,0,0
+b_4543.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4543.png,small yellow 4114,small yellow 4114,small yellow 4114,4,1,1.0,1,1,1,1,1
+b_8943.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8943.png,small yellow 154118,small yellow 154118,small yellow 154118,6,1,0.9999999403953552,1,1,1,1,1
+b_9261.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9261.png,small blue 595158,small blue 545158,small blue 595158,6,1,0.9550637006759644,1,1,1,1,1
+b_4880.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4880.png,large red 5649,"small red 5
+small red 6
+small red 4
+small red 9",small red 6,4,1778,0.7738476991653442,0,0,0,0,0
+b_3454.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3454.png,small green 2113,small green 2113,small green 2113,4,1,1.0000001192092896,1,1,1,1,1
+b_1933.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1933.png,small blue 931,small blue 931,small blue 931,3,1,1.0,1,1,1,1,1
+b_9807.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9807.png,small yellow 626690,small yellow 626690,small yellow 626690,6,1,1.0000001192092896,1,1,1,1,1
+b_8632.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8632.png,large red 999398,small red 999398,small red 999398,6,212,1.0,0,0,0,0,0
+b_2873.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2873.png,large blue 584,small blue 584,small blue 584,3,6,1.0000001192092896,0,0,0,0,0
+b_490.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_490.png,large green 62,small green 62,small green 62,2,6,1.0,0,0,0,0,0
+b_7501.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7501.png,small blue 99974,small blue 99974,small blue 99974,5,1,1.000000238418579,1,1,1,1,1
+b_8452.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8452.png,small red 142185,small red 142185,small red 142185,6,1,1.0,1,1,1,1,1
+b_9324.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9324.png,small red 632929,small red 632929,small red 632929,6,1,1.0000001192092896,1,1,1,1,1
+b_3460.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3460.png,small red 4853,small red 4653,small red 463,4,4,0.9517945051193237,0,0,0,1,1
+b_7829.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7829.png,small blue 264136,small blue 264136,small blue 264136,6,1,1.000000238418579,1,1,1,1,1
+b_3774.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3774.png,small green 5905,small green 5905,small green 5905,4,1,1.0000001192092896,1,1,1,1,1
+b_4888.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4888.png,large red 9445,small red 9445,small red 9445,4,61,1.0,0,0,0,0,0
+b_3011.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3011.png,large yellow 211,small yellow 211,small yellow 211,3,14,1.0,0,0,0,0,0
+b_4618.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4618.png,large green 2146,small green 2146,small green 2146,4,6,1.0000001192092896,0,0,0,0,0
+b_532.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_532.png,small red 67,small red 67,small red 67,2,1,1.000000238418579,1,1,1,1,1
+b_2986.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2986.png,large green 162,small green 162,small green 162,3,2,1.0,0,1,1,1,1
+b_9527.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9527.png,small yellow 664742,small yellow 664742,small yellow 664742,6,1,1.0,1,1,1,1,1
+b_7321.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7321.png,large blue 26551,small blue 26551,small blue 26551,5,9,1.0000001192092896,0,0,0,0,0
+b_570.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_570.png,large green 72,small green 72,small green 72,2,9,1.0000001192092896,0,0,0,0,0
+b_3318.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3318.png,small green 5861,small green 5861,small green 5861,4,1,1.0,1,1,1,1,1
+b_7481.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7481.png,large blue 85631,"small blue 8
+small blue 5
+small blue 6
+small blue 3
+small blue 1",small blue 6,5,2733,0.698967695236206,0,0,0,0,0
+b_3822.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3822.png,small green 3546,small green 3546,small green 3546,4,1,1.0000001192092896,1,1,1,1,1
+b_2950.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2950.png,small green 779,small green 779,small green 779,3,1,1.0,1,1,1,1,1
+b_2421.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2421.png,small blue 159,small blue 159,small blue 159,3,1,1.0,1,1,1,1,1
+b_2365.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2365.png,small blue 431,small blue 431,small blue 431,3,1,1.0,1,1,1,1,1
+b_7933.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7933.png,small blue 837135,small blue 837135,small blue 837135,6,1,1.0000001192092896,1,1,1,1,1
+b_136.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_136.png,large red 18,small red 18,small red 18,2,4,1.0,0,0,0,1,1
+b_2475.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2475.png,large yellow 645,small yellow 645,small yellow 645,3,31,1.0000001192092896,0,0,0,0,0
+b_5640.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5640.png,large red 67125,small red 67125,small red 67125,5,618,1.0000001192092896,0,0,0,0,0
+b_1167.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1167.png,small yellow 881,small yellow 881,small yellow 881,3,1,1.0,1,1,1,1,1
+b_2847.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2847.png,small yellow 961,small yellow 461,small yellow 462,3,99,0.975728452205658,0,0,0,0,0
+b_167.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_167.png,small yellow 21,small yellow 21,small yellow 21,2,1,1.0,1,1,1,1,1
+b_6501.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6501.png,small blue 30052,small blue 30052,small blue 30052,5,1,1.0,1,1,1,1,1
+b_2111.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2111.png,small yellow 111,small yellow 3,small yellow 3,3,611,1.0000001192092896,0,0,0,0,0
+b_5974.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5974.png,small green 16826,small green 16826,small green 16826,5,1,1.0,1,1,1,1,1
+b_9800.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9800.png,large red 626690,small red 626690,small red 626690,6,468,1.0,0,0,0,0,0
+b_8332.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8332.png,small red 733039,small red 733039,small red 733039,6,1,1.0000001192092896,1,1,1,1,1
+b_8268.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8268.png,small red 617781,small red 617781,small red 617781,6,1,1.0,1,1,1,1,1
+b_2040.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2040.png,large red 165,small red 165,small red 165,3,4,1.0,0,0,0,1,1
+b_9767.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9767.png,small yellow 783691,small yellow 783691,small yellow 783691,6,1,1.0,1,1,1,1,1
+b_5540.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5540.png,small red 72518,small red 72518,small red 72518,5,1,1.0,1,1,1,1,1
+b_7973.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7973.png,small blue 377405,small blue 377405,small blue 377405,6,1,1.0,1,1,1,1,1
+b_2925.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2925.png,small blue 948,small blue 948,small blue 948,3,1,1.0,1,1,1,1,1
+b_2263.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2263.png,small yellow 740,small yellow 740,small yellow 740,3,1,1.0,1,1,1,1,1
+b_8365.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8365.png,small blue 340044,small blue 240044,small blue 340044,6,1,0.9467498660087585,1,1,1,1,1
+b_923.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_923.png,large yellow 132,small yellow 132,small yellow 132,3,4,1.0,0,0,0,1,1
+b_9152.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9152.png,large red 223172,small red 223172,small red 223172,6,4,1.000000238418579,0,0,0,1,1
+b_2250.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2250.png,large green 208,small green 208,small green 208,3,2,1.000000238418579,0,1,1,1,1
+b_3221.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3221.png,small blue 1960,small blue 1960,small blue 1960,4,1,0.9999998807907104,1,1,1,1,1
+b_3976.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3976.png,large red 8239,small red 8239,small red 8239,4,262,1.0,0,0,0,0,0
+b_9626.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9626.png,large green 699573,small green 699573,small green 699573,6,285,1.0,0,0,0,0,0
+b_1024.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1024.png,large red 987,small red 983,small red 983,3,132,0.9999999403953552,0,0,0,0,0
+b_6885.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6885.png,small blue 94659,small blue 94659,small blue 94659,5,1,1.000000238418579,1,1,1,1,1
+b_3679.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3679.png,small yellow 3170,small yellow 3170,small yellow 3170,4,1,1.0,1,1,1,1,1
+b_2896.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2896.png,large red 516,small red 51.6,small red 51,3,36,0.9356914758682251,0,0,0,0,0
+b_9305.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9305.png,large blue 299869,"small blue numbers: 2, 9, 9, 8, 6, 9",small blue 999,6,592,0.6353787779808044,0,0,0,0,0
+b_7009.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7009.png,large blue 55056,"small blue 5, small blue 5, small blue 0, small blue 5, small blue 6",small blue 5,5,1936,0.7417857050895691,0,0,0,0,0
+b_8785.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8785.png,large blue 910075,small blue 910075,small blue 910075,6,17,1.0,0,0,0,0,0
+b_206.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_206.png,small green 26,small green 26,small green 26,2,1,1.0000001192092896,1,1,1,1,1
+b_7568.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7568.png,large red 83147,small red 83147,small red 83147,5,457,1.0,0,0,0,0,0
+b_9060.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9060.png,small red 844261,small red 844261,small red 844261,6,1,0.9999998807907104,1,1,1,1,1
+b_2984.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2984.png,large red 162,small red 62,small red 62,3,1717,1.0000001192092896,0,0,0,0,0
+b_5870.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5870.png,small green 52906,small green 52906,small green 52906,5,1,1.0000001192092896,1,1,1,1,1
+b_4399.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4399.png,small yellow 9346,small yellow 9346,small yellow 9346,4,1,1.0,1,1,1,1,1
+b_9421.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9421.png,small blue 380150,small blue 380156,small blue 380150,6,1,0.9810048341751099,1,1,1,1,1
+b_2323.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2323.png,large yellow 265,small yellow 265,small yellow 265,3,4,1.0,0,0,0,1,1
+b_5529.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5529.png,large blue 59857,small blue 59857,small blue 59857,5,498,0.9999999403953552,0,0,0,0,0
+b_6492.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6492.png,small red 70258,small red 70258,small red 70258,5,1,0.9999998807907104,1,1,1,1,1
+b_3600.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3600.png,large red 6180,small red 6180,small red 6180,4,42,1.0000001192092896,0,0,0,0,0
+b_9385.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9385.png,large blue 535098,small blue 535098,small blue 535098,6,313,1.0,0,0,0,0,0
+b_4499.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4499.png,large yellow 6139,small yellow 6134,small yellow 613425,4,920,0.9759868383407593,0,0,0,0,0
+b_592.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_592.png,large red 75,small red 75,small red 75,2,10,1.0,0,0,0,0,0
+b_2929.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2929.png,large blue 541,small blue 541,small blue 541,3,14,1.000000238418579,0,0,0,0,0
+b_2979.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2979.png,large yellow 200,small yellow 200,small yellow 200,3,6,1.0000001192092896,0,0,0,0,0
+b_4906.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4906.png,large green 2530,small green 2530,small green 2530,4,2,1.0,0,1,1,1,1
+b_6029.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6029.png,small blue 14067,small blue 14067,small blue 14067,5,1,1.0,1,1,1,1,1
+b_9690.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9690.png,large green 880879,small green 880879,small green 880879,6,259,1.0000001192092896,0,0,0,0,0
+b_6582.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6582.png,small green 67091,small green 67091,small green 67091,5,1,0.9999999403953552,1,1,1,1,1
+b_6519.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6519.png,small yellow 33086,small yellow 33086,small yellow 33086,5,1,1.0000001192092896,1,1,1,1,1
+b_1619.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1619.png,large yellow 573,small yellow 573,small yellow 573,3,105,1.0,0,0,0,0,0
+b_7670.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7670.png,small green 66207,small green 66207,small green 66207,5,1,1.0,1,1,1,1,1
+b_6448.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6448.png,large red 74251,small red 74251,small red 74251,5,48,1.0,0,0,0,0,0
+b_124.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_124.png,small red 16,small red 16,small red 16,2,1,1.0000001192092896,1,1,1,1,1
+b_5107.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5107.png,large yellow 8611,small yellow 8811,small yellow 8811,4,303,1.0,0,0,0,0,0
+b_8385.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8385.png,large blue 703139,small blue 703/19,small blue 703,6,264,0.9224909543991089,0,0,0,0,0
+b_9782.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9782.png,small green 619389,small green 61938a,small green 6138,6,3,0.9338293671607971,0,0,1,1,1
+b_5137.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5137.png,large blue 8478,small blue 8478,small blue 8478,4,208,1.0,0,0,0,0,0
+b_9286.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9286.png,small green 678043,small green 678043,small green 678043,6,1,1.0,1,1,1,1,1
+b_8381.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8381.png,small blue 976566,small blue 976566,small blue 976566,6,1,1.0,1,1,1,1,1
+b_2222.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2222.png,small green 865,small green 865,small green 865,3,1,1.0000001192092896,1,1,1,1,1
+b_6416.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6416.png,large red 94874,small red 94874,small red 94874,5,568,1.0,0,0,0,0,0
+b_6432.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6432.png,large red 11658,small red 11658,small red 11658,5,13,1.0000001192092896,0,0,0,0,0
+b_5373.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5373.png,small blue 3267,small blue 3267,small blue 3267,4,1,1.0,1,1,1,1,1
+b_7360.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7360.png,large red 85243,small red 8,small red 8,5,3210,1.0000001192092896,0,0,0,0,0
+b_8830.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8830.png,small green 789606,small green 789606,small green 789606,6,1,1.0,1,1,1,1,1
+b_9456.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9456.png,large red 413058,small red 413058,small red 413058,6,424,1.0,0,0,0,0,0
+b_6882.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6882.png,large green 94659,small green 94659,small green 94659,5,527,0.9999999403953552,0,0,0,0,0
+b_1395.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1395.png,large yellow 333,small yellow 333,small yellow 333,3,2,1.0000001192092896,0,1,1,1,1
+b_9342.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9342.png,small green 243139,small green 243139,small green 243139,6,1,1.000000238418579,1,1,1,1,1
+b_5735.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5735.png,small yellow 91560,small yellow 91560,small yellow 91560,5,1,1.0,1,1,1,1,1
+b_8065.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8065.png,large blue 779094,small blue 779094,small blue 779094,6,342,1.0,0,0,0,0,0
+b_6612.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6612.png,small red 42177,small red 42177,small red 42177,5,1,1.000000238418579,1,1,1,1,1
+b_8756.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8756.png,small red 429795,small red 429765,small red 396578,6,7,0.9845340847969055,0,0,0,0,0
+b_3825.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3825.png,large blue 5462,"small blue 5
+small blue 4
+small blue 6
+small blue 2",small blue 5,4,2762,0.7542093396186829,0,0,0,0,0
+b_5720.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5720.png,large red 26728,"small red 2
+small red 6
+small red 7
+small red 2
+small red 8",small red 6,5,3247,0.7448554635047913,0,0,0,0,0
+b_8850.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8850.png,large green 533321,small green 533321,small green 533321,6,276,0.9999999403953552,0,0,0,0,0
+b_4996.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4996.png,small red 8461,small red 8461,small red 8461,4,1,1.000000238418579,1,1,1,1,1
+b_5894.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5894.png,small green 52840,small green 52840,small green 52840,5,1,1.000000238418579,1,1,1,1,1
+b_4559.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4559.png,small yellow 1727,small yellow 1727,small yellow 1727,4,1,1.0,1,1,1,1,1
+b_2781.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2781.png,small blue 884,small blue 884,small blue 884,3,1,1.0000001192092896,1,1,1,1,1
+b_6754.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6754.png,large green 43862,small green 43862,small green 43862,5,80,1.0,0,0,0,0,0
+b_7913.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7913.png,large blue 841296,small blue 841296,small blue 841296,6,267,1.0000001192092896,0,0,0,0,0
+b_4546.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4546.png,large green 5173,small green 5173,small green 5173,4,179,1.0000001192092896,0,0,0,0,0
+b_4200.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4200.png,large red 6442,small red 6442,small red 6442,4,20,0.9999999403953552,0,0,0,0,0
+b_2038.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2038.png,small green 710,small green 710,small green 710,3,1,1.0000001192092896,1,1,1,1,1
+b_4452.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4452.png,small red 3925,small red 3926,small red 396,4,3,0.9549897909164429,0,0,1,1,1
+b_1147.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1147.png,large yellow 259,small yellow 259,small yellow 259,3,2,0.9999999403953552,0,1,1,1,1
+b_4985.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4985.png,large blue 2193,small blue 2193,small blue 2193,4,2,1.000000238418579,0,1,1,1,1
+b_5843.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5843.png,large yellow 16590,small yellow 16590,small yellow 16590,5,2,1.0,0,1,1,1,1
+b_2362.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2362.png,large green 431,small green 431,small green 431,3,16,1.0000001192092896,0,0,0,0,0
+b_5219.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5219.png,large yellow 3607,small yellow 3607,small yellow 3607,4,3,1.0,0,0,1,1,1
+b_2139.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2139.png,large yellow 939,large yellow 434,large yellow 432,3,775,0.9681525230407715,0,0,0,0,0
+b_1265.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1265.png,large blue 570,small blue 570,small blue 570,3,3,1.000000238418579,0,0,1,1,1
+b_278.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_278.png,small green 35,small green 35,small green 35,2,1,1.0,1,1,1,1,1
+b_4228.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4228.png,small red 5371,small red 5371,small red 5371,4,1,1.000000238418579,1,1,1,1,1
+b_9634.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9634.png,large green 501574,small green 501574,small green 501574,6,199,1.0,0,0,0,0,0
+b_618.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_618.png,large green 78,small green 78,small green 78,2,3,1.0,0,0,1,1,1
+b_2545.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2545.png,large blue 721,large blue 721,large blue 721,3,1,1.0000001192092896,1,1,1,1,1
+b_5860.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5860.png,small red 59689,small red 59689,small red 59689,5,1,1.0,1,1,1,1,1
+b_684.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_684.png,small red 86,small red 86,small red 86,2,1,1.0,1,1,1,1,1
+b_6369.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6369.png,large blue 79827,small blue 7,small blue 7,5,2819,1.0,0,0,0,0,0
+b_2484.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2484.png,small red 228,small red 228,small red 228,3,1,1.0000001192092896,1,1,1,1,1
+b_6270.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6270.png,small green 35995,small green 35995,small green 35995,5,1,1.0,1,1,1,1,1
+b_6804.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6804.png,small red 11330,small red 11330,small red 11330,5,1,1.0000001192092896,1,1,1,1,1
+b_6217.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6217.png,large blue 13365,small blue 13365,small blue 13365,5,3,1.000000238418579,0,0,1,1,1
+b_2437.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2437.png,small blue 878,small blue 878,small blue 878,3,1,1.0,1,1,1,1,1
+b_4025.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4025.png,large blue 9938,small blue 9934,small blue 994,4,908,0.9375430941581726,0,0,0,0,0
+b_2917.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2917.png,small blue 196,small blue 196,small blue 196,3,1,1.0,1,1,1,1,1
+b_7622.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7622.png,small green 78494,small green 78494,small green 78494,5,1,1.0,1,1,1,1,1
+b_3875.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3875.png,large yellow 9280,small yellow 9280,small yellow 9280,4,52,1.0,0,0,0,0,0
+b_4160.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4160.png,large red 3662,"small red 3
+small red 6
+small red 6
+small red 2",small red 6,4,618,0.7746707797050476,0,0,0,0,0
+b_2397.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2397.png,small blue 471,small blue 471,small blue 471,3,1,1.0,1,1,1,1,1
+b_2584.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2584.png,large red 419,small red 419,small red 419,3,28,1.000000238418579,0,0,0,0,0
+b_2655.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2655.png,small yellow 353,small yellow 353,small yellow 353,3,1,1.000000238418579,1,1,1,1,1
+b_9099.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9099.png,large yellow 679077,small yellow 679071,small yellow 679077,6,755,0.9885684251785278,0,0,0,0,0
+b_5586.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5586.png,large green 80545,small green 80545,small green 80545,5,220,1.0,0,0,0,0,0
+b_2767.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2767.png,small yellow 885,small yellow 885,small yellow 885,3,1,1.0,1,1,1,1,1
+b_533.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_533.png,small blue 67,small blue 67,small blue 67,2,1,1.0,1,1,1,1,1
+b_2626.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2626.png,large green 629,small green 629,small green 629,3,9,0.9999999403953552,0,0,0,0,0
+b_5475.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5475.png,large yellow 18161,"small yellow 1
+small yellow 8
+small yellow 1
+small yellow 6
+small yellow 1",small yellow 6,5,2129,0.6906007528305054,0,0,0,0,0
+b_6784.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6784.png,large red 46211,small red 46211,small red 46211,5,403,1.000000238418579,0,0,0,0,0
+b_7879.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7879.png,small yellow 592738,small yellow 592738,small yellow 592738,6,1,1.0000001192092896,1,1,1,1,1
+b_649.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_649.png,large blue 82,small blue 82,small blue 82,2,14,1.0,0,0,0,0,0
+b_5627.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5627.png,large yellow 38760,"small yellow 3
+small yellow 8
+small yellow 7
+small yellow 6
+small yellow 0",small yellow 10,5,1624,0.7265332937240601,0,0,0,0,0
+b_9704.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9704.png,large red 839485,"small red 8
+small red 3
+small red 9
+small red 4
+small red 6
+small red 5",small red 6,6,2522,0.706470787525177,0,0,0,0,0
+b_7291.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7291.png,large yellow 15965,small yellow 15765,small yellow 157,5,458,0.9627852439880371,0,0,0,0,0
+b_4889.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4889.png,large blue 9445,"small blue 9
+small blue 6
+small blue 4
+small blue 5",small blue 5,4,1801,0.7530763149261475,0,0,0,0,0
+b_3697.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3697.png,large blue 5002,small blue 5002,small blue 5002,4,4,1.0,0,0,0,1,1
+b_8976.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8976.png,large red 402020,small red 402020,small red 402020,6,51,1.0,0,0,0,0,0
+b_5705.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5705.png,large blue 31632,small blue 31632,small blue 31632,5,3,1.0,0,0,1,1,1
+b_3363.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3363.png,large yellow 1936,small yellow 1936,small yellow 1936,4,2,1.000000238418579,0,1,1,1,1
+b_7892.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7892.png,small red 134225,small red 13425,small red 134225,6,1,0.9592927098274231,1,1,1,1,1
+b_8551.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8551.png,small yellow 765620,small yellow 765620,small yellow 765620,6,1,1.000000238418579,1,1,1,1,1
+b_7584.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7584.png,large red 89471,large red 89471,large red 89471,5,1,1.000000238418579,1,1,1,1,1
+b_5117.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5117.png,small blue 1822,small blue 1822,small blue 1822,4,1,1.0,1,1,1,1,1
+b_5039.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5039.png,small yellow 7547,small yellow 2547,small yellow 321275,4,537,0.9319093227386475,0,0,0,0,0
+b_9765.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9765.png,small blue 783691,small blue 783691,small blue 783691,6,1,1.000000238418579,1,1,1,1,1
+b_9148.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9148.png,small red 583863,small red 583863,small red 583863,6,1,1.0,1,1,1,1,1
+b_2134.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2134.png,small green 798,small green 798,small green 798,3,1,1.0,1,1,1,1,1
+b_1111.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1111.png,small yellow 263,small yellow 263,small yellow 263,3,1,1.0000001192092896,1,1,1,1,1
+b_5515.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5515.png,large yellow 12560,small yellow 12560,small yellow 12560,5,35,1.000000238418579,0,0,0,0,0
+b_7582.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7582.png,small green 64548,small green 61548,small green 6198,5,15,0.9731716513633728,0,0,0,0,0
+b_3470.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3470.png,small green 7615,small green 7615,small green 7615,4,1,1.0,1,1,1,1,1
+b_2768.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2768.png,large red 169,small red 169,small red 169,3,2,1.0,0,1,1,1,1
+b_1505.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1505.png,large blue 314,large blue 3,large blue 3,3,1794,1.0000001192092896,0,0,0,0,0
+b_2104.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2104.png,large red 111,small red 111,small red 111,3,2,1.0,0,1,1,1,1
+b_6349.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6349.png,small blue 84177,small blue 84/7,small blue 84,5,98,0.9228487610816956,0,0,0,0,0
+b_3669.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3669.png,small blue 9288,small blue 9288,small blue 9288,4,1,1.0000001192092896,1,1,1,1,1
+b_9783.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9783.png,small yellow 619389,small yellow 619389,small yellow 619389,6,1,1.0,1,1,1,1,1
+b_6183.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6183.png,small yellow 25012,small yellow 25012,small yellow 25012,5,1,1.0000001192092896,1,1,1,1,1
+b_9594.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9594.png,large green 437408,small green 431408,small green 437408,6,569,0.9757202863693237,0,0,0,0,0
+b_7808.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7808.png,large red 678805,small red 678825,small red 676818,6,762,0.9760373830795288,0,0,0,0,0
+b_8228.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8228.png,small red 833723,small red 833723,small red 833723,6,1,1.0000001192092896,1,1,1,1,1
+b_795.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_795.png,large yellow 754,small yellow 74,small yellow 74,3,860,1.0000001192092896,0,0,0,0,0
+b_5357.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5357.png,small blue 9849,small blue 9849,small blue 9849,4,1,1.0000001192092896,1,1,1,1,1
+b_4952.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4952.png,large red 1400,small red 1400,small red 1400,4,4,1.0,0,0,0,1,1
+b_3340.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3340.png,small red 9883,small red 9883,small red 9883,4,1,1.0000001192092896,1,1,1,1,1
+b_5684.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5684.png,small red 97670,small red 97670,small red 97670,5,1,1.000000238418579,1,1,1,1,1
+b_556.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_556.png,small red 70,small red 70,small red 70,2,1,1.0,1,1,1,1,1
+b_3892.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3892.png,small red 5114,small red 5114,small red 5114,4,1,1.0000001192092896,1,1,1,1,1
+b_4150.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4150.png,small green 3532,small green 5532,small green 5533,4,6,0.9324043989181519,0,0,0,0,0
+b_5644.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5644.png,small red 67125,small red 67125,small red 67125,5,1,1.0000001192092896,1,1,1,1,1
+b_7962.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7962.png,large green 344762,small green 344762,small green 344762,6,4,1.0,0,0,0,1,1
+b_7020.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7020.png,small red 65771,small red 65771,small red 65771,5,1,1.0,1,1,1,1,1
+b_7852.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7852.png,small red 572387,small red 572387,small red 572387,6,1,1.000000238418579,1,1,1,1,1
+b_2566.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2566.png,small green 879,small green 879,small green 879,3,1,1.0,1,1,1,1,1
+b_4797.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4797.png,small blue 4443,small blue 4443,small blue 4443,4,1,1.0000001192092896,1,1,1,1,1
+b_10001.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_10001.png,large blue 993140,small blue 993140,small blue 993140,6,295,1.0000001192092896,0,0,0,0,0
+b_9083.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9083.png,large yellow 677596,small yellow 67596,small yellow 69598,6,505,0.9604945182800293,0,0,0,0,0
+b_3652.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3652.png,small red 9808,small red 9088,small red 908,4,627,0.9871543645858765,0,0,0,0,0
+b_20.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_20.png,small red 3,small red 3,small red 3,1,1,1.0,1,1,1,1,1
+b_627.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_627.png,large yellow 79,small yellow 79,small yellow 79,2,16,1.0,0,0,0,0,0
+b_7884.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7884.png,small red 405407,small red 405467,small red 405407,6,1,0.9816982746124268,1,1,1,1,1
+b_7150.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7150.png,small green 38361,small green 38361,small green 38361,5,1,1.0000001192092896,1,1,1,1,1
+b_5435.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5435.png,large yellow 63424,small yellow 63424,small yellow 63424,5,624,0.9999999403953552,0,0,0,0,0
+b_9979.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9979.png,large yellow 516791,small yellow 516791,small yellow 516791,6,425,0.9999999403953552,0,0,0,0,0
+b_717.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_717.png,small blue 90,small blue 90,small blue 90,2,1,0.9999998807907104,1,1,1,1,1
+b_52.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_52.png,small red 7,small red 7,small red 7,1,1,1.0,1,1,1,1,1
+b_784.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_784.png,large red 99,small red 99,small red 99,2,6,0.9999999403953552,0,0,0,0,0
+b_1463.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1463.png,small yellow 564,small yellow 564,small yellow 564,3,1,1.0000001192092896,1,1,1,1,1
+b_7495.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7495.png,small yellow 92502,small yellow 92502,small yellow 92502,5,1,1.000000238418579,1,1,1,1,1
+b_76.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_76.png,small red 10,small red 10,small red 10,2,1,1.0000001192092896,1,1,1,1,1
+b_2207.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2207.png,small yellow 916,small yellow 916,small yellow 916,3,1,1.0,1,1,1,1,1
+b_2110.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2110.png,small green 111,small green 3,small green 3,3,848,1.0000001192092896,0,0,0,0,0
+b_1585.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1585.png,large blue 646,small blue 646,small blue 646,3,16,1.000000238418579,0,0,0,0,0
+b_9700.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9700.png,small red 595951,small red 595951,small red 595951,6,1,1.0000001192092896,1,1,1,1,1
+b_3052.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3052.png,small red 967,small red 967,small red 967,3,1,1.0,1,1,1,1,1
+b_5677.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5677.png,small blue 54057,small blue 54057,small blue 54057,5,1,1.0,1,1,1,1,1
+b_6757.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6757.png,small blue 43862,small blue 43762,small blue 438977,5,50,0.9705439805984497,0,0,0,0,0
+b_9168.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9168.png,large red 972565,small red 972565,small red 972565,6,134,1.0,0,0,0,0,0
+b_6561.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6561.png,large blue 73372,small blue 73372,small blue 73372,5,43,1.0000001192092896,0,0,0,0,0
+b_5133.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5133.png,small blue 2988,small blue 2988,small blue 2988,4,1,0.9999998807907104,1,1,1,1,1
+b_858.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_858.png,large green 854,small green 854,small green 854,3,9,0.9999999403953552,0,0,0,0,0
+b_1912.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1912.png,large red 697,small red 69.7,small red 69,3,84,0.9345262050628662,0,0,0,0,0
+b_763.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_763.png,large yellow 96,small yellow 96,small yellow 96,2,17,1.0,0,0,0,0,0
+b_1711.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1711.png,small yellow 334,small yellow 334,small yellow 334,3,1,0.9999999403953552,1,1,1,1,1
+b_7941.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7941.png,small blue 576086,small blue 576086,small blue 576086,6,1,1.0000001192092896,1,1,1,1,1
+b_5879.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5879.png,small yellow 37742,small yellow 37742,small yellow 37742,5,1,1.0000001192092896,1,1,1,1,1
+b_1910.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1910.png,small green 538,small green 538,small green 538,3,1,0.9999999403953552,1,1,1,1,1
+b_6779.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6779.png,large yellow 88139,small yellow 88139,small yellow 88139,5,394,1.0,0,0,0,0,0
+b_3536.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3536.png,large red 4346,small red 4346,small red 4346,4,71,1.0,0,0,0,0,0
+b_1437.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1437.png,small blue 203,small blue 203,small blue 203,3,1,1.0,1,1,1,1,1
+b_6587.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6587.png,large yellow 87656,small yellow 87656,small yellow 87656,5,676,0.9999999403953552,0,0,0,0,0
+b_3478.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3478.png,small green 2964,small green 2964,small green 2964,4,1,1.0000001192092896,1,1,1,1,1
+b_5343.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5343.png,small yellow 6502,small yellow 6502,small yellow 6502,4,1,1.0,1,1,1,1,1
+b_9191.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9191.png,small yellow 622584,small yellow 621584,small yellow 622584,6,1,0.9842885136604309,1,1,1,1,1
+b_2818.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2818.png,large green 385,small green 385,small green 385,3,3,1.000000238418579,0,0,1,1,1
+b_7974.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7974.png,small green 377405,small green 37405,small green 377405,6,1,0.9730305075645447,1,1,1,1,1
+b_104.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_104.png,large red 14,small red 14,small red 14,2,4,1.000000238418579,0,0,0,1,1
+b_8729.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8729.png,large blue 138479,small blue 138479,small blue 138479,6,30,0.9999998211860657,0,0,0,0,0
+b_4823.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4823.png,small yellow 8618,small yellow 8618,small yellow 8618,4,1,1.0,1,1,1,1,1
+b_3724.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3724.png,small red 3584,small red 3584,small red 3584,4,1,1.0,1,1,1,1,1
+b_746.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_746.png,large green 94,small green 94,small green 94,2,11,1.0000001192092896,0,0,0,0,0
+b_1323.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1323.png,large yellow 743,small yellow 743,small yellow 743,3,9,1.0,0,0,0,0,0
+b_228.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_228.png,small red 29,small red 9,small red 9,2,923,1.0,0,0,0,0,0
+b_6946.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6946.png,large green 41890,small green 41890,small green 41890,5,441,1.0,0,0,0,0,0
+b_791.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_791.png,small yellow 99,small yellow 99,small yellow 99,2,1,1.0,1,1,1,1,1
+b_7210.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7210.png,large green 35443,"small green 3
+small green 5
+small green 4
+small green 4
+small green 3",small green 3,5,5891,0.7256802916526794,0,0,0,0,0
+b_5132.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5132.png,small red 2988,small red 2988,small red 2988,4,1,1.0000001192092896,1,1,1,1,1
+b_4333.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4333.png,small blue 1387,small blue 1387,small blue 1387,4,1,1.0,1,1,1,1,1
+b_2.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2.png,large green 1,small green 1,small green 1,1,4,1.000000238418579,0,0,0,1,1
+b_9817.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9817.png,large blue 448121,small blue 448121,small blue 448121,6,149,0.9999999403953552,0,0,0,0,0
+b_6244.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6244.png,small red 98781,small red 98781,small red 98781,5,1,1.0000001192092896,1,1,1,1,1
+b_5094.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5094.png,small green 3881,small green 3881,small green 3881,4,1,1.0,1,1,1,1,1
+b_4908.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4908.png,small red 2530,small red 2530,small red 2530,4,1,1.0,1,1,1,1,1
+b_7903.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7903.png,small yellow 342720,small yellow 34170,small yellow 3417,6,649,0.9690525531768799,0,0,0,0,0
+b_9121.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9121.png,large blue 335615,"small blue 3
+small blue 3
+small blue 5
+small blue 6
+small blue 1
+small blue 5",small blue 5,6,4644,0.6711702346801758,0,0,0,0,0
+b_5358.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5358.png,small green 9849,small green 9849,small green 9849,4,1,1.0,1,1,1,1,1
+b_272.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_272.png,large red 35,small red 35,small red 35,2,6,0.9999998807907104,0,0,0,0,0
+b_574.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_574.png,small green 72,small green 72,small green 72,2,1,1.0000001192092896,1,1,1,1,1
+b_8800.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8800.png,large red 639593,small red 639593,small red 639593,6,377,0.9999998807907104,0,0,0,0,0
+b_3689.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3689.png,large blue 2127,small blue 2127,small blue 2127,4,5,1.000000238418579,0,0,0,0,1
+b_6364.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6364.png,small red 55508,small red 55,small red 55,5,1810,1.0,0,0,0,0,0
+b_2046.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2046.png,small green 165,small green 165,small green 165,3,1,1.0000001192092896,1,1,1,1,1
+b_4946.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4946.png,large green 3414,"small green 3
+small green 4
+small green 1
+small green 4",small green 4,4,1797,0.8071980476379395,0,0,0,0,0
+b_6226.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6226.png,large green 50888,small green 50885,small green 5088,5,96,0.9711011648178101,0,0,0,0,0
+b_2069.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2069.png,small blue 844,small blue 844,small blue 844,3,1,1.0,1,1,1,1,1
+b_2422.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2422.png,small green 159,small green 159,small green 159,3,1,0.9999999403953552,1,1,1,1,1
+b_4553.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4553.png,large blue 1727,small blue 1724,small blue 1727,4,81,0.8817903399467468,0,0,0,0,0
+b_4538.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4538.png,large green 4114,small green 4,small green 4,4,1247,1.0000001192092896,0,0,0,0,0
+b_7459.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7459.png,large yellow 62521,small yellow 62521,small yellow 62521,5,523,1.000000238418579,0,0,0,0,0
+b_5977.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5977.png,large blue 55870,small blue 55870,small blue 55870,5,50,1.0,0,0,0,0,0
+b_7273.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7273.png,large blue 26591,small blue 26591,small blue 26591,5,359,1.0,0,0,0,0,0
+b_5139.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5139.png,large yellow 8478,small yellow 8478,small yellow 8478,4,601,1.0000001192092896,0,0,0,0,0
+b_7259.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7259.png,large yellow 11854,small yellow 1,small yellow 1,5,1606,1.0000001192092896,0,0,0,0,0
+b_8944.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8944.png,large red 313446,"small red 3
+small red 1
+small red 3
+small red 4
+small red 4
+small red 6",small red 6,6,2281,0.7141353487968445,0,0,0,0,0
+b_5031.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5031.png,small yellow 9099,small yellow 90:99,small yellow 90,4,8,0.9406228065490723,0,0,0,0,0
+b_691.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_691.png,large yellow 87,small yellow 87,small yellow 87,2,17,1.0000001192092896,0,0,0,0,0
+b_6117.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6117.png,small blue 83920,small blue 83920,small blue 83920,5,1,1.0000001192092896,1,1,1,1,1
+b_596.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_596.png,small red 75,small red 75,small red 75,2,1,1.0,1,1,1,1,1
+b_2097.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2097.png,large blue 666,small blue 666,small blue 666,3,5,1.0000001192092896,0,0,0,0,1
+b_5979.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5979.png,large yellow 55870,small yellow 5570,small yellow 55870,5,97,0.9710009098052979,0,0,0,0,0
+b_4206.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4206.png,small green 6442,small green 64+2,small green 64,4,4,0.9157078266143799,0,0,0,1,1
+b_2682.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2682.png,large green 121,small green 121,small green 121,3,2,1.0,0,1,1,1,1
+b_9995.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9995.png,large yellow 184216,large yellow 184216,large yellow 184216,6,1,0.9999999403953552,1,1,1,1,1
+b_2072.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2072.png,large red 579,small red 79,small red 79,3,960,1.0,0,0,0,0,0
+b_8457.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8457.png,large blue 900177,small blue 900177,small blue 900177,6,289,0.9999999403953552,0,0,0,0,0
+b_6809.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6809.png,large blue 77715,small blue 27715,small blue 2771,5,1793,0.9709610939025879,0,0,0,0,0
+b_5820.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5820.png,small red 27786,small red 27786,small red 27786,5,1,1.0,1,1,1,1,1
+b_200.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_200.png,large red 26,small red 26,small red 26,2,3,1.0000001192092896,0,0,1,1,1
+b_415.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_415.png,small yellow 52,small yellow 52,small yellow 52,2,1,0.9999999403953552,1,1,1,1,1
+b_7612.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7612.png,small red 39581,small red 39581,small red 39581,5,1,1.0,1,1,1,1,1
+b_4083.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4083.png,large yellow 6050,small yellow 6050,small yellow 6050,4,11,1.0,0,0,0,0,0
+b_9760.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9760.png,large red 783691,small red 483691,small red 48974,6,845,0.9670974016189575,0,0,0,0,0
+b_5444.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5444.png,small red 53369,small red 53369,small red 53369,5,1,1.0,1,1,1,1,1
+b_9307.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9307.png,large yellow 299869,small yellow 29869,small yellow 29887,6,1144,0.9810346364974976,0,0,0,0,0
+b_7189.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7189.png,small blue 88222,small blue 88222,small blue 88222,5,1,0.9999998807907104,1,1,1,1,1
+b_5679.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5679.png,small yellow 54057,small yellow 54057,small yellow 54057,5,1,1.0000001192092896,1,1,1,1,1
+b_9058.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9058.png,large green 844261,small green 844261,small green 844261,6,411,1.0,0,0,0,0,0
+b_3455.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3455.png,small yellow 2113,small yellow 2113,small yellow 2113,4,1,0.9999998807907104,1,1,1,1,1
+b_3017.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3017.png,large blue 354,small blue 3,small blue 3,3,3676,0.9999999403953552,0,0,0,0,0
+b_1818.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1818.png,large green 758,small green 738,small green 733,3,358,0.9671375751495361,0,0,0,0,0
+b_9701.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9701.png,small blue 595951,small blue 595951,small blue 595951,6,1,1.0000001192092896,1,1,1,1,1
+b_2088.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2088.png,large red 357,small red 357,small red 357,3,3,1.0000001192092896,0,0,1,1,1
+b_4744.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4744.png,large red 5930,small red 5930,small red 5930,4,18,1.0,0,0,0,0,0
+b_5169.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5169.png,large blue 6198,small blue 6198,small blue 6198,4,223,1.0,0,0,0,0,0
+b_4806.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4806.png,small green 8043,small green 8043,small green 8043,4,1,1.0000001192092896,1,1,1,1,1
+b_7519.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7519.png,small yellow 29887,small yellow 29887,small yellow 29887,5,1,1.0,1,1,1,1,1
+b_7233.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7233.png,large blue 57301,small blue 57301,small blue 57301,5,302,0.9999998807907104,0,0,0,0,0
+b_9999.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9999.png,small yellow 184216,small yellow 184216,small yellow 184216,6,1,0.9999999403953552,1,1,1,1,1
+b_9708.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9708.png,small red 839485,small red 6394485,small red 633590,6,34,0.9685648679733276,0,0,0,0,0
+b_5740.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5740.png,small red 80008,small red 0008,small red 80008,5,1,0.9272658824920654,1,1,1,1,1
+b_8458.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8458.png,large green 900177,small green 960\77,small green 960,6,2411,0.9300822615623474,0,0,0,0,0
+b_3144.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3144.png,large red 1241,small red 1241,small red 1241,4,39,0.9999998807907104,0,0,0,0,0
+b_4574.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4574.png,small green 1027,small green 1027,small green 1027,4,1,1.0000001192092896,1,1,1,1,1
+b_2724.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2724.png,small red 968,small red 968,small red 968,3,1,0.9999999403953552,1,1,1,1,1
+b_4925.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4925.png,small blue 6085,small blue 6085,small blue 6085,4,1,0.9999999403953552,1,1,1,1,1
+b_4723.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4723.png,large yellow 7888,small yellow 7889,small yellow 7888,4,451,0.9871892929077148,0,0,0,0,0
+b_8939.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8939.png,large yellow 154118,small yellow 154118,small yellow 154118,6,2,0.9999999403953552,0,1,1,1,1
+b_4613.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4613.png,small blue 8066,small blue 8066,small blue 8066,4,1,1.0,1,1,1,1,1
+b_5547.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5547.png,large yellow 10772,small yellow 10772,small yellow 10772,5,406,1.0,0,0,0,0,0
+b_1855.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1855.png,small yellow 992,small yellow 992,small yellow 992,3,1,1.0000001192092896,1,1,1,1,1
+b_2285.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2285.png,small blue 907,small blue 907,small blue 907,3,1,0.9999998807907104,1,1,1,1,1
+b_4246.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4246.png,small green 2771,small green 2771,small green 2771,4,1,1.0000001192092896,1,1,1,1,1
+b_2977.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2977.png,large blue 200,small blue 200,small blue 200,3,2,0.9999999403953552,0,1,1,1,1
+b_4808.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4808.png,large red 6279,small red 5279,small red 5279,4,991,1.0000001192092896,0,0,0,0,0
+b_5522.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5522.png,large green 85456,"small green 8
+small green 5
+small green 4
+small green 5
+small green 6",small green 6,5,2291,0.7668895721435547,0,0,0,0,0
+b_6531.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6531.png,large yellow 95256,"small yellow 9
+small yellow 5
+small yellow 2
+small yellow 5
+small yellow 6",small yellow 6,5,2893,0.7367220520973206,0,0,0,0,0
+b_4962.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4962.png,large green 1757,small green 1757,small green 1757,4,2,1.0000001192092896,0,1,1,1,1
+b_4385.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4385.png,large blue 6753,large blue 6753,large blue 6753,4,1,1.0,1,1,1,1,1
+b_8017.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8017.png,large blue 942956,small blue 942956,small blue 942956,6,343,1.0,0,0,0,0,0
+b_8142.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8142.png,small green 422554,small green 422554,small green 422554,6,1,1.0,1,1,1,1,1
+b_9175.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9175.png,small yellow 972565,small yellow 972565,small yellow 972565,6,1,1.0000001192092896,1,1,1,1,1
+b_9483.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9483.png,large yellow 708093,small yellow 708093,small yellow 708093,6,452,1.0,0,0,0,0,0
+b_9225.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9225.png,large blue 386706,small blue 386706,small blue 386706,6,199,1.0,0,0,0,0,0
+b_5064.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5064.png,large red 2746,small red 2746,small red 2746,4,36,1.000000238418579,0,0,0,0,0
+b_839.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_839.png,small yellow 350,small yellow 350,small yellow 350,3,1,1.0,1,1,1,1,1
+b_1156.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1156.png,small red 320,small red 320,small red 320,3,1,0.9999999403953552,1,1,1,1,1
+b_3200.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3200.png,large red 4502,small red 4567,small red 45774,4,2322,0.9642649292945862,0,0,0,0,0
+b_8709.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8709.png,small blue 953085,small blue 953085,small blue 953085,6,1,1.0000001192092896,1,1,1,1,1
+b_6823.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6823.png,small yellow 35042,small yellow 35042,small yellow 35042,5,1,1.0,1,1,1,1,1
+b_2602.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2602.png,large green 972,small green 972,small green 972,3,15,1.000000238418579,0,0,0,0,0
+b_231.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_231.png,small yellow 29,small yellow 29,small yellow 29,2,1,1.0,1,1,1,1,1
+b_6291.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6291.png,large yellow 92213,small yellow 9213,small yellow 926,5,807,0.960448682308197,0,0,0,0,0
+b_5218.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5218.png,large green 3607,small green 3607,small green 3607,4,3,1.0,0,0,1,1,1
+b_719.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_719.png,small yellow 90,small yellow 10,small yellow 10,2,45,1.0000001192092896,0,0,0,0,0
+b_7030.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7030.png,small green 82140,small green 82140,small green 82140,5,1,1.0,1,1,1,1,1
+b_2867.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2867.png,large yellow 690,small yellow 0,small yellow 1,3,1304,0.8744015097618103,0,0,0,0,0
+b_6999.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6999.png,small yellow 82544,small yellow 82544,small yellow 82544,5,1,0.9999998807907104,1,1,1,1,1
+b_2465.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2465.png,large blue 170,small blue 170,small blue 170,3,5,0.9999999403953552,0,0,0,0,1
+b_23.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_23.png,small yellow 3,small yellow 3,small yellow 3,1,1,1.0000001192092896,1,1,1,1,1
+b_4525.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4525.png,small blue 2894,small blue 2894,small blue 2894,4,1,0.9999999403953552,1,1,1,1,1
+b_2789.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2789.png,small blue 438,small blue 438,small blue 438,3,1,0.9999999403953552,1,1,1,1,1
+b_4332.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4332.png,small red 1387,small red 1387,small red 1387,4,1,0.9999998807907104,1,1,1,1,1
+b_9134.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9134.png,small green 982277,small green 95227,small green 95426,6,5,0.9642488360404968,0,0,0,0,1
+b_6209.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6209.png,large blue 85849,"small blue 8
+small blue 5
+small blue 8
+small blue 4
+small blue 9",small blue 9,5,3907,0.7330377101898193,0,0,0,0,0
+b_8673.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8673.png,large blue 619536,small blue 619536,small blue 619536,6,310,1.0,0,0,0,0,0
+b_625.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_625.png,large blue 79,small blue 79,small blue 79,2,10,1.0000001192092896,0,0,0,0,0
+b_4480.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4480.png,large red 8119,small red 8119,small red 8119,4,136,1.0,0,0,0,0,0
+b_6005.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6005.png,small blue 18993,small blue 18993,small blue 18993,5,1,1.0,1,1,1,1,1
+b_3154.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3154.png,large green 2528,large green 2528,large green 2528,4,1,0.9999998807907104,1,1,1,1,1
+b_7377.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7377.png,large blue 71524,small blue 71524,small blue 71524,5,391,1.0000001192092896,0,0,0,0,0
+b_1952.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1952.png,large red 621,small red 621,small red 621,3,10,1.000000238418579,0,0,0,0,0
+b_3650.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3650.png,large green 9808,small green 9808,small green 9808,4,2,1.0000001192092896,0,1,1,1,1
+b_3089.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3089.png,large blue 896,small blue 896,small blue 896,3,49,1.0,0,0,0,0,0
+b_7309.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7309.png,small blue 82529,small blue 82549,small blue 82544,5,3,0.9843947291374207,0,0,1,1,1
+b_2827.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2827.png,large yellow 791,small yellow 79.1,small yellow 791,3,77,0.9418543577194214,0,0,0,0,0
+b_2396.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2396.png,small red 471,small red 41,small red 41,3,51,1.0,0,0,0,0,0
+b_5236.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5236.png,small red 8373,small red 8373,small red 8373,4,1,1.0000001192092896,1,1,1,1,1
+b_4149.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4149.png,small blue 3532,small blue 3532,small blue 3532,4,1,1.0,1,1,1,1,1
+b_4687.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4687.png,small yellow 6344,small yellow 634,small yellow 674,4,3,0.9713212847709656,0,0,1,1,1
+b_2620.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2620.png,small red 548,small red 548,small red 548,3,1,1.000000238418579,1,1,1,1,1
+b_7417.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7417.png,large blue 16734,small blue 16734,small blue 16734,5,48,1.0,0,0,0,0,0
+b_1154.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1154.png,large green 320,small green 320,small green 320,3,3,1.0000001192092896,0,0,1,1,1
+b_6843.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6843.png,large yellow 63271,small yellow 63271,small yellow 63271,5,538,1.0,0,0,0,0,0
+b_902.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_902.png,small green 189,small green 189,small green 189,3,1,1.0000001192092896,1,1,1,1,1
+b_170.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_170.png,large green 22,small green 22,small green 22,2,2,1.000000238418579,0,1,1,1,1
+b_1854.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1854.png,small green 992,small green 992,small green 992,3,1,1.0000001192092896,1,1,1,1,1
+b_2525.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2525.png,small blue 269,small blue 269,small blue 269,3,1,1.0000001192092896,1,1,1,1,1
+b_4971.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4971.png,large yellow 5011,small yellow 5011,small yellow 5011,4,8,1.0000001192092896,0,0,0,0,0
+b_8685.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8685.png,small blue 402218,small blue 402218,small blue 402218,6,1,1.0000001192092896,1,1,1,1,1
+b_2862.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2862.png,small green 684,small green 684,small green 684,3,1,0.9999998807907104,1,1,1,1,1
+b_921.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_921.png,large blue 132,small blue 132,small blue 132,3,6,1.0,0,0,0,0,0
+b_866.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_866.png,large green 204,large green 204,large green 204,3,1,1.0000001192092896,1,1,1,1,1
+b_4570.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4570.png,large green 1027,small green 1027,small green 1027,4,4,1.0000001192092896,0,0,0,1,1
+b_8250.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8250.png,large green 624783,small green 624783,small green 624783,6,325,1.0,0,0,0,0,0
+b_3305.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3305.png,large blue 4111,small blue 4111,small blue 4111,4,36,0.9999998807907104,0,0,0,0,0
+b_6859.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6859.png,large yellow 82768,small yellow 85768,small yellow 82768,5,759,0.9882724285125732,0,0,0,0,0
+b_1027.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1027.png,large yellow 987,small yellow 987,small yellow 987,3,180,0.9999999403953552,0,0,0,0,0
+b_4659.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4659.png,large yellow 9308,small yellow 9308,small yellow 9308,4,284,1.0,0,0,0,0,0
+b_2698.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2698.png,large green 667,small green 667,small green 667,3,9,0.9999998807907104,0,0,0,0,0
+b_5882.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5882.png,large green 69598,small green 69598,small green 69598,5,16,1.0,0,0,0,0,0
+b_5652.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5652.png,small red 73654,small red 73654,small red 73654,5,1,0.9999999403953552,1,1,1,1,1
+b_3413.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3413.png,small blue 1931,small blue 1931,small blue 1931,4,1,1.0,1,1,1,1,1
+b_9757.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9757.png,small blue 960616,small blue 960616,small blue 960616,6,1,1.0,1,1,1,1,1
+b_3482.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3482.png,large green 5033,small green 5033,small green 5033,4,9,1.0,0,0,0,0,0
+b_8074.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8074.png,large green 256226,small green 256226,small green 256226,6,5,1.0000001192092896,0,0,0,0,1
+b_4091.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4091.png,large yellow 6974,small yellow 6974,small yellow 6974,4,506,1.0,0,0,0,0,0
+b_8796.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8796.png,small red 523808,small red 523108,small red 528361,6,5,0.9686022996902466,0,0,0,0,1
+b_3658.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3658.png,large green 4492,"small green 4
+small green 4
+small green 9
+small green 2",small green 4,4,1770,0.7798879146575928,0,0,0,0,0
+b_1350.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1350.png,small green 691,small green 691,small green 691,3,1,1.0,1,1,1,1,1
+b_4624.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4624.png,large red 6409,small red 6409,small red 6409,4,7,1.0000001192092896,0,0,0,0,0
+b_8766.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8766.png,small green 364659,small green 364659,small green 364659,6,1,1.0000001192092896,1,1,1,1,1
+b_8000.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8000.png,large red 718439,small red 718439,small red 718439,6,485,1.0,0,0,0,0,0
+b_119.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_119.png,small yellow 15,small yellow 15,small yellow 15,2,1,0.9999999403953552,1,1,1,1,1
+b_2460.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2460.png,small red 597,small red 597,small red 597,3,1,1.0000001192092896,1,1,1,1,1
+b_7227.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7227.png,large yellow 39816,small yellow 39816,small yellow 39816,5,615,1.0000001192092896,0,0,0,0,0
+b_3671.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3671.png,small yellow 9288,small yellow 9288,small yellow 9288,4,1,1.000000238418579,1,1,1,1,1
+b_8322.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8322.png,large green 437978,small green 431978,small green 437408,6,588,0.9661474823951721,0,0,0,0,0
+b_2735.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2735.png,small yellow 107,small yellow 107,small yellow 107,3,1,1.0000001192092896,1,1,1,1,1
+b_6660.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6660.png,small red 84691,small red 84691,small red 84691,5,1,1.0,1,1,1,1,1
+b_2700.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2700.png,small red 667,small red 667,small red 667,3,1,1.000000238418579,1,1,1,1,1
+b_7284.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7284.png,small red 45954,small red 45954,small red 45954,5,1,1.0,1,1,1,1,1
+b_2734.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2734.png,small green 107,small green 107,small green 107,3,1,1.0,1,1,1,1,1
+b_9403.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9403.png,large yellow 925981,large yellow 925911,large yellow 925981,6,1,0.9756488800048828,1,1,1,1,1
+b_7437.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7437.png,small blue 72616,small blue 72616,small blue 72616,5,1,1.0000001192092896,1,1,1,1,1
+b_2547.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2547.png,large yellow 721,small yellow 721,small yellow 721,3,76,0.9999999403953552,0,0,0,0,0
+b_8809.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8809.png,large blue 964998,small blue 964998,small blue 964998,6,310,1.0000001192092896,0,0,0,0,0
+b_1211.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1211.png,large yellow 467,small yellow 467,small yellow 467,3,249,1.0000001192092896,0,0,0,0,0
+b_2220.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2220.png,small red 865,small red 865,small red 865,3,1,1.0000001192092896,1,1,1,1,1
+b_7257.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7257.png,large blue 11854,small blue 11854,small blue 11854,5,311,1.0,0,0,0,0,0
+b_8591.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8591.png,small yellow 464863,small yellow 464863,small yellow 464863,6,1,1.0,1,1,1,1,1
+b_4476.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4476.png,small red 2776,small red 2776,small red 2776,4,1,1.0,1,1,1,1,1
+b_4482.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4482.png,large green 8119,small green 8119,small green 8119,4,121,1.0,0,0,0,0,0
+b_9934.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9934.png,small green 592296,small green number,small green 99974,6,806,0.7571976184844971,0,0,0,0,0
+b_7323.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7323.png,large yellow 26551,small yellow 26551,small yellow 26551,5,40,1.0,0,0,0,0,0
+b_2899.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2899.png,large yellow 516,small yellow 516,small yellow 516,3,5,1.0,0,0,0,0,1
+b_5184.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5184.png,large red 9270,small red 9270,small red 9270,4,7,1.000000238418579,0,0,0,0,0
+b_3072.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3072.png,large red 287,large red 287,large red 287,3,1,1.0,1,1,1,1,1
+b_8566.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8566.png,small green 615611,small green 615611,small green 615611,6,1,1.0,1,1,1,1,1
+b_2948.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2948.png,small red 779,small red 779,small red 779,3,1,1.000000238418579,1,1,1,1,1
+b_8244.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8244.png,small red 385470,small red 385470,small red 385470,6,1,1.0,1,1,1,1,1
+b_9263.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9263.png,small yellow 595158,small yellow 595158,small yellow 595158,6,1,0.9999998807907104,1,1,1,1,1
+b_7094.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7094.png,small green 25814,small green 25814,small green 25814,5,1,1.0,1,1,1,1,1
+b_5336.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5336.png,large red 6502,small red 6502,small red 6502,4,4,1.0,0,0,0,1,1
+b_1857.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1857.png,large blue 352,small blue 352,small blue 352,3,3,1.000000238418579,0,0,1,1,1
+b_4054.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4054.png,small green 3426,small green 3426,small green 3426,4,1,1.0,1,1,1,1,1
+b_1328.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1328.png,large red 733,small red 733,small red 733,3,22,1.000000238418579,0,0,0,0,0
+b_5889.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5889.png,large blue 52840,small blue 59840,small blue 59857,5,807,0.9524219036102295,0,0,0,0,0
+b_6119.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6119.png,small yellow 83920,small yellow 83920,small yellow 83920,5,1,1.0,1,1,1,1,1
+b_4353.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4353.png,large blue 6378,small blue 6378,small blue 6378,4,306,1.0,0,0,0,0,0
+b_463.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_463.png,small yellow 58,small yellow 58,small yellow 58,2,1,0.9999999403953552,1,1,1,1,1
+b_5078.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5078.png,small green 7965,small green 7965,small green 7965,4,1,1.0000001192092896,1,1,1,1,1
+b_8379.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8379.png,large yellow 976566,small yellow 476566,small yellow 46655,6,1042,0.981844425201416,0,0,0,0,0
+b_6771.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6771.png,large yellow 46655,small yellow 46655,small yellow 46655,5,662,0.9999998807907104,0,0,0,0,0
+b_6790.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6790.png,small green 46211,small green 46211,small green 46211,5,1,1.0,1,1,1,1,1
+b_1473.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1473.png,large blue 473,small blue 473,small blue 473,3,10,1.0,0,0,0,0,0
+b_7749.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7749.png,small blue 755900,small blue 755900,small blue 755900,6,1,0.9999999403953552,1,1,1,1,1
+b_8748.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8748.png,small red 192337,small red 192337,small red 192337,6,1,1.0,1,1,1,1,1
+b_3062.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3062.png,small green 243,small green 243,small green 243,3,1,1.0000001192092896,1,1,1,1,1
+b_2647.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2647.png,small yellow 223,small yellow 223,small yellow 223,3,1,1.0,1,1,1,1,1
+b_7041.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7041.png,large blue 56112,small blue 56112,small blue 56112,5,84,1.0,0,0,0,0,0
+b_9425.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9425.png,large blue 960408,small blue 960408,small blue 960408,6,9,1.0,0,0,0,0,0
+b_2662.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2662.png,small green 330,small green 330,small green 330,3,1,1.0,1,1,1,1,1
+b_7979.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7979.png,large yellow 926097,small yellow 926097,small yellow 926097,6,662,0.9999998211860657,0,0,0,0,0
+b_9095.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9095.png,small yellow 114338,small yellow 164338,small yellow 78386,6,636,0.9046974182128906,0,0,0,0,0
+b_5429.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5429.png,small blue 64377,small blue 64371,small blue 64377,5,1,0.9840004444122314,1,1,1,1,1
+b_6762.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6762.png,large green 54608,small green 54608,small green 54608,5,208,1.000000238418579,0,0,0,0,0
+b_7552.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7552.png,large red 42530,small red 42530,small red 42530,5,3,1.0,0,0,1,1,1
+b_2628.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2628.png,small red 629,small red 629,small red 629,3,1,1.0,1,1,1,1,1
+b_6711.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6711.png,small yellow 74789,small yellow 74789,small yellow 74789,5,1,1.0000001192092896,1,1,1,1,1
+b_3954.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3954.png,large green 3143,small green 3143,small green 3143,4,5,1.0,0,0,0,0,1
+b_7108.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7108.png,small red 51359,small red 51359,small red 51359,5,1,1.0,1,1,1,1,1
+b_1550.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1550.png,small green 763,small green 763,small green 763,3,1,1.0000001192092896,1,1,1,1,1
+b_3912.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3912.png,large red 7939,"small red 7
+small red 9
+small red 3
+small red 9",small red 9,4,2018,0.8156399130821228,0,0,0,0,0
+b_5775.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5775.png,small yellow 83975,small yellow 83475,small yellow 839485,5,5,0.9783325791358948,0,0,0,0,1
+b_8305.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8305.png,large blue 553014,small blue 553014,small blue 553014,6,216,1.000000238418579,0,0,0,0,0
+b_7225.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7225.png,large blue 39816,small blue 398/6,small blue 396,5,678,0.9427080154418945,0,0,0,0,0
+b_4673.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4673.png,large blue 7691,small blue 7691,small blue 7691,4,252,0.9999999403953552,0,0,0,0,0
+b_3053.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3053.png,small blue 967,small blue 967,small blue 967,3,1,1.0,1,1,1,1,1
+b_9118.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9118.png,small green 197736,small green 19736,small green 197736,6,1,0.903457522392273,1,1,1,1,1
+b_2446.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2446.png,small green 936,small green 936,small green 936,3,1,1.0,1,1,1,1,1
+b_5463.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5463.png,small yellow 71069,small yellow 71069,small yellow 71069,5,1,1.0,1,1,1,1,1
+b_4009.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4009.png,large blue 2232,small blue 2232,small blue 2232,4,5,1.0,0,0,0,0,1
+b_5864.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5864.png,large red 52906,small red 52906,small red 52906,5,345,1.0000001192092896,0,0,0,0,0
+b_6091.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6091.png,large yellow 72070,small yellow 72040,small yellow 72070,5,108,0.9675280451774597,0,0,0,0,0
+b_7205.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7205.png,small blue 23176,small blue 23176,small blue 23176,5,1,1.000000238418579,1,1,1,1,1
+b_9524.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9524.png,small red 664742,small red 664742,small red 664742,6,1,1.0000001192092896,1,1,1,1,1
+b_886.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_886.png,small green 858,small green 858,small green 858,3,1,1.0,1,1,1,1,1
+b_4473.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4473.png,large blue 2776,small blue 2776,small blue 2776,4,4,1.0000001192092896,0,0,0,1,1
+b_2333.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2333.png,small blue 652,small blue 652,small blue 652,3,1,1.0000001192092896,1,1,1,1,1
+b_6573.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6573.png,small blue 70931,small blue 70931,small blue 70931,5,1,1.0000001192092896,1,1,1,1,1
+b_4230.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4230.png,small green 5371,small green 5371,small green 5371,4,1,1.000000238418579,1,1,1,1,1
+b_7451.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7451.png,large yellow 18564,small yellow 18564,small yellow 18564,5,2,1.0,0,1,1,1,1
+b_8430.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8430.png,small green 961322,small green 961322,small green 961322,6,1,1.0,1,1,1,1,1
+b_6679.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6679.png,small yellow 97580,small yellow 97580,small yellow 97580,5,1,1.0,1,1,1,1,1
+b_5968.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5968.png,large red 16826,small red 16826,small red 16826,5,2,1.0,0,1,1,1,1
+b_3114.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3114.png,large green 8260,small green 8260,small green 8260,4,10,1.0,0,0,0,0,0
+b_2643.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2643.png,large yellow 223,small yellow 3,small yellow 3,3,4364,1.0000001192092896,0,0,0,0,0
+b_5987.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5987.png,large yellow 39389,small yellow 39389,small yellow 39389,5,476,1.0,0,0,0,0,0
+b_1606.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1606.png,small green 994,small green 994,small green 994,3,1,1.0,1,1,1,1,1
+b_6833.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6833.png,large blue 41635,small blue 41635,small blue 41635,5,405,1.0000001192092896,0,0,0,0,0
+b_918.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_918.png,small green 532,small green 532,small green 532,3,1,1.0,1,1,1,1,1
+b_5335.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5335.png,small yellow 5451,small yellow 5451,small yellow 5451,4,1,0.9999999403953552,1,1,1,1,1
+b_4598.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4598.png,small green 4228,small green 4228,small green 4228,4,1,1.0,1,1,1,1,1
+b_3501.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3501.png,small blue 2343,small blue 2343,small blue 2343,4,1,1.0,1,1,1,1,1
+b_6073.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6073.png,large blue 41266,small blue 41266,small blue 41266,5,30,1.0,0,0,0,0,0
+b_5562.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5562.png,large green 49139,small green 49139,small green 49139,5,132,1.0,0,0,0,0,0
+b_1822.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1822.png,small green 758,small green 758,small green 758,3,1,1.0,1,1,1,1,1
+b_2886.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2886.png,small green 348,small green 348,small green 348,3,1,1.0000001192092896,1,1,1,1,1
+b_7278.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7278.png,small green 26591,small green 26591,small green 26591,5,1,0.9999999403953552,1,1,1,1,1
+b_9969.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9969.png,large blue 826353,"small blue 8
+small blue 2
+small blue 6
+small blue 3
+small blue 5
+small blue 3",small blue 5,6,4629,0.6534608602523804,0,0,0,0,0
+b_3928.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3928.png,large red 1722,small red 1722,small red 1722,4,2,1.0,0,1,1,1,1
+b_2957.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2957.png,small blue 520,small blue 520,small blue 520,3,1,1.0000001192092896,1,1,1,1,1
+b_9319.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9319.png,small yellow 728492,small yellow 718492,small yellow 718849,6,2,0.9862829446792603,0,1,1,1,1
+b_1994.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1994.png,large green 256,small green 256,small green 256,3,3,1.0,0,0,1,1,1
+b_6973.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6973.png,small blue 86225,small blue 86225,small blue 86225,5,1,1.0,1,1,1,1,1
+b_6286.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6286.png,small green 87607,small green 87607,small green 87607,5,1,1.0,1,1,1,1,1
+b_3289.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3289.png,large blue 8973,"small blue 8
+small blue 9
+small blue 7
+small blue 3",small blue 7,4,1918,0.7575798630714417,0,0,0,0,0
+b_8852.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8852.png,small red 533321,small red 533321,small red 533321,6,1,1.0,1,1,1,1,1
+b_8205.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8205.png,small blue 591465,small blue 591465,small blue 591465,6,1,1.0000001192092896,1,1,1,1,1
+b_1664.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1664.png,large red 324,small red 324,small red 324,3,2,1.0,0,1,1,1,1
+b_930.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_930.png,large green 130,small green 130,small green 130,3,2,1.000000238418579,0,1,1,1,1
+b_8704.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8704.png,large red 953085,small red 953085,small red 953085,6,269,1.0000001192092896,0,0,0,0,0
+b_7439.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7439.png,small yellow 72616,small yellow 72616,small yellow 72616,5,1,1.0000001192092896,1,1,1,1,1
+b_2720.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2720.png,large red 968,small red 968,small red 968,3,107,0.9999999403953552,0,0,0,0,0
+b_2428.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2428.png,small red 346,small red 346,small red 346,3,1,1.0,1,1,1,1,1
+b_4943.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4943.png,small yellow 4262,small yellow 4262,small yellow 4262,4,1,1.0,1,1,1,1,1
+b_9978.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9978.png,large green 516791,small green 516791,small green 516791,6,333,1.0,0,0,0,0,0
+b_9744.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9744.png,large red 930884,small red 93084,small red 930884,6,450,0.9950361251831055,0,0,0,0,0
+b_5524.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5524.png,small red 85456,small red 8,small red 8,5,491,1.0000001192092896,0,0,0,0,0
+b_6570.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6570.png,large green 70931,small green 70931,small green 70931,5,338,1.0000001192092896,0,0,0,0,0
+b_4237.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4237.png,small blue 3608,small blue 3608,small blue 3608,4,1,1.0,1,1,1,1,1
+b_1515.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1515.png,large yellow 786,small yellow 786,small yellow 786,3,20,1.000000238418579,0,0,0,0,0
+b_4919.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4919.png,small yellow 4848,small yellow 4848,small yellow 4848,4,1,1.0000001192092896,1,1,1,1,1
+b_302.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_302.png,small green 38,small green 28,small green 28,2,85,1.000000238418579,0,0,0,0,0
+b_5103.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5103.png,small yellow 9486,small yellow 9486,small yellow 9486,4,1,1.0,1,1,1,1,1
+b_8802.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8802.png,large green 639593,small green 639593,small green 639593,6,273,1.0,0,0,0,0,0
+b_8778.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8778.png,large green 221552,small green 221552,small green 221552,6,3,1.0,0,0,1,1,1
+b_9304.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9304.png,large red 299869,small red 299869,small red 299869,6,171,1.0,0,0,0,0,0
+b_4915.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4915.png,large yellow 4848,small yellow 4848,small yellow 4848,4,175,1.0000001192092896,0,0,0,0,0
+b_9666.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9666.png,large green 530728,large green 530728,large green 530728,6,1,1.0000001192092896,1,1,1,1,1
+b_3799.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3799.png,small yellow 5333,small yellow 5333,small yellow 5333,4,1,1.0,1,1,1,1,1
+b_8252.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8252.png,small red 624783,small red 624783,small red 624783,6,1,1.0,1,1,1,1,1
+b_2709.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2709.png,small blue 335,small blue 335,small blue 335,3,1,1.0,1,1,1,1,1
+b_7911.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7911.png,small yellow 402099,small yellow 402099,small yellow 402099,6,1,1.000000238418579,1,1,1,1,1
+b_8542.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8542.png,small green 557058,small green 557058,small green 557058,6,1,1.0,1,1,1,1,1
+b_1668.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1668.png,small red 324,small red 324,small red 324,3,1,1.0,1,1,1,1,1
+b_1638.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1638.png,small green 376,small green 376,small green 376,3,1,1.0000001192092896,1,1,1,1,1
+b_3931.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3931.png,large yellow 1722,small yellow 1727,small yellow 1727,4,25,1.0,0,0,0,0,0
+b_2854.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2854.png,small green 235,small green 23,small green 23,3,298,1.0000001192092896,0,0,0,0,0
+b_5594.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5594.png,large green 81582,small green 81582,small green 81582,5,324,1.000000238418579,0,0,0,0,0
+b_2281.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2281.png,large blue 907,small blue 907,small blue 907,3,14,0.9999998807907104,0,0,0,0,0
+b_4281.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4281.png,large blue 4269,small blue 4269,small blue 4269,4,315,1.0000001192092896,0,0,0,0,0
+b_4896.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4896.png,large red 6491,small red 6491,small red 6491,4,315,1.0,0,0,0,0,0
+b_2068.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2068.png,small red 844,small red 84,small red 84,3,5,1.0,0,0,0,0,1
+b_847.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_847.png,small yellow 328,small yellow 328,small yellow 328,3,1,1.0000001192092896,1,1,1,1,1
+b_8392.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8392.png,large red 715643,"small red 7
+small red 1
+small red 5
+small red 6
+small red 4
+small red 3",small red 6,6,2384,0.696345329284668,0,0,0,0,0
+b_9339.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9339.png,large yellow 243139,"small yellow 2
+large yellow 4
+large yellow 3
+small yellow /
+small yellow 3
+small yellow 9",small yellow 10,6,1714,0.6971197128295898,0,0,0,0,0
+b_9761.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9761.png,large blue 783691,small blue 783691,small blue 783691,6,419,1.000000238418579,0,0,0,0,0
+b_8189.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8189.png,small blue 560485,small blue 560485,small blue 560485,6,1,1.0000001192092896,1,1,1,1,1
+b_646.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_646.png,small green 81,small green 81,small green 81,2,1,0.9999999403953552,1,1,1,1,1
+b_8681.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8681.png,large blue 402218,small blue 402x18,small blue 402020,6,39,0.9271551370620728,0,0,0,0,0
+b_6847.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6847.png,small yellow 63271,small yellow 63271,small yellow 63271,5,1,1.0,1,1,1,1,1
+b_1983.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1983.png,small yellow 148,small yellow 148,small yellow 148,3,1,1.0000001192092896,1,1,1,1,1
+b_8615.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8615.png,small yellow 436653,small yellow 436653,small yellow 436653,6,1,0.9999999403953552,1,1,1,1,1
+b_8308.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8308.png,small red 553014,small red 553014,small red 553014,6,1,1.0,1,1,1,1,1
+b_5048.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5048.png,large red 3417,small red 3417,small red 3417,4,25,1.000000238418579,0,0,0,0,0
+b_3093.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3093.png,small blue 896,small blue 896,small blue 896,3,1,1.0,1,1,1,1,1
+b_7477.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7477.png,small blue 19710,small blue 19710,small blue 19710,5,1,1.0000001192092896,1,1,1,1,1
+b_5731.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5731.png,large yellow 91560,small yellow 91560,small yellow 91560,5,707,1.0,0,0,0,0,0
+b_312.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_312.png,large red 40,small red 40,small red 40,2,4,1.0,0,0,0,1,1
+b_3278.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_3278.png,small green 5673,small green 5673,small green 5673,4,1,1.000000238418579,1,1,1,1,1
+b_409.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_409.png,large blue 52,small blue 52,small blue 52,2,2,1.0000001192092896,0,1,1,1,1
+b_6551.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6551.png,small yellow 90728,small yellow 90728,small yellow 90728,5,1,1.0,1,1,1,1,1
+b_107.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_107.png,large yellow 14,small yellow 14,small yellow 14,2,7,1.0000001192092896,0,0,0,0,0
+b_4042.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4042.png,large green 7049,small green 7049,small green 7049,4,7,1.000000238418579,0,0,0,0,0
+b_6084.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6084.png,small red 26544,small red 26544,small red 26544,5,1,1.0000001192092896,1,1,1,1,1
+b_21.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_21.png,small blue 3,small blue 3,small blue 3,1,1,0.9999999403953552,1,1,1,1,1
+b_4085.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4085.png,small blue 6050,small blue 6056,small blue 5956,4,40,0.9514185190200806,0,0,0,0,0
+b_917.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_917.png,small blue 532,small blue 532,small blue 532,3,1,1.0000001192092896,1,1,1,1,1
+b_664.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_664.png,large red 84,small red 84,small red 84,2,18,1.0,0,0,0,0,0
+b_9115.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9115.png,large yellow 197736,small yellow 197736,small yellow 197736,6,2,1.0000001192092896,0,1,1,1,1
+b_909.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_909.png,small blue 704,small blue 704,small blue 704,3,1,1.0000001192092896,1,1,1,1,1
+b_6871.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6871.png,small yellow 41499,small yellow 41499,small yellow 41499,5,1,1.0,1,1,1,1,1
+b_157.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_157.png,small blue 20,small blue 20,small blue 20,2,1,1.000000238418579,1,1,1,1,1
+b_8374.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_8374.png,small green 807053,small green 807053,small green 807053,6,1,1.0,1,1,1,1,1
+b_86.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_86.png,small green 11,small green 2,small green 2,2,53,1.0000001192092896,0,0,0,0,0
+b_9787.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9787.png,large yellow 138817,small yellow 138817,small yellow 138817,6,60,1.000000238418579,0,0,0,0,0
+b_4421.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4421.png,small blue 6425,small blue 6425,small blue 6425,4,1,1.0000001192092896,1,1,1,1,1
+b_6331.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6331.png,large yellow 88697,small yellow 88697,small yellow 88697,5,442,1.0000001192092896,0,0,0,0,0
+b_1366.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_1366.png,small green 821,small green 821,small green 821,3,1,1.0,1,1,1,1,1
+b_2762.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2762.png,large green 885,small green 885,small green 885,3,14,1.000000238418579,0,0,0,0,0
+b_6177.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_6177.png,large blue 25012,small blue 5012,small blue 5011,5,1189,0.9760423898696899,0,0,0,0,0
+b_5890.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_5890.png,large green 52840,small green 52840,small green 52840,5,94,1.000000238418579,0,0,0,0,0
+b_9506.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_9506.png,large green 255813,small green 255813,small green 255813,6,39,1.0,0,0,0,0,0
+b_2225.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_2225.png,large blue 612,small blue 612,small blue 612,3,15,1.0000001192092896,0,0,0,0,0
+b_4942.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4942.png,small green 4262,small green 4262,small green 4262,4,1,1.0000001192092896,1,1,1,1,1
+b_4443.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4443.png,large yellow 5279,"small yellow 5
+small yellow 2
+small yellow 7
+small yellow 9",small yellow 10,4,1618,0.7728333473205566,0,0,0,0,0
+b_4586.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_4586.png,large green 9821,small green 5821,small green 5844,4,1429,0.9393218755722046,0,0,0,0,0
+b_7181.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_7181.png,small blue 78765,small blue 78765,small blue 78765,5,1,1.0000001192092896,1,1,1,1,1
+b_904.png,/Users/yeon/work/UoB_CourseWork/uob-ds-intro-to-ai-final-cw-2026/src/data/images/type-b/b_904.png,large red 704,small red 704,small red 704,3,7,1.0000001192092896,0,0,0,0,0

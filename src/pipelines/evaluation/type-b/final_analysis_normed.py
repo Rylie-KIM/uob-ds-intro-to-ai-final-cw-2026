@@ -46,6 +46,8 @@ _DESCRIPTIONS: dict[str, str] = {
     'S2ad': 'Stage-2 cnn_1layer + TinyBERT-mean (312-dim), Combined — normed',
     'S2bd': 'Stage-2 cnn_3layer + TinyBERT-mean (312-dim), Combined — normed',
     'S2cd': 'Stage-2 ResNet18-pretrained + TinyBERT-mean (312-dim), Combined — normed',
+    'S2dn': 'Stage-2 cnn_3layer + SBERT (384-dim), Cosine — normed',
+    'S2en': 'Stage-2 ResNet18-pretrained + SBERT (384-dim), Cosine — normed',
 }
 
 
