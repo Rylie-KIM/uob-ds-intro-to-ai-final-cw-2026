@@ -1,6 +1,6 @@
 class EarlyStopping:
     # Adapted from https://medium.com/biased-algorithms/a-practical-guide-to-implementing-early-stopping-in-pytorch-for-model-training-99a7cbd46e9d
-    def __init__(self, patience : int, min_improvement : float = 0.01):
+    def __init__(self, patience : int, min_improvement : float = 0.0):
         self.patience = patience
         self.min_improvement = min_improvement
         self.best_loss = None

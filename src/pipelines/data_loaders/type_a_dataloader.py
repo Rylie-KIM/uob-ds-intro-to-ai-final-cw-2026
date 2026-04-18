@@ -2,14 +2,12 @@ import torch
 from torch.utils.data import Dataset
 from pathlib import Path
 
-
 class Dataset_A(Dataset):
-    def __init__(self, images : torch.Tensor, sentences : torch.Tensor,  transformation):
+    def __init__(self, images : torch.Tensor, sentences : torch.Tensor, transformation):
 
         self.images = images
         self.sentences = sentences
         self.transformation = transformation
-        
         if len(self.images) != len(self.sentences):
             raise ValueError(f'Mismatch in embedding lengths. IMG_EMB: {len(self.images)} | SENTENCE_EMB: {len(self.sentences)}')
         print('Dataloader initialisation complete')
@@ -20,9 +18,9 @@ class Dataset_A(Dataset):
         return len(self.images)
 
     def __getitem__(self, idx):
-        img_emb = self.img_embs[idx]
+        img_emb = self.images[idx]
         if img_emb is None:
             raise ValueError(f'Img embedding for {idx} is none')
         img_emb_t = self.transformation(img_emb)
-        sentence_emb = self.sentence_embs[idx]
+        sentence_emb = self.sentences[idx]
         return img_emb_t, sentence_emb

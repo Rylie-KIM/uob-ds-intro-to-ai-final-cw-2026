@@ -51,6 +51,7 @@ def train(model, train_set, val_set, epochs, learning_rate, criterion):
         print(f'Epoch: {epoch+1}/{epochs} | Train Loss: {round(avg_train_loss,6)} | Test Loss: {round(avg_val_loss,6)}')
         if early_stopping.stop == True:
             print('Early Stopping Activated!')
+            break
     total_time = time.time() - start
     loss_type = criterion.__class__.__name__
     return train_losses, val_losses, model, total_time, loss_type
