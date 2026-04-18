@@ -1,0 +1,34 @@
+import torch
+import torch.nn as nn
+
+class CNN2Layer(nn.Module):
+    def __init__(self, output_dims: int, dropout: float = 0.5):
+        super().__init__()
+
+        self.features = nn.Sequential(
+            nn.Conv2d(3,  32, kernel_size=3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),                 #  64×64×32
+
+            nn.Conv2d(32, 64, kernel_size=3, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),                 #  32×32×64
+        )
+
+        self.avgpool = nn.AdaptiveAvgPool2d((4, 4))     #  4×4×64 = 1024  (32÷4 exact, MPS-safe)
+
+        self.classifier = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(64 * 4 * 4, 512),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=dropout),
+            nn.Linear(512, output_dims),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.features(x)
+        x = self.avgpool(x)
+        x = self.classifier(x)
+        return x

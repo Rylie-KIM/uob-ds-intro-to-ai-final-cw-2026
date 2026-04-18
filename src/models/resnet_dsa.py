@@ -5,7 +5,7 @@ from torchvision.models import ResNet18_Weights
 
 class ResnetDSA(nn.Module):
 
-    def __init__(self, output_dim: int = 384, dropout: float = 0.5):
+    def __init__(self, output_dims: int, dropout: float = 0.5):
         super().__init__()
 
         self.convolution = models.resnet18(weights=ResNet18_Weights.DEFAULT)
@@ -14,7 +14,7 @@ class ResnetDSA(nn.Module):
             nn.Linear(512, 512),
             nn.ReLU(inplace=True),
             nn.Dropout(p=dropout),
-            nn.Linear(512, output_dim)
+            nn.Linear(512, output_dims)
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
