@@ -12,6 +12,7 @@ class BertMeanEmbedder:
         self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
         self.master_path = Path('src/data/type-a/master.csv')
         self.folder_path = Path('src/embeddings/computed-embeddings/type-a/Mean_B')
+        self.folder_path.mkdir(parents=True, exist_ok=True)
         self.df = pd.read_csv(self.master_path)
         self.model.eval()
 
