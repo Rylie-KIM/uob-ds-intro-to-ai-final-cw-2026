@@ -23,6 +23,7 @@ class PretrainedWord2VecEmbedder:
 
         print('Master csv found.')
         self.folder_path = Path('src/embeddings/computed-embeddings/type-a/p_w2v')
+        self.folder_path.mkdir(parents=True, exist_ok=True)
         self.df = pd.read_csv(self.master_path)
 
         print("PretrainedWord2VecEmbedder loading 'word2vec-google-news-300'")

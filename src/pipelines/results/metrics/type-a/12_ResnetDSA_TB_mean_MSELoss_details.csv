@@ -1,0 +1,1001 @@
+row_index,true_label,predicted_label,cosine_similarity,mse,top1_hit,top5_hit,exact_sentence_match,attribute_overlap_count,attribute_overlap_ratio,relation_match,object_pair_match,full_structure_match
+59,a medium red diamond is below a medium pink circle,a big green diamond is below a big blue triangle,0.806969165802002,0.0012373777572065592,0,0,0,2,0.2857142857142857,1,0,0
+7560,above a big green octagon is a small red triangle,a big green diamond is below a big blue triangle,0.8718605041503906,0.0008214071276597679,0,0,0,1,0.14285714285714285,0,0,0
+624,a small green hexagon can be seen above a medium blue octagon,a big green octagon is above a big blue triangle,0.7528532147407532,0.0015842739958316088,0,0,0,3,0.42857142857142855,1,0,0
+1616,a big yellow octagon is below a big pink diamond,a big green diamond is below a big blue triangle,0.8883034586906433,0.0007160042878240347,0,0,0,3,0.42857142857142855,1,0,0
+7246,right of a medium green hexagon is a medium black square,a big green diamond is below a big blue triangle,0.7458146810531616,0.001629393664188683,0,0,0,0,0.0,0,0,0
+8414,the small red octagon is positioned below a small red diamond,a big green diamond is below a big blue triangle,0.8046717643737793,0.00125210452824831,0,0,0,1,0.14285714285714285,1,0,0
+1980,the big green circle is positioned right of a big orange octagon,a big green diamond is below a big blue triangle,0.9119290709495544,0.0005645575001835823,0,0,0,3,0.42857142857142855,0,0,0
+7756,a big yellow triangle can be seen left of a medium pink octagon,a big green diamond is below a big blue triangle,0.81840980052948,0.0011640399461612105,0,0,0,1,0.14285714285714285,0,0,0
+495,a medium green circle can be seen right of a small blue square,a big green diamond is below a big blue triangle,0.8138679265975952,0.001193155301734805,0,0,0,2,0.2857142857142857,0,0,0
+6036,below a big purple square is a small yellow square,a big green diamond is below a big blue triangle,0.8240808844566345,0.001127687399275601,0,0,0,2,0.2857142857142857,1,0,0
+9756,the medium pink triangle is positioned left of a small black triangle,a big green diamond is below a big blue triangle,0.7708196043968201,0.0014691055985167623,0,0,0,1,0.14285714285714285,0,0,0
+3308,a big red diamond is left of a medium orange square,a big green diamond is below a big blue triangle,0.907749593257904,0.0005913494969718158,0,0,0,2,0.2857142857142857,0,0,0
+5485,a small yellow circle is left of a big yellow diamond,a big green diamond is below a big blue triangle,0.8540504574775696,0.0009355749352835119,0,0,0,1,0.14285714285714285,0,0,0
+2499,a medium pink diamond can be seen above a big yellow circle,a big green diamond is below a big blue triangle,0.8783137202262878,0.0007800402818247676,0,0,0,2,0.2857142857142857,0,0,0
+355,the big pink hexagon is positioned below a big orange triangle,a big green diamond is below a big blue triangle,0.9073443412780762,0.0005939469556324184,0,0,0,4,0.5714285714285714,1,0,0
+3868,the medium orange hexagon is positioned above a small black circle,a big green diamond is below a big blue triangle,0.8087987303733826,0.0012256494956091046,0,0,0,0,0.0,0,0,0
+422,the big purple octagon is positioned right of a small green hexagon,a big green octagon is above a big blue triangle,0.8571627736091614,0.000915622862521559,0,0,0,2,0.2857142857142857,0,0,0
+6845,a medium red diamond is left of a small yellow hexagon,a big green diamond is below a big blue triangle,0.7930558919906616,0.001326565514318645,0,0,0,1,0.14285714285714285,0,0,0
+7102,a big orange triangle is left of a medium green hexagon,a big green diamond is below a big blue triangle,0.8720706105232239,0.000820060377009213,0,0,0,1,0.14285714285714285,0,0,0
+4121,above a small green triangle is a small yellow octagon,a big green diamond is below a big blue triangle,0.7549261450767517,0.001570986583828926,0,0,0,1,0.14285714285714285,0,0,0
+2778,left of a medium blue hexagon is a medium orange triangle,a big green diamond is below a big blue triangle,0.7718901634216309,0.0014622430317103863,0,0,0,1,0.14285714285714285,0,0,0
+3489,the medium black triangle is positioned below a big black triangle,a big green diamond is below a big blue triangle,0.7953876256942749,0.0013116180198267102,0,0,0,3,0.42857142857142855,1,0,0
+6561,a medium yellow circle is right of a medium pink diamond,a big green diamond is below a big blue triangle,0.8249197006225586,0.0011223099427297711,0,0,0,0,0.0,0,0,0
+4377,above a medium orange square is a big yellow diamond,a big green diamond is below a big blue triangle,0.9171127676963806,0.0005313289584591985,0,0,0,2,0.2857142857142857,0,0,0
+62,a big orange square can be seen right of a small yellow square,a big green diamond is below a big blue triangle,0.8603227734565735,0.0008953671203926206,0,0,0,1,0.14285714285714285,0,0,0
+5094,the medium yellow triangle is positioned right of a medium pink triangle,below a big green triangle is a big red diamond,0.7675175666809082,0.001490271184593439,0,0,0,1,0.14285714285714285,0,0,0
+4119,a small green diamond is right of a medium blue hexagon,a big green diamond is below a big blue triangle,0.8410949110984802,0.001018623122945428,0,0,0,3,0.42857142857142855,0,0,0
+8360,left of a big pink circle is a small orange circle,a big green diamond is below a big blue triangle,0.8389573693275452,0.0010323247406631708,0,0,0,1,0.14285714285714285,0,0,0
+2610,the medium pink diamond is positioned below a medium blue octagon,a big green diamond is below a big blue triangle,0.7860763072967529,0.00137130671646446,0,0,0,3,0.42857142857142855,1,0,0
+5847,above a small blue triangle is a small purple octagon,a big green diamond is below a big blue triangle,0.8053474426269531,0.0012477735290303826,0,0,0,2,0.2857142857142857,0,0,0
+1693,right of a medium purple triangle is a medium blue diamond,below a big green triangle is a big red diamond,0.81803297996521,0.0011664554476737976,0,0,0,2,0.2857142857142857,0,1,0
+1068,the small black hexagon is positioned below a medium yellow square,a big green diamond is below a big blue triangle,0.728985607624054,0.0017372719012200832,0,0,0,1,0.14285714285714285,1,0,0
+6921,a big yellow circle can be seen above a medium blue triangle,a big green diamond is below a big blue triangle,0.8602446913719177,0.00089586793910712,0,0,0,3,0.42857142857142855,0,0,0
+8758,a big blue octagon can be seen above a medium purple diamond,a big green diamond is below a big blue triangle,0.88371342420578,0.0007454267470166087,0,0,0,1,0.14285714285714285,0,0,0
+1862,a medium red octagon can be seen above a small black hexagon,a big green octagon is above a big blue triangle,0.7487038373947144,0.001610873849131167,0,0,0,2,0.2857142857142857,1,0,0
+7464,a small orange diamond is below a big pink diamond,a big green diamond is below a big blue triangle,0.8949760794639587,0.000673230504617095,0,0,0,3,0.42857142857142855,1,0,0
+3289,a big orange circle is right of a small pink diamond,a big green diamond is below a big blue triangle,0.9124353528022766,0.0005613124230876565,0,0,0,1,0.14285714285714285,0,0,0
+695,a small yellow circle is below a small orange diamond,a big green diamond is below a big blue triangle,0.7919937372207642,0.0013333732495084405,0,0,0,1,0.14285714285714285,1,0,0
+8049,a big black triangle is above a medium pink diamond,a big green diamond is below a big blue triangle,0.9314446449279785,0.0004394581192173064,0,0,0,1,0.14285714285714285,0,0,0
+9820,right of a big pink square is a big pink circle,a big green diamond is below a big blue triangle,0.8897249102592468,0.0007068910053931177,0,0,0,2,0.2857142857142857,0,0,0
+4366,the big purple octagon is positioned below a big blue triangle,a big green diamond is below a big blue triangle,0.8949685096740723,0.000673279573675245,0,0,0,5,0.7142857142857143,1,0,0
+7940,a big pink hexagon can be seen right of a big black hexagon,a big green diamond is below a big blue triangle,0.7981048226356506,0.0012941997265443206,0,0,0,2,0.2857142857142857,0,0,0
+6216,left of a small blue hexagon is a small yellow diamond,a big green diamond is below a big blue triangle,0.799485981464386,0.0012853468069806695,0,0,0,2,0.2857142857142857,0,0,0
+6486,a big red octagon can be seen below a small yellow circle,a big green octagon is above a big blue triangle,0.81711345911026,0.0011723500210791826,0,0,0,2,0.2857142857142857,0,0,0
+3876,a medium green hexagon is above a medium pink circle,a big green diamond is below a big blue triangle,0.8102041482925415,0.0012166401138529181,0,0,0,1,0.14285714285714285,0,0,0
+5731,the small red hexagon is positioned left of a medium green octagon,a big green octagon is above a big blue triangle,0.7521700859069824,0.0015886533074080944,0,0,0,0,0.0,0,0,0
+6370,left of a big black octagon is a big pink octagon,a big green octagon is above a big blue triangle,0.7840452790260315,0.0013843255583196878,0,0,0,3,0.42857142857142855,0,0,0
+4430,the big purple circle is positioned left of a big red triangle,a big green diamond is below a big blue triangle,0.9030706286430359,0.0006213431479409337,0,0,0,3,0.42857142857142855,0,0,0
+3291,the small blue square is positioned right of a small yellow hexagon,a big green diamond is below a big blue triangle,0.8164998888969421,0.0011762831127271056,0,0,0,0,0.0,0,0,0
+2801,the small yellow circle is positioned right of a medium blue square,a big green diamond is below a big blue triangle,0.791201114654541,0.0013384550111368299,0,0,0,1,0.14285714285714285,0,0,0
+2433,a medium green square can be seen below a small green triangle,a big green diamond is below a big blue triangle,0.7733241319656372,0.0014530507614836097,0,0,0,3,0.42857142857142855,1,0,0
+6035,left of a small green triangle is a small pink diamond,a big green diamond is below a big blue triangle,0.8248347043991089,0.0011228545336052775,0,0,0,2,0.2857142857142857,0,1,0
+7333,the small yellow square is positioned right of a medium purple diamond,a big green diamond is below a big blue triangle,0.8445374369621277,0.0009965550852939487,0,0,0,0,0.0,0,0,0
+8093,below a medium purple triangle is a big green hexagon,a big green diamond is below a big blue triangle,0.8683903813362122,0.0008436520001851022,0,0,0,4,0.5714285714285714,1,0,0
+4958,above a big pink diamond is a small blue square,a big green diamond is below a big blue triangle,0.9168567657470703,0.0005329700070433319,0,0,0,1,0.14285714285714285,0,0,0
+6538,a small yellow hexagon can be seen right of a medium blue hexagon,a big green octagon is above a big blue triangle,0.7334291934967041,0.0017087876331061125,0,0,0,1,0.14285714285714285,0,0,0
+4590,right of a big black triangle is a small purple octagon,a big green diamond is below a big blue triangle,0.8547301888465881,0.000931217335164547,0,0,0,2,0.2857142857142857,0,0,0
+9418,the medium purple octagon is positioned right of a small yellow circle,a big green octagon is above a big blue triangle,0.7555166482925415,0.0015672013396397233,0,0,0,1,0.14285714285714285,0,0,0
+1553,a medium yellow triangle can be seen right of a big orange diamond,a big green diamond is below a big blue triangle,0.8736899495124817,0.0008096802048385143,0,0,0,1,0.14285714285714285,0,0,0
+5780,right of a small orange triangle is a small black diamond,a big green diamond is below a big blue triangle,0.8374854326248169,0.0010417602024972439,0,0,0,2,0.2857142857142857,0,1,0
+8274,a big blue hexagon can be seen left of a medium purple hexagon,a big green octagon is above a big blue triangle,0.8144960403442383,0.0011891284957528114,0,0,0,1,0.14285714285714285,0,0,0
+8572,the big green circle is positioned below a small purple diamond,a big green diamond is below a big blue triangle,0.9063593149185181,0.0006002614973112941,0,0,0,3,0.42857142857142855,1,0,0
+2463,the medium blue triangle is positioned left of a medium orange hexagon,a big green octagon is above a big blue triangle,0.7997815012931824,0.0012834523804485798,0,0,0,0,0.0,0,0,0
+9898,the small purple circle is positioned below a big blue hexagon,a big green diamond is below a big blue triangle,0.8585919141769409,0.0009064623736776412,0,0,0,3,0.42857142857142855,1,0,0
+6773,a medium green octagon can be seen right of a medium purple diamond,a big green octagon is above a big blue triangle,0.8092387914657593,0.0012228286359459162,0,0,0,2,0.2857142857142857,0,0,0
+6166,the big blue circle is positioned left of a big green octagon,a big green octagon is above a big blue triangle,0.9015417098999023,0.0006311426404863596,0,0,0,2,0.2857142857142857,0,0,0
+8715,below a medium yellow circle is a small pink diamond,a big green diamond is below a big blue triangle,0.7949439883232117,0.0013144623953849077,0,0,0,2,0.2857142857142857,1,0,0
+6471,left of a big yellow octagon is a big purple diamond,a big green diamond is below a big blue triangle,0.8838340044021606,0.0007446545641869307,0,0,0,3,0.42857142857142855,0,0,0
+7294,a big purple hexagon is right of a small red square,a big green diamond is below a big blue triangle,0.9114602208137512,0.0005675632855854928,0,0,0,1,0.14285714285714285,0,0,0
+6552,the medium blue triangle is positioned below a medium blue diamond,a big green diamond is below a big blue triangle,0.7965644598007202,0.0013040743069723248,0,0,0,2,0.2857142857142857,1,0,0
+2527,a medium blue square is right of a big black hexagon,a big green diamond is below a big blue triangle,0.8373653292655945,0.0010425301734358072,0,0,0,1,0.14285714285714285,0,0,0
+630,a small yellow square can be seen right of a big black square,a big green diamond is below a big blue triangle,0.8081380724906921,0.001229884335771203,0,0,0,1,0.14285714285714285,0,0,0
+1053,a medium black circle can be seen right of a medium black triangle,a big green diamond is below a big blue triangle,0.7342466711997986,0.0017035475466400385,0,0,0,1,0.14285714285714285,0,0,0
+2198,right of a big orange square is a medium pink triangle,a big green diamond is below a big blue triangle,0.880001425743103,0.000769222155213356,0,0,0,1,0.14285714285714285,0,0,0
+4127,a big purple square can be seen above a medium red square,a big green diamond is below a big blue triangle,0.8657997846603394,0.0008602577145211399,0,0,0,1,0.14285714285714285,0,0,0
+135,the small blue octagon is positioned left of a small red circle,a big green diamond is below a big blue triangle,0.7548220157623291,0.0015716541092842817,0,0,0,0,0.0,0,0,0
+127,the small orange diamond is positioned below a big purple square,a big green diamond is below a big blue triangle,0.9047514200210571,0.0006105685606598854,0,0,0,3,0.42857142857142855,1,0,0
+9227,a big blue triangle is right of a big green triangle,a big green diamond is below a big blue triangle,0.9024916291236877,0.0006250531878322363,0,0,0,3,0.42857142857142855,0,0,0
+1731,a big blue octagon can be seen above a small red triangle,a big green diamond is below a big blue triangle,0.8745192885398865,0.0008043637499213219,0,0,0,2,0.2857142857142857,0,0,0
+2540,a medium blue octagon can be seen below a small orange triangle,a big green octagon is above a big blue triangle,0.7532927989959717,0.0015814566286280751,0,0,0,2,0.2857142857142857,0,1,0
+169,left of a small purple square is a medium orange circle,a big green diamond is below a big blue triangle,0.7830758094787598,0.0013905396917834878,0,0,0,0,0.0,0,0,0
+1737,the small blue square is positioned below a big red hexagon,a big green diamond is below a big blue triangle,0.8719691038131714,0.0008207114296965301,0,0,0,2,0.2857142857142857,1,0,0
+1834,a big pink square can be seen below a small green square,a big green diamond is below a big blue triangle,0.841008186340332,0.0010191790061071515,0,0,0,2,0.2857142857142857,1,0,0
+5596,a medium pink square can be seen above a big red triangle,a big green diamond is below a big blue triangle,0.8826925158500671,0.0007519709761254489,0,0,0,2,0.2857142857142857,0,0,0
+3655,above a medium red hexagon is a big yellow hexagon,a big green octagon is above a big blue triangle,0.7880227565765381,0.0013588283909484744,0,0,0,2,0.2857142857142857,1,0,0
+3314,a medium black square can be seen right of a medium pink circle,a big green diamond is below a big blue triangle,0.808480978012085,0.0012276864144951105,0,0,0,0,0.0,0,0,0
+7156,left of a medium pink hexagon is a big purple triangle,a big green diamond is below a big blue triangle,0.8563637733459473,0.0009207449620589614,0,0,0,1,0.14285714285714285,0,0,0
+9250,the big purple octagon is positioned below a small purple diamond,a big green octagon is above a big blue triangle,0.8742480278015137,0.0008061025873757899,0,0,0,2,0.2857142857142857,0,0,0
+7675,a small orange square can be seen below a medium green hexagon,a big green diamond is below a big blue triangle,0.7795519828796387,0.001413128455169499,0,0,0,1,0.14285714285714285,1,0,0
+2196,a big yellow square is below a big orange circle,a big green diamond is below a big blue triangle,0.9086799025535583,0.0005853858892805874,0,0,0,3,0.42857142857142855,1,0,0
+3865,a medium blue diamond can be seen above a big green triangle,a big green diamond is below a big blue triangle,0.9035239815711975,0.0006184368976391852,0,0,0,3,0.42857142857142855,0,1,0
+1749,the small red diamond is positioned left of a medium green diamond,below a big green triangle is a big red diamond,0.824052095413208,0.0011278718011453748,0,0,0,3,0.42857142857142855,0,0,0
+4426,right of a big black diamond is a medium yellow circle,a big green diamond is below a big blue triangle,0.8660929799079895,0.0008583785966038704,0,0,0,1,0.14285714285714285,0,0,0
+2944,a medium purple triangle is left of a small purple octagon,a big green diamond is below a big blue triangle,0.7712585926055908,0.0014662918401882052,0,0,0,0,0.0,0,0,0
+6624,a big black octagon can be seen left of a big orange hexagon,a big green octagon is above a big blue triangle,0.8102932572364807,0.001216069795191288,0,0,0,3,0.42857142857142855,0,0,0
+6305,right of a medium orange diamond is a small black circle,a big green diamond is below a big blue triangle,0.8287928104400635,0.001097481930628419,0,0,0,0,0.0,0,0,0
+1732,right of a small red circle is a big orange octagon,a big green diamond is below a big blue triangle,0.8713381290435791,0.000824756280053407,0,0,0,1,0.14285714285714285,0,0,0
+4906,the big green square is positioned below a medium blue diamond,a big green diamond is below a big blue triangle,0.8996886014938354,0.0006430225912481546,0,0,0,4,0.5714285714285714,1,0,0
+2393,a small pink hexagon can be seen right of a big black octagon,a big green octagon is above a big blue triangle,0.7905271053314209,0.0013427749508991838,0,0,0,1,0.14285714285714285,0,0,0
+9881,a big blue triangle can be seen below a big red hexagon,a big green diamond is below a big blue triangle,0.859831690788269,0.0008985145832411945,0,0,0,3,0.42857142857142855,1,0,0
+4578,the small blue octagon is positioned below a big orange circle,a big green diamond is below a big blue triangle,0.8188241720199585,0.0011613836977630854,0,0,0,2,0.2857142857142857,1,0,0
+7700,a big purple square can be seen above a medium pink diamond,a big green diamond is below a big blue triangle,0.9160105586051941,0.0005383947864174843,0,0,0,1,0.14285714285714285,0,0,0
+4112,a big green octagon can be seen left of a medium red square,a big green octagon is above a big blue triangle,0.8516119122505188,0.000951205613091588,0,0,0,3,0.42857142857142855,0,0,0
+6604,below a small blue square is a big yellow circle,a big green diamond is below a big blue triangle,0.8568398952484131,0.0009176929597742856,0,0,0,3,0.42857142857142855,1,0,0
+2522,the medium blue diamond is positioned above a small blue octagon,a big green diamond is below a big blue triangle,0.8241381645202637,0.001127319410443306,0,0,0,2,0.2857142857142857,0,0,0
+1925,a medium blue circle can be seen above a small orange octagon,a big green octagon is above a big blue triangle,0.7915401458740234,0.0013362811878323555,0,0,0,1,0.14285714285714285,1,0,0
+1165,a small black triangle can be seen left of a medium red square,a big green diamond is below a big blue triangle,0.7923674583435059,0.0013309783535078168,0,0,0,0,0.0,0,0,0
+5707,right of a big yellow circle is a big pink hexagon,a big green diamond is below a big blue triangle,0.8881014585494995,0.0007172983605414629,0,0,0,2,0.2857142857142857,0,0,0
+3042,left of a small red hexagon is a big black circle,a big green diamond is below a big blue triangle,0.8376017212867737,0.0010410150280222297,0,0,0,1,0.14285714285714285,0,0,0
+2882,a medium green diamond can be seen below a small blue square,a big green diamond is below a big blue triangle,0.8233488202095032,0.0011323790531605482,0,0,0,4,0.5714285714285714,1,0,0
+8968,the small green triangle is positioned left of a small green octagon,a big green diamond is below a big blue triangle,0.7745511531829834,0.0014451849274337292,0,0,0,1,0.14285714285714285,0,0,0
+9139,a medium red hexagon can be seen above a small green octagon,a big green octagon is above a big blue triangle,0.7694938778877258,0.0014776031021028757,0,0,0,1,0.14285714285714285,1,0,0
+9121,a small black circle can be seen above a big pink triangle,a big green diamond is below a big blue triangle,0.8668106198310852,0.0008537779795005918,0,0,0,2,0.2857142857142857,0,0,0
+3037,a small blue octagon is right of a small pink circle,a big green diamond is below a big blue triangle,0.7876486778259277,0.001361226779408753,0,0,0,0,0.0,0,0,0
+3121,a small black square can be seen above a medium purple octagon,a big black diamond is above a big green octagon,0.797828733921051,0.00129596923943609,0,0,0,3,0.42857142857142855,1,0,0
+880,a medium purple octagon is below a small green diamond,a big green octagon is above a big blue triangle,0.7988517880439758,0.0012894123792648315,0,0,0,1,0.14285714285714285,0,0,0
+2240,a big red diamond is left of a small orange square,a big green diamond is below a big blue triangle,0.9140853881835938,0.0005507342284545302,0,0,0,2,0.2857142857142857,0,0,0
+3691,a big blue circle can be seen below a medium red hexagon,a big green diamond is below a big blue triangle,0.83709317445755,0.0010442740749567747,0,0,0,2,0.2857142857142857,1,0,0
+6951,a medium red diamond is below a medium black octagon,a big green octagon is above a big blue triangle,0.7699332237243652,0.0014747877139598131,0,0,0,0,0.0,0,0,0
+4733,a big orange circle can be seen right of a small purple octagon,a big green diamond is below a big blue triangle,0.8564098477363586,0.0009204496745951474,0,0,0,1,0.14285714285714285,0,0,0
+6318,a big orange diamond is right of a big green octagon,a big green diamond is below a big blue triangle,0.9194498658180237,0.000516347645316273,0,0,0,3,0.42857142857142855,0,0,0
+7579,right of a small purple circle is a big blue circle,a big green diamond is below a big blue triangle,0.8756032586097717,0.0007974149193614721,0,0,0,1,0.14285714285714285,0,0,0
+2903,a big yellow circle is left of a big red hexagon,a big green diamond is below a big blue triangle,0.8904237747192383,0.0007024123915471137,0,0,0,2,0.2857142857142857,0,0,0
+5865,below a big blue circle is a small black square,a big green diamond is below a big blue triangle,0.8302950859069824,0.0010878527536988258,0,0,0,3,0.42857142857142855,1,0,0
+4845,above a medium yellow diamond is a small purple triangle,a big green diamond is below a big blue triangle,0.83510422706604,0.0010570244630798697,0,0,0,0,0.0,0,0,0
+6244,a small orange square is below a medium red triangle,a big green diamond is below a big blue triangle,0.7929264307022095,0.0013273956719785929,0,0,0,2,0.2857142857142857,1,0,0
+5287,above a medium blue diamond is a medium orange square,a big green diamond is below a big blue triangle,0.8354467153549194,0.0010548288701102138,0,0,0,1,0.14285714285714285,0,0,0
+1725,a big green octagon is below a small purple circle,a big green octagon is above a big blue triangle,0.8511655926704407,0.0009540669270791113,0,0,0,3,0.42857142857142855,0,0,0
+7374,right of a medium blue triangle is a medium yellow hexagon,a big green octagon is above a big blue triangle,0.761066734790802,0.001531623536720872,0,0,0,2,0.2857142857142857,0,0,0
+1825,a big purple triangle can be seen below a medium blue triangle,a big green diamond is below a big blue triangle,0.8137431144714355,0.0011939535615965724,0,0,0,4,0.5714285714285714,1,0,0
+5953,a medium green octagon is left of a small red circle,a big green diamond is below a big blue triangle,0.7272956371307373,0.001748104696162045,0,0,0,1,0.14285714285714285,0,0,0
+8236,a small red square is above a medium yellow octagon,a big green diamond is below a big blue triangle,0.771568238735199,0.0014643061440438032,0,0,0,0,0.0,0,0,0
+4957,a big purple triangle is left of a big black hexagon,a big green diamond is below a big blue triangle,0.8844592571258545,0.0007406467339023948,0,0,0,2,0.2857142857142857,0,0,0
+2785,a medium orange diamond is above a medium pink triangle,a big green diamond is below a big blue triangle,0.8560571074485779,0.0009227119735442102,0,0,0,2,0.2857142857142857,0,1,0
+7023,above a small orange triangle is a big purple hexagon,a big green diamond is below a big blue triangle,0.8757311701774597,0.0007965951808728278,0,0,0,2,0.2857142857142857,0,0,0
+4745,the small black octagon is positioned left of a big orange circle,a big green diamond is below a big blue triangle,0.792535662651062,0.0013299003476276994,0,0,0,1,0.14285714285714285,0,0,0
+9644,the big black triangle is positioned left of a medium red octagon,a big green diamond is below a big blue triangle,0.8239326477050781,0.001128637115471065,0,0,0,1,0.14285714285714285,0,0,0
+5513,a medium green hexagon is right of a big red diamond,a big green diamond is below a big blue triangle,0.889412522315979,0.0007088943966664374,0,0,0,2,0.2857142857142857,0,0,0
+1958,a big purple diamond can be seen below a medium purple triangle,a big green diamond is below a big blue triangle,0.8625385761260986,0.0008811631705611944,0,0,0,4,0.5714285714285714,1,1,0
+2298,a medium pink circle can be seen left of a medium orange circle,a big green diamond is below a big blue triangle,0.7386682629585266,0.0016752046067267656,0,0,0,0,0.0,0,0,0
+6438,a small orange octagon can be seen right of a medium orange hexagon,the big green hexagon is positioned above a big orange circle,0.7270363569259644,0.0017497667577117682,0,0,0,1,0.14285714285714285,0,0,0
+8119,the medium purple diamond is positioned below a small black square,a big green diamond is below a big blue triangle,0.8114591836929321,0.0012085955822840333,0,0,0,2,0.2857142857142857,1,0,0
+6827,a medium yellow diamond can be seen left of a medium green triangle,a big green diamond is below a big blue triangle,0.8131558895111084,0.00119771936442703,0,0,0,2,0.2857142857142857,0,1,0
+7822,right of a medium red triangle is a big purple diamond,a big green diamond is below a big blue triangle,0.9102012515068054,0.0005756340106017888,0,0,0,3,0.42857142857142855,0,1,0
+5203,a medium orange octagon can be seen below a big blue hexagon,a big green octagon is above a big blue triangle,0.784618616104126,0.001380649977363646,0,0,0,3,0.42857142857142855,0,0,0
+1773,above a medium black hexagon is a small black triangle,a big green diamond is below a big blue triangle,0.7715246677398682,0.0014645857736468315,0,0,0,0,0.0,0,0,0
+718,a small blue octagon can be seen left of a medium blue triangle,a big green diamond is below a big blue triangle,0.7576570510864258,0.0015534813283011317,0,0,0,2,0.2857142857142857,0,0,0
+1794,a small black diamond is below a small red circle,a big green diamond is below a big blue triangle,0.8152523040771484,0.0011842806125059724,0,0,0,2,0.2857142857142857,1,0,0
+2789,a small purple square can be seen right of a small orange circle,a big green diamond is below a big blue triangle,0.8167741298675537,0.0011745250085368752,0,0,0,0,0.0,0,0,0
+6586,left of a small pink circle is a small red octagon,a big green diamond is below a big blue triangle,0.7468748688697815,0.0016225967556238174,0,0,0,0,0.0,0,0,0
+1027,the medium black square is positioned below a small yellow circle,a big green diamond is below a big blue triangle,0.747728705406189,0.0016171238385140896,0,0,0,1,0.14285714285714285,1,0,0
+3211,a big yellow diamond is right of a big green octagon,a big green diamond is below a big blue triangle,0.925720751285553,0.00047614937648177147,0,0,0,3,0.42857142857142855,0,0,0
+8231,a medium black hexagon is below a medium blue diamond,a big green diamond is below a big blue triangle,0.7835510969161987,0.0013874926371499896,0,0,0,2,0.2857142857142857,1,0,0
+4720,right of a small black circle is a medium blue hexagon,a big green diamond is below a big blue triangle,0.7651129961013794,0.0015056865522637963,0,0,0,0,0.0,0,0,0
+8557,a big pink diamond can be seen below a medium orange octagon,a big green diamond is below a big blue triangle,0.8593507409095764,0.0009015984833240509,0,0,0,3,0.42857142857142855,1,0,0
+5491,a big green triangle is below a medium green hexagon,a big green diamond is below a big blue triangle,0.8523062467575073,0.0009467549971304834,0,0,0,3,0.42857142857142855,1,0,0
+2706,a big green triangle is left of a medium black circle,a big green diamond is below a big blue triangle,0.8737180233001709,0.0008095000521279871,0,0,0,2,0.2857142857142857,0,0,0
+4983,a big orange hexagon is above a big red circle,a big green diamond is below a big blue triangle,0.9178711175918579,0.0005264675710350275,0,0,0,2,0.2857142857142857,0,0,0
+200,the big yellow square is positioned below a small red octagon,a big green octagon is above a big blue triangle,0.8498820066452026,0.0009622953948564827,0,0,0,1,0.14285714285714285,0,0,0
+6310,the big green square is positioned right of a big purple circle,a big green diamond is below a big blue triangle,0.8985821604728699,0.0006501151947304606,0,0,0,3,0.42857142857142855,0,0,0
+1382,the medium orange square is positioned above a big green diamond,a big green diamond is below a big blue triangle,0.9111824035644531,0.0005693435668945312,0,0,0,1,0.14285714285714285,0,0,0
+1123,a medium red hexagon is below a medium orange hexagon,a big green octagon is above a big blue triangle,0.7259967923164368,0.0017564311856403947,0,0,0,0,0.0,0,0,0
+1753,a big yellow square is below a medium yellow diamond,a big green diamond is below a big blue triangle,0.8737732172012329,0.000809147022664547,0,0,0,2,0.2857142857142857,1,0,0
+4188,a small pink triangle is below a big green triangle,a big green diamond is below a big blue triangle,0.853540301322937,0.0009388444013893604,0,0,0,3,0.42857142857142855,1,0,0
+5049,left of a small yellow hexagon is a medium yellow octagon,a big green octagon is above a big blue triangle,0.6511648893356323,0.0022361231967806816,0,0,0,1,0.14285714285714285,0,0,0
+2656,a medium yellow hexagon can be seen above a medium black diamond,a big green diamond is below a big blue triangle,0.7748537659645081,0.0014432454481720924,0,0,0,0,0.0,0,0,0
+5207,the medium red square is positioned left of a big red triangle,a big green diamond is below a big blue triangle,0.8600494861602783,0.0008971189381554723,0,0,0,2,0.2857142857142857,0,0,0
+3514,a big green octagon can be seen right of a small pink square,a big green diamond is below a big blue triangle,0.8605608344078064,0.0008938419632613659,0,0,0,2,0.2857142857142857,0,0,0
+5973,a medium blue circle can be seen above a medium purple circle,a big green diamond is below a big blue triangle,0.7577047348022461,0.0015531752724200487,0,0,0,0,0.0,0,0,0
+4913,a medium purple diamond can be seen above a big red diamond,a big green diamond is below a big blue triangle,0.8670616149902344,0.0008521695854142308,0,0,0,2,0.2857142857142857,0,0,0
+2257,a medium black triangle is right of a medium blue diamond,a big green diamond is below a big blue triangle,0.8390159606933594,0.0010319497669115663,0,0,0,1,0.14285714285714285,0,0,0
+8389,a medium pink circle is left of a small black octagon,a big green diamond is below a big blue triangle,0.7314605712890625,0.0017214069375768304,0,0,0,0,0.0,0,0,0
+2937,left of a medium purple square is a medium blue circle,a big green diamond is below a big blue triangle,0.7842844724655151,0.0013827913207933307,0,0,0,0,0.0,0,0,0
+9728,a big black circle is left of a medium green hexagon,a big green diamond is below a big blue triangle,0.8464444875717163,0.0009843305451795459,0,0,0,1,0.14285714285714285,0,0,0
+26,the small orange hexagon is positioned above a medium black octagon,a big green octagon is above a big blue triangle,0.7623016238212585,0.0015237078769132495,0,0,0,1,0.14285714285714285,1,0,0
+4216,left of a small green triangle is a big red triangle,a big green diamond is below a big blue triangle,0.8732280135154724,0.0008126413449645042,0,0,0,2,0.2857142857142857,0,0,0
+9353,a big black square is right of a small green diamond,above a big orange square is a big red circle,0.8900317549705505,0.0007049254490993917,0,0,0,1,0.14285714285714285,0,0,0
+8626,the small blue diamond is positioned right of a small blue triangle,a big green diamond is below a big blue triangle,0.8504445552825928,0.0009586886735633016,0,0,0,3,0.42857142857142855,0,1,0
+6246,the small yellow octagon is positioned right of a big yellow triangle,a big green diamond is below a big blue triangle,0.8138806223869324,0.0011930732289329171,0,0,0,2,0.2857142857142857,0,0,0
+8809,a big black circle is above a small black triangle,a big green diamond is below a big blue triangle,0.8812257647514343,0.0007613736670464277,0,0,0,2,0.2857142857142857,0,0,0
+9282,the medium purple hexagon is positioned right of a small blue hexagon,a big green octagon is above a big blue triangle,0.8082311749458313,0.0012292875908315182,0,0,0,1,0.14285714285714285,0,0,0
+2959,the small pink square is positioned right of a small red diamond,a big green diamond is below a big blue triangle,0.8674565553665161,0.0008496380178257823,0,0,0,0,0.0,0,0,0
+2739,the medium yellow hexagon is positioned left of a big blue diamond,a big green diamond is below a big blue triangle,0.8583459854125977,0.0009080387535504997,0,0,0,2,0.2857142857142857,0,0,0
+6006,above a small black triangle is a small red circle,a big green diamond is below a big blue triangle,0.8092150092124939,0.0012229817220941186,0,0,0,1,0.14285714285714285,0,0,0
+380,a small pink square is below a medium pink octagon,a big green diamond is below a big blue triangle,0.7354004979133606,0.0016961508663371205,0,0,0,1,0.14285714285714285,1,0,0
+5692,right of a medium black diamond is a small blue octagon,a big green diamond is below a big blue triangle,0.785210907459259,0.0013768536737188697,0,0,0,0,0.0,0,0,0
+8508,a medium black triangle is right of a big green triangle,a big green diamond is below a big blue triangle,0.8722745180130005,0.0008187534986063838,0,0,0,2,0.2857142857142857,0,0,0
+7686,a medium pink octagon can be seen below a big black circle,a big green diamond is below a big blue triangle,0.7631774544715881,0.00151809339877218,0,0,0,2,0.2857142857142857,1,0,0
+2753,the big yellow diamond is positioned left of a small green octagon,a big green diamond is below a big blue triangle,0.841525673866272,0.0010158622171729803,0,0,0,2,0.2857142857142857,0,0,0
+3806,the big blue triangle is positioned right of a small red circle,a big green diamond is below a big blue triangle,0.8790614604949951,0.0007752476376481354,0,0,0,1,0.14285714285714285,0,0,0
+7395,the small orange triangle is positioned above a small pink diamond,a big green diamond is below a big blue triangle,0.8597508668899536,0.0008990332717075944,0,0,0,0,0.0,0,0,0
+5145,above a big pink triangle is a medium blue diamond,a big green diamond is below a big blue triangle,0.9039900898933411,0.0006154487491585314,0,0,0,3,0.42857142857142855,0,1,0
+5604,a medium green circle can be seen right of a big blue hexagon,a big green octagon is above a big blue triangle,0.8617490530014038,0.0008862248505465686,0,0,0,3,0.42857142857142855,0,0,0
+6087,a big yellow circle can be seen above a big green circle,a big green diamond is below a big blue triangle,0.8748932480812073,0.0008019666420295835,0,0,0,2,0.2857142857142857,0,0,0
+9003,a small yellow square is right of a medium yellow octagon,a big green diamond is below a big blue triangle,0.7181116342544556,0.0018069768557325006,0,0,0,0,0.0,0,0,0
+5972,a medium orange octagon is right of a big green square,a big green diamond is below a big blue triangle,0.8832082748413086,0.0007486648974008858,0,0,0,1,0.14285714285714285,0,0,0
+7525,a big red diamond is right of a big green circle,a big green diamond is below a big blue triangle,0.9306678771972656,0.0004444366495590657,0,1,0,3,0.42857142857142855,0,0,0
+3795,a medium blue diamond can be seen right of a small pink triangle,below a big green triangle is a big red diamond,0.8610056638717651,0.0008909890311770141,0,0,0,2,0.2857142857142857,0,1,0
+8399,the big green diamond is positioned right of a medium green square,below a big green triangle is a big red diamond,0.8700156211853027,0.0008332334109582007,0,0,0,3,0.42857142857142855,0,0,0
+8649,above a small pink hexagon is a small green square,a big green diamond is below a big blue triangle,0.829853355884552,0.0010906833922490478,0,0,0,1,0.14285714285714285,0,0,0
+4903,a small purple circle is left of a big yellow circle,a big green diamond is below a big blue triangle,0.8264260292053223,0.0011126536410301924,0,0,0,1,0.14285714285714285,0,0,0
+5993,the small pink square is positioned left of a big black hexagon,a big green diamond is below a big blue triangle,0.8331756591796875,0.001069386606104672,0,0,0,1,0.14285714285714285,0,0,0
+4203,right of a medium yellow octagon is a small pink triangle,a big green diamond is below a big blue triangle,0.7532780170440674,0.001581551623530686,0,0,0,0,0.0,0,0,0
+5130,the big yellow square is positioned right of a small black octagon,a big black triangle is above a medium pink diamond,0.8320392370223999,0.0010766714112833142,0,0,0,1,0.14285714285714285,0,0,0
+8832,the small yellow circle is positioned above a big orange circle,a big green diamond is below a big blue triangle,0.8609187006950378,0.000891548057552427,0,0,0,1,0.14285714285714285,0,0,0
+3154,a big black circle can be seen above a big orange diamond,a big green diamond is below a big blue triangle,0.902145266532898,0.0006272738100960851,0,0,0,2,0.2857142857142857,0,0,0
+4322,a medium purple square can be seen left of a big purple hexagon,a big green diamond is below a big blue triangle,0.8574138879776001,0.0009140141191892326,0,0,0,1,0.14285714285714285,0,0,0
+102,right of a small red circle is a small orange square,a big green diamond is below a big blue triangle,0.8095470666885376,0.0012208523694425821,0,0,0,0,0.0,0,0,0
+3490,a big green octagon can be seen left of a medium green triangle,a big green octagon is above a big blue triangle,0.8403381705284119,0.0010234731016680598,0,0,0,4,0.5714285714285714,0,1,0
+2809,the big yellow circle is positioned above a small orange triangle,a big green diamond is below a big blue triangle,0.8857371807098389,0.0007324540638364851,0,0,0,2,0.2857142857142857,0,0,0
+9290,below a medium orange diamond is a small yellow octagon,a big green diamond is below a big blue triangle,0.7541132569313049,0.0015761966351419687,0,0,0,1,0.14285714285714285,1,0,0
+9224,above a big red octagon is a small green hexagon,a big green octagon is above a big blue triangle,0.827433705329895,0.0011061946861445904,0,0,0,3,0.42857142857142855,1,0,0
+8663,below a big pink hexagon is a small blue hexagon,a big green diamond is below a big blue triangle,0.7836315631866455,0.0013869776157662272,0,0,0,2,0.2857142857142857,1,0,0
+557,the medium yellow diamond is positioned above a small purple diamond,a big green diamond is below a big blue triangle,0.8347505331039429,0.0010592914186418056,0,0,0,1,0.14285714285714285,0,0,0
+8847,a small green square can be seen below a big blue triangle,a big green diamond is below a big blue triangle,0.8430636525154114,0.0010060020722448826,0,0,0,5,0.7142857142857143,1,0,0
+8591,below a big black square is a medium green octagon,a big green diamond is below a big blue triangle,0.7926411032676697,0.0013292237417772412,0,0,0,3,0.42857142857142855,1,0,0
+1817,below a big yellow square is a medium purple triangle,a big green diamond is below a big blue triangle,0.8598654270172119,0.0008982981671579182,0,0,0,2,0.2857142857142857,1,0,0
+854,the big blue diamond is positioned left of a big blue octagon,a big green diamond is below a big blue triangle,0.9037031531333923,0.0006172868306748569,0,0,0,4,0.5714285714285714,0,0,0
+1453,the medium yellow square is positioned right of a small purple circle,a big green diamond is below a big blue triangle,0.80478835105896,0.0012513580732047558,0,0,0,0,0.0,0,0,0
+1055,a medium blue diamond can be seen right of a medium black triangle,below a big green triangle is a big red diamond,0.8324742317199707,0.00107388396281749,0,0,0,2,0.2857142857142857,0,1,0
+9238,the medium pink circle is positioned right of a big black diamond,a big green diamond is below a big blue triangle,0.9063555002212524,0.0006002853624522686,0,0,0,1,0.14285714285714285,0,0,0
+7551,a medium yellow triangle can be seen above a big green triangle,a big green diamond is below a big blue triangle,0.8266682624816895,0.0011111008934676647,0,0,0,2,0.2857142857142857,0,0,0
+368,a medium purple triangle is left of a small yellow square,a big green diamond is below a big blue triangle,0.7803657650947571,0.0014079115353524685,0,0,0,0,0.0,0,0,0
+7845,right of a medium pink square is a small black octagon,a big green diamond is below a big blue triangle,0.7508707046508789,0.001596983172930777,0,0,0,0,0.0,0,0,0
+9160,the big pink octagon is positioned left of a big orange octagon,a big green octagon is above a big blue triangle,0.827421247959137,0.0011062745470553637,0,0,0,3,0.42857142857142855,0,0,0
+7705,a medium orange octagon can be seen above a big black triangle,a big green diamond is below a big blue triangle,0.8432206511497498,0.0010049964766949415,0,0,0,2,0.2857142857142857,0,0,0
+2193,below a big pink octagon is a big blue triangle,a big green diamond is below a big blue triangle,0.8882526755332947,0.0007163293776102364,0,0,0,3,0.42857142857142855,1,0,0
+491,the big red square is positioned above a medium black diamond,a big green diamond is below a big blue triangle,0.8795701265335083,0.0007719864370301366,0,0,0,1,0.14285714285714285,0,0,0
+1138,the medium black hexagon is positioned above a medium black triangle,a big green diamond is below a big blue triangle,0.7710376977920532,0.0014677075669169426,0,0,0,1,0.14285714285714285,0,0,0
+3376,above a big orange square is a big red circle,a big green diamond is below a big blue triangle,0.9183040261268616,0.0005236924043856561,0,0,0,2,0.2857142857142857,0,0,0
+9843,a medium blue hexagon can be seen right of a small black diamond,a big green diamond is below a big blue triangle,0.8083416223526001,0.0012285795528441668,0,0,0,0,0.0,0,0,0
+2745,a small green square can be seen right of a big purple circle,a big green diamond is below a big blue triangle,0.8720129728317261,0.0008204297628253698,0,0,0,2,0.2857142857142857,0,0,0
+684,above a small black triangle is a medium black hexagon,a big green diamond is below a big blue triangle,0.7428829073905945,0.0016481870552524924,0,0,0,1,0.14285714285714285,0,0,0
+5324,the big yellow circle is positioned left of a medium blue square,a big green diamond is below a big blue triangle,0.8541482090950012,0.0009349478641524911,0,0,0,2,0.2857142857142857,0,0,0
+2000,left of a big purple square is a small orange hexagon,a big green diamond is below a big blue triangle,0.8534443974494934,0.0009394591907039285,0,0,0,1,0.14285714285714285,0,0,0
+8244,the medium pink circle is positioned above a big red triangle,a big green diamond is below a big blue triangle,0.8804621696472168,0.0007662683492526412,0,0,0,2,0.2857142857142857,0,0,0
+7615,the small red octagon is positioned above a small red square,a big green diamond is below a big blue triangle,0.8097668290138245,0.0012194447917863727,0,0,0,0,0.0,0,0,0
+4550,a medium black triangle is left of a medium purple diamond,below a big green triangle is a big red diamond,0.8369990587234497,0.0010448781540617347,0,0,0,0,0.0,0,0,0
+4663,right of a medium pink octagon is a big blue octagon,a big green octagon is above a big blue triangle,0.7756063938140869,0.0014384199166670442,0,0,0,2,0.2857142857142857,0,0,0
+676,a big blue diamond can be seen below a medium yellow diamond,a big green diamond is below a big blue triangle,0.8499172925949097,0.0009620691416785121,0,0,0,3,0.42857142857142855,1,0,0
+3922,the small yellow octagon is positioned left of a small yellow square,a big green diamond is below a big blue triangle,0.7053031921386719,0.0018890827195718884,0,0,0,0,0.0,0,0,0
+4842,a medium black triangle can be seen above a small black hexagon,a big green diamond is below a big blue triangle,0.7642692923545837,0.0015110947424545884,0,0,0,0,0.0,0,0,0
+5493,a small orange octagon can be seen left of a small green square,a big green diamond is below a big blue triangle,0.7356685996055603,0.001694432576186955,0,0,0,0,0.0,0,0,0
+3926,a medium black diamond can be seen above a medium red circle,a big green diamond is below a big blue triangle,0.817909300327301,0.0011672485852614045,0,0,0,1,0.14285714285714285,0,0,0
+1555,a small pink square is below a big red circle,a big green diamond is below a big blue triangle,0.8501714468002319,0.000960440025664866,0,0,0,2,0.2857142857142857,1,0,0
+4735,the medium purple octagon is positioned below a medium red triangle,a big green diamond is below a big blue triangle,0.7602749466896057,0.00153669947758317,0,0,0,2,0.2857142857142857,1,0,0
+5823,a medium black triangle can be seen below a medium pink hexagon,a big green diamond is below a big blue triangle,0.7498974800109863,0.001603221520781517,0,0,0,1,0.14285714285714285,1,0,0
+8172,a small pink octagon can be seen above a big red triangle,a big green diamond is below a big blue triangle,0.8339986205101013,0.0010641120607033372,0,0,0,2,0.2857142857142857,0,0,0
+1057,a medium orange circle can be seen left of a small black circle,a big green diamond is below a big blue triangle,0.7554107904434204,0.001567880273796618,0,0,0,0,0.0,0,0,0
+9110,the big black square is positioned below a big red hexagon,a big green diamond is below a big blue triangle,0.8865234851837158,0.0007274139788933098,0,0,0,3,0.42857142857142855,1,0,0
+3466,the small black diamond is positioned left of a medium green triangle,a big green diamond is below a big blue triangle,0.8133558034896851,0.0011964371660724282,0,0,0,2,0.2857142857142857,0,1,0
+8334,the small black octagon is positioned left of a big orange hexagon,a big green octagon is above a big blue triangle,0.7993599772453308,0.0012861548457294703,0,0,0,2,0.2857142857142857,0,0,0
+564,a medium pink hexagon can be seen right of a medium red triangle,a big green diamond is below a big blue triangle,0.7871530652046204,0.001364404335618019,0,0,0,1,0.14285714285714285,0,0,0
+8048,the medium yellow circle is positioned above a small red hexagon,a big green octagon is above a big blue triangle,0.7846159934997559,0.0013806669740006328,0,0,0,1,0.14285714285714285,1,0,0
+678,a big black square is above a small black diamond,a big green diamond is below a big blue triangle,0.8885337710380554,0.0007145270355977118,0,0,0,1,0.14285714285714285,0,0,0
+5171,left of a small purple diamond is a medium yellow octagon,below a big green triangle is a big red diamond,0.7389057874679565,0.0016736810794100165,0,0,0,0,0.0,0,0,0
+99,a medium green octagon is left of a big black octagon,a big green octagon is above a big blue triangle,0.7742669582366943,0.0014470068272203207,0,0,0,3,0.42857142857142855,0,0,0
+9989,left of a big black circle is a medium blue octagon,a big green diamond is below a big blue triangle,0.7946686148643494,0.0013162267860025167,0,0,0,1,0.14285714285714285,0,0,0
+7231,a medium pink circle is left of a big blue hexagon,a big green diamond is below a big blue triangle,0.8595449328422546,0.0009003530140034854,0,0,0,2,0.2857142857142857,0,0,0
+1964,a medium blue octagon can be seen above a big purple square,a big green diamond is below a big blue triangle,0.8677897453308105,0.0008475020295009017,0,0,0,1,0.14285714285714285,0,0,0
+4067,a medium pink circle can be seen above a small pink diamond,a big green diamond is below a big blue triangle,0.8212485909461975,0.0011458421358838677,0,0,0,0,0.0,0,0,0
+8227,left of a medium purple square is a big pink octagon,a big green diamond is below a big blue triangle,0.8415547013282776,0.001015675370581448,0,0,0,1,0.14285714285714285,0,0,0
+320,a medium red circle can be seen right of a medium pink hexagon,a big green diamond is below a big blue triangle,0.7869535684585571,0.0013656826922670007,0,0,0,0,0.0,0,0,0
+4450,below a big yellow diamond is a medium orange triangle,a big green diamond is below a big blue triangle,0.8798714876174927,0.0007700548740103841,0,0,0,2,0.2857142857142857,1,0,0
+7486,a big black diamond is above a big green octagon,a big green diamond is below a big blue triangle,0.931343138217926,0.00044010780402459204,0,1,0,3,0.42857142857142855,0,0,0
+6126,a big orange octagon can be seen above a medium green square,a big green diamond is below a big blue triangle,0.8747577667236328,0.0008028352167457342,0,0,0,1,0.14285714285714285,0,0,0
+3157,a small black hexagon is above a medium blue hexagon,a big green octagon is above a big blue triangle,0.747751772403717,0.001616976223886013,0,0,0,2,0.2857142857142857,1,0,0
+1612,a small purple octagon is left of a medium black hexagon,a big green octagon is above a big blue triangle,0.7018846869468689,0.0019109954591840506,0,0,0,1,0.14285714285714285,0,0,0
+4197,a small pink octagon is left of a small red square,a big green diamond is below a big blue triangle,0.7487360835075378,0.0016106665134429932,0,0,0,0,0.0,0,0,0
+5949,a big blue octagon can be seen left of a medium blue hexagon,a big green octagon is above a big blue triangle,0.7948928475379944,0.0013147903373464942,0,0,0,3,0.42857142857142855,0,0,0
+9657,a medium red circle can be seen above a medium blue octagon,a big green octagon is above a big blue triangle,0.7794523239135742,0.0014137675752863288,0,0,0,2,0.2857142857142857,1,0,0
+507,a medium pink circle can be seen right of a big yellow triangle,a big green diamond is below a big blue triangle,0.8533916473388672,0.0009397979010827839,0,0,0,2,0.2857142857142857,0,0,0
+7568,a big orange circle is right of a big black hexagon,a big green diamond is below a big blue triangle,0.882844090461731,0.0007509993738494813,0,0,0,2,0.2857142857142857,0,0,0
+4939,the big pink circle is positioned above a big pink diamond,a big green diamond is below a big blue triangle,0.9255749583244324,0.0004770833475049585,0,0,0,2,0.2857142857142857,0,0,0
+7578,right of a medium pink circle is a big green triangle,a big green diamond is below a big blue triangle,0.8922439217567444,0.0006907449569553137,0,0,0,2,0.2857142857142857,0,0,0
+9722,the small orange hexagon is positioned left of a medium orange octagon,a big green octagon is above a big blue triangle,0.7468158006668091,0.0016229754546657205,0,0,0,0,0.0,0,0,0
+4300,above a small yellow square is a big purple circle,a big green diamond is below a big blue triangle,0.884290874004364,0.0007417252054437995,0,0,0,1,0.14285714285714285,0,0,0
+3589,a big green circle can be seen below a medium purple hexagon,a big green diamond is below a big blue triangle,0.8464612364768982,0.0009842223953455687,0,0,0,3,0.42857142857142855,1,0,0
+7810,the small green octagon is positioned below a small red diamond,a big green octagon is above a big blue triangle,0.8069180250167847,0.001237706164829433,0,0,0,2,0.2857142857142857,0,0,0
+1148,a small purple diamond is below a small green circle,a big green diamond is below a big blue triangle,0.8274962902069092,0.0011057929368689656,0,0,0,2,0.2857142857142857,1,0,0
+4147,below a big blue square is a small blue triangle,a big green diamond is below a big blue triangle,0.871962308883667,0.0008207546197809279,0,0,0,3,0.42857142857142855,1,0,0
+3431,a small green circle is left of a big pink hexagon,a big green diamond is below a big blue triangle,0.8445676565170288,0.000996360438875854,0,0,0,2,0.2857142857142857,0,0,0
+7423,the small orange hexagon is positioned below a medium orange circle,a big green octagon is above a big blue triangle,0.7784712314605713,0.0014200570294633508,0,0,0,0,0.0,0,0,0
+8178,a small orange triangle can be seen right of a medium purple hexagon,a big green octagon is above a big blue triangle,0.8182887434959412,0.001164815854281187,0,0,0,0,0.0,0,0,0
+1532,the big pink circle is positioned right of a small blue square,a big green diamond is below a big blue triangle,0.8829166889190674,0.0007505345856770873,0,0,0,2,0.2857142857142857,0,0,0
+5399,below a medium pink square is a medium yellow square,a big green diamond is below a big blue triangle,0.7136527299880981,0.0018355598440393806,0,0,0,1,0.14285714285714285,1,0,0
+7380,below a medium blue circle is a big blue circle,a big green diamond is below a big blue triangle,0.8349350690841675,0.0010581096867099404,0,0,0,3,0.42857142857142855,1,0,0
+4813,a medium purple triangle can be seen above a small blue octagon,a big green diamond is below a big blue triangle,0.7974123358726501,0.0012986394576728344,0,0,0,1,0.14285714285714285,0,0,0
+1223,right of a medium red square is a medium yellow hexagon,a big green diamond is below a big blue triangle,0.755099356174469,0.0015698764473199844,0,0,0,0,0.0,0,0,0
+6379,the small green hexagon is positioned below a big purple square,a big green diamond is below a big blue triangle,0.8713479042053223,0.0008246938814409077,0,0,0,3,0.42857142857142855,1,0,0
+2958,a big purple octagon can be seen below a medium red diamond,a big green diamond is below a big blue triangle,0.8541417717933655,0.0009349883766844869,0,0,0,2,0.2857142857142857,1,0,0
+8836,the medium black circle is positioned above a small black triangle,a big green diamond is below a big blue triangle,0.7917040586471558,0.0013352313544601202,0,0,0,1,0.14285714285714285,0,0,0
+2013,the small red hexagon is positioned right of a medium yellow diamond,a big green diamond is below a big blue triangle,0.8350282311439514,0.001057512010447681,0,0,0,0,0.0,0,0,0
+6572,right of a medium red circle is a small red octagon,a big green diamond is below a big blue triangle,0.7669805884361267,0.0014937147498130798,0,0,0,0,0.0,0,0,0
+1634,a small pink triangle can be seen below a big blue square,a big green diamond is below a big blue triangle,0.8447694182395935,0.0009950681123882532,0,0,0,3,0.42857142857142855,1,0,0
+4016,a medium green square can be seen above a small red circle,a big green diamond is below a big blue triangle,0.811073362827301,0.00121106777805835,0,0,0,1,0.14285714285714285,0,0,0
+4242,above a big blue circle is a medium orange triangle,a big green diamond is below a big blue triangle,0.8832090497016907,0.0007486600079573691,0,0,0,2,0.2857142857142857,0,0,0
+6609,left of a small black hexagon is a small purple triangle,a big green diamond is below a big blue triangle,0.7790248394012451,0.0014165076427161694,0,0,0,0,0.0,0,0,0
+5450,a big black triangle is below a small black square,a big green diamond is below a big blue triangle,0.843503475189209,0.0010031828423961997,0,0,0,2,0.2857142857142857,1,0,0
+4309,right of a small blue circle is a medium red square,a big green diamond is below a big blue triangle,0.8073326349258423,0.0012350479373708367,0,0,0,1,0.14285714285714285,0,0,0
+114,a medium pink triangle is left of a small red triangle,a big green diamond is below a big blue triangle,0.7802069783210754,0.0014089300530031323,0,0,0,1,0.14285714285714285,0,0,0
+9441,a medium black square can be seen above a medium purple triangle,a big green diamond is below a big blue triangle,0.810778796672821,0.0012129562674090266,0,0,0,1,0.14285714285714285,0,0,0
+2955,a big purple circle can be seen below a medium green square,a big green diamond is below a big blue triangle,0.8585425615310669,0.0009067788487300277,0,0,0,2,0.2857142857142857,1,0,0
+9172,above a small purple hexagon is a small green diamond,a big green diamond is below a big blue triangle,0.8534589409828186,0.000939366698730737,0,0,0,2,0.2857142857142857,0,0,0
+8173,a medium purple hexagon can be seen left of a big blue circle,a big green diamond is below a big blue triangle,0.8411746025085449,0.0010181117104366422,0,0,0,2,0.2857142857142857,0,0,0
+7215,a big green hexagon is below a medium red hexagon,a big green octagon is above a big blue triangle,0.8046330213546753,0.001252353540621698,0,0,0,2,0.2857142857142857,0,0,0
+4201,a medium red hexagon can be seen below a small orange hexagon,a big green octagon is above a big blue triangle,0.7482590079307556,0.001613724511116743,0,0,0,0,0.0,0,0,0
+6123,above a big pink diamond is a big pink octagon,a big green diamond is below a big blue triangle,0.9067917466163635,0.0005974895902909338,0,0,0,2,0.2857142857142857,0,0,0
+7995,below a small orange circle is a small green triangle,a big green diamond is below a big blue triangle,0.7873526811599731,0.0013631239999085665,0,0,0,2,0.2857142857142857,1,0,0
+7494,below a small pink hexagon is a medium red square,a big green diamond is below a big blue triangle,0.7930295467376709,0.0013267342001199722,0,0,0,1,0.14285714285714285,1,0,0
+2542,a big orange diamond is below a big orange hexagon,a big green diamond is below a big blue triangle,0.8972433805465698,0.0006586970412172377,0,0,0,4,0.5714285714285714,1,0,0
+7292,left of a big pink circle is a big yellow square,a big green diamond is below a big blue triangle,0.9047136306762695,0.0006108107045292854,0,0,0,2,0.2857142857142857,0,0,0
+1295,right of a small pink circle is a medium purple hexagon,a big green octagon is above a big blue triangle,0.8014765381813049,0.001272586639970541,0,0,0,0,0.0,0,0,0
+9933,below a small green hexagon is a big orange circle,a big green diamond is below a big blue triangle,0.8580224514007568,0.0009101126925088465,0,0,0,2,0.2857142857142857,1,0,0
+9200,the big orange square is positioned below a medium orange square,a big green diamond is below a big blue triangle,0.8317990899085999,0.00107821065466851,0,0,0,2,0.2857142857142857,1,0,0
+3421,the small yellow triangle is positioned below a small purple circle,a big green diamond is below a big blue triangle,0.7572072148323059,0.0015563643537461758,0,0,0,1,0.14285714285714285,1,0,0
+8886,a medium yellow octagon is below a medium black square,a big green diamond is below a big blue triangle,0.6965938210487366,0.001944911782629788,0,0,0,1,0.14285714285714285,1,0,0
+7093,a small orange hexagon can be seen right of a big blue circle,a big green diamond is below a big blue triangle,0.8333725929260254,0.0010681244311854243,0,0,0,2,0.2857142857142857,0,0,0
+7206,a small green diamond is left of a big blue circle,a big green diamond is below a big blue triangle,0.895950436592102,0.000666984764393419,0,0,0,4,0.5714285714285714,0,0,0
+4665,the big pink hexagon is positioned above a small blue circle,a big green diamond is below a big blue triangle,0.8906745910644531,0.0007008040556684136,0,0,0,2,0.2857142857142857,0,0,0
+4171,a big red octagon is below a medium orange triangle,a big green diamond is below a big blue triangle,0.8483240604400635,0.00097228167578578,0,0,0,3,0.42857142857142855,1,0,0
+2449,a big blue circle is below a big blue triangle,a big green diamond is below a big blue triangle,0.9030599594116211,0.0006214113091118634,0,0,0,5,0.7142857142857143,1,0,0
+5928,a big blue triangle is above a medium red circle,a big green diamond is below a big blue triangle,0.9018150568008423,0.0006293913465924561,0,0,0,1,0.14285714285714285,0,0,0
+2352,the small red circle is positioned below a big yellow square,a big green diamond is below a big blue triangle,0.8411239385604858,0.001018437324091792,0,0,0,2,0.2857142857142857,1,0,0
+6868,a small pink square can be seen left of a big red square,a big green diamond is below a big blue triangle,0.845488965511322,0.00099045573733747,0,0,0,1,0.14285714285714285,0,0,0
+652,a big pink circle is above a small red hexagon,a big green diamond is below a big blue triangle,0.8939056992530823,0.0006800920818932354,0,0,0,1,0.14285714285714285,0,0,0
+4940,above a small red triangle is a medium blue circle,a big green diamond is below a big blue triangle,0.8144028186798096,0.0011897257063537836,0,0,0,1,0.14285714285714285,0,0,0
+1006,a small red circle is above a big blue square,a big green diamond is below a big blue triangle,0.9032434821128845,0.0006202342337928712,0,0,0,2,0.2857142857142857,0,0,0
+4635,a medium red square is above a small yellow hexagon,a big green diamond is below a big blue triangle,0.7989721894264221,0.0012886404292657971,0,0,0,0,0.0,0,0,0
+5568,a big green triangle can be seen above a big red hexagon,a big green diamond is below a big blue triangle,0.890440046787262,0.0007023086072877049,0,0,0,3,0.42857142857142855,0,0,0
+3300,a big blue diamond is right of a medium green diamond,below a big green triangle is a big red diamond,0.8860748410224915,0.000730289553757757,0,0,0,3,0.42857142857142855,0,0,0
+2920,a medium blue triangle can be seen left of a big blue triangle,a big green diamond is below a big blue triangle,0.7953419089317322,0.0013119104551151395,0,0,0,3,0.42857142857142855,0,0,0
+8198,right of a medium pink circle is a small red square,a big green diamond is below a big blue triangle,0.8041924834251404,0.001255176728591323,0,0,0,0,0.0,0,0,0
+8662,below a big green square is a small purple triangle,a big green diamond is below a big blue triangle,0.8886805176734924,0.0007135868654586375,0,0,0,2,0.2857142857142857,1,0,0
+3879,a big purple octagon is right of a small black hexagon,a big green octagon is above a big blue triangle,0.8206225037574768,0.0011498561361804605,0,0,0,2,0.2857142857142857,0,0,0
+3983,the medium blue square is positioned above a medium purple square,a big green diamond is below a big blue triangle,0.8000034093856812,0.0012820294359698892,0,0,0,0,0.0,0,0,0
+5273,a big pink triangle can be seen above a big blue octagon,a big green octagon is above a big blue triangle,0.8875435590744019,0.0007208753959275782,0,0,0,4,0.5714285714285714,1,0,0
+7979,the small black square is positioned below a medium black hexagon,a big green diamond is below a big blue triangle,0.7495756149291992,0.0016052850987762213,0,0,0,1,0.14285714285714285,1,0,0
+1552,a big blue square is left of a medium black square,a big green diamond is below a big blue triangle,0.8127065300941467,0.0012005993630737066,0,0,0,1,0.14285714285714285,0,0,0
+2220,the small orange square is positioned right of a big purple circle,a big green diamond is below a big blue triangle,0.8942199945449829,0.0006780774565413594,0,0,0,1,0.14285714285714285,0,0,0
+5532,the big red circle is positioned right of a big green diamond,a big green diamond is below a big blue triangle,0.9206001162528992,0.0005089740152470767,0,0,0,2,0.2857142857142857,0,0,0
+6326,a small black circle can be seen left of a small yellow hexagon,a big green diamond is below a big blue triangle,0.729414701461792,0.0017345222877338529,0,0,0,0,0.0,0,0,0
+4669,a medium blue triangle is left of a big orange triangle,a big green diamond is below a big blue triangle,0.8576861619949341,0.0009122683550231159,0,0,0,2,0.2857142857142857,0,0,0
+3043,a big purple diamond can be seen above a medium red circle,a big green diamond is below a big blue triangle,0.8986217975616455,0.0006498609436675906,0,0,0,2,0.2857142857142857,0,0,0
+8479,a medium pink triangle is right of a small purple circle,a big green diamond is below a big blue triangle,0.814194917678833,0.0011910587782040238,0,0,0,0,0.0,0,0,0
+7734,a medium yellow square can be seen left of a medium purple triangle,below a big green triangle is a big red diamond,0.7979227900505066,0.0012953669065609574,0,0,0,1,0.14285714285714285,0,0,0
+1419,a big red triangle can be seen right of a big pink square,a big green diamond is below a big blue triangle,0.9039105176925659,0.0006159587064757943,0,0,0,2,0.2857142857142857,0,0,0
+6866,the small red diamond is positioned left of a medium orange diamond,below a big green triangle is a big red diamond,0.8291600346565247,0.0010951283620670438,0,0,0,2,0.2857142857142857,0,0,0
+4576,a big purple circle can be seen left of a small purple square,a big green diamond is below a big blue triangle,0.8585174083709717,0.0009069402585737407,0,0,0,1,0.14285714285714285,0,0,0
+9050,a small pink square is above a big yellow triangle,a big green diamond is below a big blue triangle,0.8914761543273926,0.0006956661818549037,0,0,0,2,0.2857142857142857,0,0,0
+7569,right of a small green hexagon is a medium blue square,a big green diamond is below a big blue triangle,0.7870591878890991,0.0013650062028318644,0,0,0,0,0.0,0,0,0
+7759,the medium yellow diamond is positioned below a big pink octagon,a big green diamond is below a big blue triangle,0.8156850934028625,0.0011815062025561929,0,0,0,3,0.42857142857142855,1,0,0
+8724,the medium orange octagon is positioned right of a big pink octagon,a big green octagon is above a big blue triangle,0.8088210821151733,0.0012255061883479357,0,0,0,2,0.2857142857142857,0,0,0
+5861,the big pink triangle is positioned left of a medium pink hexagon,a big green diamond is below a big blue triangle,0.8485596776008606,0.0009707711869850755,0,0,0,1,0.14285714285714285,0,0,0
+8275,a medium yellow diamond is left of a medium blue hexagon,a big green diamond is below a big blue triangle,0.794001579284668,0.0013205033028498292,0,0,0,2,0.2857142857142857,0,0,0
+2574,a medium pink octagon can be seen below a big blue square,a big green diamond is below a big blue triangle,0.8071367740631104,0.0012363027781248093,0,0,0,3,0.42857142857142855,1,0,0
+944,a small green circle can be seen above a big black triangle,a big green diamond is below a big blue triangle,0.8683170676231384,0.0008441220270469785,0,0,0,3,0.42857142857142855,0,0,0
+7390,the medium purple circle is positioned left of a small pink triangle,a big green diamond is below a big blue triangle,0.7910267114639282,0.0013395723653957248,0,0,0,1,0.14285714285714285,0,0,0
+3085,the medium red diamond is positioned right of a medium red triangle,below a big green triangle is a big red diamond,0.8054795265197754,0.0012469267239794135,0,0,0,3,0.42857142857142855,0,1,0
+5585,right of a big orange hexagon is a medium green triangle,a big green diamond is below a big blue triangle,0.8613002300262451,0.0008891018806025386,0,0,0,2,0.2857142857142857,0,0,0
+4781,left of a big orange diamond is a medium red diamond,a big green diamond is below a big blue triangle,0.8600307703018188,0.0008972387295216322,0,0,0,2,0.2857142857142857,0,0,0
+3318,a medium purple hexagon can be seen above a small black octagon,a big green octagon is above a big blue triangle,0.7588875889778137,0.0015455930260941386,0,0,0,1,0.14285714285714285,1,0,0
+6221,the small pink circle is positioned right of a big yellow octagon,a big green diamond is below a big blue triangle,0.8355562686920166,0.0010541266528889537,0,0,0,1,0.14285714285714285,0,0,0
+5770,below a big pink hexagon is a medium orange diamond,a big green diamond is below a big blue triangle,0.857172429561615,0.000915561628062278,0,0,0,3,0.42857142857142855,1,0,0
+3274,a small yellow circle is left of a small green circle,a big green diamond is below a big blue triangle,0.744529128074646,0.0016376336570829153,0,0,0,0,0.0,0,0,0
+3090,a small green hexagon can be seen left of a medium purple square,a big green diamond is below a big blue triangle,0.7765541076660156,0.001432345830835402,0,0,0,1,0.14285714285714285,0,0,0
+6562,a small purple square is right of a medium orange hexagon,a big green diamond is below a big blue triangle,0.811477780342102,0.0012084759073331952,0,0,0,0,0.0,0,0,0
+6488,the big pink octagon is positioned right of a big red square,a big green diamond is below a big blue triangle,0.9133293628692627,0.0005555814132094383,0,0,0,2,0.2857142857142857,0,0,0
+2384,below a medium pink octagon is a big black square,a big green diamond is below a big blue triangle,0.8417455554008484,0.0010144517291337252,0,0,0,2,0.2857142857142857,1,0,0
+1963,a medium pink square is right of a small pink octagon,a big green diamond is below a big blue triangle,0.7748969197273254,0.0014429690781980753,0,0,0,0,0.0,0,0,0
+4257,the medium black octagon is positioned above a small purple diamond,a big green diamond is below a big blue triangle,0.8056291937828064,0.0012459669960662723,0,0,0,0,0.0,0,0,0
+1066,a small orange square is above a medium green hexagon,a big green diamond is below a big blue triangle,0.826413631439209,0.001112732570618391,0,0,0,0,0.0,0,0,0
+9551,a big purple hexagon is right of a medium purple circle,a big green diamond is below a big blue triangle,0.8749744892120361,0.0008014457998797297,0,0,0,1,0.14285714285714285,0,0,0
+2424,a medium green square is right of a small green triangle,a big green diamond is below a big blue triangle,0.8058831095695496,0.0012443388113752007,0,0,0,2,0.2857142857142857,0,0,0
+6251,a small green hexagon is right of a big red square,a big green diamond is below a big blue triangle,0.8993090391159058,0.000645454740151763,0,0,0,2,0.2857142857142857,0,0,0
+1281,a small green circle can be seen below a small orange hexagon,a big green diamond is below a big blue triangle,0.7600997686386108,0.0015378225361928344,0,0,0,2,0.2857142857142857,1,0,0
+1700,the medium yellow hexagon is positioned below a small blue circle,the big green hexagon is positioned above a big orange circle,0.7527067065238953,0.0015852143988013268,0,0,0,2,0.2857142857142857,0,1,0
+3207,above a big blue octagon is a small blue circle,a big green octagon is above a big blue triangle,0.8639605045318604,0.0008720484329387546,0,0,0,3,0.42857142857142855,1,0,0
+4894,a small orange octagon is right of a big purple diamond,a big green diamond is below a big blue triangle,0.8845986127853394,0.0007397531880997121,0,0,0,1,0.14285714285714285,0,0,0
+162,the small purple octagon is positioned below a big blue octagon,a big green octagon is above a big blue triangle,0.8020110130310059,0.0012691606534644961,0,0,0,3,0.42857142857142855,0,0,0
+8234,the medium pink hexagon is positioned below a small red square,a big green diamond is below a big blue triangle,0.7835258841514587,0.00138765515293926,0,0,0,1,0.14285714285714285,1,0,0
+1423,a big yellow circle can be seen left of a small black triangle,a big green diamond is below a big blue triangle,0.8324289321899414,0.0010741737205535173,0,0,0,2,0.2857142857142857,0,0,0
+5695,below a medium purple circle is a small pink square,a big green diamond is below a big blue triangle,0.7796989679336548,0.0014121861895546317,0,0,0,1,0.14285714285714285,1,0,0
+2849,the big green diamond is positioned above a small blue triangle,a big green diamond is below a big blue triangle,0.9256844520568848,0.0004763823817484081,0,0,0,5,0.7142857142857143,0,1,0
+4497,left of a big green hexagon is a big orange octagon,a big green octagon is above a big blue triangle,0.8374674916267395,0.0010418755700811744,0,0,0,3,0.42857142857142855,0,0,0
+1051,a medium black octagon can be seen above a small black triangle,a big green diamond is below a big blue triangle,0.7533708810806274,0.001580956275574863,0,0,0,1,0.14285714285714285,0,0,0
+1147,left of a big red octagon is a small black octagon,a big green octagon is above a big blue triangle,0.7489659786224365,0.0016091924626380205,0,0,0,2,0.2857142857142857,0,0,0
+6752,a big black circle is below a small green hexagon,a big green diamond is below a big blue triangle,0.8498064875602722,0.0009627788094803691,0,0,0,2,0.2857142857142857,1,0,0
+2665,left of a big green diamond is a small red square,below a big green triangle is a big red diamond,0.8994158506393433,0.0006447699852287769,0,0,0,3,0.42857142857142855,0,0,0
+3624,a medium yellow triangle can be seen left of a small red square,a big green diamond is below a big blue triangle,0.7805479764938354,0.0014067442389205098,0,0,0,0,0.0,0,0,0
+3054,the small yellow hexagon is positioned left of a medium orange octagon,a big green octagon is above a big blue triangle,0.706901490688324,0.0018788367742672563,0,0,0,0,0.0,0,0,0
+1559,a medium yellow triangle is below a small pink square,a big green diamond is below a big blue triangle,0.7545262575149536,0.0015735502820461988,0,0,0,1,0.14285714285714285,1,0,0
+6475,the small orange circle is positioned left of a big black diamond,a big green diamond is below a big blue triangle,0.8764989972114563,0.000791673781350255,0,0,0,1,0.14285714285714285,0,0,0
+1292,a small red octagon can be seen below a medium green octagon,a big green octagon is above a big blue triangle,0.7062489986419678,0.001883018878288567,0,0,0,1,0.14285714285714285,0,0,0
+8599,a big black hexagon can be seen left of a medium orange triangle,a big green diamond is below a big blue triangle,0.830414891242981,0.001087084412574768,0,0,0,2,0.2857142857142857,0,0,0
+8830,the small purple octagon is positioned above a small blue triangle,a big green diamond is below a big blue triangle,0.816075325012207,0.0011790042044594884,0,0,0,2,0.2857142857142857,0,0,0
+2935,above a big black diamond is a medium yellow circle,a big green diamond is below a big blue triangle,0.8852039575576782,0.0007358719012700021,0,0,0,1,0.14285714285714285,0,0,0
+5015,the small purple octagon is positioned left of a medium yellow circle,a big green diamond is below a big blue triangle,0.7000188827514648,0.0019229560857638717,0,0,0,0,0.0,0,0,0
+758,a small red square can be seen above a medium yellow triangle,a big green diamond is below a big blue triangle,0.8151967525482178,0.0011846364941447973,0,0,0,1,0.14285714285714285,0,0,0
+1387,a big yellow hexagon is above a medium pink triangle,a big green diamond is below a big blue triangle,0.8709582686424255,0.0008271900005638599,0,0,0,2,0.2857142857142857,0,0,0
+1578,left of a small purple octagon is a big blue circle,a big green diamond is below a big blue triangle,0.8577677011489868,0.000911744951736182,0,0,0,1,0.14285714285714285,0,0,0
+8570,a big red circle can be seen above a medium green diamond,a big green diamond is below a big blue triangle,0.8984251618385315,0.000651120557449758,0,0,0,1,0.14285714285714285,0,0,0
+9264,the medium green triangle is positioned above a medium blue hexagon,a big green diamond is below a big blue triangle,0.8181259632110596,0.0011658602161332965,0,0,0,2,0.2857142857142857,0,0,0
+9907,a small blue octagon can be seen above a medium yellow circle,a big green diamond is below a big blue triangle,0.7359184622764587,0.0016928312834352255,0,0,0,0,0.0,0,0,0
+5872,left of a big blue octagon is a small red square,a big green diamond is below a big blue triangle,0.8519845008850098,0.0009488163632340729,0,0,0,2,0.2857142857142857,0,0,0
+9992,left of a medium black square is a big yellow octagon,a big green diamond is below a big blue triangle,0.7741016745567322,0.0014480676036328077,0,0,0,1,0.14285714285714285,0,0,0
+3235,the medium green square is positioned left of a small purple circle,a big green diamond is below a big blue triangle,0.807186484336853,0.0012359842658042908,0,0,0,1,0.14285714285714285,0,0,0
+4775,left of a small red square is a small blue hexagon,a big green diamond is below a big blue triangle,0.7854153513908386,0.001375542371533811,0,0,0,0,0.0,0,0,0
+4893,below a medium blue diamond is a small pink diamond,a big green diamond is below a big blue triangle,0.7994382977485657,0.0012856522807851434,0,0,0,3,0.42857142857142855,1,0,0
+2127,above a big green triangle is a big red octagon,a big green diamond is below a big blue triangle,0.9230200052261353,0.0004934619064442813,0,0,0,3,0.42857142857142855,0,0,0
+6783,a small pink square can be seen below a medium red triangle,a big green diamond is below a big blue triangle,0.7826770544052124,0.0013930959394201636,0,0,0,2,0.2857142857142857,1,0,0
+2842,right of a small green circle is a medium green circle,a big green diamond is below a big blue triangle,0.7436079978942871,0.0016435387078672647,0,0,0,1,0.14285714285714285,0,0,0
+2189,a big pink octagon is below a big pink hexagon,a big green diamond is below a big blue triangle,0.8145273923873901,0.0011889272136613727,0,0,0,3,0.42857142857142855,1,0,0
+7916,a big green hexagon is above a medium orange diamond,a big green diamond is below a big blue triangle,0.9098983407020569,0.000577574479393661,0,0,0,2,0.2857142857142857,0,0,0
+84,the small purple square is positioned right of a big purple octagon,a big green diamond is below a big blue triangle,0.8828138709068298,0.0007511937292292714,0,0,0,1,0.14285714285714285,0,0,0
+6958,a big black diamond can be seen above a big red diamond,a big green diamond is below a big blue triangle,0.8752543330192566,0.0007996517815627158,0,0,0,3,0.42857142857142855,0,0,0
+5737,a big orange diamond is above a medium yellow triangle,a big green diamond is below a big blue triangle,0.9223093390464783,0.0004980175872333348,0,0,0,3,0.42857142857142855,0,1,0
+6112,a big red hexagon can be seen below a small yellow diamond,a big green octagon is above a big blue triangle,0.8696027398109436,0.0008358803461305797,0,0,0,1,0.14285714285714285,0,0,0
+2331,right of a big pink diamond is a small blue circle,a big green diamond is below a big blue triangle,0.8923097252845764,0.0006903228349983692,0,0,0,1,0.14285714285714285,0,0,0
+8580,below a medium orange square is a small pink triangle,a big green diamond is below a big blue triangle,0.7946082353591919,0.001316614099778235,0,0,0,1,0.14285714285714285,1,0,0
+2948,a medium blue hexagon is below a medium yellow triangle,a big green diamond is below a big blue triangle,0.7585065364837646,0.0015480355359613895,0,0,0,2,0.2857142857142857,1,0,0
+1894,above a medium green circle is a medium black diamond,a big green diamond is below a big blue triangle,0.8169851303100586,0.0011731735430657864,0,0,0,1,0.14285714285714285,0,0,0
+1407,a small yellow octagon is below a medium pink triangle,a big green diamond is below a big blue triangle,0.6963687539100647,0.0019463542848825455,0,0,0,2,0.2857142857142857,1,0,0
+8582,a big red hexagon can be seen above a small black triangle,a big green diamond is below a big blue triangle,0.8780494928359985,0.0007817354635335505,0,0,0,2,0.2857142857142857,0,0,0
+5939,right of a medium red square is a big black octagon,a big green diamond is below a big blue triangle,0.8162398338317871,0.0011779512278735638,0,0,0,1,0.14285714285714285,0,0,0
+7433,left of a big purple diamond is a small black octagon,a big green diamond is below a big blue triangle,0.8439905643463135,0.001000060816295445,0,0,0,1,0.14285714285714285,0,0,0
+2827,the big purple octagon is positioned above a small yellow triangle,a big green diamond is below a big blue triangle,0.8515557646751404,0.0009515667334198952,0,0,0,2,0.2857142857142857,0,0,0
+5306,a small yellow diamond can be seen below a medium red circle,a big green diamond is below a big blue triangle,0.7838422060012817,0.0013856273144483566,0,0,0,2,0.2857142857142857,1,0,0
+9664,the big purple hexagon is positioned right of a small green triangle,a big green diamond is below a big blue triangle,0.9089117646217346,0.0005838987999595702,0,0,0,2,0.2857142857142857,0,0,0
+9963,a small orange circle can be seen above a big green hexagon,a big green diamond is below a big blue triangle,0.8460204005241394,0.000987048726528883,0,0,0,1,0.14285714285714285,0,0,0
+3261,the medium blue triangle is positioned below a small yellow octagon,a big green diamond is below a big blue triangle,0.7296367883682251,0.0017330980626866221,0,0,0,1,0.14285714285714285,1,0,0
+1836,the big blue triangle is positioned left of a medium yellow triangle,below a big green triangle is a big red diamond,0.8365432024002075,0.0010478007607161999,0,0,0,2,0.2857142857142857,0,0,0
+620,left of a small red diamond is a small orange hexagon,a big green diamond is below a big blue triangle,0.8051823973655701,0.0012488309293985367,0,0,0,0,0.0,0,0,0
+8427,a small red hexagon can be seen right of a medium pink hexagon,a big green octagon is above a big blue triangle,0.7486286759376526,0.0016113552264869213,0,0,0,0,0.0,0,0,0
+8031,a medium pink diamond can be seen right of a big orange octagon,a big green diamond is below a big blue triangle,0.8758264183998108,0.0007959850481711328,0,0,0,2,0.2857142857142857,0,0,0
+933,a small orange circle can be seen above a medium pink triangle,a big green diamond is below a big blue triangle,0.8004506826400757,0.0012791616609320045,0,0,0,1,0.14285714285714285,0,0,0
+6056,a medium blue diamond can be seen right of a big red octagon,a big green diamond is below a big blue triangle,0.8919551968574524,0.0006925957277417183,0,0,0,2,0.2857142857142857,0,0,0
+5,a medium green octagon is left of a big yellow octagon,a big green octagon is above a big blue triangle,0.7621713280677795,0.0015245426911860704,0,0,0,3,0.42857142857142855,0,0,0
+9571,a medium yellow triangle is above a big pink diamond,a big green diamond is below a big blue triangle,0.9027490615844727,0.0006234043976292014,0,0,0,1,0.14285714285714285,0,0,0
+6261,left of a big black circle is a medium green circle,a big green diamond is below a big blue triangle,0.8112888932228088,0.0012096858117729425,0,0,0,2,0.2857142857142857,0,0,0
+2419,a small purple triangle is above a small red diamond,a big green diamond is below a big blue triangle,0.8640457391738892,0.0008715021540410817,0,0,0,0,0.0,0,0,0
+2325,a big orange circle can be seen above a small yellow diamond,a big green diamond is below a big blue triangle,0.8860031366348267,0.0007307486957870424,0,0,0,1,0.14285714285714285,0,0,0
+3327,right of a big green circle is a big green octagon,a big green octagon is above a big blue triangle,0.8956376314163208,0.0006689894362352788,0,0,0,4,0.5714285714285714,0,0,0
+9775,the big yellow hexagon is positioned below a small red triangle,a big green diamond is below a big blue triangle,0.8491069078445435,0.0009672631276771426,0,0,0,3,0.42857142857142855,1,0,0
+1255,a medium pink hexagon is above a big orange square,a big green diamond is below a big blue triangle,0.8926721811294556,0.0006879995344206691,0,0,0,1,0.14285714285714285,0,0,0
+631,a big orange circle can be seen right of a big green circle,a big green diamond is below a big blue triangle,0.862126886844635,0.0008838013163767755,0,0,0,2,0.2857142857142857,0,0,0
+7583,a big pink hexagon can be seen right of a medium black octagon,a big green octagon is above a big blue triangle,0.8190392255783081,0.0011600055731832981,0,0,0,1,0.14285714285714285,0,0,0
+3802,the medium red triangle is positioned right of a big pink square,a big green diamond is below a big blue triangle,0.8893660306930542,0.0007091923616826534,0,0,0,1,0.14285714285714285,0,0,0
+8221,right of a small orange octagon is a small black octagon,a big green octagon is above a big blue triangle,0.7166756391525269,0.0018161818152293563,0,0,0,1,0.14285714285714285,0,0,0
+8151,the medium red hexagon is positioned below a medium orange triangle,a big green octagon is above a big blue triangle,0.7933911681175232,0.0013244154397398233,0,0,0,1,0.14285714285714285,0,0,0
+6196,the small black triangle is positioned left of a medium purple diamond,a big green diamond is below a big blue triangle,0.8297979235649109,0.0010910399723798037,0,0,0,0,0.0,0,0,0
+8246,a small blue diamond can be seen right of a small pink diamond,a big green diamond is below a big blue triangle,0.8282296061515808,0.0011010923190042377,0,0,0,1,0.14285714285714285,0,0,0
+9425,a big green hexagon can be seen right of a small blue triangle,a big green diamond is below a big blue triangle,0.8731451630592346,0.0008131727227009833,0,0,0,4,0.5714285714285714,0,0,0
+16,right of a medium blue triangle is a medium green triangle,a big green diamond is below a big blue triangle,0.7493380308151245,0.0016068076947703958,0,0,0,3,0.42857142857142855,0,0,0
+3132,a big yellow diamond can be seen below a small yellow triangle,a big green diamond is below a big blue triangle,0.85079026222229,0.0009564727661199868,0,0,0,4,0.5714285714285714,1,1,0
+3496,the big red circle is positioned right of a medium pink square,a big green diamond is below a big blue triangle,0.8780838251113892,0.0007815143908374012,0,0,0,1,0.14285714285714285,0,0,0
+714,a medium green circle can be seen above a medium orange square,a big green diamond is below a big blue triangle,0.805105447769165,0.001249324413947761,0,0,0,1,0.14285714285714285,0,0,0
+5263,a big pink diamond is right of a medium green hexagon,a big green diamond is below a big blue triangle,0.8874291777610779,0.0007216079393401742,0,0,0,2,0.2857142857142857,0,0,0
+8153,the medium red hexagon is positioned below a medium orange hexagon,a big green octagon is above a big blue triangle,0.7487131953239441,0.0016108130803331733,0,0,0,0,0.0,0,0,0
+7048,a big yellow octagon can be seen left of a small blue circle,a big green diamond is below a big blue triangle,0.7940765619277954,0.0013200221583247185,0,0,0,2,0.2857142857142857,0,0,0
+9945,below a small red hexagon is a big red octagon,a big green octagon is above a big blue triangle,0.8125772476196289,0.0012014287058264017,0,0,0,2,0.2857142857142857,0,0,0
+1876,right of a small green octagon is a medium blue octagon,a big green octagon is above a big blue triangle,0.72481769323349,0.0017639901489019394,0,0,0,1,0.14285714285714285,0,0,0
+3762,a big purple diamond can be seen above a small pink circle,a big green diamond is below a big blue triangle,0.8948884010314941,0.0006737924995832145,0,0,0,2,0.2857142857142857,0,0,0
+9328,a small blue diamond is left of a small red circle,a big green diamond is below a big blue triangle,0.8332206606864929,0.0010690985945984721,0,0,0,1,0.14285714285714285,0,0,0
+1947,a small pink octagon can be seen right of a small yellow square,a big green diamond is below a big blue triangle,0.7404028177261353,0.0016640848480165005,0,0,0,0,0.0,0,0,0
+4189,a medium yellow hexagon is right of a big pink circle,a big green diamond is below a big blue triangle,0.8553094267845154,0.0009275043266825378,0,0,0,1,0.14285714285714285,0,0,0
+4890,a big blue octagon is left of a big black square,a big green diamond is below a big blue triangle,0.8933696746826172,0.0006835285457782447,0,0,0,2,0.2857142857142857,0,0,0
+279,left of a medium pink octagon is a medium purple square,a big green diamond is below a big blue triangle,0.7526367902755737,0.001585661550052464,0,0,0,0,0.0,0,0,0
+8444,the small green triangle is positioned above a big red triangle,a big green diamond is below a big blue triangle,0.8917654156684875,0.0006938117439858615,0,0,0,3,0.42857142857142855,0,0,0
+3345,a small red triangle is right of a medium yellow octagon,a big green diamond is below a big blue triangle,0.7568716406822205,0.001558515359647572,0,0,0,0,0.0,0,0,0
+3160,a big blue triangle can be seen left of a big yellow circle,a big green diamond is below a big blue triangle,0.8713829517364502,0.0008244685595855117,0,0,0,2,0.2857142857142857,0,0,0
+7498,a medium black diamond can be seen below a medium blue diamond,a big green diamond is below a big blue triangle,0.7506998777389526,0.0015980785246938467,0,0,0,3,0.42857142857142855,1,0,0
+5660,above a medium pink triangle is a small red square,a big green diamond is below a big blue triangle,0.8226200342178345,0.001137051498517394,0,0,0,1,0.14285714285714285,0,0,0
+6129,right of a small black circle is a big pink square,a big green diamond is below a big blue triangle,0.8537660837173462,0.0009373970679007471,0,0,0,1,0.14285714285714285,0,0,0
+1879,a medium pink hexagon is above a medium blue hexagon,a big green octagon is above a big blue triangle,0.7449331283569336,0.0016350445803254843,0,0,0,2,0.2857142857142857,1,0,0
+2702,a big pink triangle is right of a medium red hexagon,a big green octagon is above a big blue triangle,0.9021490812301636,0.0006272493046708405,0,0,0,1,0.14285714285714285,0,0,0
+7609,below a small pink triangle is a medium black hexagon,a big green octagon is above a big blue triangle,0.7491063475608826,0.0016082932706922293,0,0,0,1,0.14285714285714285,0,0,0
+9787,a medium orange hexagon can be seen left of a big purple triangle,a big green diamond is below a big blue triangle,0.8419589400291443,0.0010130840819329023,0,0,0,2,0.2857142857142857,0,0,0
+5686,below a medium blue triangle is a big red diamond,a big green diamond is below a big blue triangle,0.9089890122413635,0.000583403802011162,0,0,0,5,0.7142857142857143,1,1,0
+5883,a medium green circle is below a small pink diamond,a big green diamond is below a big blue triangle,0.8181291818618774,0.001165839727036655,0,0,0,2,0.2857142857142857,1,0,0
+7938,the medium blue square is positioned left of a small yellow triangle,a big green diamond is below a big blue triangle,0.7987449765205383,0.0012900963192805648,0,0,0,1,0.14285714285714285,0,0,0
+9322,the big red circle is positioned left of a small orange circle,a big green diamond is below a big blue triangle,0.8507629632949829,0.0009566480293869972,0,0,0,1,0.14285714285714285,0,0,0
+8015,the big orange diamond is positioned above a small purple hexagon,a big green diamond is below a big blue triangle,0.9081883430480957,0.0005885364371351898,0,0,0,2,0.2857142857142857,0,0,0
+992,a medium yellow octagon can be seen right of a medium red hexagon,a big green octagon is above a big blue triangle,0.721336305141449,0.0017863067332655191,0,0,0,1,0.14285714285714285,0,0,0
+3047,the big yellow circle is positioned above a small pink triangle,a big green diamond is below a big blue triangle,0.8798407912254333,0.0007702511502429843,0,0,0,2,0.2857142857142857,0,0,0
+6683,a big pink diamond can be seen right of a small black square,a big green diamond is below a big blue triangle,0.9070111513137817,0.0005960832349956036,0,0,0,2,0.2857142857142857,0,0,0
+2881,right of a big red hexagon is a small blue hexagon,a big black diamond is above a big green octagon,0.8037926554679871,0.0012577396119013429,0,0,0,1,0.14285714285714285,0,0,0
+6094,a big green diamond is below a big blue triangle,a big green diamond is below a big blue triangle,0.9472970962524414,0.00033783906837925315,1,1,1,7,1.0,1,1,1
+1696,a big pink hexagon is right of a big purple triangle,a big green diamond is below a big blue triangle,0.9072543382644653,0.0005945236189290881,0,0,0,3,0.42857142857142855,0,0,0
+2305,above a medium black circle is a big green triangle,a big green diamond is below a big blue triangle,0.9000872373580933,0.0006404666346497834,0,0,0,2,0.2857142857142857,0,0,0
+6158,right of a big pink octagon is a big red octagon,a big green octagon is above a big blue triangle,0.8042107224464417,0.0012550598476082087,0,0,0,3,0.42857142857142855,0,0,0
+429,the big purple hexagon is positioned above a medium blue square,a big green diamond is below a big blue triangle,0.9073324203491211,0.000594023265875876,0,0,0,2,0.2857142857142857,0,0,0
+2487,the medium red octagon is positioned below a medium pink circle,a big green octagon is above a big blue triangle,0.7424466609954834,0.0016509833512827754,0,0,0,1,0.14285714285714285,0,0,0
+1659,right of a small purple diamond is a small pink octagon,a big green diamond is below a big blue triangle,0.8013684153556824,0.001273279427550733,0,0,0,0,0.0,0,0,0
+4281,the small green circle is positioned above a small blue octagon,a big green octagon is above a big blue triangle,0.8160179853439331,0.0011793726589530706,0,0,0,3,0.42857142857142855,1,0,0
+5245,a medium orange octagon is above a medium red hexagon,a big green octagon is above a big blue triangle,0.7772496938705444,0.0014278870075941086,0,0,0,2,0.2857142857142857,1,0,0
+7869,a medium blue circle can be seen left of a small yellow circle,a big green diamond is below a big blue triangle,0.7439714670181274,0.001641209120862186,0,0,0,0,0.0,0,0,0
+5603,the medium pink hexagon is positioned below a medium red diamond,a big green diamond is below a big blue triangle,0.8127139210700989,0.0012005524476990104,0,0,0,1,0.14285714285714285,1,0,0
+8127,left of a medium green octagon is a small green diamond,a big green diamond is below a big blue triangle,0.764290988445282,0.001510956441052258,0,0,0,2,0.2857142857142857,0,0,0
+4097,the big purple triangle is positioned below a medium orange diamond,a big green diamond is below a big blue triangle,0.8900694847106934,0.0007046824903227389,0,0,0,2,0.2857142857142857,1,0,0
+5238,a medium pink diamond is above a small blue diamond,a big green diamond is below a big blue triangle,0.8466886878013611,0.0009827644098550081,0,0,0,2,0.2857142857142857,0,0,0
+8732,a small pink triangle is right of a medium orange diamond,a big green diamond is below a big blue triangle,0.8538035154342651,0.0009371568448841572,0,0,0,0,0.0,0,0,0
+2628,a small purple diamond can be seen above a small black octagon,a big green octagon is above a big blue triangle,0.8287491202354431,0.0010977626079693437,0,0,0,1,0.14285714285714285,1,0,0
+5738,right of a big yellow octagon is a big pink diamond,a big green diamond is below a big blue triangle,0.8902808427810669,0.0007033284055069089,0,0,0,3,0.42857142857142855,0,0,0
+1260,the big black triangle is positioned left of a big green octagon,a big green diamond is below a big blue triangle,0.8869521021842957,0.0007246664608828723,0,0,0,2,0.2857142857142857,0,0,0
+6066,a medium yellow octagon is left of a small blue square,a big green diamond is below a big blue triangle,0.7171308398246765,0.0018132635159417987,0,0,0,1,0.14285714285714285,0,0,0
+3356,a big yellow octagon can be seen left of a small green triangle,a big green diamond is below a big blue triangle,0.8141128420829773,0.0011915852082893252,0,0,0,2,0.2857142857142857,0,0,0
+9354,a small purple triangle can be seen above a small pink circle,a big green diamond is below a big blue triangle,0.8000032901763916,0.0012820304837077856,0,0,0,0,0.0,0,0,0
+5329,the small orange diamond is positioned right of a medium black diamond,a big green diamond is below a big blue triangle,0.8379546999931335,0.0010387521469965577,0,0,0,1,0.14285714285714285,0,0,0
+6808,a big pink square is left of a big red octagon,a big green diamond is below a big blue triangle,0.9082086086273193,0.0005884069832973182,0,0,0,2,0.2857142857142857,0,0,0
+228,a medium purple diamond can be seen right of a small pink hexagon,below a big green triangle is a big red diamond,0.8358602523803711,0.0010521773947402835,0,0,0,1,0.14285714285714285,0,0,0
+8148,a big pink triangle can be seen left of a small red diamond,below a big green triangle is a big red diamond,0.8739665150642395,0.0008079078979790211,0,0,0,1,0.14285714285714285,0,0,0
+6998,above a medium red octagon is a small red circle,a big green octagon is above a big blue triangle,0.7718454599380493,0.0014625299954786897,0,0,0,1,0.14285714285714285,1,0,0
+6898,the big green diamond is positioned right of a small orange square,below a big green triangle is a big red diamond,0.8968820571899414,0.0006610132404603064,0,0,0,2,0.2857142857142857,0,0,0
+5870,a big yellow square can be seen left of a big blue triangle,below a big green triangle is a big red diamond,0.8997980356216431,0.0006423206068575382,0,0,0,3,0.42857142857142855,0,0,0
+3522,a big purple hexagon is above a medium black triangle,a big green diamond is below a big blue triangle,0.8873485922813416,0.0007221247651614249,0,0,0,2,0.2857142857142857,0,0,0
+5564,the small blue triangle is positioned below a medium purple octagon,a big green diamond is below a big blue triangle,0.7661612629890442,0.0014989672927185893,0,0,0,1,0.14285714285714285,1,0,0
+9690,a medium purple circle is below a small red triangle,a big green diamond is below a big blue triangle,0.7851332426071167,0.0013773507671430707,0,0,0,2,0.2857142857142857,1,0,0
+2945,a big yellow hexagon is below a big black square,a big green diamond is below a big blue triangle,0.8624125123023987,0.0008819713839329779,0,0,0,3,0.42857142857142855,1,0,0
+7484,a small black circle can be seen left of a medium orange octagon,a big green diamond is below a big blue triangle,0.741118311882019,0.0016594973858445883,0,0,0,0,0.0,0,0,0
+8279,the small red triangle is positioned above a big black hexagon,a big green diamond is below a big blue triangle,0.884129524230957,0.0007427594973705709,0,0,0,1,0.14285714285714285,0,0,0
+799,right of a medium blue triangle is a big blue diamond,a big green diamond is below a big blue triangle,0.8992120027542114,0.0006460771546699107,0,0,0,4,0.5714285714285714,0,1,0
+1278,a medium purple triangle can be seen left of a medium blue square,a big green diamond is below a big blue triangle,0.7984007000923157,0.0012923035537824035,0,0,0,1,0.14285714285714285,0,0,0
+721,below a big black triangle is a big pink diamond,a big green diamond is below a big blue triangle,0.9343932867050171,0.00042055585072375834,0,1,0,5,0.7142857142857143,1,1,0
+2997,a medium yellow triangle can be seen below a big pink diamond,a big green diamond is below a big blue triangle,0.844075620174408,0.0009995161090046167,0,0,0,2,0.2857142857142857,1,0,0
+6101,right of a small orange square is a big red diamond,a big green diamond is below a big blue triangle,0.9161407947540283,0.0005375597393140197,0,0,0,2,0.2857142857142857,0,0,0
+5084,a medium yellow diamond is above a big black diamond,a big green diamond is below a big blue triangle,0.8874770402908325,0.0007213014177978039,0,0,0,2,0.2857142857142857,0,0,0
+1424,left of a small yellow triangle is a medium purple diamond,a big green diamond is below a big blue triangle,0.810706377029419,0.001213420880958438,0,0,0,2,0.2857142857142857,0,1,0
+580,a small pink diamond can be seen left of a medium orange triangle,a big green diamond is below a big blue triangle,0.824715793132782,0.0011236167047172785,0,0,0,2,0.2857142857142857,0,1,0
+2184,the big green triangle is positioned below a small blue octagon,a big green diamond is below a big blue triangle,0.8583914637565613,0.0009077474824152887,0,0,0,4,0.5714285714285714,1,0,0
+8839,the big yellow octagon is positioned left of a small black circle,a big green diamond is below a big blue triangle,0.7840680480003357,0.0013841789914295077,0,0,0,1,0.14285714285714285,0,0,0
+8558,a big purple diamond can be seen right of a small black circle,a big green diamond is below a big blue triangle,0.8949337601661682,0.0006735014612786472,0,0,0,2,0.2857142857142857,0,0,0
+4051,a small red triangle can be seen left of a big green diamond,a big green diamond is below a big blue triangle,0.8684276342391968,0.0008434129995293915,0,0,0,1,0.14285714285714285,0,0,0
+8526,a small pink hexagon can be seen left of a small red hexagon,a big green octagon is above a big blue triangle,0.7301437854766846,0.0017298477469012141,0,0,0,0,0.0,0,0,0
+3523,a medium yellow circle is above a big pink octagon,a big green diamond is below a big blue triangle,0.8249983191490173,0.0011218067957088351,0,0,0,1,0.14285714285714285,0,0,0
+1505,a medium green diamond can be seen right of a big green circle,a big green diamond is below a big blue triangle,0.8813819289207458,0.0007603717967867851,0,0,0,3,0.42857142857142855,0,0,0
+8805,a small green diamond can be seen below a medium purple triangle,a big green diamond is below a big blue triangle,0.8214136362075806,0.0011447840370237827,0,0,0,4,0.5714285714285714,1,1,0
+1378,left of a big orange circle is a big yellow triangle,a big green diamond is below a big blue triangle,0.9034457206726074,0.000618938822299242,0,0,0,2,0.2857142857142857,0,0,0
+3149,the small red square is positioned right of a medium red triangle,a big green diamond is below a big blue triangle,0.808037519454956,0.0012305286945775151,0,0,0,1,0.14285714285714285,0,0,0
+5188,left of a small green diamond is a big red hexagon,a big green diamond is below a big blue triangle,0.8875914216041565,0.0007205685251392424,0,0,0,1,0.14285714285714285,0,0,0
+9822,a big black diamond can be seen below a medium pink circle,a big green diamond is below a big blue triangle,0.8905191421508789,0.0007018003962002695,0,0,0,3,0.42857142857142855,1,0,0
+6064,a medium red square is left of a small black octagon,a big green diamond is below a big blue triangle,0.7554804682731628,0.0015674325404688716,0,0,0,0,0.0,0,0,0
+9741,the big red triangle is positioned left of a medium yellow triangle,a big green diamond is below a big blue triangle,0.8334500789642334,0.0010676278034225106,0,0,0,2,0.2857142857142857,0,0,0
+9966,a medium yellow octagon can be seen below a medium pink hexagon,a big green octagon is above a big blue triangle,0.6819800734519958,0.002038589445874095,0,0,0,1,0.14285714285714285,0,0,0
+6909,a medium yellow square is above a big pink diamond,a big green diamond is below a big blue triangle,0.9084027409553528,0.0005871615139767528,0,0,0,1,0.14285714285714285,0,0,0
+9616,a medium blue circle is left of a medium purple triangle,a big green diamond is below a big blue triangle,0.7999187111854553,0.001282573095522821,0,0,0,1,0.14285714285714285,0,0,0
+3395,a big red square is right of a big purple triangle,a big green diamond is below a big blue triangle,0.9298294186592102,0.00044981049722991884,0,1,0,3,0.42857142857142855,0,0,0
+9964,a medium pink diamond is below a medium black hexagon,a big green diamond is below a big blue triangle,0.7748509645462036,0.0014432623283937573,0,0,0,2,0.2857142857142857,1,0,0
+5866,above a medium yellow hexagon is a medium yellow circle,a big green octagon is above a big blue triangle,0.7322121262550354,0.0017165890894830227,0,0,0,1,0.14285714285714285,1,0,0
+345,right of a big red square is a medium blue diamond,a big green diamond is below a big blue triangle,0.8883349299430847,0.0007158018997870386,0,0,0,2,0.2857142857142857,0,0,0
+351,a small red hexagon is below a big purple circle,a big green diamond is below a big blue triangle,0.8500329852104187,0.0009613269940018654,0,0,0,2,0.2857142857142857,1,0,0
+8051,above a small purple square is a small orange octagon,a big green diamond is below a big blue triangle,0.7928937077522278,0.0013276049867272377,0,0,0,0,0.0,0,0,0
+9717,the small red diamond is positioned left of a small blue triangle,a big green diamond is below a big blue triangle,0.8296752572059631,0.0010918256593868136,0,0,0,3,0.42857142857142855,0,1,0
+2097,the small red hexagon is positioned right of a medium yellow square,below a big green triangle is a big red diamond,0.8000323176383972,0.001281843869946897,0,0,0,1,0.14285714285714285,0,0,0
+1308,a small green diamond can be seen right of a medium purple circle,a big green diamond is below a big blue triangle,0.8585172891616821,0.0009069404331967235,0,0,0,2,0.2857142857142857,0,0,0
+2320,the medium purple circle is positioned below a big blue octagon,a big green diamond is below a big blue triangle,0.8275109529495239,0.0011056991061195731,0,0,0,3,0.42857142857142855,1,0,0
+523,the medium yellow triangle is positioned above a medium green triangle,a big green diamond is below a big blue triangle,0.7790959477424622,0.0014160523423925042,0,0,0,1,0.14285714285714285,0,0,0
+9136,below a small purple square is a medium yellow triangle,a big green diamond is below a big blue triangle,0.770857572555542,0.0014688613591715693,0,0,0,1,0.14285714285714285,1,0,0
+3468,a big red diamond can be seen above a medium red triangle,a big green diamond is below a big blue triangle,0.8893097639083862,0.0007095532491803169,0,0,0,3,0.42857142857142855,0,1,0
+1005,the medium blue hexagon is positioned right of a medium green octagon,a big green octagon is above a big blue triangle,0.7921226024627686,0.0013325476320460439,0,0,0,0,0.0,0,0,0
+2274,the small orange triangle is positioned above a medium black hexagon,a big green octagon is above a big blue triangle,0.8211040496826172,0.001146769500337541,0,0,0,1,0.14285714285714285,1,0,0
+6013,a medium orange circle is right of a medium orange hexagon,a big green diamond is below a big blue triangle,0.7674307227134705,0.0014908290468156338,0,0,0,0,0.0,0,0,0
+764,left of a small pink square is a big red diamond,a big green diamond is below a big blue triangle,0.9030066132545471,0.0006217525224201381,0,0,0,2,0.2857142857142857,0,0,0
+6962,a small yellow octagon is right of a big black circle,a big green diamond is below a big blue triangle,0.8141257762908936,0.0011915017385035753,0,0,0,1,0.14285714285714285,0,0,0
+2329,the medium red triangle is positioned left of a small blue square,a big green diamond is below a big blue triangle,0.8001393675804138,0.0012811586493626237,0,0,0,1,0.14285714285714285,0,0,0
+8067,the medium orange square is positioned left of a medium orange hexagon,a big green diamond is below a big blue triangle,0.7989891767501831,0.0012885313481092453,0,0,0,0,0.0,0,0,0
+6822,a medium black square can be seen below a big blue hexagon,a big green diamond is below a big blue triangle,0.8211882710456848,0.0011462299153208733,0,0,0,3,0.42857142857142855,1,0,0
+6409,right of a big black octagon is a small green square,a big green diamond is below a big blue triangle,0.8214784860610962,0.0011443685507401824,0,0,0,2,0.2857142857142857,0,0,0
+6700,above a big green diamond is a medium blue circle,a big green diamond is below a big blue triangle,0.9149436354637146,0.0005452338955365121,0,0,0,1,0.14285714285714285,0,0,0
+1933,the big purple circle is positioned below a medium yellow diamond,a big green diamond is below a big blue triangle,0.8742451667785645,0.0008061203407123685,0,0,0,2,0.2857142857142857,1,0,0
+3978,a medium red triangle is right of a medium black circle,a big green diamond is below a big blue triangle,0.7831451296806335,0.0013900966150686145,0,0,0,0,0.0,0,0,0
+8841,a big pink diamond is left of a big red diamond,a big green diamond is below a big blue triangle,0.9108899235725403,0.0005712188431061804,0,0,0,3,0.42857142857142855,0,0,0
+7293,the big orange octagon is positioned above a medium yellow square,a big green diamond is below a big blue triangle,0.8589668273925781,0.0009040594450198114,0,0,0,1,0.14285714285714285,0,0,0
+6882,a big orange hexagon is above a small black triangle,a big green diamond is below a big blue triangle,0.898305356502533,0.0006518891314044595,0,0,0,2,0.2857142857142857,0,0,0
+3112,a small purple diamond can be seen left of a medium orange triangle,below a big green triangle is a big red diamond,0.8308117389678955,0.001084540388546884,0,0,0,2,0.2857142857142857,0,1,0
+4955,a medium red hexagon can be seen right of a big orange diamond,a big green diamond is below a big blue triangle,0.8636467456817627,0.0008740591583773494,0,0,0,1,0.14285714285714285,0,0,0
+6285,a medium purple octagon is left of a medium red octagon,a big green octagon is above a big blue triangle,0.7280874848365784,0.0017430293373763561,0,0,0,1,0.14285714285714285,0,0,0
+2710,right of a big yellow circle is a medium yellow hexagon,a big green diamond is below a big blue triangle,0.8089563846588135,0.001224638894200325,0,0,0,1,0.14285714285714285,0,0,0
+612,a medium yellow diamond can be seen left of a medium orange diamond,below a big green triangle is a big red diamond,0.7776530385017395,0.001425301656126976,0,0,0,1,0.14285714285714285,0,0,0
+5984,a big red triangle is right of a medium red circle,a big green diamond is below a big blue triangle,0.8742064833641052,0.0008063691784627736,0,0,0,1,0.14285714285714285,0,0,0
+8271,the big green hexagon is positioned above a big orange circle,a big green diamond is below a big blue triangle,0.9260664582252502,0.0004739322466775775,0,0,0,3,0.42857142857142855,0,0,0
+3410,a small red square can be seen right of a small pink circle,a big green diamond is below a big blue triangle,0.8141745328903198,0.0011911893961951137,0,0,0,0,0.0,0,0,0
+5000,a small black triangle can be seen left of a small pink circle,a big green diamond is below a big blue triangle,0.7664899230003357,0.0014968598261475563,0,0,0,0,0.0,0,0,0
+1234,a medium black hexagon can be seen above a big yellow square,a big green diamond is below a big blue triangle,0.8199993371963501,0.0011538503458723426,0,0,0,1,0.14285714285714285,0,0,0
+4224,a big purple diamond can be seen left of a medium yellow diamond,a big green diamond is below a big blue triangle,0.8678465485572815,0.0008471383480355144,0,0,0,2,0.2857142857142857,0,0,0
+7164,a medium orange triangle is below a medium pink square,a big green diamond is below a big blue triangle,0.78159499168396,0.0014000324299558997,0,0,0,1,0.14285714285714285,1,0,0
+8263,a medium purple diamond is left of a medium orange circle,a big green diamond is below a big blue triangle,0.8269710540771484,0.0011091605992987752,0,0,0,1,0.14285714285714285,0,0,0
+1525,a small orange octagon is left of a small green triangle,a big green diamond is below a big blue triangle,0.7583876848220825,0.0015487964265048504,0,0,0,1,0.14285714285714285,0,0,0
+8013,a small blue hexagon is below a small yellow diamond,a big green diamond is below a big blue triangle,0.8101866841316223,0.001216752571053803,0,0,0,1,0.14285714285714285,1,0,0
+892,a big black octagon can be seen above a small orange diamond,a big green diamond is below a big blue triangle,0.8707558512687683,0.0008284877403639257,0,0,0,1,0.14285714285714285,0,0,0
+5374,a medium yellow octagon can be seen above a big pink square,a big green diamond is below a big blue triangle,0.8328502178192139,0.0010714743984863162,0,0,0,1,0.14285714285714285,0,0,0
+1596,a small blue square can be seen below a big orange hexagon,a big green diamond is below a big blue triangle,0.8272889852523804,0.0011071222834289074,0,0,0,2,0.2857142857142857,1,0,0
+1923,a small black hexagon can be seen left of a big black octagon,a big green octagon is above a big blue triangle,0.7285220623016357,0.0017402434023097157,0,0,0,1,0.14285714285714285,0,0,0
+2250,the small green hexagon is positioned right of a big pink octagon,a big green diamond is below a big blue triangle,0.8273625373840332,0.0011066501028835773,0,0,0,2,0.2857142857142857,0,0,0
+2383,a small green square is right of a big purple diamond,a big green diamond is below a big blue triangle,0.9117077589035034,0.0005659766029566526,0,0,0,2,0.2857142857142857,0,0,0
+3754,below a medium black diamond is a medium blue octagon,a big green diamond is below a big blue triangle,0.7543091177940369,0.0015749409794807434,0,0,0,1,0.14285714285714285,1,0,0
+8080,the small blue triangle is positioned above a medium yellow diamond,a big green diamond is below a big blue triangle,0.8385403156280518,0.0010349983349442482,0,0,0,0,0.0,0,0,0
+3180,the medium orange diamond is positioned above a big red diamond,a big green diamond is below a big blue triangle,0.8996213674545288,0.0006434531533159316,0,0,0,2,0.2857142857142857,0,0,0
+9867,the small blue triangle is positioned below a medium yellow circle,a big green diamond is below a big blue triangle,0.7388354539871216,0.0016741317231208086,0,0,0,1,0.14285714285714285,1,0,0
+2373,the medium yellow diamond is positioned right of a medium black hexagon,a big green octagon is above a big blue triangle,0.8110803961753845,0.0012110233074054122,0,0,0,0,0.0,0,0,0
+738,a big yellow circle is left of a small pink triangle,a big green diamond is below a big blue triangle,0.8468627333641052,0.000981649849563837,0,0,0,2,0.2857142857142857,0,0,0
+7402,the big orange octagon is positioned right of a big pink hexagon,a big green diamond is below a big blue triangle,0.8820649981498718,0.0007559937657788396,0,0,0,2,0.2857142857142857,0,0,0
+950,a big purple octagon can be seen above a big purple square,a big green diamond is below a big blue triangle,0.8898863792419434,0.0007058578776195645,0,0,0,2,0.2857142857142857,0,0,0
+1870,a big orange diamond can be seen right of a medium black triangle,a big green diamond is below a big blue triangle,0.9073131680488586,0.0005941469571553171,0,0,0,3,0.42857142857142855,0,1,0
+4095,a big pink octagon is right of a medium blue triangle,a big green diamond is below a big blue triangle,0.8796502351760864,0.0007714737439528108,0,0,0,3,0.42857142857142855,0,0,0
+5076,a big green diamond can be seen left of a medium purple circle,a big green diamond is below a big blue triangle,0.8969523310661316,0.0006605629459954798,0,0,0,3,0.42857142857142855,0,0,0
+6481,right of a small red square is a big pink hexagon,a big green diamond is below a big blue triangle,0.8760563135147095,0.0007945115794427693,0,0,0,1,0.14285714285714285,0,0,0
+1512,a small purple circle can be seen right of a small purple triangle,a big green diamond is below a big blue triangle,0.8023152351379395,0.0012672105804085732,0,0,0,1,0.14285714285714285,0,0,0
+6224,the small red octagon is positioned right of a big orange triangle,a big green octagon is above a big blue triangle,0.872738242149353,0.0008157810661941767,0,0,0,3,0.42857142857142855,0,1,0
+2151,right of a small black octagon is a small green triangle,a big green octagon is above a big blue triangle,0.7956432104110718,0.0013099800562486053,0,0,0,1,0.14285714285714285,0,0,0
+942,a big red circle can be seen below a small purple triangle,a big green diamond is below a big blue triangle,0.8614153265953064,0.0008883638656698167,0,0,0,3,0.42857142857142855,1,0,0
+6697,a small blue diamond can be seen below a big black square,a big green diamond is below a big blue triangle,0.8743578791618347,0.0008053987985476851,0,0,0,3,0.42857142857142855,1,0,0
+8804,a small blue circle can be seen left of a small blue hexagon,a big green diamond is below a big blue triangle,0.7652302980422974,0.001504934043623507,0,0,0,1,0.14285714285714285,0,0,0
+3361,right of a medium orange diamond is a big purple diamond,a big green diamond is below a big blue triangle,0.8728683590888977,0.0008149466011673212,0,0,0,2,0.2857142857142857,0,0,0
+1872,above a big pink triangle is a small orange triangle,a big green diamond is below a big blue triangle,0.871285080909729,0.0008250951650552452,0,0,0,2,0.2857142857142857,0,0,0
+2426,below a medium blue hexagon is a big red circle,a big green diamond is below a big blue triangle,0.8626272082328796,0.0008805948309600353,0,0,0,3,0.42857142857142855,1,0,0
+401,below a medium green octagon is a medium purple octagon,a big green octagon is above a big blue triangle,0.7091196775436401,0.0018646176904439926,0,0,0,1,0.14285714285714285,0,0,0
+5309,the medium blue circle is positioned left of a medium black square,a big green diamond is below a big blue triangle,0.773686945438385,0.0014507245505228639,0,0,0,0,0.0,0,0,0
+4700,a medium yellow octagon is right of a big yellow diamond,a big green diamond is below a big blue triangle,0.8402443528175354,0.0010240746196359396,0,0,0,1,0.14285714285714285,0,0,0
+9699,the big black square is positioned above a small blue triangle,a big green diamond is below a big blue triangle,0.8895155191421509,0.0007082344382070005,0,0,0,3,0.42857142857142855,0,0,0
+2994,right of a small blue circle is a medium yellow hexagon,a big green diamond is below a big blue triangle,0.7705962061882019,0.0014705377398058772,0,0,0,1,0.14285714285714285,0,0,0
+7008,a big pink circle can be seen left of a small yellow square,a big green diamond is below a big blue triangle,0.8421671390533447,0.0010117498459294438,0,0,0,1,0.14285714285714285,0,0,0
+7341,above a small orange circle is a medium orange triangle,a big green diamond is below a big blue triangle,0.8041501045227051,0.0012554489076137543,0,0,0,0,0.0,0,0,0
+36,a medium orange diamond is below a medium red circle,a big green diamond is below a big blue triangle,0.8110009431838989,0.0012115329736843705,0,0,0,2,0.2857142857142857,1,0,0
+3690,below a small pink circle is a big red octagon,a big green octagon is above a big blue triangle,0.8565950393676758,0.0009192628785967827,0,0,0,2,0.2857142857142857,0,0,0
+2896,right of a big yellow diamond is a big yellow octagon,a big green diamond is below a big blue triangle,0.8838554620742798,0.000744516437407583,0,0,0,2,0.2857142857142857,0,0,0
+8765,a big pink square can be seen left of a small orange octagon,a big green diamond is below a big blue triangle,0.8485722541809082,0.000970691442489624,0,0,0,1,0.14285714285714285,0,0,0
+1356,a medium orange diamond is right of a medium purple square,a big green diamond is below a big blue triangle,0.855226457118988,0.0009280359954573214,0,0,0,1,0.14285714285714285,0,0,0
+2367,a big green square can be seen right of a big pink square,a big green diamond is below a big blue triangle,0.8613463640213013,0.0008888057200238109,0,0,0,3,0.42857142857142855,0,0,0
+7130,below a small pink octagon is a big green hexagon,a big green octagon is above a big blue triangle,0.7976675629615784,0.0012970032403245568,0,0,0,2,0.2857142857142857,0,0,0
+3302,left of a small pink hexagon is a big orange square,a big green diamond is below a big blue triangle,0.8677656650543213,0.0008476561633870006,0,0,0,1,0.14285714285714285,0,0,0
+7030,a medium blue hexagon is below a medium purple octagon,a big green octagon is above a big blue triangle,0.7520086169242859,0.0015896883560344577,0,0,0,0,0.0,0,0,0
+4071,the big orange square is positioned above a small blue hexagon,a big green diamond is below a big blue triangle,0.9073285460472107,0.0005940482369624078,0,0,0,2,0.2857142857142857,0,0,0
+4562,the big red triangle is positioned above a small blue diamond,a big green diamond is below a big blue triangle,0.9237310886383057,0.0004889043630100787,0,0,0,2,0.2857142857142857,0,0,0
+9564,a big red triangle is right of a medium black square,a big green diamond is below a big blue triangle,0.8779270648956299,0.0007825192878954113,0,0,0,1,0.14285714285714285,0,0,0
+668,the big green circle is positioned above a medium purple circle,a big green diamond is below a big blue triangle,0.8851017951965332,0.0007365270284935832,0,0,0,2,0.2857142857142857,0,0,0
+4336,the medium blue diamond is positioned above a medium pink hexagon,a big green diamond is below a big blue triangle,0.8421314358711243,0.0010119788348674774,0,0,0,1,0.14285714285714285,0,0,0
+4966,a small purple diamond is right of a small green diamond,a big green diamond is below a big blue triangle,0.8536819219589233,0.0009379367693327367,0,0,0,1,0.14285714285714285,0,0,0
+9506,a medium yellow octagon is right of a medium purple hexagon,a big green octagon is above a big blue triangle,0.7355412840843201,0.0016952481819316745,0,0,0,1,0.14285714285714285,0,0,0
+5942,the medium blue diamond is positioned left of a small pink triangle,a big green diamond is below a big blue triangle,0.8283904194831848,0.001100061577744782,0,0,0,2,0.2857142857142857,0,1,0
+2190,a big pink diamond can be seen left of a medium red diamond,below a big green triangle is a big red diamond,0.8703815340995789,0.0008308881660923362,0,0,0,2,0.2857142857142857,0,0,0
+9414,a medium green square can be seen left of a medium purple square,a big green diamond is below a big blue triangle,0.7872948050498962,0.0013634951319545507,0,0,0,1,0.14285714285714285,0,0,0
+3859,the small pink diamond is positioned left of a small blue square,a big green diamond is below a big blue triangle,0.8391135931015015,0.0010313227539882064,0,0,0,2,0.2857142857142857,0,0,0
+3729,the small orange square is positioned left of a small orange hexagon,a big green diamond is below a big blue triangle,0.8110944032669067,0.0012109332019463181,0,0,0,0,0.0,0,0,0
+8845,a big yellow circle can be seen right of a medium red triangle,a big green diamond is below a big blue triangle,0.8586735725402832,0.0009059393196366727,0,0,0,2,0.2857142857142857,0,0,0
+7982,the small red circle is positioned below a medium blue octagon,a big green diamond is below a big blue triangle,0.7508056163787842,0.0015974007546901703,0,0,0,2,0.2857142857142857,1,0,0
+9713,a medium pink octagon is right of a small red circle,a big green diamond is below a big blue triangle,0.76128089427948,0.0015302516985684633,0,0,0,0,0.0,0,0,0
+9430,below a small black octagon is a big yellow hexagon,a big green octagon is above a big blue triangle,0.7572200894355774,0.001556282746605575,0,0,0,1,0.14285714285714285,0,0,0
+6997,a medium green hexagon is above a medium purple triangle,a big green diamond is below a big blue triangle,0.8284703493118286,0.0010995494667440653,0,0,0,2,0.2857142857142857,0,0,0
+4682,left of a small red square is a big blue diamond,a big green diamond is below a big blue triangle,0.9002860188484192,0.0006391920614987612,0,0,0,2,0.2857142857142857,0,0,0
+9054,a medium orange circle can be seen above a small orange hexagon,a big green octagon is above a big blue triangle,0.7931942939758301,0.0013256779639050364,0,0,0,1,0.14285714285714285,1,0,0
+4437,left of a small green circle is a big green triangle,a big green diamond is below a big blue triangle,0.8679556250572205,0.0008464382262900472,0,0,0,2,0.2857142857142857,0,0,0
+4829,a big pink triangle is left of a big yellow diamond,a big green diamond is below a big blue triangle,0.9174554347991943,0.0005291320849210024,0,0,0,2,0.2857142857142857,0,0,0
+6083,the small purple triangle is positioned left of a big orange circle,a big green diamond is below a big blue triangle,0.8508491516113281,0.0009560955804772675,0,0,0,1,0.14285714285714285,0,0,0
+8684,above a medium red square is a small green diamond,a big green diamond is below a big blue triangle,0.8547340631484985,0.0009311915491707623,0,0,0,2,0.2857142857142857,0,0,0
+7852,the small blue hexagon is positioned right of a small yellow diamond,a big green diamond is below a big blue triangle,0.8455972671508789,0.0009897610871121287,0,0,0,0,0.0,0,0,0
+3674,above a small red diamond is a medium yellow octagon,a big green diamond is below a big blue triangle,0.7610299587249756,0.001531859626993537,0,0,0,0,0.0,0,0,0
+4510,above a medium yellow circle is a small red diamond,a big green diamond is below a big blue triangle,0.8367496132850647,0.001046477584168315,0,0,0,1,0.14285714285714285,0,0,0
+4743,the medium yellow circle is positioned right of a medium yellow diamond,a big green diamond is below a big blue triangle,0.7965599298477173,0.0013041028287261724,0,0,0,0,0.0,0,0,0
+2983,the big orange triangle is positioned right of a medium pink diamond,a big green diamond is below a big blue triangle,0.910863995552063,0.0005713854916393757,0,0,0,1,0.14285714285714285,0,0,0
+3530,below a big orange hexagon is a small blue hexagon,a big black diamond is above a big green octagon,0.7935321927070618,0.0013235118240118027,0,0,0,1,0.14285714285714285,0,0,0
+9973,the medium purple hexagon is positioned below a medium black circle,a big green octagon is above a big blue triangle,0.7732827663421631,0.0014533165376633406,0,0,0,0,0.0,0,0,0
+1371,a small black triangle is above a medium black circle,a big green diamond is below a big blue triangle,0.7849810123443604,0.0013783273752778769,0,0,0,0,0.0,0,0,0
+2590,above a big purple diamond is a small yellow diamond,a big green diamond is below a big blue triangle,0.8825421333312988,0.0007529352442361414,0,0,0,2,0.2857142857142857,0,0,0
+9084,above a small pink diamond is a small red hexagon,a big green diamond is below a big blue triangle,0.8362330794334412,0.0010497883195057511,0,0,0,0,0.0,0,0,0
+6277,a medium red circle can be seen left of a big blue triangle,a big green diamond is below a big blue triangle,0.8551035523414612,0.0009288238361477852,0,0,0,3,0.42857142857142855,0,0,0
+8607,a big pink circle can be seen left of a medium orange diamond,below a big green triangle is a big red diamond,0.8750726580619812,0.0008008172735571861,0,0,0,1,0.14285714285714285,0,0,0
+6786,the small pink diamond is positioned right of a medium blue hexagon,the big green hexagon is positioned above a big orange circle,0.8449947834014893,0.0009936232818290591,0,0,0,0,0.0,0,0,0
+8737,above a big blue circle is a medium purple circle,a big green diamond is below a big blue triangle,0.8609502911567688,0.0008913440979085863,0,0,0,2,0.2857142857142857,0,0,0
+7,below a big green octagon is a medium pink square,a big green diamond is below a big blue triangle,0.8378585577011108,0.0010393684497103095,0,0,0,2,0.2857142857142857,1,0,0
+1482,a medium orange octagon can be seen right of a big yellow square,a big green diamond is below a big blue triangle,0.8538897633552551,0.0009366041631437838,0,0,0,1,0.14285714285714285,0,0,0
+5468,left of a medium black hexagon is a big red triangle,a big green diamond is below a big blue triangle,0.8463838696479797,0.0009847190231084824,0,0,0,1,0.14285714285714285,0,0,0
+5600,right of a big pink square is a medium red diamond,a big green diamond is below a big blue triangle,0.8919156193733215,0.0006928495713509619,0,0,0,2,0.2857142857142857,0,0,0
+586,a big yellow square is below a medium yellow circle,a big green diamond is below a big blue triangle,0.8256614804267883,0.0011175548424944282,0,0,0,2,0.2857142857142857,1,0,0
+9804,a medium green octagon can be seen left of a medium orange hexagon,a big green octagon is above a big blue triangle,0.7313717603683472,0.001721976324915886,0,0,0,2,0.2857142857142857,0,0,0
+4792,a small red octagon is above a big green hexagon,a big green octagon is above a big blue triangle,0.859348475933075,0.0009016129188239574,0,0,0,3,0.42857142857142855,1,0,0
+2088,right of a medium purple diamond is a big black circle,a big green diamond is below a big blue triangle,0.8940828442573547,0.0006789561011828482,0,0,0,1,0.14285714285714285,0,0,0
+1813,the small orange triangle is positioned right of a small black hexagon,a big green diamond is below a big blue triangle,0.8244907855987549,0.001125058624893427,0,0,0,0,0.0,0,0,0
+353,a medium black octagon is right of a small pink square,a big green octagon is above a big blue triangle,0.7568075060844421,0.0015589265385642648,0,0,0,1,0.14285714285714285,0,0,0
+5133,a big pink diamond can be seen below a big blue circle,a big green diamond is below a big blue triangle,0.9012897610664368,0.0006327585433609784,0,0,0,5,0.7142857142857143,1,0,0
+5841,a big green square can be seen below a small pink diamond,a big green diamond is below a big blue triangle,0.8853123188018799,0.0007351779495365918,0,0,0,3,0.42857142857142855,1,0,0
+3984,the medium yellow square is positioned right of a medium green octagon,a big green octagon is above a big blue triangle,0.7845640182495117,0.001381000387482345,0,0,0,0,0.0,0,0,0
+1902,a medium green hexagon is right of a big black octagon,a big green octagon is above a big blue triangle,0.8149607181549072,0.0011861505918204784,0,0,0,2,0.2857142857142857,0,0,0
+5761,the big purple square is positioned below a small pink hexagon,a big green diamond is below a big blue triangle,0.8955352306365967,0.0006696466007269919,0,0,0,2,0.2857142857142857,1,0,0
+1893,a medium black square is left of a medium pink square,a big green diamond is below a big blue triangle,0.7367349863052368,0.0016875966684892774,0,0,0,0,0.0,0,0,0
+7632,left of a big pink triangle is a medium orange hexagon,a big green diamond is below a big blue triangle,0.8535764217376709,0.0009386133751831949,0,0,0,2,0.2857142857142857,0,0,0
+9337,above a big black triangle is a small purple octagon,a big green diamond is below a big blue triangle,0.8622374534606934,0.0008830937440507114,0,0,0,2,0.2857142857142857,0,0,0
+6255,left of a big pink square is a small purple diamond,a big green diamond is below a big blue triangle,0.8992471694946289,0.0006458523566834629,0,0,0,2,0.2857142857142857,0,0,0
+2831,right of a small purple square is a medium purple octagon,a big green diamond is below a big blue triangle,0.7778736352920532,0.001423887093551457,0,0,0,0,0.0,0,0,0
+4401,left of a big yellow octagon is a medium green octagon,a big green octagon is above a big blue triangle,0.7365745902061462,0.0016886248486116529,0,0,0,3,0.42857142857142855,0,0,0
+5655,the medium pink square is positioned right of a small yellow hexagon,a big green diamond is below a big blue triangle,0.8066762685775757,0.0012392548378556967,0,0,0,0,0.0,0,0,0
+3784,left of a small orange triangle is a small green circle,a big green diamond is below a big blue triangle,0.7903859615325928,0.0013436803128570318,0,0,0,2,0.2857142857142857,0,0,0
+9326,a small blue diamond is left of a big blue hexagon,a big green diamond is below a big blue triangle,0.884623646736145,0.000739593175239861,0,0,0,3,0.42857142857142855,0,0,0
+7841,a medium green octagon can be seen left of a big orange square,a big green diamond is below a big blue triangle,0.8269681930541992,0.001109178178012371,0,0,0,2,0.2857142857142857,0,0,0
+6816,a big red circle is left of a big pink hexagon,a big green diamond is below a big blue triangle,0.8975223302841187,0.0006569084362126887,0,0,0,2,0.2857142857142857,0,0,0
+4823,the big black triangle is positioned below a medium blue diamond,a big green diamond is below a big blue triangle,0.8902100324630737,0.0007037817849777639,0,0,0,3,0.42857142857142855,1,0,0
+3189,a big yellow hexagon can be seen above a medium orange square,a big green diamond is below a big blue triangle,0.8564138412475586,0.0009204242960549891,0,0,0,1,0.14285714285714285,0,0,0
+6961,the small pink triangle is positioned right of a big pink octagon,a big green diamond is below a big blue triangle,0.8575927019119263,0.0009128673700615764,0,0,0,1,0.14285714285714285,0,0,0
+9360,a small black square is below a small pink diamond,a big green diamond is below a big blue triangle,0.8145816326141357,0.0011885802960023284,0,0,0,1,0.14285714285714285,1,0,0
+9203,below a small blue octagon is a medium pink octagon,a big green octagon is above a big blue triangle,0.6796597838401794,0.002053462900221348,0,0,0,2,0.2857142857142857,0,0,0
+3956,the small orange triangle is positioned left of a big red diamond,a big green diamond is below a big blue triangle,0.8922327160835266,0.0006908164359629154,0,0,0,1,0.14285714285714285,0,0,0
+8821,a medium pink diamond is right of a big green circle,a big green diamond is below a big blue triangle,0.9248703122138977,0.0004816003784071654,0,0,0,2,0.2857142857142857,0,0,0
+7747,a big red triangle is right of a medium black diamond,a big green diamond is below a big blue triangle,0.9155730605125427,0.0005411987076513469,0,0,0,1,0.14285714285714285,0,0,0
+5014,the medium purple diamond is positioned above a big purple diamond,a big green diamond is below a big blue triangle,0.8661946058273315,0.0008577276603318751,0,0,0,2,0.2857142857142857,0,0,0
+8445,a medium black octagon can be seen below a small orange circle,a big green octagon is above a big blue triangle,0.7096856832504272,0.0018609887920320034,0,0,0,1,0.14285714285714285,0,0,0
+7493,below a medium orange triangle is a medium yellow octagon,a big green octagon is above a big blue triangle,0.7285318374633789,0.0017401808872818947,0,0,0,2,0.2857142857142857,0,1,0
+5552,a medium pink circle is right of a medium yellow diamond,a big green diamond is below a big blue triangle,0.8284081816673279,0.0010999474907293916,0,0,0,0,0.0,0,0,0
+7434,left of a big red square is a medium blue circle,a big green diamond is below a big blue triangle,0.8605873584747314,0.0008936709491536021,0,0,0,1,0.14285714285714285,0,0,0
+8529,a medium pink diamond is left of a medium red circle,a big green diamond is below a big blue triangle,0.8160932660102844,0.001178888720460236,0,0,0,1,0.14285714285714285,0,0,0
+7775,below a big red hexagon is a medium purple diamond,a big green diamond is below a big blue triangle,0.863520085811615,0.0008748708642087877,0,0,0,3,0.42857142857142855,1,0,0
+2688,the medium orange circle is positioned left of a big orange circle,a big green diamond is below a big blue triangle,0.8152559995651245,0.0011842567473649979,0,0,0,1,0.14285714285714285,0,0,0
+6517,the big purple octagon is positioned right of a small pink circle,a big green octagon is above a big blue triangle,0.8669736385345459,0.0008527329773642123,0,0,0,2,0.2857142857142857,0,0,0
+215,a medium red octagon is below a big purple triangle,a big green octagon is above a big blue triangle,0.8317148685455322,0.001078750123269856,0,0,0,3,0.42857142857142855,0,1,0
+1791,a medium blue triangle can be seen right of a small blue circle,a big green diamond is below a big blue triangle,0.7834155559539795,0.0013883616775274277,0,0,0,1,0.14285714285714285,0,0,0
+8878,a medium pink hexagon is right of a medium orange circle,a big green diamond is below a big blue triangle,0.7931802272796631,0.0013257679529488087,0,0,0,0,0.0,0,0,0
+7695,left of a big blue circle is a big black square,a big green diamond is below a big blue triangle,0.8694287538528442,0.0008369946735911071,0,0,0,3,0.42857142857142855,0,0,0
+397,a medium black diamond is below a medium green triangle,a big green diamond is below a big blue triangle,0.8171482086181641,0.0011721272021532059,0,0,0,3,0.42857142857142855,1,1,0
+9145,a big green octagon is above a big blue triangle,a big green diamond is below a big blue triangle,0.938403308391571,0.00039485085289925337,0,1,0,5,0.7142857142857143,0,0,0
+8619,a big red triangle can be seen below a big pink triangle,a big green diamond is below a big blue triangle,0.8409329056739807,0.001019661664031446,0,0,0,4,0.5714285714285714,1,0,0
+9719,a medium black hexagon can be seen above a big green hexagon,a big black diamond is above a big green octagon,0.7824251651763916,0.0013947110855951905,0,0,0,4,0.5714285714285714,1,0,0
+4385,the small yellow square is positioned right of a small yellow triangle,a big green diamond is below a big blue triangle,0.7924200892448425,0.0013306400505825877,0,0,0,1,0.14285714285714285,0,0,0
+9695,the big black square is positioned below a small blue circle,a big green diamond is below a big blue triangle,0.8540174961090088,0.0009357852977700531,0,0,0,3,0.42857142857142855,1,0,0
+4459,the small red octagon is positioned right of a big red square,a big green diamond is below a big blue triangle,0.8728285431861877,0.0008152019581757486,0,0,0,1,0.14285714285714285,0,0,0
+6272,a medium pink diamond can be seen left of a big orange square,a big green diamond is below a big blue triangle,0.8944723010063171,0.000676459982059896,0,0,0,2,0.2857142857142857,0,0,0
+275,the medium green octagon is positioned above a big pink octagon,a big green octagon is above a big blue triangle,0.8054583072662354,0.0012470621149986982,0,0,0,4,0.5714285714285714,1,0,0
+9342,a small orange diamond can be seen below a medium red octagon,a big green diamond is below a big blue triangle,0.7875365614891052,0.001361945178359747,0,0,0,2,0.2857142857142857,1,0,0
+7931,a big black square can be seen left of a big orange square,a big green diamond is below a big blue triangle,0.8445172309875488,0.0009966847719624639,0,0,0,2,0.2857142857142857,0,0,0
+8434,below a big blue octagon is a medium red circle,a big green diamond is below a big blue triangle,0.8256419897079468,0.0011176804546266794,0,0,0,3,0.42857142857142855,1,0,0
+9329,the big green octagon is positioned left of a small orange square,a big green diamond is below a big blue triangle,0.8542433977127075,0.0009343380806967616,0,0,0,2,0.2857142857142857,0,0,0
+6023,right of a medium yellow circle is a small purple circle,a big green diamond is below a big blue triangle,0.7698401212692261,0.001475384458899498,0,0,0,0,0.0,0,0,0
+5100,the medium purple circle is positioned above a big purple square,a big green diamond is below a big blue triangle,0.8775633573532104,0.0007848507375456393,0,0,0,1,0.14285714285714285,0,0,0
+5059,below a small orange octagon is a big pink triangle,a big green octagon is above a big blue triangle,0.8580666780471802,0.0009098295704461634,0,0,0,1,0.14285714285714285,0,0,0
+1375,a medium yellow triangle can be seen right of a big black triangle,a big green diamond is below a big blue triangle,0.816243052482605,0.0011779299238696694,0,0,0,2,0.2857142857142857,0,0,0
+4262,a small green circle is right of a medium blue octagon,a big green diamond is below a big blue triangle,0.789334237575531,0.0013504218077287078,0,0,0,2,0.2857142857142857,0,0,0
+4302,a medium purple diamond can be seen right of a small pink octagon,below a big green triangle is a big red diamond,0.8256321549415588,0.001117743318900466,0,0,0,1,0.14285714285714285,0,0,0
+9313,the big pink triangle is positioned left of a big yellow circle,a big green diamond is below a big blue triangle,0.874395489692688,0.0008051577024161816,0,0,0,2,0.2857142857142857,0,0,0
+7595,a medium pink octagon can be seen left of a small blue circle,a big green diamond is below a big blue triangle,0.7129762768745422,0.001839895616285503,0,0,0,1,0.14285714285714285,0,0,0
+6932,a big yellow square is left of a medium purple octagon,a big green octagon is above a big blue triangle,0.8435102701187134,0.0010031393030658364,0,0,0,1,0.14285714285714285,0,0,0
+2040,the medium black octagon is positioned right of a big red diamond,below a big green triangle is a big red diamond,0.8708643317222595,0.0008277929155156016,0,0,0,1,0.14285714285714285,0,0,0
+6176,a small green triangle is left of a small red octagon,a big green diamond is below a big blue triangle,0.7760355472564697,0.0014356703031808138,0,0,0,1,0.14285714285714285,0,0,0
+6780,the small orange hexagon is positioned left of a medium black circle,a big green diamond is below a big blue triangle,0.7556769847869873,0.0015661735087633133,0,0,0,0,0.0,0,0,0
+3996,a medium green circle is below a medium orange hexagon,a big green diamond is below a big blue triangle,0.7631117105484009,0.001518514472991228,0,0,0,2,0.2857142857142857,1,0,0
+5678,above a small orange diamond is a big green triangle,a big green diamond is below a big blue triangle,0.9325969219207764,0.0004320710722822696,0,0,0,2,0.2857142857142857,0,0,0
+3460,below a small purple square is a medium purple diamond,a big green diamond is below a big blue triangle,0.8150570392608643,0.001185532077215612,0,0,0,2,0.2857142857142857,1,0,0
+3068,above a small pink hexagon is a small purple square,a big green diamond is below a big blue triangle,0.8277062177658081,0.0011044475249946117,0,0,0,0,0.0,0,0,0
+2395,the small pink triangle is positioned below a small orange triangle,a big green diamond is below a big blue triangle,0.7753830552101135,0.00143985275644809,0,0,0,2,0.2857142857142857,1,0,0
+3022,below a small green diamond is a big orange square,a big green diamond is below a big blue triangle,0.9161666631698608,0.0005373939638957381,0,0,0,2,0.2857142857142857,1,0,0
+1899,a big red circle can be seen above a big red triangle,a big green diamond is below a big blue triangle,0.8677582740783691,0.0008477030787616968,0,0,0,3,0.42857142857142855,0,0,0
+6781,a big yellow square is above a small red triangle,a big green diamond is below a big blue triangle,0.9053719639778137,0.0006065912311896682,0,0,0,2,0.2857142857142857,0,0,0
+6846,a medium orange octagon can be seen right of a big pink triangle,a big green octagon is above a big blue triangle,0.8504494428634644,0.0009586570085957646,0,0,0,3,0.42857142857142855,0,1,0
+2059,the small red octagon is positioned left of a big red circle,a big green diamond is below a big blue triangle,0.8172222375869751,0.0011716521112248302,0,0,0,1,0.14285714285714285,0,0,0
+2585,the big pink triangle is positioned below a small red triangle,a big green diamond is below a big blue triangle,0.8543615341186523,0.0009335801005363464,0,0,0,3,0.42857142857142855,1,0,0
+8587,a big blue triangle can be seen below a small purple square,a big green diamond is below a big blue triangle,0.8728127479553223,0.0008153027156367898,0,0,0,2,0.2857142857142857,1,0,0
+5856,a small pink circle is left of a small red octagon,a big green octagon is above a big blue triangle,0.7486670613288879,0.0016111087752506137,0,0,0,0,0.0,0,0,0
+5426,the big blue diamond is positioned right of a small yellow diamond,below a big green triangle is a big red diamond,0.8975635766983032,0.0006566439406014979,0,0,0,2,0.2857142857142857,0,0,0
+6497,a small green square is left of a small red square,a big red square is right of a big purple triangle,0.7552003860473633,0.0015692283632233739,0,0,0,1,0.14285714285714285,0,0,0
+9734,a medium red square is left of a big yellow diamond,a big green diamond is below a big blue triangle,0.8950216174125671,0.0006729387678205967,0,0,0,1,0.14285714285714285,0,0,0
+7308,the medium red octagon is positioned above a big black diamond,a big green diamond is below a big blue triangle,0.8724921345710754,0.0008173580281436443,0,0,0,1,0.14285714285714285,0,0,0
+533,the small purple circle is positioned right of a medium green triangle,a big green diamond is below a big blue triangle,0.8245614171028137,0.001124607166275382,0,0,0,1,0.14285714285714285,0,0,0
+5269,a medium purple diamond is below a small orange triangle,a big green diamond is below a big blue triangle,0.8366044759750366,0.0010474070440977812,0,0,0,3,0.42857142857142855,1,1,0
+5803,above a big black diamond is a small green diamond,a big green diamond is below a big blue triangle,0.8921608328819275,0.0006912761018611491,0,0,0,3,0.42857142857142855,0,0,0
+508,a medium orange diamond is below a small orange diamond,a big green diamond is below a big blue triangle,0.8044785261154175,0.0012533437693491578,0,0,0,2,0.2857142857142857,1,0,0
+8059,left of a medium orange octagon is a big purple diamond,a big green diamond is below a big blue triangle,0.8530627489089966,0.0009419055422767997,0,0,0,2,0.2857142857142857,0,0,0
+8810,a small black circle can be seen right of a small orange diamond,a big green diamond is below a big blue triangle,0.8331865072250366,0.0010693171061575413,0,0,0,0,0.0,0,0,0
+765,a big purple circle can be seen below a small blue triangle,a big green diamond is below a big blue triangle,0.8503283858299255,0.0009594334405846894,0,0,0,4,0.5714285714285714,1,0,0
+9725,right of a medium orange square is a big black triangle,a big green diamond is below a big blue triangle,0.8802155256271362,0.0007678489200770855,0,0,0,1,0.14285714285714285,0,0,0
+4236,a big yellow diamond is right of a small yellow diamond,a big green diamond is below a big blue triangle,0.870510995388031,0.0008300578338094056,0,0,0,2,0.2857142857142857,0,0,0
+9930,right of a big pink hexagon is a small green hexagon,a big green diamond is below a big blue triangle,0.7847541570663452,0.0013797814026474953,0,0,0,2,0.2857142857142857,0,0,0
+2987,left of a medium black diamond is a medium purple circle,below a big green triangle is a big red diamond,0.802908182144165,0.0012634096201509237,0,0,0,0,0.0,0,0,0
+7368,a big black hexagon can be seen right of a big orange diamond,a big green diamond is below a big blue triangle,0.848998486995697,0.0009679585346020758,0,0,0,2,0.2857142857142857,0,0,0
+8483,a big purple triangle can be seen below a medium orange triangle,a big green diamond is below a big blue triangle,0.8205994367599487,0.0011500039836391807,0,0,0,3,0.42857142857142855,1,0,0
+8027,a big orange circle can be seen left of a medium orange triangle,a big green diamond is below a big blue triangle,0.8444164395332336,0.0009973301785066724,0,0,0,2,0.2857142857142857,0,0,0
+7921,right of a big red circle is a medium blue hexagon,a big green diamond is below a big blue triangle,0.8576961159706116,0.0009122042101807892,0,0,0,1,0.14285714285714285,0,0,0
+3805,a small red square can be seen above a medium orange diamond,a big green diamond is below a big blue triangle,0.8602319955825806,0.0008959491387940943,0,0,0,0,0.0,0,0,0
+2612,below a medium red hexagon is a small purple circle,a big green diamond is below a big blue triangle,0.7820261716842651,0.0013972679153084755,0,0,0,1,0.14285714285714285,1,0,0
+3246,the small yellow diamond is positioned right of a medium purple circle,a big green diamond is below a big blue triangle,0.8281891942024231,0.0011013514595106244,0,0,0,1,0.14285714285714285,0,0,0
+4787,a small black triangle can be seen left of a medium pink triangle,a big green diamond is below a big blue triangle,0.7691199779510498,0.001480000908486545,0,0,0,1,0.14285714285714285,0,0,0
+4494,a medium purple triangle can be seen above a small orange hexagon,a big green diamond is below a big blue triangle,0.8092410564422607,0.0012228136183694005,0,0,0,0,0.0,0,0,0
+7194,below a big orange hexagon is a small red square,a big green diamond is below a big blue triangle,0.8720674514770508,0.0008200808078981936,0,0,0,2,0.2857142857142857,1,0,0
+4504,the small black hexagon is positioned below a small pink diamond,a big green diamond is below a big blue triangle,0.8160271644592285,0.001179313287138939,0,0,0,1,0.14285714285714285,1,0,0
+4493,a small blue triangle is below a medium purple diamond,a big green diamond is below a big blue triangle,0.8262325525283813,0.001113894279114902,0,0,0,1,0.14285714285714285,1,0,0
+1937,a big purple hexagon is above a medium yellow triangle,a big green diamond is below a big blue triangle,0.8767347931861877,0.0007901627104729414,0,0,0,2,0.2857142857142857,0,0,0
+5522,a small red diamond can be seen below a big pink hexagon,a big green diamond is below a big blue triangle,0.8521499037742615,0.0009477573912590742,0,0,0,3,0.42857142857142855,1,0,0
+3237,a small pink diamond is above a big orange circle,a big green diamond is below a big blue triangle,0.912487268447876,0.0005609794170595706,0,0,0,2,0.2857142857142857,0,0,0
+1663,a medium purple diamond can be seen above a big orange diamond,a big green diamond is below a big blue triangle,0.8683143258094788,0.0008441390236839652,0,0,0,2,0.2857142857142857,0,0,0
+9948,below a big yellow square is a medium orange circle,a big green diamond is below a big blue triangle,0.8443637490272522,0.0009976682486012578,0,0,0,2,0.2857142857142857,1,0,0
+800,the big blue octagon is positioned right of a medium orange hexagon,a big green octagon is above a big blue triangle,0.8448443412780762,0.000994588597677648,0,0,0,2,0.2857142857142857,0,0,0
+31,the small orange hexagon is positioned above a big blue hexagon,a big green octagon is above a big blue triangle,0.8634368181228638,0.0008754055597819388,0,0,0,3,0.42857142857142855,1,0,0
+1511,the small yellow square is positioned right of a big orange circle,a big green diamond is below a big blue triangle,0.8681495785713196,0.0008451947360299528,0,0,0,1,0.14285714285714285,0,0,0
+2204,a big yellow square can be seen above a small green square,a big green diamond is below a big blue triangle,0.8580369353294373,0.0009100200259126723,0,0,0,1,0.14285714285714285,0,0,0
+4738,above a big green square is a small orange diamond,a big green diamond is below a big blue triangle,0.9147367477416992,0.000546559109352529,0,0,0,2,0.2857142857142857,0,0,0
+8356,above a small black triangle is a small blue circle,a big green diamond is below a big blue triangle,0.8110735416412354,0.001211067195981741,0,0,0,1,0.14285714285714285,0,0,0
+4629,a big black circle is below a big purple hexagon,a big green diamond is below a big blue triangle,0.8773425221443176,0.0007862659404054284,0,0,0,3,0.42857142857142855,1,0,0
+1631,left of a medium yellow circle is a medium yellow triangle,a big green diamond is below a big blue triangle,0.7196508049964905,0.0017971104243770242,0,0,0,0,0.0,0,0,0
+9883,the big red square is positioned right of a big green circle,a big green diamond is below a big blue triangle,0.8827906250953674,0.000751342682633549,0,0,0,2,0.2857142857142857,0,0,0
+1460,the medium red square is positioned right of a medium purple diamond,a big green diamond is below a big blue triangle,0.8615386486053467,0.0008875728817656636,0,0,0,0,0.0,0,0,0
+3570,a medium green square is left of a small green octagon,a big green diamond is below a big blue triangle,0.7527227401733398,0.0015851118369027972,0,0,0,1,0.14285714285714285,0,0,0
+1198,above a medium blue octagon is a big purple octagon,a big green octagon is above a big blue triangle,0.7927736043930054,0.0013283748412504792,0,0,0,4,0.5714285714285714,1,0,0
+3417,a small purple octagon can be seen right of a small green triangle,a big green diamond is below a big blue triangle,0.7991533279418945,0.0012874796520918608,0,0,0,1,0.14285714285714285,0,0,0
+8744,right of a small blue circle is a big yellow circle,a big green diamond is below a big blue triangle,0.8576427102088928,0.0009125463548116386,0,0,0,2,0.2857142857142857,0,0,0
+8634,right of a small red hexagon is a medium black octagon,a big green octagon is above a big blue triangle,0.7289736866950989,0.0017373483860865235,0,0,0,1,0.14285714285714285,0,0,0
+2783,a big orange triangle can be seen below a big yellow square,a big green diamond is below a big blue triangle,0.8785862922668457,0.000778293120674789,0,0,0,3,0.42857142857142855,1,0,0
+478,a small pink hexagon is right of a small black diamond,a big green diamond is below a big blue triangle,0.8316383361816406,0.0010792422108352184,0,0,0,0,0.0,0,0,0
+8450,the big yellow square is positioned right of a small blue square,a big red square is right of a big purple triangle,0.8580700159072876,0.0009098082664422691,0,0,0,3,0.42857142857142855,1,0,0
+4319,the small yellow diamond is positioned below a medium red octagon,a big green octagon is above a big blue triangle,0.7550374865531921,0.0015702727250754833,0,0,0,0,0.0,0,0,0
+5142,a small blue diamond can be seen left of a medium black diamond,below a big green triangle is a big red diamond,0.8008542656898499,0.001276575610972941,0,0,0,1,0.14285714285714285,0,0,0
+7851,a small pink octagon can be seen below a big black triangle,a big green diamond is below a big blue triangle,0.7792075276374817,0.0014153370866551995,0,0,0,3,0.42857142857142855,1,0,0
+1127,a small purple triangle can be seen below a small red circle,a big green diamond is below a big blue triangle,0.7778228521347046,0.0014242137549445033,0,0,0,1,0.14285714285714285,1,0,0
+4571,a big orange diamond is below a big purple triangle,a big green diamond is below a big blue triangle,0.9328932762145996,0.00043017155257984996,0,1,0,5,0.7142857142857143,1,1,0
+8467,the small orange circle is positioned left of a big red octagon,a big green octagon is above a big blue triangle,0.8463115692138672,0.0009851825889199972,0,0,0,1,0.14285714285714285,0,0,0
+2500,the small yellow octagon is positioned below a small orange square,a big green diamond is below a big blue triangle,0.7454044818878174,0.0016320227878168225,0,0,0,1,0.14285714285714285,1,0,0
+313,the small black octagon is positioned left of a medium pink octagon,a big green octagon is above a big blue triangle,0.7071146368980408,0.0018774709897115827,0,0,0,1,0.14285714285714285,0,0,0
+7709,below a big yellow triangle is a big green diamond,a big green diamond is below a big blue triangle,0.9343265891075134,0.00042098425910808146,0,1,0,6,0.8571428571428571,1,1,0
+2663,the medium green triangle is positioned right of a big orange octagon,a big green diamond is below a big blue triangle,0.8656810522079468,0.0008610193035565317,0,0,0,2,0.2857142857142857,0,0,0
+5210,a small pink diamond is above a medium red square,a big green diamond is below a big blue triangle,0.8617843389511108,0.000885998597368598,0,0,0,1,0.14285714285714285,0,0,0
+6231,a big orange hexagon is right of a big orange circle,a big green diamond is below a big blue triangle,0.8803749084472656,0.0007668280741199851,0,0,0,2,0.2857142857142857,0,0,0
+2402,a medium green octagon can be seen below a big purple diamond,a big green diamond is below a big blue triangle,0.8234663605690002,0.0011316259624436498,0,0,0,3,0.42857142857142855,1,0,0
+3888,left of a small purple octagon is a medium yellow square,a big green diamond is below a big blue triangle,0.7330104112625122,0.0017114720540121198,0,0,0,0,0.0,0,0,0
+5064,left of a big pink octagon is a small yellow triangle,a big green diamond is below a big blue triangle,0.8064715266227722,0.0012405673041939735,0,0,0,1,0.14285714285714285,0,0,0
+9148,a big black hexagon is below a medium blue circle,a big green diamond is below a big blue triangle,0.8371509313583374,0.0010439043398946524,0,0,0,3,0.42857142857142855,1,0,0
+985,the big blue octagon is positioned right of a medium red diamond,a big green diamond is below a big blue triangle,0.8859400153160095,0.0007311532972380519,0,0,0,1,0.14285714285714285,0,0,0
+7505,a medium green triangle can be seen left of a small black circle,a big green diamond is below a big blue triangle,0.7846217751502991,0.0013806301867589355,0,0,0,1,0.14285714285714285,0,0,0
+5708,a small orange circle is right of a big purple octagon,a big green diamond is below a big blue triangle,0.8702822923660278,0.0008315237937495112,0,0,0,1,0.14285714285714285,0,0,0
+591,a small purple circle is above a medium yellow octagon,a big green octagon is above a big blue triangle,0.7516549825668335,0.001591955777257681,0,0,0,1,0.14285714285714285,1,0,0
+5096,a medium yellow diamond can be seen below a medium orange triangle,a big green diamond is below a big blue triangle,0.7921964526176453,0.001332074636593461,0,0,0,3,0.42857142857142855,1,1,0
+1569,a medium purple octagon can be seen left of a medium purple circle,a big green octagon is above a big blue triangle,0.7349400520324707,0.0016991024604067206,0,0,0,1,0.14285714285714285,0,0,0
+1175,a big black octagon can be seen above a small orange triangle,a big green diamond is below a big blue triangle,0.853346049785614,0.0009400896960869431,0,0,0,2,0.2857142857142857,0,0,0
+2664,right of a small yellow circle is a medium purple octagon,a big green octagon is above a big blue triangle,0.7666959166526794,0.001495538977906108,0,0,0,1,0.14285714285714285,0,0,0
+7171,the medium pink triangle is positioned above a small pink diamond,a big green diamond is below a big blue triangle,0.8352136611938477,0.0010563224786892533,0,0,0,0,0.0,0,0,0
+3849,the small green triangle is positioned right of a big black diamond,a big green diamond is below a big blue triangle,0.9105749130249023,0.0005732376594096422,0,0,0,2,0.2857142857142857,0,0,0
+8481,a medium purple triangle can be seen right of a big blue octagon,a big green octagon is above a big blue triangle,0.8652135133743286,0.0008640165906399488,0,0,0,2,0.2857142857142857,0,0,0
+6209,the medium black diamond is positioned above a big red circle,a big green diamond is below a big blue triangle,0.8883793950080872,0.0007155170314945281,0,0,0,2,0.2857142857142857,0,0,0
+5020,a medium orange hexagon is right of a big black circle,a big green diamond is below a big blue triangle,0.8618283867835999,0.0008857156499288976,0,0,0,1,0.14285714285714285,0,0,0
+4520,right of a small red circle is a big black square,a big green diamond is below a big blue triangle,0.845088005065918,0.0009930256055667996,0,0,0,1,0.14285714285714285,0,0,0
+5713,the small yellow octagon is positioned below a medium purple triangle,a big green diamond is below a big blue triangle,0.7156640291213989,0.0018226670799776912,0,0,0,2,0.2857142857142857,1,0,0
+1291,left of a big blue diamond is a medium blue circle,a big green diamond is below a big blue triangle,0.8868240118026733,0.0007254866068251431,0,0,0,2,0.2857142857142857,0,0,0
+3678,the medium purple circle is positioned left of a small green hexagon,a big green diamond is below a big blue triangle,0.7936937808990479,0.0013224760768935084,0,0,0,0,0.0,0,0,0
+5103,a medium red hexagon is left of a small yellow diamond,the big green hexagon is positioned above a big orange circle,0.8070213198661804,0.001237043528817594,0,0,0,1,0.14285714285714285,0,0,0
+1974,below a big orange octagon is a medium blue triangle,a big green diamond is below a big blue triangle,0.828060507774353,0.0011021767277270555,0,0,0,2,0.2857142857142857,1,0,0
+6796,right of a medium red circle is a medium pink circle,a big green diamond is below a big blue triangle,0.7495741248130798,0.001605294644832611,0,0,0,0,0.0,0,0,0
+7768,the small yellow circle is positioned below a small purple diamond,a big green diamond is below a big blue triangle,0.8074570894241333,0.0012342490954324603,0,0,0,1,0.14285714285714285,1,0,0
+9947,the big blue hexagon is positioned left of a medium black diamond,below a big green triangle is a big red diamond,0.8800384998321533,0.0007689849589951336,0,0,0,1,0.14285714285714285,0,0,0
+3339,the big black diamond is positioned above a small purple diamond,a big green diamond is below a big blue triangle,0.9038046002388,0.000616637640632689,0,0,0,2,0.2857142857142857,0,0,0
+97,a medium yellow octagon is below a small purple octagon,a big green octagon is above a big blue triangle,0.7012951374053955,0.0019147747661918402,0,0,0,1,0.14285714285714285,0,0,0
+3600,left of a medium red square is a big red circle,a big green diamond is below a big blue triangle,0.8513286113739014,0.0009530214592814445,0,0,0,1,0.14285714285714285,0,0,0
+1673,the medium pink octagon is positioned left of a big black diamond,a big green diamond is below a big blue triangle,0.8361856341362,0.001050092396326363,0,0,0,1,0.14285714285714285,0,0,0
+3396,the small pink circle is positioned above a small green square,a big green diamond is below a big blue triangle,0.8169498443603516,0.0011733985738828778,0,0,0,0,0.0,0,0,0
+9736,the small yellow square is positioned above a small green octagon,the big green hexagon is positioned above a big orange circle,0.7882816195487976,0.001357169821858406,0,0,0,1,0.14285714285714285,1,0,0
+7185,a big blue hexagon can be seen above a big black diamond,a big green diamond is below a big blue triangle,0.8859390020370483,0.0007311608060263097,0,0,0,2,0.2857142857142857,0,0,0
+9658,a medium yellow circle is below a big black octagon,a big green diamond is below a big blue triangle,0.755428671836853,0.0015677647897973657,0,0,0,2,0.2857142857142857,1,0,0
+3347,a big yellow hexagon can be seen below a medium red diamond,a big green diamond is below a big blue triangle,0.8321276903152466,0.0010761041194200516,0,0,0,2,0.2857142857142857,1,0,0
+1052,the small red hexagon is positioned above a big orange octagon,a big green octagon is above a big blue triangle,0.8519203662872314,0.0009492285316810012,0,0,0,2,0.2857142857142857,1,0,0
+5158,the small blue diamond is positioned right of a medium blue octagon,a big green diamond is below a big blue triangle,0.8152320384979248,0.0011844104155898094,0,0,0,2,0.2857142857142857,0,0,0
+3783,below a big black circle is a medium black hexagon,a big green diamond is below a big blue triangle,0.7640520334243774,0.0015124875353649259,0,0,0,2,0.2857142857142857,1,0,0
+4766,left of a big blue hexagon is a medium orange square,a big green diamond is below a big blue triangle,0.8501949310302734,0.0009602892678231001,0,0,0,2,0.2857142857142857,0,0,0
+7893,the small red circle is positioned below a medium yellow circle,a big green diamond is below a big blue triangle,0.7413732409477234,0.001657863613218069,0,0,0,1,0.14285714285714285,1,0,0
+1833,a medium pink hexagon can be seen above a small green circle,a big green diamond is below a big blue triangle,0.7792117595672607,0.0014153096126392484,0,0,0,0,0.0,0,0,0
+882,a medium yellow octagon is above a small blue square,a big green diamond is below a big blue triangle,0.7644332647323608,0.0015100433956831694,0,0,0,1,0.14285714285714285,0,0,0
+7463,the small black circle is positioned left of a big pink octagon,a big green diamond is below a big blue triangle,0.8128834962844849,0.0011994653614237905,0,0,0,1,0.14285714285714285,0,0,0
+4943,a small yellow triangle is left of a medium purple hexagon,a big green diamond is below a big blue triangle,0.774764895439148,0.0014438142534345388,0,0,0,0,0.0,0,0,0
+7004,a big black triangle can be seen left of a big black hexagon,a big green diamond is below a big blue triangle,0.8222254514694214,0.0011395809706300497,0,0,0,2,0.2857142857142857,0,0,0
+3124,below a medium orange triangle is a medium red hexagon,a big green octagon is above a big blue triangle,0.7707990407943726,0.0014692365657538176,0,0,0,1,0.14285714285714285,0,0,0
+4561,the big yellow square is positioned right of a medium purple diamond,a big green diamond is below a big blue triangle,0.8955556750297546,0.0006695152842439711,0,0,0,1,0.14285714285714285,0,0,0
+1708,a small green triangle can be seen right of a medium orange square,below a big green triangle is a big red diamond,0.8339591026306152,0.0010643647983670235,0,0,0,0,0.0,0,0,0
+6937,a big blue square can be seen above a medium yellow circle,a big green diamond is below a big blue triangle,0.8827381134033203,0.0007516790647059679,0,0,0,1,0.14285714285714285,0,0,0
+5134,a small yellow triangle can be seen above a big black diamond,a big green diamond is below a big blue triangle,0.8717185258865356,0.0008223172626458108,0,0,0,1,0.14285714285714285,0,0,0
+6243,the small purple diamond is positioned above a medium blue triangle,a big green diamond is below a big blue triangle,0.8620038628578186,0.0008845906122587621,0,0,0,3,0.42857142857142855,0,1,0
+3504,the small yellow diamond is positioned left of a medium red diamond,below a big green triangle is a big red diamond,0.806226372718811,0.0012421387946233153,0,0,0,1,0.14285714285714285,0,0,0
+3551,a small orange square can be seen above a small pink hexagon,a big green diamond is below a big blue triangle,0.8212134838104248,0.0011460682144388556,0,0,0,0,0.0,0,0,0
+6312,the medium orange octagon is positioned below a small orange circle,a big green octagon is above a big blue triangle,0.7392743229866028,0.0016713181976228952,0,0,0,1,0.14285714285714285,0,0,0
+5638,a medium green square is above a small pink diamond,a big green diamond is below a big blue triangle,0.8563473224639893,0.0009208513656631112,0,0,0,1,0.14285714285714285,0,0,0
+2768,a small purple triangle can be seen above a big yellow octagon,a big green diamond is below a big blue triangle,0.8298633098602295,0.0010906188981607556,0,0,0,1,0.14285714285714285,0,0,0
+2602,a small orange circle can be seen above a big blue square,a big green diamond is below a big blue triangle,0.8690213561058044,0.0008396071498282254,0,0,0,2,0.2857142857142857,0,0,0
+3687,above a big black circle is a medium purple diamond,a big green diamond is below a big blue triangle,0.8935540914535522,0.0006823463481850922,0,0,0,2,0.2857142857142857,0,0,0
+3695,a small black diamond is right of a big orange square,a big green diamond is below a big blue triangle,0.9119231104850769,0.0005645961500704288,0,0,0,2,0.2857142857142857,0,0,0
+1802,the medium purple circle is positioned below a medium black square,a big green diamond is below a big blue triangle,0.7549000978469849,0.0015711538726463914,0,0,0,1,0.14285714285714285,1,0,0
+8077,above a medium blue circle is a medium black hexagon,a big green diamond is below a big blue triangle,0.7331602573394775,0.001710511976853013,0,0,0,1,0.14285714285714285,0,0,0
+749,a small red octagon can be seen above a small purple hexagon,a big green octagon is above a big blue triangle,0.7809804677963257,0.0014039711095392704,0,0,0,2,0.2857142857142857,1,0,0
+3593,a small black circle is above a small green octagon,a big green octagon is above a big blue triangle,0.7815654277801514,0.0014002216048538685,0,0,0,1,0.14285714285714285,1,0,0
+2410,a big purple octagon can be seen right of a medium pink hexagon,a big green octagon is above a big blue triangle,0.8213387131690979,0.001145264832302928,0,0,0,2,0.2857142857142857,0,0,0
+941,a small green diamond is above a medium green hexagon,a big green diamond is below a big blue triangle,0.8405333161354065,0.001022222568280995,0,0,0,2,0.2857142857142857,0,0,0
+1645,the medium green octagon is positioned above a small purple circle,a big green octagon is above a big blue triangle,0.7775964140892029,0.0014256649883463979,0,0,0,3,0.42857142857142855,1,0,0
+6546,a small orange hexagon can be seen above a small green octagon,a big green octagon is above a big blue triangle,0.7664657831192017,0.0014970143092796206,0,0,0,1,0.14285714285714285,1,0,0
+9263,the small blue triangle is positioned left of a medium black hexagon,a big green diamond is below a big blue triangle,0.7795983552932739,0.0014128320617601275,0,0,0,0,0.0,0,0,0
+6844,a small black circle can be seen left of a medium blue hexagon,a big green diamond is below a big blue triangle,0.7535473108291626,0.0015798247186467052,0,0,0,1,0.14285714285714285,0,0,0
+5488,a medium purple square can be seen above a small blue hexagon,a big green diamond is below a big blue triangle,0.8263206481933594,0.001113329315558076,0,0,0,1,0.14285714285714285,0,0,0
+7210,the big red octagon is positioned left of a big black triangle,a big green diamond is below a big blue triangle,0.8804028034210205,0.0007666497840546072,0,0,0,3,0.42857142857142855,0,0,0
+1548,a big black hexagon can be seen above a medium black triangle,a big green diamond is below a big blue triangle,0.8192045092582703,0.0011589453788474202,0,0,0,2,0.2857142857142857,0,0,0
+4779,the big blue square is positioned right of a medium red circle,a big green diamond is below a big blue triangle,0.8677942156791687,0.0008474734495393932,0,0,0,1,0.14285714285714285,0,0,0
+6185,a small yellow square is right of a medium red diamond,a big green diamond is below a big blue triangle,0.8322870135307312,0.001075083389878273,0,0,0,0,0.0,0,0,0
+9141,above a big yellow circle is a small purple octagon,a big green diamond is below a big blue triangle,0.834226667881012,0.0010626501170918345,0,0,0,1,0.14285714285714285,0,0,0
+9296,a medium green square can be seen right of a big green circle,a big green diamond is below a big blue triangle,0.8562855124473572,0.0009212475852109492,0,0,0,2,0.2857142857142857,0,0,0
+5018,a medium blue diamond can be seen left of a big orange octagon,a big green diamond is below a big blue triangle,0.8636787533760071,0.0008738553151488304,0,0,0,2,0.2857142857142857,0,0,0
+9100,a big black diamond is left of a small black triangle,a big green diamond is below a big blue triangle,0.8899438381195068,0.0007054876768961549,0,0,0,3,0.42857142857142855,0,1,0
+5027,a medium green diamond can be seen below a big black circle,a big green diamond is below a big blue triangle,0.8686273097991943,0.0008421331876888871,0,0,0,4,0.5714285714285714,1,0,0
+9762,the big black octagon is positioned above a big black square,a big green diamond is below a big blue triangle,0.862152636051178,0.0008836371125653386,0,0,0,2,0.2857142857142857,0,0,0
+2571,a big green circle can be seen left of a small purple hexagon,a big green diamond is below a big blue triangle,0.8442922234535217,0.0009981271577998996,0,0,0,2,0.2857142857142857,0,0,0
+3554,a big orange triangle can be seen above a medium orange square,a big green diamond is below a big blue triangle,0.867989182472229,0.0008462245459668338,0,0,0,1,0.14285714285714285,0,0,0
+9602,a medium purple triangle can be seen above a medium green triangle,a big green diamond is below a big blue triangle,0.7619722485542297,0.0015258188359439373,0,0,0,1,0.14285714285714285,0,0,0
+5136,right of a medium pink octagon is a medium yellow square,a big green diamond is below a big blue triangle,0.7386829257011414,0.001675110193900764,0,0,0,0,0.0,0,0,0
+6613,a big yellow diamond is right of a big yellow circle,a big green diamond is below a big blue triangle,0.9220055937767029,0.000499964109621942,0,0,0,3,0.42857142857142855,0,0,0
+3283,the small orange circle is positioned below a medium blue square,a big green diamond is below a big blue triangle,0.7845418453216553,0.001381142414174974,0,0,0,2,0.2857142857142857,1,0,0
+9889,a medium red circle is right of a medium purple square,a big green diamond is below a big blue triangle,0.8149136304855347,0.001186450943350792,0,0,0,0,0.0,0,0,0
+1267,a small red circle is left of a small orange diamond,a big green diamond is below a big blue triangle,0.8233997821807861,0.0011320528574287891,0,0,0,0,0.0,0,0,0
+9028,right of a small green circle is a medium pink triangle,a big green diamond is below a big blue triangle,0.8015202879905701,0.001272305496968329,0,0,0,0,0.0,0,0,0
+9297,right of a small black octagon is a big red triangle,a big green octagon is above a big blue triangle,0.8659995198249817,0.0008589774370193481,0,0,0,1,0.14285714285714285,0,0,0
+9307,below a big green hexagon is a medium blue hexagon,a big green octagon is above a big blue triangle,0.7768851518630981,0.0014302233466878533,0,0,0,1,0.14285714285714285,0,0,0
+3034,a small purple triangle can be seen right of a big orange circle,a big green diamond is below a big blue triangle,0.8561223149299622,0.000922293053008616,0,0,0,1,0.14285714285714285,0,0,0
+5507,left of a medium orange circle is a big yellow circle,a big green diamond is below a big blue triangle,0.831967830657959,0.001077129621990025,0,0,0,1,0.14285714285714285,0,0,0
+1384,a small green triangle can be seen above a small yellow octagon,a big green diamond is below a big blue triangle,0.7716524600982666,0.0014637662097811699,0,0,0,1,0.14285714285714285,0,0,0
+7612,the big purple square is positioned left of a medium blue circle,a big green diamond is below a big blue triangle,0.8761231303215027,0.0007940834620967507,0,0,0,2,0.2857142857142857,0,0,0
+3440,a big red hexagon can be seen above a medium pink hexagon,a big green diamond is below a big blue triangle,0.8203550577163696,0.001151570351794362,0,0,0,1,0.14285714285714285,0,0,0
+2671,a small blue square can be seen left of a small orange octagon,a big green diamond is below a big blue triangle,0.769107460975647,0.0014800801873207092,0,0,0,0,0.0,0,0,0
+4587,a big red octagon can be seen below a medium black square,a big green diamond is below a big blue triangle,0.8220275044441223,0.0011408502468839288,0,0,0,2,0.2857142857142857,1,0,0
+1161,the medium purple circle is positioned below a medium black octagon,a big green octagon is above a big blue triangle,0.7393832802772522,0.001670620171353221,0,0,0,0,0.0,0,0,0
+1125,a medium orange square can be seen above a small green diamond,a big green diamond is below a big blue triangle,0.8553656339645386,0.0009271437302231789,0,0,0,0,0.0,0,0,0
+4334,below a small pink diamond is a big pink circle,a big green diamond is below a big blue triangle,0.885627031326294,0.0007331603555940092,0,0,0,2,0.2857142857142857,1,0,0
+8801,a small blue diamond is right of a big orange diamond,a big green diamond is below a big blue triangle,0.9051710963249207,0.0006078786100260913,0,0,0,2,0.2857142857142857,0,0,0
+1201,left of a big blue triangle is a medium green octagon,a big green octagon is above a big blue triangle,0.8438706994056702,0.001000829041004181,0,0,0,5,0.7142857142857143,0,1,0
+5237,the small purple square is positioned left of a big red diamond,a big green diamond is below a big blue triangle,0.9012065529823303,0.0006332923076115549,0,0,0,1,0.14285714285714285,0,0,0
+6119,a small yellow hexagon is above a big orange hexagon,a big green octagon is above a big blue triangle,0.8170632719993591,0.0011726710945367813,0,0,0,2,0.2857142857142857,1,0,0
+4258,a big green hexagon can be seen above a big pink square,a big green diamond is below a big blue triangle,0.8991418480873108,0.0006465272745117545,0,0,0,3,0.42857142857142855,0,0,0
+4874,a small orange circle can be seen above a small red hexagon,the big green hexagon is positioned above a big orange circle,0.8050661683082581,0.0012495764531195164,0,0,0,1,0.14285714285714285,1,0,0
+4737,a medium pink octagon is left of a medium red hexagon,a big green octagon is above a big blue triangle,0.7200787663459778,0.001794366748072207,0,0,0,1,0.14285714285714285,0,0,0
+7218,a small purple octagon is above a big purple octagon,a big green octagon is above a big blue triangle,0.8093305826187134,0.0012222400400787592,0,0,0,3,0.42857142857142855,1,0,0
+3640,the small green square is positioned left of a small green diamond,a big green diamond is below a big blue triangle,0.8332065939903259,0.0010691897477954626,0,0,0,1,0.14285714285714285,0,0,0
+5151,left of a big blue octagon is a big black diamond,a big green diamond is below a big blue triangle,0.8879989385604858,0.0007179562817327678,0,0,0,4,0.5714285714285714,0,0,0
+9106,a small green diamond can be seen below a medium red triangle,a big green diamond is below a big blue triangle,0.8151572346687317,0.0011848894646391273,0,0,0,4,0.5714285714285714,1,1,0
+7765,the big purple octagon is positioned below a small pink square,a big green diamond is below a big blue triangle,0.8595923781394958,0.0009000489371828735,0,0,0,2,0.2857142857142857,1,0,0
+3285,a big pink square is above a medium yellow octagon,a big green diamond is below a big blue triangle,0.8677104711532593,0.0008480095420964062,0,0,0,1,0.14285714285714285,0,0,0
+1166,right of a medium yellow diamond is a big green square,below a big green triangle is a big red diamond,0.9020888805389404,0.0006276365020312369,0,0,0,1,0.14285714285714285,0,0,0
+4390,right of a big red circle is a medium black square,a big green diamond is below a big blue triangle,0.8337371945381165,0.0010657872771844268,0,0,0,1,0.14285714285714285,0,0,0
+938,below a big green triangle is a big red diamond,a big green diamond is below a big blue triangle,0.9438877701759338,0.0003596942115109414,0,1,0,5,0.7142857142857143,1,1,0
+1327,above a medium pink triangle is a big green square,a big green diamond is below a big blue triangle,0.9121993184089661,0.0005628252401947975,0,0,0,3,0.42857142857142855,0,0,0
+8000,a small yellow circle can be seen above a small red diamond,a big green diamond is below a big blue triangle,0.8157086968421936,0.0011813545133918524,0,0,0,0,0.0,0,0,0
+456,the small purple diamond is positioned right of a medium pink square,a big green diamond is below a big blue triangle,0.844215989112854,0.0009986154036596417,0,0,0,1,0.14285714285714285,0,0,0
+4627,a big pink square is right of a small orange circle,a big green diamond is below a big blue triangle,0.8861694931983948,0.0007296829717233777,0,0,0,1,0.14285714285714285,0,0,0
+7944,a big blue square is below a medium orange triangle,a big green diamond is below a big blue triangle,0.8960631489753723,0.0006662624655291438,0,0,0,3,0.42857142857142855,1,0,0
+7066,a big pink octagon can be seen left of a medium blue hexagon,a big green octagon is above a big blue triangle,0.78262859582901,0.0013934066519141197,0,0,0,3,0.42857142857142855,0,0,0
+8312,above a small green circle is a big orange triangle,a big green diamond is below a big blue triangle,0.9074183106422424,0.0005934734363108873,0,0,0,1,0.14285714285714285,0,0,0
+3296,the medium black hexagon is positioned left of a big orange diamond,a big green diamond is below a big blue triangle,0.8611651659011841,0.0008899673703126609,0,0,0,1,0.14285714285714285,0,0,0
+7771,a medium yellow circle can be seen right of a small yellow octagon,a big green diamond is below a big blue triangle,0.7223986983299255,0.0017794955056160688,0,0,0,0,0.0,0,0,0
+9408,a medium black diamond can be seen above a small red octagon,a big green diamond is below a big blue triangle,0.8154013752937317,0.0011833248427137733,0,0,0,1,0.14285714285714285,0,0,0
+2554,left of a big yellow triangle is a small green diamond,a big green diamond is below a big blue triangle,0.8889521360397339,0.0007118451176211238,0,0,0,4,0.5714285714285714,0,1,0
+7848,above a big yellow hexagon is a big red hexagon,a big green diamond is below a big blue triangle,0.8274743556976318,0.0011059334501624107,0,0,0,2,0.2857142857142857,0,0,0
+4582,below a big orange triangle is a big blue circle,a big green diamond is below a big blue triangle,0.9229728579521179,0.0004937642370350659,0,0,0,4,0.5714285714285714,1,0,0
+3458,a small pink square is above a medium orange diamond,a big green diamond is below a big blue triangle,0.8636417388916016,0.0008740919874981046,0,0,0,0,0.0,0,0,0
+6695,the big yellow circle is positioned left of a small purple diamond,a big green diamond is below a big blue triangle,0.8794052004814148,0.0007730434299446642,0,0,0,1,0.14285714285714285,0,0,0
+1806,a big blue octagon is below a small orange diamond,a big green octagon is above a big blue triangle,0.8959701657295227,0.0006668582209385931,0,0,0,2,0.2857142857142857,0,0,0
+6298,a small yellow hexagon is above a small orange circle,a big green diamond is below a big blue triangle,0.7874212265014648,0.0013626848813146353,0,0,0,0,0.0,0,0,0
+4194,below a medium pink diamond is a big black square,a big green diamond is below a big blue triangle,0.8932940363883972,0.0006840128917247057,0,0,0,2,0.2857142857142857,1,0,0
+5303,a small red hexagon can be seen below a big pink diamond,a big green diamond is below a big blue triangle,0.8411926031112671,0.0010179970413446426,0,0,0,2,0.2857142857142857,1,0,0
+2496,a small yellow octagon is below a small pink triangle,a big green diamond is below a big blue triangle,0.7075583338737488,0.0018746264977380633,0,0,0,2,0.2857142857142857,1,0,0
+7458,below a big purple square is a small blue square,a big green diamond is below a big blue triangle,0.8486234545707703,0.0009703623945824802,0,0,0,2,0.2857142857142857,1,0,0
+5271,a big pink circle can be seen above a small yellow hexagon,a big green diamond is below a big blue triangle,0.8444388508796692,0.000997187220491469,0,0,0,1,0.14285714285714285,0,0,0
+2215,the small green triangle is positioned below a big yellow triangle,a big green diamond is below a big blue triangle,0.8385098576545715,0.0010351939126849174,0,0,0,4,0.5714285714285714,1,0,0
+8950,a big red diamond can be seen right of a big blue circle,a big green diamond is below a big blue triangle,0.9041721820831299,0.0006142815109342337,0,0,0,4,0.5714285714285714,0,0,0
+5228,a small blue square can be seen below a big orange triangle,a big green diamond is below a big blue triangle,0.8494377136230469,0.0009651430300436914,0,0,0,3,0.42857142857142855,1,0,0
+4716,a medium orange square is below a small yellow hexagon,a big green octagon is above a big blue triangle,0.7720968723297119,0.0014609171776100993,0,0,0,0,0.0,0,0,0
+6183,a medium green hexagon can be seen above a medium red hexagon,a big green octagon is above a big blue triangle,0.7371713519096375,0.0016847988590598106,0,0,0,2,0.2857142857142857,1,0,0
+1788,a small orange circle is right of a medium green octagon,a big green octagon is above a big blue triangle,0.7833269238471985,0.0013889303663745522,0,0,0,0,0.0,0,0,0
+6343,a medium purple triangle is above a medium blue square,a big green diamond is below a big blue triangle,0.8262408971786499,0.0011138409608975053,0,0,0,1,0.14285714285714285,0,0,0
+5649,the small orange octagon is positioned below a medium green diamond,a big green diamond is below a big blue triangle,0.7876202464103699,0.0013614092022180557,0,0,0,1,0.14285714285714285,1,0,0
+9176,the small yellow triangle is positioned below a big purple circle,a big green diamond is below a big blue triangle,0.8185312151908875,0.0011632619425654411,0,0,0,2,0.2857142857142857,1,0,0
+1227,left of a medium blue diamond is a medium purple circle,below a big green triangle is a big red diamond,0.8195136785507202,0.0011569635244086385,0,0,0,0,0.0,0,0,0
+5317,the small green hexagon is positioned above a small purple diamond,a big green diamond is below a big blue triangle,0.8643598556518555,0.0008694884018041193,0,0,0,1,0.14285714285714285,0,0,0
+6654,a medium black square is below a medium purple square,a big green diamond is below a big blue triangle,0.7344340682029724,0.00170234648976475,0,0,0,1,0.14285714285714285,1,0,0
+7899,above a big purple hexagon is a big red diamond,a big green diamond is below a big blue triangle,0.9139173626899719,0.0005518117686733603,0,0,0,3,0.42857142857142855,0,0,0
+5740,below a medium orange diamond is a small purple diamond,a big green diamond is below a big blue triangle,0.8085324168205261,0.0012273575412109494,0,0,0,2,0.2857142857142857,1,0,0
+1432,a small red diamond is above a medium purple hexagon,a big green octagon is above a big blue triangle,0.8594262599945068,0.0009011137299239635,0,0,0,1,0.14285714285714285,1,0,0
+7803,below a big red diamond is a small black circle,a big green diamond is below a big blue triangle,0.8886635899543762,0.0007136950735002756,0,0,0,2,0.2857142857142857,1,0,0
+820,below a small green octagon is a big red hexagon,a big green octagon is above a big blue triangle,0.8309152126312256,0.0010838767047971487,0,0,0,1,0.14285714285714285,0,0,0
+7639,the big purple triangle is positioned right of a small green diamond,a big green diamond is below a big blue triangle,0.9183427095413208,0.0005234448472037911,0,0,0,1,0.14285714285714285,0,0,0
+6149,a small pink triangle is right of a big red octagon,a big green diamond is below a big blue triangle,0.8855106830596924,0.0007339062285609543,0,0,0,1,0.14285714285714285,0,0,0
+5852,a small blue hexagon is below a small black octagon,a big green octagon is above a big blue triangle,0.7435078024864197,0.0016441813204437494,0,0,0,0,0.0,0,0,0
+6664,above a small purple square is a medium red octagon,a big green diamond is below a big blue triangle,0.7804771661758423,0.0014071973273530602,0,0,0,0,0.0,0,0,0
+3527,the medium orange triangle is positioned left of a big purple diamond,a big green diamond is below a big blue triangle,0.8934930562973022,0.0006827367469668388,0,0,0,1,0.14285714285714285,0,0,0
+444,a big blue hexagon is left of a big blue square,a big green diamond is below a big blue triangle,0.9034878611564636,0.0006186672253534198,0,0,0,3,0.42857142857142855,0,0,0
+5109,a small yellow hexagon is left of a small yellow triangle,a big green diamond is below a big blue triangle,0.7399869561195374,0.0016667506424710155,0,0,0,1,0.14285714285714285,0,0,0
+7332,left of a big blue diamond is a small red square,a big green diamond is below a big blue triangle,0.9052784442901611,0.0006071904208511114,0,0,0,2,0.2857142857142857,0,0,0
+7697,a medium blue triangle is left of a big pink octagon,a big green diamond is below a big blue triangle,0.850030779838562,0.0009613421862013638,0,0,0,1,0.14285714285714285,0,0,0
+8158,a medium red circle can be seen right of a small green triangle,a big green diamond is below a big blue triangle,0.8172011971473694,0.001171786687336862,0,0,0,1,0.14285714285714285,0,0,0
+140,the medium red hexagon is positioned right of a small yellow square,a big green diamond is below a big blue triangle,0.7990107536315918,0.0012883924646303058,0,0,0,0,0.0,0,0,0
+9469,the big black square is positioned right of a small orange diamond,a big green diamond is below a big blue triangle,0.8845316767692566,0.0007401811890304089,0,0,0,1,0.14285714285714285,0,0,0
+1931,the medium yellow octagon is positioned right of a small orange octagon,a big green octagon is above a big blue triangle,0.7279552221298218,0.001743876375257969,0,0,0,1,0.14285714285714285,0,0,0
+8655,left of a medium black octagon is a small pink diamond,a big green octagon is above a big blue triangle,0.7665424942970276,0.001496523036621511,0,0,0,0,0.0,0,0,0
+7145,the medium green octagon is positioned left of a medium red octagon,a big green octagon is above a big blue triangle,0.7386704683303833,0.0016751893563196063,0,0,0,2,0.2857142857142857,0,0,0
+622,a big red triangle is below a medium red octagon,a big green octagon is above a big blue triangle,0.8289920091629028,0.001096205203793943,0,0,0,1,0.14285714285714285,0,0,0
+6169,right of a big red square is a small purple hexagon,a big green diamond is below a big blue triangle,0.8839870691299438,0.0007436723681166768,0,0,0,1,0.14285714285714285,0,0,0
+1499,a small green diamond is below a medium purple hexagon,a big green diamond is below a big blue triangle,0.8115519881248474,0.0012079998850822449,0,0,0,3,0.42857142857142855,1,0,0
+2042,a medium blue triangle can be seen below a big yellow diamond,a big green diamond is below a big blue triangle,0.8507212996482849,0.00095691456226632,0,0,0,2,0.2857142857142857,1,0,0
+974,left of a small green octagon is a big red diamond,a big green diamond is below a big blue triangle,0.8693268299102783,0.0008376489276997745,0,0,0,2,0.2857142857142857,0,0,0
+9991,a big green diamond can be seen below a small purple hexagon,a big green diamond is below a big blue triangle,0.8737115263938904,0.0008095428347587585,0,0,0,4,0.5714285714285714,1,0,0
+6968,the big purple circle is positioned below a medium black octagon,a big green diamond is below a big blue triangle,0.811354398727417,0.0012092659017071128,0,0,0,2,0.2857142857142857,1,0,0
+1875,a medium yellow octagon is below a medium blue octagon,a big green octagon is above a big blue triangle,0.6816087961196899,0.002040969207882881,0,0,0,2,0.2857142857142857,0,0,0
+8187,a medium orange diamond is below a big purple hexagon,a big green diamond is below a big blue triangle,0.8680242300033569,0.0008459986420348287,0,0,0,3,0.42857142857142855,1,0,0
+2174,below a big green square is a small green circle,a big green diamond is below a big blue triangle,0.8351671099662781,0.0010566206183284521,0,0,0,3,0.42857142857142855,1,0,0
+7126,the big purple octagon is positioned left of a medium yellow square,a big green diamond is below a big blue triangle,0.8188381195068359,0.0011612946400418878,0,0,0,1,0.14285714285714285,0,0,0
+5089,a medium green triangle can be seen left of a small green circle,a big green diamond is below a big blue triangle,0.766380250453949,0.0014975628582760692,0,0,0,1,0.14285714285714285,0,0,0
+7716,a small pink square can be seen left of a big pink diamond,a big green diamond is below a big blue triangle,0.8734132051467896,0.0008114550728350878,0,0,0,1,0.14285714285714285,0,0,0

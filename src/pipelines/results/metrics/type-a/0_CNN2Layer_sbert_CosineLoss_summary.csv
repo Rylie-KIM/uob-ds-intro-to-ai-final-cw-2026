@@ -1,0 +1,2 @@
+run_name,model_name,embedding_name,loss_name,rows_evaluated,avg_cosine_similarity,avg_mse,top1_accuracy,top5_accuracy,exact_sentence_match_rate,avg_attribute_overlap_count,avg_attribute_overlap_ratio,relation_match_rate,object_pair_match_rate,full_structure_match_rate
+0_CNN2Layer_sbert_CosineLoss,CNN2Layer,sbert,CosineLoss,1000,0.8015761075019836,0.0010334580355556681,0.008,0.029,0.008,2.096,0.2994285714285714,0.457,0.048,0.008

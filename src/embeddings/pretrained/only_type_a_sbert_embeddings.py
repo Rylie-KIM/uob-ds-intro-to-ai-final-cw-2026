@@ -21,6 +21,7 @@ class SBERTEmbedder:
         self.model = SentenceTransformer(self.model_name, device=self.device)
         self.master_path = Path('src/data/type-a/master.csv')
         self.folder_path = Path('src/embeddings/computed-embeddings/type-a/sbert')
+        self.folder_path.mkdir(parents=True, exist_ok=True)
         self.df = pd.read_csv(self.master_path)
 
     def transform(self, sentence: str, idx:int):

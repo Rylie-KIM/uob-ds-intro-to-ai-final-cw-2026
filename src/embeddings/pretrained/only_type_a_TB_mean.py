@@ -12,6 +12,7 @@ class TinyBertMeanEmbedder:
         self.tokenizer = AutoTokenizer.from_pretrained('huawei-noah/TinyBERT_General_4L_312D', do_lower_case=True)    
         self.master_path = Path('src/data/type-a/master.csv')
         self.folder_path = Path('src/embeddings/computed-embeddings/type-a/Mean_TB')
+        self.folder_path.mkdir(parents=True, exist_ok=True)
         self.df = pd.read_csv(self.master_path)
         self.model.eval()
 
