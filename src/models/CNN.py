@@ -27,10 +27,10 @@ class CNNStride(nn.Module):
         )
         self.linear = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(128*3*3, 512),
+            nn.Linear(128*3*3, 2500),
             nn.ReLU(),
             nn.Dropout(p=dropout),
-            nn.Linear(512, output_dims)
+            nn.Linear(2500, output_dims)
         )
 
     def forward(self, x : torch.Tensor) -> torch.Tensor:
