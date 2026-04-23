@@ -44,11 +44,6 @@ def load_tensor(path):
     return x
 
 
-def topk_hits(similarity_row, true_index, k):
-    topk = torch.topk(similarity_row, k=k).indices.tolist()
-    return int(true_index in topk)
-
-
 def main():
     args = parse_args()
 
@@ -99,6 +94,8 @@ def main():
     relation_scores = []
     object_pair_scores = []
     full_structure_scores = []
+    mrr_scores = []
+    true_ranks = []
 
     for i in range(len(eval_df)):
         true_label = eval_df.iloc[i]["label"]
@@ -106,10 +103,23 @@ def main():
         pred_vector = pred_embeddings[i]
         true_vector = target_embeddings[i]
 
-        cosine = F.cosine_similarity(pred_vector.unsqueeze(0), true_vector.unsqueeze(0)).item()
+        cosine = F.cosine_similarity(
+            pred_vector.unsqueeze(0),
+            true_vector.unsqueeze(0)
+        ).item()
         mse = F.mse_loss(pred_vector, true_vector).item()
 
-        nearest_idx = similarity_matrix[i].argmax().item()
+        sim_row = similarity_matrix[i]
+
+        # rank of the correct target within the test retrieval corpus
+        sorted_indices = torch.argsort(sim_row, descending=True)
+        true_rank = (sorted_indices == i).nonzero(as_tuple=True)[0].item() + 1
+        reciprocal_rank = 1.0 / true_rank
+
+        top1 = int(true_rank == 1)
+        top5 = int(true_rank <= min(5, len(eval_df)))
+
+        nearest_idx = sorted_indices[0].item()
         predicted_label = eval_df.iloc[nearest_idx]["label"]
 
         parsed_true = parse_label(true_label)
@@ -121,9 +131,6 @@ def main():
         obj_match = object_pair_match(parsed_true, parsed_pred)
         full_match = full_structure_match(parsed_true, parsed_pred)
 
-        top1 = topk_hits(similarity_matrix[i], i, 1)
-        top5 = topk_hits(similarity_matrix[i], i, min(5, len(eval_df)))
-
         cosine_scores.append(cosine)
         mse_scores.append(mse)
         top1_scores.append(top1)
@@ -134,11 +141,15 @@ def main():
         relation_scores.append(rel_match)
         object_pair_scores.append(obj_match)
         full_structure_scores.append(full_match)
+        mrr_scores.append(reciprocal_rank)
+        true_ranks.append(true_rank)
 
         rows.append({
             "row_index": row_indices[i],
             "true_label": true_label,
             "predicted_label": predicted_label,
+            "true_rank": true_rank,
+            "reciprocal_rank": reciprocal_rank,
             "cosine_similarity": cosine,
             "mse": mse,
             "top1_hit": top1,
@@ -165,6 +176,8 @@ def main():
         "avg_mse": sum(mse_scores) / len(mse_scores),
         "top1_accuracy": sum(top1_scores) / len(top1_scores),
         "top5_accuracy": sum(top5_scores) / len(top5_scores),
+        "test_mrr": sum(mrr_scores) / len(mrr_scores),
+        "test_median_rank": float(pd.Series(true_ranks).median()),
         "exact_sentence_match_rate": sum(exact_scores) / len(exact_scores),
         "avg_attribute_overlap_count": sum(overlap_counts) / len(overlap_counts),
         "avg_attribute_overlap_ratio": sum(overlap_ratios) / len(overlap_ratios),
