@@ -250,18 +250,3 @@ uob-ds-intro-to-ai-final-cw-2026/
 ├── requirements.txt
 └── README.md
 ```
-
-### Key Conventions
-
-| Path pattern | Purpose |
-|---|---|
-| `src/config/*.json` | All hyperparameters, architecture configs, loss configs — single source of truth |
-| `src/embeddings/non-pretrained/` | Corpus-trained embeddings (TF-IDF, Word2Vec, LSA) |
-| `src/embeddings/pretrained/` | Pretrained model embeddings (BERT, TinyBERT, SBERT, GloVe) |
-| `src/embeddings/computed-embeddings/type-b/results/*.pt` | Pre-computed embedding tensors — load these during training; do not re-embed each run |
-| `src/models/type-b/*.py` | Type-B CNN variants used in Stage 1 and Stage 2 experiments |
-| `src/pipelines/training/type-b/shared.py` | Canonical `EMBEDDING_CONFIGS` and `MODEL_CONFIGS` dicts — import from here |
-| `src/pipelines/results/metrics/type-b/` | All CSV outputs from training and evaluation runs |
-| `src/pipelines/results/checkpoints/type-b/` | Best `.pt` model weights, structured by stage and normalisation variant |
-| `notebooks/train-evaluation/type-b/` | Colab entry points — mount Drive → run training/eval scripts |
-| `src/data/type-b/splits/type_b_splits_seed42.csv` | Authoritative train/val/test split — always load this, never re-split |
