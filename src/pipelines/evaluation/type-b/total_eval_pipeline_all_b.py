@@ -1,43 +1,3 @@
-"""
-src/pipelines/evaluation/type-b/total_eval_pipeline_all_b.py
-
-Master evaluation pipeline — runs ALL Type-B variants in one shot.
-
-Execution order
----------------
-  1. S1 non-normed eval  (run_evals_stage1_b)
-  2. S1 normed eval      (run_evals_stage1_normed_b)
-  3. S2 non-normed eval  (run_evals_stage2_b)
-  4. S2 normed eval      (run_evals_stage2_b)
-  5. Aggregate plots     (per variant → their own figures dirs)
-  6. final_analysis          — S1+S2 non-normed ranking + LLM
-  7. final_analysis_normed   — S1+S2 normed ranking
-  8. plot_eval_comparison_b  — all cross-variant comparison plots
-  9. final_analysis_combined — unified metric table + combined figures
-
-Skip flags
-----------
-  --skip-eval     skip steps 1-4  (use existing prediction CSVs)
-  --skip-plots    skip step 5     (aggregate per-variant figures)
-  --skip-final    skip steps 6-7  (per-variant final rankings)
-  --skip-combined skip step 9     (combined analysis)
-  --stage s1|s2|all   limit eval to one stage (default: all)
-  --variant non-normalised|normalised|all  limit normed/non-normed (default: all)
-
-Usage
------
-  # Full run (everything)
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_all_b.py
-
-  # Only evaluate + rank (no combined figures)
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_all_b.py --skip-combined
-
-  # Reuse existing CSVs, regenerate all plots/rankings
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_all_b.py --skip-eval
-
-  # Stage 2 only, all variants
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_all_b.py --stage s2
-"""
 
 from __future__ import annotations
 
@@ -52,7 +12,6 @@ for _p in [str(_ROOT), str(_EVAL_DIR)]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-# ── Import pipeline helpers (not main() — to avoid argparse conflicts) ─────────
 import total_eval_pipeline_b        as _pipe_non   # noqa: E402
 import total_eval_pipeline_normed_b as _pipe_nor   # noqa: E402
 
@@ -138,7 +97,6 @@ def main() -> None:
 
     completed: dict[str, dict] = {}   # variant-label → {run_id: metrics}
 
-    # ── 1. Evaluation ──────────────────────────────────────────────────────────
     if not args.skip_eval:
 
         if run_s1 and run_non:
@@ -210,7 +168,6 @@ def main() -> None:
     else:
         print(f'\n  [skip-plots] Skipping aggregate plot generation.')
 
-    # ── 3. Per-variant final rankings ──────────────────────────────────────────
     if not args.skip_final:
 
         if run_non:
@@ -224,7 +181,6 @@ def main() -> None:
     else:
         print(f'\n  [skip-final] Skipping per-variant final rankings.')
 
-    # ── 4. Cross-variant comparison plots ─────────────────────────────────────
     _header('STEP 4 — Cross-Variant Comparison Plots')
     FIGURES_EVAL_CMP_B.mkdir(parents=True, exist_ok=True)
 
@@ -273,11 +229,9 @@ def main() -> None:
     else:
         print(f'\n  [skip-combined] Skipping combined analysis.')
 
-    # ── 6. Superman leaderboard (merge non-normed + normed) ───────────────────
     _header('STEP 6 — Superman Leaderboard')
     _build_superman_leaderboard()
 
-    # ── Summary ────────────────────────────────────────────────────────────────
     print(f'\n{SEP}')
     print('  Master pipeline complete.')
     for label, c in completed.items():

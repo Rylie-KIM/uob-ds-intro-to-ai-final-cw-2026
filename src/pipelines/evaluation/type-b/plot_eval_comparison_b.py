@@ -1,34 +1,3 @@
-"""
-Comparison plots for Type-B evaluation stages.
-
-Comparison modes (--comparison):
-  s1-base-vs-normed  (default)
-    Reads: prediction/test_results.csv  vs  prediction-normalised/test_results_normed.csv
-    Saves: figures/type-b/evaluation/comparison/
-      cmp_top1.png, cmp_mrr.png, cmp_mean_rank.png, cmp_top1_by_ndigits.png
-
-  s2-non-vs-normed
-    Reads: prediction-s2/test_results_s2.csv  vs  prediction-s2-normalised/test_results_s2_normed.csv
-    Saves: figures/type-b/evaluation/comparison/
-      s2_cmp_top1.png, s2_cmp_mrr.png, s2_cmp_mean_rank.png, s2_cmp_top1_by_ndigits.png
-
-  s1-vs-s2
-    Reads: prediction/test_results.csv  vs  prediction-s2/test_results_s2.csv
-    Saves: figures/type-b/evaluation/comparison/
-      s1s2_cmp_top1.png, s1s2_cmp_mrr.png, s1s2_cmp_mean_rank.png
-
-Stage-1 pairs (base → normed):
-  B0 → B0n | E2a → E2an | E2b → E2bn | E2e → E2en | E2f → E2fn
-  E2g → E2gn | E2h → E2hn | E2i → E2in | E2k → E2kn
-
-Stage-2 pairs (non-normed → normed):
-  S2a → S2an | S2b → S2bn | S2c → S2cn
-  (additionally normed-only: S2ad, S2bd, S2cd for Combined loss)
-
-Note: E2ln (bert_mean_normed) and E2mn (bert_pooler_normed) have no base counterpart
-and are shown normed-only in the comparison plots.
-"""
-
 from __future__ import annotations
 
 import sys
@@ -40,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# ── Path bootstrap ─────────────────────────────────────────────────────────────
+
 _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
@@ -53,7 +22,7 @@ from src.config.paths import (  # noqa: E402
     FIGURES_EVAL_CMP_B,
 )
 
-# ── Stage-1 pairs: base run_id → normed run_id ────────────────────────────────
+
 _PAIRS_S1: list[tuple[str, str]] = [
     ('B0',  'B0n'),
     ('E2a', 'E2an'),
@@ -66,14 +35,14 @@ _PAIRS_S1: list[tuple[str, str]] = [
     ('E2k', 'E2kn'),
 ]
 
-# ── Stage-2 pairs: non-normed run_id → normed MSE run_id ─────────────────────
+
 _PAIRS_S2: list[tuple[str, str]] = [
     ('S2a', 'S2an'),
     ('S2b', 'S2bn'),
     ('S2c', 'S2cn'),
 ]
 
-# ── Stage-1 vs Stage-2 pairs (same architecture, diff stage): ─────────────────
+
 # E2e = S1 cnn_1layer/tinybert_mean; S2a = S2 cnn_1layer/tinybert_mean
 _PAIRS_S1_VS_S2: list[tuple[str, str]] = [
     ('E2e', 'S2a'),
@@ -81,11 +50,6 @@ _PAIRS_S1_VS_S2: list[tuple[str, str]] = [
 
 _COLOUR_BASE   = '#4472C4'   # solid blue — base / stage-1
 _COLOUR_NORMED = '#ED7D31'   # orange — normed / stage-2
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Data loading
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _load_s1() -> tuple[pd.DataFrame, pd.DataFrame]:
     base_csv   = PREDICTIONS_B        / 'test_results.csv'
@@ -141,11 +105,6 @@ def _build_paired(
     metric:   str,
     pairs:    list[tuple[str, str]] | None = None,
 ) -> tuple[list[str], list[float], list[float]]:
-    """
-    Returns (labels, left_vals, right_vals) for given pairs.
-    Label is taken from df_left['embedding'] (or the run_id as fallback).
-    Missing values are NaN.
-    """
     if pairs is None:
         pairs = _PAIRS_S1
     labels, left_vals, right_vals = [], [], []
@@ -164,11 +123,6 @@ def _build_paired(
             if right_id in df_right.index else float('nan')
         )
     return labels, left_vals, right_vals
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Plots
-# ══════════════════════════════════════════════════════════════════════════════
 
 def _paired_bar(
     labels:      list[str],
@@ -399,10 +353,6 @@ def plot_s1_vs_s2_cmp_mean_rank(df_s1: pd.DataFrame, df_s2: pd.DataFrame) -> Non
                 lower_better=True)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Main
-# ══════════════════════════════════════════════════════════════════════════════
-
 def main() -> None:
     import argparse as _ap
     parser = _ap.ArgumentParser(
@@ -429,7 +379,6 @@ def main() -> None:
     print(f'\nType-B Comparison Plots  (--comparison {args.comparison})')
     print(f'Output : {FIGURES_EVAL_CMP_B}\n')
 
-    # ── Stage-1: base vs normed ────────────────────────────────────────────────
     if run_s1:
         print('── Stage-1: Base vs Normalised ──')
         try:
@@ -442,7 +391,6 @@ def main() -> None:
         except FileNotFoundError as exc:
             print(f'  [skip] {exc}')
 
-    # ── Stage-2: non-normalised vs normalised ──────────────────────────────────
     if run_s2:
         print('── Stage-2: Non-Normalised vs Normalised ──')
         try:
@@ -455,7 +403,6 @@ def main() -> None:
         except FileNotFoundError as exc:
             print(f'  [skip] {exc}')
 
-    # ── Stage-1 vs Stage-2 ────────────────────────────────────────────────────
     if run_1v2:
         print('── Stage-1 vs Stage-2 ──')
         try:

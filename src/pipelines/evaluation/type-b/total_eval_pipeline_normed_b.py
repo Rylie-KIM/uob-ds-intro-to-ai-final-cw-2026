@@ -1,47 +1,3 @@
-"""
-Full evaluation pipeline for Type-B normalised experiments.
-
-Runs in order:
-  Stage 1  (--stage s1 or all)
-    1a. run_evals_stage1_normed_b    — evaluate S1 normed checkpoints
-                                       → prediction-normalised/test_results_normed.csv
-    1b. aggregate plots              — cross-run figures
-                                       → figures/type-b/evaluation/normalised/
-
-  Stage 2  (--stage s2 or all)
-    2a. run_evals_stage2_b           — evaluate S2 normed checkpoints
-                                       → prediction-s2-normalised/test_results_s2_normed.csv
-    2b. aggregate plots              — cross-run figures
-                                       → figures/type-b/evaluation/s2/normalised/
-
-  Final  (always, unless --no-final)
-    3.  final_analysis_normed        — merge S1 + S2 normed results, compute ranking
-                                       → prediction-normalised/final_ranking_normed.csv
-                                       → prediction-normalised/leaderboard_normed.csv
-
-Output paths
-------------
-  S1 predictions  : src/pipelines/results/metrics/type-b/prediction-normalised/
-  S2 predictions  : src/pipelines/results/metrics/type-b/prediction-s2-normalised/
-  S1 figures      : src/pipelines/results/figures/type-b/evaluation/normalised/
-  S2 figures      : src/pipelines/results/figures/type-b/evaluation/s2/normalised/
-  Final ranking   : src/pipelines/results/metrics/type-b/prediction-normalised/final_ranking_normed.csv
-
-Usage
------
-  # Run everything (default)
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_normed_b.py
-
-  # Stage 1 only
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_normed_b.py --stage s1
-
-  # Stage 2 only
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_normed_b.py --stage s2
-
-  # Specific runs (mixes stages freely)
-  python src/pipelines/evaluation/type-b/total_eval_pipeline_normed_b.py --runs E2en S2an S2ad
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -228,7 +184,6 @@ def main() -> None:
     completed_s1: dict[str, dict] = {}
     completed_s2: dict[str, dict] = {}
 
-    # ── Stage 1 ────────────────────────────────────────────────────────────────
     if s1_runs:
         print(f'\n{sep}')
         print('  STAGE 1 — Evaluate S1 normed checkpoints (embedding axis)')
@@ -244,7 +199,6 @@ def main() -> None:
                 args.tsne, args.tsne_embeddings, args.tsne_colour_by,
             )
 
-    # ── Stage 2 ────────────────────────────────────────────────────────────────
     if s2_runs:
         print(f'\n{sep}')
         print('  STAGE 2 — Evaluate S2 normed checkpoints (architecture axis)')
@@ -265,7 +219,6 @@ def main() -> None:
         print('\n  No experiments completed — stopping pipeline.')
         return
 
-    # ── Final ranking ──────────────────────────────────────────────────────────
     if not args.no_final:
         print(f'\n{sep}')
         print('  FINAL — Composite ranking (S1 + S2 normed merged)')

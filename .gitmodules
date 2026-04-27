@@ -1,6 +1,3 @@
 [submodule "report"]
 	path = report
 	url = git@github.com:Rylie-KIM/uob-ds-intro-to-ai-final-cw-2026-group-report.git
-[submodule "report-neurips"]
-	path = report-neurips
-	url = git@github.com:Rylie-KIM/uob-ds-intro-to-ai-final-cw-2026-NeurIPS2026-group-report.git

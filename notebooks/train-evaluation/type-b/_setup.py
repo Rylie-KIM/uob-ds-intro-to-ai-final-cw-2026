@@ -1,16 +1,3 @@
-"""
-notebooks/train-evaluation/type-b/_setup.py
-
-Common setup for all Type-B experiment notebooks.
-Run this via:  %run _setup.py
-
-Requires these variables to be defined before calling:
-    MODE            : 'local' or 'colab'
-    LOCAL_REPO_DIR  : absolute path to repo (local mode)
-    GITHUB_REPO_URL : GitHub repo URL (colab mode)
-    DRIVE_BASE      : Google Drive base path (colab mode)
-"""
-
 import os, sys, subprocess, shutil, time
 from pathlib import Path
 
@@ -26,7 +13,6 @@ elif MODE == 'colab':
     DRIVE_DATA    = f'{DRIVE_BASE}/data'
     DRIVE_RESULTS = f'{DRIVE_BASE}/results'
 
-    # ── Clone or pull repo ─────────────────────────────────────────────────────
     try:
         token = userdata.get('GITHUB_TOKEN')
         repo_url_auth = GITHUB_REPO_URL.replace('https://', f'https://{token}@')
@@ -45,7 +31,6 @@ elif MODE == 'colab':
         ).decode().strip()
         print(f'  HEAD: {commit}')
 
-    # ── Copy images to Colab local disk (file-by-file, resume-safe) ───────────
     LOCAL_IMG_BASE = Path('/content/images')
     for dtype in ['type-b']:
         local_img = LOCAL_IMG_BASE / dtype
@@ -78,7 +63,6 @@ elif MODE == 'colab':
         os.symlink(str(local_img), str(repo_img))
         print(f'[symlinked] images/{dtype} → local disk')
 
-    # ── Symlink results → Drive ────────────────────────────────────────────────
     for sub in ['checkpoints', 'metrics', 'figures']:
         drive_sub = Path(DRIVE_RESULTS) / sub
         drive_sub.mkdir(parents=True, exist_ok=True)
@@ -88,7 +72,6 @@ elif MODE == 'colab':
             os.symlink(str(drive_sub), str(repo_sub))
             print(f'[symlinked] results/{sub} → Drive')
 
-    # ── Symlink embedding .pt → Drive ─────────────────────────────────────────
     drive_emb = Path(DRIVE_RESULTS) / 'embeddings'
     drive_emb.mkdir(parents=True, exist_ok=True)
     repo_emb = Path(REPO_DIR) / 'src' / 'embeddings' / 'computed-embeddings' / 'type-b' / 'results'
@@ -101,7 +84,6 @@ elif MODE == 'colab':
 
     print(f'\nColab mode ready. Repo: {REPO_DIR}')
 
-# ── sys.path ───────────────────────────────────────────────────────────────────
 for p in [
     REPO_DIR,
     str(Path(REPO_DIR) / 'src'),
@@ -110,7 +92,6 @@ for p in [
     if p not in sys.path:
         sys.path.insert(0, p)
 
-# ── Device ────────────────────────────────────────────────────────────────────
 import torch
 device = 'cuda' if torch.cuda.is_available() else ('mps' if torch.backends.mps.is_available() else 'cpu')
 print(f'Device: {device}')

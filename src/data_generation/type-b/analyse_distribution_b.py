@@ -1,12 +1,3 @@
-"""
-Type B Dataset Distribution Analysis
-
-Reads sentences_b.csv and prints distribution statistics for:
-- Total sentence count
-- Size (large / small)
-- Colour (red / blue / green / yellow)
-- Digit length (n_digits)
-"""
 
 import csv
 import os
@@ -14,13 +5,12 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-# ── path bootstrap ─────────────────────────────────────────────────────────────
+
 _root = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_root) not in sys.path:
     sys.path.insert(0, str(_root))
 
 from src.config.paths import TYPE_B_SENTENCES as _CSV_PATH
-# ──────────────────────────────────────────────────────────────────────────────
 
 # CSV_PATH = os.path.join(os.path.dirname(__file__), '../../data/type-b/sentences_b.csv')
 CSV_PATH = str(_CSV_PATH)

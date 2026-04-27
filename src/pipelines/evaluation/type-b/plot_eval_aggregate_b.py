@@ -1,27 +1,3 @@
-"""
-src/pipelines/evaluation/type-b/plot_eval_aggregate_b.py
-
-Unified aggregate visualiser for ALL Type-B experiments (replaces
-plot_eval_aggregate_normed_b.py, which is no longer needed).
-
-Reads per-sample prediction CSVs and produces cross-run comparison figures.
-The correct predictions directory is resolved automatically from the run ID.
-
---stage choices and their prediction sources
---------------------------------------------
-  s1          → prediction/                     figures/evaluation/
-  s1-normed   → prediction-normalised/          figures/evaluation/normalised/
-  s2-non-normed → prediction-s2/               figures/evaluation/s2/non-normalised/
-  s2-normed   → prediction-s2-normalised/      figures/evaluation/s2/normalised/
-  all         → all of the above               figures/evaluation/
-
-Usage
------
-  python src/pipelines/evaluation/type-b/plot_eval_aggregate_b.py
-  python src/pipelines/evaluation/type-b/plot_eval_aggregate_b.py --stage s1-normed
-  python src/pipelines/evaluation/type-b/plot_eval_aggregate_b.py --runs B0 E2an S2a
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -35,7 +11,6 @@ import numpy as np
 import pandas as pd
 from scipy.stats import gaussian_kde
 
-# ── Path bootstrap ─────────────────────────────────────────────────────────────
 _ROOT = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
@@ -53,7 +28,6 @@ from src.config.paths import (  # noqa: E402
 
 FIGURES_EVAL_B = FIGURES_DIR / 'evaluation'
 
-# ── Experiment registry ────────────────────────────────────────────────────────
 # Stage 1 — embedding axis, non-normalised (cnn_1layer fixed)
 _EXPERIMENTS_S1: dict[str, str] = {
     'B0':  'tfidf_lsa',
@@ -165,10 +139,6 @@ def _pred_dir_for(run_id: str) -> Path:
     return PREDICTIONS_B
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Data loading
-# ══════════════════════════════════════════════════════════════════════════════
-
 def _load_predictions(run_ids: list[str]) -> dict[str, pd.DataFrame]:
     """
     Load per-sample prediction CSVs for each run.
@@ -200,21 +170,8 @@ def _load_predictions(run_ids: list[str]) -> dict[str, pd.DataFrame]:
     return loaded
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Aggregate plots
-# ══════════════════════════════════════════════════════════════════════════════
 
 def plot_rank_cdf(preds: dict[str, pd.DataFrame], out_dir: Path) -> None:
-    """
-    Rank CDF curves — for each run, plot P(rank ≤ k) as a function of k.
-
-    This is the most informative aggregate view:
-    - y-axis: fraction of test images retrieved at rank ≤ k
-    - x-axis: rank k  (1 … corpus_size)
-    - All runs overlaid, with B0 dashed as baseline reference
-
-    Interpretation: a curve that rises steeply near k=1 is best.
-    """
     fig, ax = plt.subplots(figsize=(10, 6))
 
     k_vals = np.arange(1, _CORPUS_SIZE + 1)
@@ -292,15 +249,6 @@ def plot_rank_boxplot(preds: dict[str, pd.DataFrame], out_dir: Path) -> None:
 
 
 def plot_cosine_sim_kde(preds: dict[str, pd.DataFrame], out_dir: Path) -> None:
-    """
-    Subplot grid of cosine similarity KDE — one panel per run, independent y-axis.
-
-    Overlaying all runs on one axis collapses the view because spike embeddings
-    (cosine ≈ 1.0) push the y-scale to ~400, making all other distributions
-    invisible. A per-run subplot with its own y-axis reveals each distribution.
-
-    Each panel also shows: mean (solid line), median (dashed line).
-    """
     import math
 
     n     = len(preds)
@@ -429,11 +377,6 @@ def plot_mrr_bar(preds: dict[str, pd.DataFrame], out_dir: Path) -> None:
 
 
 def plot_rank_cdf_by_ndigits(preds: dict[str, pd.DataFrame], out_dir: Path) -> None:
-    """
-    Rank CDF curves faceted by number of digits (1–6).
-    6 subplots in a 2×3 grid — one per digit count.
-    Helps identify whether embeddings struggle with longer numbers.
-    """
     digit_counts = list(range(1, 7))
     ncols = 3
     nrows = 2
@@ -484,11 +427,6 @@ def plot_rank_cdf_by_ndigits(preds: dict[str, pd.DataFrame], out_dir: Path) -> N
     fig.savefig(out, dpi=150, bbox_inches='tight')
     plt.close(fig)
     print(f'  [saved] {out.name}')
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Main
-# ══════════════════════════════════════════════════════════════════════════════
 
 def main() -> None:
     parser = argparse.ArgumentParser(

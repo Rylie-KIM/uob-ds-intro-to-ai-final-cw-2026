@@ -1,19 +1,3 @@
-"""
-src/embeddings/computed-embeddings/type-b/inspect_embeddings.py
-
-Quick debug tool to inspect pre-computed .pt embedding files.
-
-Usage
------
-# Inspect a specific embedding
-python src/embeddings/computed-embeddings/type-b/inspect_embeddings.py --embedding tfidf_lsa
-
-# Inspect all available .pt files
-python src/embeddings/computed-embeddings/type-b/inspect_embeddings.py --all
-
-# Show more sample sentences
-python src/embeddings/computed-embeddings/type-b/inspect_embeddings.py --embedding sbert --samples 10
-"""
 
 from __future__ import annotations
 
@@ -43,7 +27,7 @@ def inspect(pt_path: Path, n_samples: int = 5) -> None:
     print(f'Shape  : {emb.shape}   dtype: {emb.dtype}')
     print(f'N sentences: {len(sentences)}')
 
-    # ── Sanity checks ─────────────────────────────────────────────────────────
+
     n_nan = np.isnan(emb).sum()
     n_inf = np.isinf(emb).sum()
     n_zero_rows = (emb == 0).all(axis=1).sum()
@@ -52,7 +36,7 @@ def inspect(pt_path: Path, n_samples: int = 5) -> None:
     print(f'  Inf values    : {n_inf}  {"⚠ WARNING" if n_inf > 0 else "OK"}')
     print(f'  All-zero rows : {n_zero_rows}  {"⚠ WARNING" if n_zero_rows > 0 else "OK"}')
 
-    # ── Statistics ────────────────────────────────────────────────────────────
+
     print(f'\n[Statistics]')
     print(f'  mean  : {emb.mean():.4f}')
     print(f'  std   : {emb.std():.4f}')
@@ -61,21 +45,19 @@ def inspect(pt_path: Path, n_samples: int = 5) -> None:
     norms = np.linalg.norm(emb, axis=1)
     print(f'  L2 norm — mean: {norms.mean():.4f}  std: {norms.std():.4f}  min: {norms.min():.4f}  max: {norms.max():.4f}')
 
-    # ── Duplicate check ───────────────────────────────────────────────────────
+
     n_unique_sentences  = len(set(sentences))
     n_unique_embeddings = len({tuple(row) for row in emb[:500]})  # sample 500 for speed
     print(f'\n[Uniqueness]')
     print(f'  unique sentences       : {n_unique_sentences} / {len(sentences)}')
     print(f'  unique embeddings (500 sample): {n_unique_embeddings} / min(500, {len(sentences)})')
 
-    # ── Sample sentences + their embeddings ───────────────────────────────────
     print(f'\n[Sample sentences (first {n_samples})]')
     for i in range(min(n_samples, len(sentences))):
         vec_preview = ' '.join(f'{v:.3f}' for v in emb[i, :5])
         print(f'  [{i:4d}] "{sentences[i]}"')
         print(f'         vec[:5] = [{vec_preview} ...]')
 
-    # ── Sentence-embedding alignment spot check ────────────────────────────────
     # Verify that two identical sentences map to the same embedding
     seen: dict[str, int] = {}
     mismatch = 0
