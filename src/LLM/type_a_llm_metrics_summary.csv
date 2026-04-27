@@ -1,0 +1,2 @@
+rows_evaluated,exact_match_rate,relation_match_rate,avg_colour_overlap,avg_size_overlap,avg_object_overlap,avg_total_attribute_overlap,gold_parse_success,prediction_parse_success,semantic_match_rate
+1000,0.044,0.494,1.869,1.124,1.85,4.843,1.0,0.99,0.366
