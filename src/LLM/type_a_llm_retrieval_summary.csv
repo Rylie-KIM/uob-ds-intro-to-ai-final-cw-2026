@@ -1,0 +1,2 @@
+rows_evaluated,valid_rows,top_1_acc,top_5_acc,mrr,mean_cosine_sim,mean_rank,median_rank
+1000,1000,0.179,0.527,0.3397867449313852,0.976794085264206,12.911,5.0
