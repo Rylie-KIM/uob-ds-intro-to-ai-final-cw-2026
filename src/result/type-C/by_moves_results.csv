@@ -1,0 +1,8 @@
+run_id,cnn,embedding,n_moves,count,top1,top5,mean_rank,median_rank,mrr,mean_cosine
+LLM-openrouter-sbert,llm_openrouter,sbert,2,1,0.0,0.0,2026.0,2026.0,0.0004935834155972359,0.9820237755775452
+LLM-openrouter-sbert,llm_openrouter,sbert,4,2,0.0,0.0,2391.5,2391.5,0.00042305225256971296,0.9906100332736969
+LLM-openrouter-sbert,llm_openrouter,sbert,5,8,0.0,0.0,1976.5,2204.0,0.015343357185929506,0.9907821267843246
+LLM-openrouter-sbert,llm_openrouter,sbert,6,4,0.0,0.0,940.0,1064.5,0.00644581097270806,0.9907309412956238
+LLM-openrouter-sbert,llm_openrouter,sbert,7,3,0.0,0.0,1113.0,1254.0,0.0011220373965142715,0.9863006273905436
+LLM-openrouter-sbert,llm_openrouter,sbert,8,1,0.0,0.0,610.0,610.0,0.001639344262295082,0.9870786666870116
+LLM-openrouter-sbert,llm_openrouter,sbert,9,1,0.0,0.0,3414.0,3414.0,0.00029291154071470416,0.9875420331954956
