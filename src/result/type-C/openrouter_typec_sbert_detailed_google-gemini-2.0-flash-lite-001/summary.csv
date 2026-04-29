@@ -1,0 +1,2 @@
+run_id,model,embedding,n_test,top_1_acc,top_2_acc,top_3_acc,top_5_acc,mrr,mean_cosine_sim,mean_rank,median_rank
+LLM-openrouter-sbert,google/gemini-2.0-flash-lite-001,sbert,660,0.006060606060606061,0.012121212121212121,0.013636363636363636,0.01818181818181818,0.014389681706567622,0.9881202993067828,2349.8863636363635,2348.5
