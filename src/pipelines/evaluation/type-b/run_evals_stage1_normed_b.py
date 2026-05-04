@@ -3,33 +3,6 @@
 #   Test results : src/pipelines/results/metrics/type-b/prediction-normalised/test_results_normed.csv
 #   Figures      : src/pipelines/results/figures/type-b/evaluation/normalised/
 
-"""
-Batch evaluator for Type-B normalised-embedding experiments.
-Output Path: 
-  metrics/type-b/prediction-normalised/
-  figures/type-b/evaluation/normalised/
-
-Checkpoint naming convention (normalised runs):
-  b_{model}_{embedding}_normed_{tag}_{timestamp}_best.pt
-
-Experiments
------------
-  Run   | Embedding              | Loss              | Notes
-  ------|------------------------|-------------------|-----------------------
-  B0n   | tfidf_lsa              | MSELoss_normed    | Baseline (normed)
-  E2an  | sbert                  | CosineLoss_normed |
-  E2bn  | sbert_finetuned        | CosineLoss_normed |
-  E2en  | tinybert_mean          | MSELoss_normed    |
-  E2fn  | tinybert_pooler        | MSELoss_normed    |
-  E2gn  | glove                  | MSELoss_normed    |
-  E2hn  | word2vec_pretrained    | MSELoss_normed    |
-  E2in  | word2vec_skipgram      | MSELoss_normed    |
-  E2kn  | tfidf_w2v              | MSELoss_normed    |
-  E2ln  | bert_mean              | MSELoss_normed    | bert_mean (normed-only)
-  E2mn  | bert_pooler            | MSELoss_normed    | bert_pooler (normed-only)
-
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -37,7 +10,7 @@ import sys
 import traceback
 from pathlib import Path
 
-# ── Path bootstrap ─────────────────────────────────────────────────────────────
+
 _ROOT     = next(p for p in Path(__file__).resolve().parents if (p / '.git').exists())
 _EVAL_DIR = Path(__file__).resolve().parent
 
@@ -52,12 +25,6 @@ from src.config.paths import (                                             # noq
     FIGURES_EVAL_NORM_B,
 )
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Experiment registry
-# embedding_name is the BASE name (no '_normed').
-# _resolve_checkpoint appends '_normed' to match the checkpoint filename.
-# ══════════════════════════════════════════════════════════════════════════════
 
 EXPERIMENTS_NORMED: dict[str, dict] = {
     'B0n': {
@@ -117,18 +84,7 @@ EXPERIMENTS_NORMED: dict[str, dict] = {
 }
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Helpers
-# ══════════════════════════════════════════════════════════════════════════════
-
 def _resolve_checkpoint(model_name: str, embedding_name: str) -> Path | None:
-    """
-    Return the most recently modified normalised checkpoint for this
-    (model, embedding) pair, or None if no checkpoint exists.
-
-    Pattern: b_{model}_{embedding}_normed_*_best.pt
-    Searched in CHECKPOINTS_B_NORMED (checkpoints/type-b/normalised/).
-    """
     candidates = sorted(
         CHECKPOINTS_B_NORMED.glob(
             f'b_{model_name}_{embedding_name}_normed_*_best.pt'
@@ -143,10 +99,6 @@ def _run_one(
     cfg:    dict,
     device: str | None,
 ) -> dict | None:
-    """
-    Evaluate one normalised experiment.
-    Returns the metrics dict on success, None otherwise.
-    """
     model_name     = cfg['model_name']
     embedding_name = cfg['embedding_name']
     loss_fn        = cfg['loss_fn']
@@ -216,11 +168,6 @@ def _print_comparison_table(results: dict[str, dict]) -> None:
     print(f"  Full results → {PREDICTIONS_B_NORMED / 'test_results_normed.csv'}")
     print(f"{'='*82}\n")
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Main
-# ══════════════════════════════════════════════════════════════════════════════
-
 def main() -> None:
     parser = argparse.ArgumentParser(
         description='Batch evaluator for Type-B normalised-embedding experiments'
@@ -251,7 +198,6 @@ def main() -> None:
     print(f'Checkpoints: {CHECKPOINTS_B_NORMED}')
     print(f'Results   : {PREDICTIONS_B_NORMED}')
 
-    # ── Per-experiment evaluation ──────────────────────────────────────────────
     completed: dict[str, dict] = {}
     skipped:   list[str]       = []
 
@@ -263,10 +209,8 @@ def main() -> None:
         else:
             skipped.append(run_id)
 
-    # ── Comparison table ───────────────────────────────────────────────────────
     _print_comparison_table(completed)
 
-    # ── Cross-run graphs ───────────────────────────────────────────────────────
     if not args.no_cross_graphs and completed:
         print(f'{"="*60}')
         print('  Generating cross-run comparison graphs…')
@@ -282,7 +226,6 @@ def main() -> None:
         else:
             print('  [skip] test_results_normed.csv not found — run evaluations first.')
 
-    # ── Final summary ──────────────────────────────────────────────────────────
     print(f'{"="*60}')
     print(f'  Completed : {list(completed)}')
     if skipped:

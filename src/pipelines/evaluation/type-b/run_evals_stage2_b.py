@@ -302,7 +302,6 @@ def main() -> None:
                     figures_dir=FIGURES_EVAL_B_S2_NON_NORMED,
                 )
 
-    # ── Normalised ─────────────────────────────────────────────────────────────
     if run_normed:
         n_runs = (
             [r for r in args.runs if r in EXPERIMENTS_NORMED]
@@ -334,7 +333,6 @@ def main() -> None:
                     figures_dir=FIGURES_EVAL_B_S2_NORMED,
                 )
 
-    # ── Summary ────────────────────────────────────────────────────────────────
     print(f'\n{"="*60}')
     if run_non_normed:
         print(f'  Non-normed completed : {list(completed_nn)}')
