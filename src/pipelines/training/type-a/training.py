@@ -17,10 +17,6 @@ from src.models.CNN2 import CNN2
 from src.models.googleNet import GoogleNet
 from pipelines.training.cosine_loss import CosineLoss
 
-#####################################
-######## Train Models ###############
-#####################################
-
 transform_fs = transforms.Compose([
                 transforms.Resize((128,128)),
                 transforms.Normalize((0.5, 0.5,0.5), (0.5, 0.5, 0.5))

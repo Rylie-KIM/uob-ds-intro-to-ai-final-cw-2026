@@ -3,7 +3,9 @@ from pathlib import Path
 import base64
 
 class Gemini:
-    # Adapted from OpenRouter sample code for API integration. https://openrouter.ai/google/gemini-2.0-flash-001/api
+    # Adapted from:
+    # OpenRouter (2026). Google: Gemini 2.0 Flash – API Quickstart. 
+    # [online] Openrouter.ai. Available at: https://openrouter.ai/google/gemini-2.0-flash-001/api [Accessed 4 May 2026].
     def __init__(self, img_name:int):
         self._ROOT =  Path(__file__).resolve().parent.parent.parent
         self.client = OpenAI(
@@ -27,7 +29,7 @@ class Gemini:
             'colours = [red, blue, green, yellow, orange, purple, pink, black].' 
             'sizes = [big, medium, small].' 
             'relations = [above, below, left of, right of].\n\n'
-            'Do not add a period at the end. '
+            'Do not add a full stop at the end. '
             'Do not use uppercase letters. ' 
             'Do not include any greetings, explanations,information about the background, or additional text not in the template. '
             'Output the final sentence using one template and no additional text.\n'
@@ -54,7 +56,7 @@ class Gemini:
         )
         
     def encode_img(self, img_name:int):
-        path = _ROOT / 'src' / 'data' / 'images' / 'type-a' / 'png'
+        path = self._ROOT / 'src' / 'data' / 'images' / 'type-a' / 'png'
         full = path / f'{img_name}.png'
         if not full.exists():
             raise FileNotFoundError(f'Image path not found {full}')
@@ -64,6 +66,3 @@ class Gemini:
         output = self.completion.choices[0].message.content
         return output.strip()
     
-
-gem = Gemini(1)
-print(gem.get_output())

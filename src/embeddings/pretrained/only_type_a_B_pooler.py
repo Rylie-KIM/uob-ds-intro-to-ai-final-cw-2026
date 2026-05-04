@@ -8,7 +8,7 @@ import pandas as pd
 # Output emb : torch.Size([768])
 class BertPoolerEmbedder:
     def __init__(self):
-        self.model     = BertModel.from_pretrained('bert-base-uncased')
+        self.model = BertModel.from_pretrained('bert-base-uncased')
         self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
         self.master_path = Path('src/data/type-a/master.csv')
         self.folder_path = Path('src/embeddings/computed-embeddings/type-a/Pooler_B')
@@ -27,7 +27,6 @@ class BertPoolerEmbedder:
         with torch.no_grad():
             output = self.model(input_ids = processed['input_ids'], attention_mask = processed['attention_mask'])
         pooler = output.pooler_output[0]
-
         filename = f'{idx}_B_pooler.pt'
         filepath = self.folder_path / filename
         torch.save(pooler, filepath)

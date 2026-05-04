@@ -6,7 +6,7 @@ import torch
 class TinyBertPoolerEmbedder:
     def __init__(self):
         # TinyBert tokenizer doesnt recognise capitalised words
-        self.model     = AutoModel.from_pretrained('huawei-noah/TinyBERT_General_4L_312D')
+        self.model = AutoModel.from_pretrained('huawei-noah/TinyBERT_General_4L_312D')
         self.tokenizer = AutoTokenizer.from_pretrained('huawei-noah/TinyBERT_General_4L_312D', do_lower_case=True)
 
     def get_embedding(self, sentence: str) -> torch.Tensor:

@@ -2,6 +2,7 @@ import turtle
 from generate_images_a import Shapes
 import os
 import csv
+from pathlib import Path
 
 screen = turtle.Screen()
 screen.setup(width=700, height=700)
@@ -15,14 +16,6 @@ sentence_templates = [
     'a {size2} {colour2} {object2} can be seen {relation} a {size2} {colour2} {object2}',
     '{relation} a {size2} {colour2} {object2} is a {size1} {colour1} {object1}',
 ]
-
-dataset_folder = os.path.join(os.path.dirname(__file__), '../../data/images/type-a/eps')
-csv_path = os.path.join(os.path.dirname(__file__), '../../data/type-a/sentences_a.csv')
-
-# Creates new empty CSV file
-with open(csv_path, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(['sentence_id', 'sentence'])
 
 def generator(objects:list, colours:list, size:list, sentence_templates:list) -> list:
     """
@@ -42,18 +35,7 @@ def generator(objects:list, colours:list, size:list, sentence_templates:list) ->
                                         continue
                                     sentence = template.format(size1=s1, colour1=c1,object1=o1,relation=rel,size2=s2,colour2=c2,object2=o2)
                                     s = Shapes()
-                                    
-                                    folder = os.path.join(os.path.dirname(__file__), '../../data/images/type-a/eps')
-                                    os.makedirs(folder, exist_ok=True)
-                                    filename = os.path.join(folder,f'{i}.eps')
                                     s.getscreen().clearscreen()
                                     s.draw(s1=s1, c1=c1, o1=o1, s2=s2, c2=c2, o2=o2,rel=rel)
-                                    s.getscreen().getcanvas().postscript(file=filename)
-                                    with open(csv_path, 'a', newline='') as f:
-                                        writer = csv.writer(f)
-                                        writer.writerow([f'a_{i}', sentence])
-                                    i+=1
-                                    s.reset()
-    return 'done'
 
-sentences = generator(objects, colours, size, sentence_templates)
+    return 'done'

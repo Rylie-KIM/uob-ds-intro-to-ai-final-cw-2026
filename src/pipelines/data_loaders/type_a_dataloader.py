@@ -4,6 +4,10 @@ from pathlib import Path
 
 class Dataset_A(Dataset):
     def __init__(self, images : torch.Tensor, sentences : torch.Tensor, transformation):
+        # Dataset_A class adapted from:
+        # Ugama Benedicta Kelechi (2025). 
+        # Understanding PyTorch’s DataLoader: How to Efficiently Load and Augment Data. 
+        # [online] Medium. Available at: https://medium.com/@ugamakelechi501/understanding-pytorchs-dataloader-how-to-efficiently-load-and-augment-data-c9eb26f61491.
 
         self.images = images
         self.sentences = sentences

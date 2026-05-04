@@ -8,7 +8,7 @@ class BertMeanEmbedder:
         self.model     = BertModel.from_pretrained('bert-base-uncased')
         self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
-    def get_embedding(self, sentence: str) -> torch.Tensor:
+    def get_embedding(self, sentence: str) -> torch.Tensor: 
         """
         Get mean embeddings function calculates the mean embedding from the embedding tensors produced in the model.
 
@@ -29,7 +29,3 @@ class BertMeanEmbedder:
         print(f'Output Shape: {mean_emb.shape}')
         return mean_emb
     
-
-b_emb = BertMeanEmbedder()
-
-print(b_emb.get_embedding('hello my name is jeff'))
