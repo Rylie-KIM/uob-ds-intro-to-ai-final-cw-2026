@@ -8,7 +8,7 @@ import pandas as pd
 # Output emb: torch.Size([768])
 class BertMeanEmbedder:
     def __init__(self):
-        self.model     = BertModel.from_pretrained('bert-base-uncased')
+        self.model = BertModel.from_pretrained('bert-base-uncased')
         self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
         self.master_path = Path('src/data/type-a/master.csv')
         self.folder_path = Path('src/embeddings/computed-embeddings/type-a/Mean_B')

@@ -19,7 +19,3 @@ class BertMeanEmbedder:
         print(f'Output Shape: {mean_emb.shape}')
         return mean_emb
     
-
-b_emb = BertMeanEmbedder()
-
-print(b_emb.get_embedding('hello my name is jeff'))

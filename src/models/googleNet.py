@@ -24,3 +24,7 @@ class GoogleNet(nn.Module):
         x = self.convolution(x)
         x = self.custom_linear(x)
         return x
+    
+
+google = GoogleNet(output_dims = 10)
+print(google)

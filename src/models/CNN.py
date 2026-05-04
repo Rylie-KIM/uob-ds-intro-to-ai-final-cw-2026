@@ -6,19 +6,19 @@ class CNNStride(nn.Module):
         super().__init__()
 
         self.convolution = nn.Sequential(
-            nn.Conv2d(3, 16, kernel_size = 3, stride=2, padding=1), # Convolutional Layer 1
+            nn.Conv2d(3, 16, kernel_size = 3, stride=2, padding=1), 
             nn.BatchNorm2d(16),
             nn.ReLU(inplace=True),
             
-            nn.Conv2d(16, 32, kernel_size = 3, stride=2, padding=1), # Convolutional Layer 2
+            nn.Conv2d(16, 32, kernel_size = 3, stride=2, padding=1), 
             nn.BatchNorm2d(32),
             nn.ReLU(inplace=True),
             
-            nn.Conv2d(32, 64, kernel_size = 3, stride=2, padding=1), # Convolutional Layer 3
+            nn.Conv2d(32, 64, kernel_size = 3, stride=2, padding=1), 
             nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             
-            nn.Conv2d(64, 128, kernel_size = 3, stride=2, padding=1), # Convolutional Layer 4
+            nn.Conv2d(64, 128, kernel_size = 3, stride=2, padding=1), 
             nn.BatchNorm2d(128),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(128),
@@ -27,10 +27,10 @@ class CNNStride(nn.Module):
         )
         self.linear = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(128*3*3, 512),
+            nn.Linear(128*3*3, 2500),
             nn.ReLU(),
             nn.Dropout(p=dropout),
-            nn.Linear(512, output_dims)
+            nn.Linear(2500, output_dims)
         )
 
     def forward(self, x : torch.Tensor) -> torch.Tensor:
