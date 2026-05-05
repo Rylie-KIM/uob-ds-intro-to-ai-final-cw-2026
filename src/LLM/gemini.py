@@ -5,6 +5,9 @@ import base64
 
 class Gemini:
     def __init__(self, img_name: int):
+            # Adapted from:
+            # OpenRouter (2026). Google: Gemini 2.0 Flash – API Quickstart. 
+            # [online] Openrouter.ai. Available at: https://openrouter.ai/google/gemini-2.0-flash-001/api [Accessed 4 May 2026].
         self._ROOT = Path(__file__).resolve().parent.parent.parent
 
         api_key = os.getenv("OPENROUTER_API_KEY")
