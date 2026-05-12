@@ -1,0 +1,2 @@
+run_id,cnn,embedding,raw_text_dim,shared_dim,loss_fn,best_epoch,total_epochs,test_mse_loss,test_mean_cosine,test_top1,test_top5,test_mean_rank,test_median_rank,test_mrr
+LLM-openrouter-sbert,llm_openrouter,sbert,384,384,none_llm_generation,0,0,,0.9881202993067828,0.006060606060606061,0.01818181818181818,2349.8863636363635,2348.5,0.014389681706567622
